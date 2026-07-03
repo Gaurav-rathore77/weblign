@@ -167,14 +167,14 @@ const HeroIllustration = () => {
           delay={0.7}
           xOffset={-20}
           yOffset={20}
-          className="absolute -bottom-2 -left-6 z-20"
+          className="absolute bottom-1 -left-6 z-20"
         >
-          <div className="flex w-44 items-center gap-3 rounded-xl border border-zinc-100/80 bg-white/70 p-3 shadow-lg shadow-zinc-900/5 backdrop-blur-xl">
+          <div className="flex w-52 items-center gap-3 rounded-xl border border-zinc-100/80 bg-white/70 p-3 shadow-lg shadow-zinc-900/5 backdrop-blur-xl">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-[11px] font-bold text-white">
-              AJ
+              SR
             </div>
             <div className="min-w-0">
-              <p className="truncate text-sm font-semibold text-zinc-900">Alex Johnson</p>
+              <p className="truncate text-sm font-semibold text-zinc-900">Sachin Rathore</p>
               <p className="truncate text-[11px] text-zinc-400">CEO, Weblign</p>
             </div>
           </div>
@@ -185,7 +185,7 @@ const HeroIllustration = () => {
           delay={0.9}
           xOffset={25}
           yOffset={15}
-          className="absolute -bottom-1 -right-3 z-20"
+          className="absolute bottom-2 -right-3 z-20"
         >
           <div className="w-36 rounded-xl border border-zinc-100/80 bg-white/70 p-3 shadow-lg shadow-zinc-900/5 backdrop-blur-xl">
             <span className="text-[11px] font-medium text-zinc-500">Avg. Revenue</span>

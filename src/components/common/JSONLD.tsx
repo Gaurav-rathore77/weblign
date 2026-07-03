@@ -36,7 +36,7 @@ const structuredData = {
   employee: [
     {
       '@type': 'Person',
-      name: 'Rajeev',
+      name: 'Sachin Rathore',
       jobTitle: 'CEO & Founder',
     },
   ],

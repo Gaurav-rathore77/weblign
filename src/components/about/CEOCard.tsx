@@ -17,7 +17,7 @@ const CEOCard = () => (
     <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
       {/* Avatar */}
       <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent text-2xl font-bold text-white shadow-md shadow-primary/20">
-        SJ
+        SR
       </div>
 
       {/* Content */}
@@ -41,8 +41,8 @@ const CEOCard = () => (
         <div className="mt-5 flex items-center gap-4">
           <div className="h-px flex-1 bg-gradient-to-r from-primary/20 to-transparent" />
           <div className="text-right">
-            <div className="text-sm font-semibold text-zinc-900">Sarah Johnson</div>
-            <div className="text-xs text-zinc-400">CEO &amp; Co-Founder</div>
+            <div className="text-sm font-semibold text-zinc-900">Sachin Rathore</div>
+            <div className="text-xs text-zinc-400">CEO &amp; Founder</div>
           </div>
           {/* Signature placeholder */}
           <svg viewBox="0 0 80 32" className="h-8 w-20 text-zinc-300" aria-hidden="true">

@@ -59,21 +59,12 @@ export const metadata: Metadata = {
     title: 'Weblign - Crafting Digital Experiences',
     description:
       'We build beautiful, functional, and user-centered digital products that help businesses grow and succeed in the digital landscape.',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Weblign - Crafting Digital Experiences',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Weblign - Crafting Digital Experiences',
     description:
       'We build beautiful, functional, and user-centered digital products that help businesses grow.',
-    images: ['/og-image.png'],
     creator: '@weblign',
   },
   robots: {
@@ -89,10 +80,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: siteUrl,
-  },
-  icons: {
-    icon: '/icon.png',
-    apple: '/apple-icon.png',
   },
   manifest: '/manifest.webmanifest',
   appleWebApp: {
