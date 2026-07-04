@@ -1,71 +1,97 @@
 @import "tailwindcss";
 
-:root {
-  /* Primary Colors */
+@custom-variant dark (&:is(.dark *));
+
+@theme {
   --color-primary: #2563EB;
   --color-primary-light: #3B82F6;
   --color-primary-dark: #1D4ED8;
 
-  /* Secondary Colors */
   --color-secondary: #0F172A;
   --color-secondary-light: #1E293B;
   --color-secondary-dark: #020617;
 
-  /* Accent Colors */
   --color-accent: #38BDF8;
   --color-accent-light: #7DD3FC;
   --color-accent-dark: #0EA5E9;
 
-  /* Background Colors */
   --color-background: #FFFFFF;
   --color-background-muted: #F8FAFC;
   --color-background-dark: #F1F5F9;
 
-  /* Text Colors */
   --color-text-primary: #0F172A;
   --color-text-secondary: #64748B;
   --color-text-muted: #94A3B8;
   --color-text-inverse: #FFFFFF;
 
-  /* Border */
   --color-border: #E4E4E7;
   --color-border-light: #F4F4F5;
 
-  /* Status Colors */
   --color-success: #22C55E;
   --color-success-light: #86EFAC;
   --color-success-dark: #15803D;
-
   --color-danger: #EF4444;
   --color-danger-light: #FCA5A5;
   --color-danger-dark: #DC2626;
-
   --color-warning: #F59E0B;
   --color-warning-light: #FCD34D;
   --color-warning-dark: #D97706;
 
-  /* Font */
   --font-sans: var(--font-poppins);
 
-  /* Shadows */
+  --animate-marquee: marquee 30s linear infinite;
+}
+
+:root {
+  --color-primary: #2563EB;
+  --color-primary-light: #3B82F6;
+  --color-primary-dark: #1D4ED8;
+
+  --color-secondary: #0F172A;
+  --color-secondary-light: #1E293B;
+  --color-secondary-dark: #020617;
+
+  --color-accent: #38BDF8;
+  --color-accent-light: #7DD3FC;
+  --color-accent-dark: #0EA5E9;
+
+  --color-background: #FFFFFF;
+  --color-background-muted: #F8FAFC;
+  --color-background-dark: #F1F5F9;
+
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #64748B;
+  --color-text-muted: #94A3B8;
+  --color-text-inverse: #FFFFFF;
+
+  --color-border: #E4E4E7;
+  --color-border-light: #F4F4F5;
+
+  --color-success: #22C55E;
+  --color-success-light: #86EFAC;
+  --color-success-dark: #15803D;
+  --color-danger: #EF4444;
+  --color-danger-light: #FCA5A5;
+  --color-danger-dark: #DC2626;
+  --color-warning: #F59E0B;
+  --color-warning-light: #FCD34D;
+  --color-warning-dark: #D97706;
+
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 
-  /* Border Radius */
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
   --radius-full: 9999px;
 
-  /* Transitions */
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;
   --transition-slow: 350ms ease;
 
-  /* Spacing */
   --section-padding-y: 5rem;
   --section-padding-y-sm: 3rem;
   --section-padding-y-lg: 8rem;
@@ -73,8 +99,19 @@
   --container-padding-x: 1.5rem;
 }
 
-/* ── Dark Mode ── */
 .dark {
+  --color-primary: #2563EB;
+  --color-primary-light: #3B82F6;
+  --color-primary-dark: #1D4ED8;
+
+  --color-secondary: #FAFAFA;
+  --color-secondary-light: #E4E4E7;
+  --color-secondary-dark: #A1A1AA;
+
+  --color-accent: #38BDF8;
+  --color-accent-light: #7DD3FC;
+  --color-accent-dark: #0EA5E9;
+
   --color-background: #09090B;
   --color-background-muted: #18181B;
   --color-background-dark: #27272A;
@@ -87,72 +124,76 @@
   --color-border: #27272A;
   --color-border-light: #18181B;
 
+  --color-success: #22C55E;
+  --color-success-light: #86EFAC;
+  --color-success-dark: #15803D;
+  --color-danger: #EF4444;
+  --color-danger-light: #FCA5A5;
+  --color-danger-dark: #DC2626;
+  --color-warning: #F59E0B;
+  --color-warning-light: #FCD34D;
+  --color-warning-dark: #D97706;
+
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+
+  /* ── Override Tailwind's default palette for dark mode ── */
+
+  /* Backgrounds: light zinc → dark zinc */
+  --color-zinc-50: #18181B;
+  --color-zinc-100: #27272A;
+  --color-zinc-200: #27272A;
+  --color-zinc-300: #3F3F46;
+
+  /* Text: dark zinc → light zinc */
+  --color-zinc-400: #71717A;
+  --color-zinc-500: #A1A1AA;
+  --color-zinc-600: #D4D4D8;
+  --color-zinc-700: #E4E4E7;
+  --color-zinc-800: #FAFAFA;
+  --color-zinc-900: #FAFAFA;
+  --color-zinc-950: #FAFAFA;
+
+  /* Status: emerald badges */
+  --color-emerald-50: rgba(6, 78, 59, 0.4);
+  --color-emerald-100: rgba(6, 78, 59, 0.5);
+  --color-emerald-400: #34D399;
+  --color-emerald-500: #10B981;
+  --color-emerald-600: #34D399;
+  --color-emerald-700: #34D399;
+
+  /* Status: red badges */
+  --color-red-400: #F87171;
+  --color-red-500: #F87171;
+
+  /* Status: amber/warning badges */
+  --color-amber-500: #FBBF24;
+  --color-amber-700: #FBBF24;
 }
 
-@theme inline {
-  /* Background */
-  --color-background: var(--color-background);
-  --color-background-muted: var(--color-background-muted);
-  --color-background-dark: var(--color-background-dark);
+/* ── Dark mode: section gradient backgrounds ── */
+.dark .from-white { --tw-gradient-from: #09090B; }
+.dark .to-white { --tw-gradient-to: #09090B; }
+.dark .via-zinc-50\/30 { --tw-gradient-via: rgba(24, 24, 27, 0.3); }
+.dark .via-zinc-50\/40 { --tw-gradient-via: rgba(24, 24, 27, 0.4); }
+.dark .bg-white { background-color: #18181B; }
+.dark .bg-white\/70 { background-color: rgba(24, 24, 27, 0.7); }
+.dark .bg-white\/80 { background-color: rgba(24, 24, 27, 0.8); }
+.dark .bg-white\/60 { background-color: rgba(24, 24, 27, 0.6); }
+.dark .from-white\/\[0\.01\] { --tw-gradient-from: rgba(9, 9, 11, 0.01); }
+.dark .to-white\/\[0\.01\] { --tw-gradient-to: rgba(9, 9, 11, 0.01); }
 
-  /* Foreground / Text */
-  --color-foreground: var(--color-text-primary);
-  --color-text-primary: var(--color-text-primary);
-  --color-text-secondary: var(--color-text-secondary);
-  --color-text-muted: var(--color-text-muted);
-  --color-text-inverse: var(--color-text-inverse);
-
-  /* Primary */
-  --color-primary: var(--color-primary);
-  --color-primary-light: var(--color-primary-light);
-  --color-primary-dark: var(--color-primary-dark);
-
-  /* Secondary */
-  --color-secondary: var(--color-secondary);
-  --color-secondary-light: var(--color-secondary-light);
-  --color-secondary-dark: var(--color-secondary-dark);
-
-  /* Accent */
-  --color-accent: var(--color-accent);
-  --color-accent-light: var(--color-accent-light);
-  --color-accent-dark: var(--color-accent-dark);
-
-  /* Status */
-  --color-success: var(--color-success);
-  --color-danger: var(--color-danger);
-  --color-warning: var(--color-warning);
-
-  /* Font */
-  --font-sans: var(--font-poppins);
-
-  /* Animations */
-  --animate-marquee: marquee 30s linear infinite;
-}
-
-/* ── Marquee ── */
 @keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
-/* ========================================
-   GLOBAL STYLES
-   ======================================== */
-
-/* Smooth scrolling for the entire page */
 html {
   scroll-behavior: smooth;
 }
 
-/* Better text rendering */
 body {
   background: var(--color-background);
   color: var(--color-text-primary);
@@ -163,108 +204,37 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* ========================================
-   RESPONSIVE IMAGES
-   ======================================== */
-
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* ========================================
-   CUSTOM SCROLLBAR
-   ======================================== */
-
-/* Webkit browsers (Chrome, Safari, Edge) */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-background-muted);
-}
-
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-background-muted); }
 ::-webkit-scrollbar-thumb {
   background: var(--color-text-muted);
   border-radius: var(--radius-full);
   border: 2px solid var(--color-background-muted);
 }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-secondary); }
+* { scrollbar-width: thin; scrollbar-color: var(--color-text-muted) var(--color-background-muted); }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-secondary);
-}
+::selection { background-color: var(--color-primary); color: var(--color-text-inverse); }
+::-moz-selection { background-color: var(--color-primary); color: var(--color-text-inverse); }
 
-/* Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-text-muted) var(--color-background-muted);
-}
-
-/* ========================================
-   SELECTION COLOR
-   ======================================== */
-
-::selection {
-  background-color: var(--color-primary);
-  color: var(--color-text-inverse);
-}
-
-::-moz-selection {
-  background-color: var(--color-primary);
-  color: var(--color-text-inverse);
-}
-
-/* ========================================
-   FOCUS STYLES
-   ======================================== */
-
-/* Beautiful focus visible styles */
-:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-/* Remove default focus outline and add custom */
-*:focus:not(:focus-visible) {
-  outline: none;
-}
-
-/* Focus styles for interactive elements */
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+*:focus:not(:focus-visible) { outline: none; }
+button:focus-visible, a:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
 }
 
-/* ========================================
-   UTILITY CLASSES FOR SECTION SPACING
-   ======================================== */
-
-.section {
-  padding-top: var(--section-padding-y);
-  padding-bottom: var(--section-padding-y);
-}
-
-.section-sm {
-  padding-top: var(--section-padding-y-sm);
-  padding-bottom: var(--section-padding-y-sm);
-}
-
-.section-lg {
-  padding-top: var(--section-padding-y-lg);
-  padding-bottom: var(--section-padding-y-lg);
-}
-
-/* ========================================
-   CONTAINER SPACING
-   ======================================== */
+.section { padding-top: var(--section-padding-y); padding-bottom: var(--section-padding-y); }
+.section-sm { padding-top: var(--section-padding-y-sm); padding-bottom: var(--section-padding-y-sm); }
+.section-lg { padding-top: var(--section-padding-y-lg); padding-bottom: var(--section-padding-y-lg); }
 
 .container {
   width: 100%;
@@ -275,45 +245,26 @@ select:focus-visible {
   padding-right: var(--container-padding-x);
 }
 
-/* ========================================
-   UTILITY CLASSES FOR DESIGN SYSTEM COLORS
-   ======================================== */
-
 .bg-primary { background-color: var(--color-primary); }
 .bg-secondary { background-color: var(--color-secondary); }
 .bg-accent { background-color: var(--color-accent); }
 .bg-muted { background-color: var(--color-background-muted); }
-
 .text-primary { color: var(--color-text-primary); }
 .text-secondary { color: var(--color-text-secondary); }
 .text-muted { color: var(--color-text-muted); }
 .text-accent { color: var(--color-accent); }
 .text-inverse { color: var(--color-text-inverse); }
-
 .border-primary { border-color: var(--color-primary); }
 .border-secondary { border-color: var(--color-secondary); }
 .border-accent { border-color: var(--color-accent); }
-
-/* Status utilities */
 .text-success { color: var(--color-success); }
 .text-danger { color: var(--color-danger); }
 .text-warning { color: var(--color-warning); }
-
 .bg-success { background-color: var(--color-success); }
 .bg-danger { background-color: var(--color-danger); }
 .bg-warning { background-color: var(--color-warning); }
 
-/* ========================================
-   TYPOGRAPHY UTILITIES
-   ======================================== */
-
-.text-balance {
-  text-wrap: balance;
-}
-
-/* ========================================
-   RESPONSIVE ADJUSTMENTS
-   ======================================== */
+.text-balance { text-wrap: balance; }
 
 @media (max-width: 768px) {
   :root {

@@ -69,7 +69,7 @@ const AboutImages = () => {
               priority
             />
             {/* Glassmorphism overlay badge */}
-            <div className="absolute bottom-3 left-3 right-auto inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/60 px-3 py-2 text-xs font-medium text-zinc-700 shadow-xs backdrop-blur-md">
+            <div className="absolute bottom-3 left-3 right-auto inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/60 px-3 py-2 text-xs font-medium text-zinc-700 shadow-xs backdrop-blur-md dark:bg-zinc-900/60 dark:text-zinc-300">
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-[10px] text-primary">
                 <svg viewBox="0 0 16 16" fill="currentColor" className="h-3 w-3" aria-hidden="true">
                   <path d="M8 0a1 1 0 011 1v.89A6 6 0 0114.11 7H15a1 1 0 110 2h-.89A6 6 0 019 14.11V15a1 1 0 11-2 0v-.89A6 6 0 011.89 9H1a1 1 0 110-2h.89A6 6 0 017 1.89V1a1 1 0 011-1z" />
@@ -118,7 +118,7 @@ const AboutImages = () => {
               </div>
             </FloatWrapper>
             <FloatWrapper delay={0.6}>
-              <div className="flex items-center gap-1.5 rounded-xl border border-emerald-100 bg-emerald-50/60 px-3 py-2 text-xs font-semibold text-emerald-700 shadow-xs">
+              <div className="flex items-center gap-1.5 rounded-xl border border-emerald-100 bg-emerald-50/60 px-3 py-2 text-xs font-semibold text-emerald-700 shadow-xs dark:border-emerald-900/50 dark:bg-emerald-900/30 dark:text-emerald-400">
                 <svg viewBox="0 0 16 16" fill="currentColor" className="h-3.5 w-3.5" aria-hidden="true">
                   <path d="M8 1a4 4 0 014 4c0 1.5-.8 2.8-2 3.5V12h1a2 2 0 012 2H3a2 2 0 012-2h1V8.5A4 4 0 018 1z" />
                 </svg>

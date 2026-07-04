@@ -67,10 +67,10 @@ const HeroStats = () => {
           viewport={{ once: true }}
           transition={{ delay: i * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
         >
-          <div className="text-3xl font-bold tracking-tight text-zinc-900 md:text-4xl">
+          <div className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 md:text-4xl">
             <AnimatedNumber value={stat.value} suffix={stat.suffix} />
           </div>
-          <div className="mt-1 text-sm text-zinc-500">{stat.label}</div>
+          <div className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{stat.label}</div>
         </motion.div>
       ))}
     </div>

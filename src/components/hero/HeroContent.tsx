@@ -45,7 +45,7 @@ const HeroContent = () => {
       {/* Headline */}
       <motion.h1
         variants={itemVariants}
-        className="text-4xl font-bold leading-[1.1] tracking-tight text-zinc-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl"
+        className="text-4xl font-bold leading-[1.1] tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl"
       >
         Build{' '}
         <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
@@ -61,7 +61,7 @@ const HeroContent = () => {
       {/* Description */}
       <motion.p
         variants={itemVariants}
-        className="max-w-lg text-lg leading-relaxed text-zinc-500 sm:text-xl"
+        className="max-w-lg text-lg leading-relaxed text-zinc-500 dark:text-zinc-400 sm:text-xl"
       >
         We craft beautiful, high-performance digital products that drive real
         results. From web applications to complete digital ecosystems, we

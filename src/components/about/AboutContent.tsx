@@ -64,7 +64,7 @@ const AboutContent = () => {
     >
       {/* Introduction */}
       <motion.div variants={itemVariants}>
-        <p className="text-base leading-relaxed text-zinc-500 sm:text-lg">
+        <p className="text-base leading-relaxed text-zinc-500 sm:text-lg dark:text-zinc-400">
           We are a team of passionate designers, engineers, and strategists who
           believe in the power of great digital products. Since our founding,
           we&rsquo;ve helped startups, scale-ups, and enterprise organizations
@@ -74,22 +74,22 @@ const AboutContent = () => {
 
       {/* Mission + Vision */}
       <motion.div variants={itemVariants} className="grid gap-6 sm:grid-cols-2">
-        <div className="rounded-xl border border-zinc-100 bg-white p-5 shadow-xs">
-          <h3 className="flex items-center gap-2 text-sm font-semibold text-zinc-900">
+        <div className="rounded-xl border border-zinc-100 bg-white p-5 shadow-xs dark:border-zinc-700 dark:bg-zinc-900">
+          <h3 className="flex items-center gap-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
             <span className="flex h-6 w-6 items-center justify-center rounded-md bg-primary/[0.06] text-[11px] text-primary">🎯</span>
             Our Mission
           </h3>
-          <p className="mt-2 text-sm leading-relaxed text-zinc-500">
+          <p className="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
             To empower businesses with digital products that drive growth,
             efficiency, and meaningful user experiences.
           </p>
         </div>
-        <div className="rounded-xl border border-zinc-100 bg-white p-5 shadow-xs">
-          <h3 className="flex items-center gap-2 text-sm font-semibold text-zinc-900">
+        <div className="rounded-xl border border-zinc-100 bg-white p-5 shadow-xs dark:border-zinc-700 dark:bg-zinc-900">
+          <h3 className="flex items-center gap-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
             <span className="flex h-6 w-6 items-center justify-center rounded-md bg-primary/[0.06] text-[11px] text-primary">🔭</span>
             Our Vision
           </h3>
-          <p className="mt-2 text-sm leading-relaxed text-zinc-500">
+          <p className="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
             To be the most trusted partner for digital innovation — known for
             quality, integrity, and measurable impact.
           </p>
@@ -98,7 +98,7 @@ const AboutContent = () => {
 
       {/* Feature Cards */}
       <motion.div variants={itemVariants} className="space-y-3">
-        <h3 className="text-sm font-semibold text-zinc-900">Why work with us</h3>
+        <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Why work with us</h3>
         <div className="grid gap-3 sm:grid-cols-2">
           {features.map((feature, i) => (
             <FeatureCard key={feature.title} {...feature} index={i} />

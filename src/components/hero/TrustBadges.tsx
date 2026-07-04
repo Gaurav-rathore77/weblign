@@ -46,14 +46,14 @@ const logos = [
 const TrustBadges = () => {
   return (
     <div>
-      <p className="mb-5 text-xs font-medium uppercase tracking-[0.15em] text-zinc-400">
+      <p className="mb-5 text-xs font-medium uppercase tracking-[0.15em] text-zinc-400 dark:text-zinc-500">
         Trusted by industry leaders
       </p>
       <div className="flex flex-wrap items-center gap-8 sm:gap-10">
         {logos.map(({ name, svg }) => (
           <div
             key={name}
-            className="text-zinc-300 transition-colors duration-300 hover:text-zinc-400"
+            className="text-zinc-300 transition-colors duration-300 hover:text-zinc-400 dark:text-zinc-600 dark:hover:text-zinc-500"
           >
             {svg}
             <span className="sr-only">{name}</span>

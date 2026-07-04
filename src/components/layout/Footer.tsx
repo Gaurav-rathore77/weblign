@@ -37,7 +37,7 @@ const Footer = () => {
     <>
       <BackToTop />
 
-      <footer className="relative overflow-hidden bg-gradient-to-b from-zinc-950 via-zinc-900 to-black" role="contentinfo">
+      <footer className="relative overflow-hidden bg-gradient-to-b from-[#09090b] via-[#18181b] to-black" role="contentinfo">
         {/* Background glow */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
           <div className="absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-primary/[0.03] blur-3xl" />

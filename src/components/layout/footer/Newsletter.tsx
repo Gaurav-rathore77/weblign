@@ -62,7 +62,7 @@ const Newsletter = () => {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-zinc-900 shadow-xs transition-all duration-300 hover:bg-white/90 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
+                className="inline-flex shrink-0 items-center gap-1.5 rounded-lg bg-[#fff] px-4 py-2.5 text-sm font-semibold text-black shadow-xs transition-all duration-300 hover:bg-white/90 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
               >
                 {status === 'loading' ? (
                   <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">

@@ -26,7 +26,7 @@ const headerItem = {
 
 const AboutSection = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-20 sm:py-24">
+    <section className="relative overflow-hidden bg-white py-20 sm:py-24 dark:bg-zinc-950">
       {/* Background decorations */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -left-32 top-1/4 h-72 w-72 rounded-full bg-primary/[0.02] blur-3xl" />
@@ -51,14 +51,14 @@ const AboutSection = () => {
             </motion.div>
             <motion.h2
               variants={headerItem}
-              className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl"
+              className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100"
             >
               Building Digital Products That{' '}
-              <span className="text-zinc-500">Drive Business Growth</span>
+              <span className="text-zinc-500 dark:text-zinc-400">Drive Business Growth</span>
             </motion.h2>
             <motion.p
               variants={headerItem}
-              className="mt-4 text-base leading-relaxed text-zinc-500 sm:text-lg"
+              className="mt-4 text-base leading-relaxed text-zinc-500 sm:text-lg dark:text-zinc-400"
             >
               We help businesses transform ideas into scalable digital products
               through modern technology, thoughtful design, and a relentless
@@ -74,7 +74,7 @@ const AboutSection = () => {
 
           {/* ── Achievement Counters ── */}
           <div>
-            <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-zinc-400">
+            <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
               By the Numbers
             </h3>
             <AchievementCounter />
@@ -82,7 +82,7 @@ const AboutSection = () => {
 
           {/* ── Process Timeline ── */}
           <div>
-            <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-zinc-400">
+            <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
               Our Process
             </h3>
             <ProcessTimeline />
