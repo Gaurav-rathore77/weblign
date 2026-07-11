@@ -4,6 +4,7 @@ export interface TeamMember {
   bio: string;
   initials: string;
   gradient: string;
+  photo: string;
 }
 
 export interface Value {
@@ -27,25 +28,25 @@ export const stats = [
 
 export const values: Value[] = [
   {
-    icon: '🎯',
+    icon: 'HiOutlineAdjustmentsHorizontal',
     title: 'Purpose-Driven Design',
     description:
       'Every pixel we place serves a strategic purpose. We design with intention, creating interfaces that guide users naturally toward their goals while aligning with your business objectives.',
   },
   {
-    icon: '🔬',
+    icon: 'HiOutlineMagnifyingGlass',
     title: 'Technical Excellence',
     description:
       'We write clean, maintainable, and scalable code using modern frameworks and best practices. Our commitment to quality ensures your product performs flawlessly as it grows.',
   },
   {
-    icon: '🤝',
+    icon: 'HiOutlineHandRaised',
     title: 'Radical Transparency',
     description:
       'No black boxes, no surprises. We keep you informed at every stage with regular updates, clear timelines, and honest communication about what works and what doesn\'t.',
   },
   {
-    icon: '🚀',
+    icon: 'HiOutlineRocketLaunch',
     title: 'Growth-First Mindset',
     description:
       'Your success is our success. We build products that not only look great but drive real business outcomes — more conversions, better retention, and sustainable long-term growth.',
@@ -92,6 +93,7 @@ export const teamMembers: TeamMember[] = [
     bio: 'Visionary leader with deep expertise in software engineering and product strategy. Sachin founded Weblign to bridge the gap between cutting-edge technology and real business value.',
     initials: 'SR',
     gradient: 'from-primary to-accent',
+    photo: 'https://ui-avatars.com/api/?name=Sachin+Rathore&background=2563EB&color=fff&size=128',
   },
   {
     name: 'Priya Sharma',
@@ -99,6 +101,7 @@ export const teamMembers: TeamMember[] = [
     bio: 'Award-winning designer with 8+ years crafting beautiful, intuitive interfaces. Priya ensures every product we ship delivers a world-class user experience.',
     initials: 'PS',
     gradient: 'from-emerald-500 to-cyan-500',
+    photo: 'https://ui-avatars.com/api/?name=Priya+Sharma&background=059669&color=fff&size=128',
   },
   {
     name: 'Arjun Mehta',
@@ -106,6 +109,7 @@ export const teamMembers: TeamMember[] = [
     bio: 'Full-stack engineer and architect specializing in scalable systems. Arjun has led development for products serving millions of users across fintech and healthcare.',
     initials: 'AM',
     gradient: 'from-violet-500 to-fuchsia-500',
+    photo: 'https://ui-avatars.com/api/?name=Arjun+Mehta&background=7C3AED&color=fff&size=128',
   },
   {
     name: 'Neha Kapoor',
@@ -113,5 +117,6 @@ export const teamMembers: TeamMember[] = [
     bio: 'Certified PMP with a talent for keeping complex projects on track. Neha ensures every milestone is met with clear communication and zero surprises.',
     initials: 'NK',
     gradient: 'from-orange-500 to-rose-500',
+    photo: 'https://ui-avatars.com/api/?name=Neha+Kapoor&background=F97316&color=fff&size=128',
   },
 ];

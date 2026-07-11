@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { benefitsList } from './whyChooseData';
+import { HiCheck } from 'react-icons/hi2';
 
 const BenefitsChecklist = () => (
   <motion.div
@@ -30,8 +31,8 @@ const BenefitsChecklist = () => (
           transition={{ delay: i * 0.06, duration: 0.3, ease: [0.22, 1, 0.36, 1] as const }}
           className="flex items-center gap-3 text-sm text-zinc-700"
         >
-          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-xs text-emerald-600">
-            ✓
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-50">
+            <HiCheck className="h-5 w-5 text-emerald-500" aria-hidden="true" />
           </span>
           {benefit}
         </motion.li>

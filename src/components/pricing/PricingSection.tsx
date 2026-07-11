@@ -7,6 +7,7 @@ import BillingToggle from './BillingToggle';
 import ComparisonTable from './ComparisonTable';
 import GuaranteeBanner from './GuaranteeBanner';
 import PricingFAQ from './PricingFAQ';
+import { HiOutlineCurrencyDollar } from 'react-icons/hi2';
 import { plans } from './pricingData';
 
 const headerVariants = {
@@ -57,7 +58,7 @@ const PricingSection = () => {
           >
             <motion.div variants={headerItem}>
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-                <span aria-hidden="true">💰</span>
+                <HiOutlineCurrencyDollar className="h-4 w-4" aria-hidden="true" />
                 Pricing
               </div>
             </motion.div>

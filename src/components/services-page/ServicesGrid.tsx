@@ -3,7 +3,27 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { serviceDetails, approachSteps } from './servicesData';
+
+const iconComponents: Record<string, React.ElementType> = {
+  HiOutlineGlobeAlt, HiOutlineDevicePhoneMobile, HiOutlinePaintBrush,
+  HiOutlineShoppingCart, HiOutlineCloud, HiOutlineCpuChip,
+};
+
+function SvcIcon({ name, className }: { name: string; className?: string }) {
+  const Comp = iconComponents[name];
+  return Comp ? <Comp className={className} /> : null;
+}
+
+import {
+  HiOutlineGlobeAlt,
+  HiOutlineDevicePhoneMobile,
+  HiOutlinePaintBrush,
+  HiOutlineShoppingCart,
+  HiOutlineCloud,
+  HiOutlineCpuChip,
+} from 'react-icons/hi2';
 import { CheckCircle2 } from 'lucide-react';
+import { HiOutlineComputerDesktop } from 'react-icons/hi2';
 
 const headerVariants = {
   hidden: { opacity: 0 },
@@ -46,7 +66,7 @@ const ServicesGrid = () => {
           >
             <motion.div variants={headerItem}>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-                <span aria-hidden="true">💻</span>
+                <HiOutlineComputerDesktop className="h-4 w-4" aria-hidden="true" />
                 What We Build
               </div>
             </motion.div>
@@ -80,7 +100,7 @@ const ServicesGrid = () => {
                     : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700'
                 }`}
               >
-                <span aria-hidden="true">{s.icon}</span>
+                <span aria-hidden="true"><SvcIcon name={s.icon} className="h-4 w-4" /></span>
                 {s.title}
               </motion.button>
             ))}
@@ -99,7 +119,7 @@ const ServicesGrid = () => {
               >
                 {/* Left: Description + Features */}
                 <div>
-                  <span className="mb-3 block text-4xl" aria-hidden="true">{activeService.icon}</span>
+                  <span className="mb-3 block text-4xl" aria-hidden="true"><SvcIcon name={activeService.icon} className="h-10 w-10" /></span>
                   <h3 className="text-2xl font-bold text-zinc-900 sm:text-3xl dark:text-zinc-100">
                     {activeService.title}
                   </h3>

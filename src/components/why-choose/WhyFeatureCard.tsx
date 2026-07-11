@@ -1,7 +1,21 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import {
+  HiOutlineBolt, HiOutlineShieldCheck, HiOutlineDevicePhoneMobile,
+  HiOutlineRocketLaunch, HiOutlinePaintBrush, HiOutlineHandRaised,
+} from 'react-icons/hi2';
 import type { Feature } from './whyChooseData';
+
+const iconComponents: Record<string, React.ElementType> = {
+  HiOutlineBolt, HiOutlineShieldCheck, HiOutlineDevicePhoneMobile,
+  HiOutlineRocketLaunch, HiOutlinePaintBrush, HiOutlineHandRaised,
+};
+
+function FeatIcon({ name, className }: { name: string; className?: string }) {
+  const Comp = iconComponents[name];
+  return Comp ? <Comp className={className} /> : null;
+}
 
 interface FeatureCardProps {
   feature: Feature;
@@ -31,7 +45,7 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => (
 
     <div className="relative flex items-start gap-4">
       <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/[0.06] text-lg transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
-        {feature.icon}
+        <FeatIcon name={feature.icon} className="h-5 w-5" />
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">

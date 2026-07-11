@@ -32,6 +32,17 @@ const PortfolioCard = ({ project, index, onOpenModal }: PortfolioCardProps) => {
         <div className="relative aspect-[16/10] overflow-hidden bg-zinc-50">
           <div className={`absolute inset-0 bg-gradient-to-br ${gradient} transition-transform duration-700 group-hover:scale-105`} />
 
+          {/* Brand logo */}
+          {project.image && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <img
+                src={project.image}
+                alt=""
+                className="h-16 w-16 rounded-xl shadow-lg"
+              />
+            </div>
+          )}
+
           {/* Decorative pattern */}
           <div
             className="absolute inset-0 opacity-[0.04]"

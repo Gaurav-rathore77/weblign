@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
 import type { PricingPlan } from './pricingData';
+import { HiCheck, HiOutlineStar } from 'react-icons/hi2';
 
 interface PricingCardProps {
   plan: PricingPlan;
@@ -58,7 +59,7 @@ const PricingCard = ({ plan, yearly, index }: PricingCardProps) => {
           {/* Most Popular badge */}
           {plan.popular && (
             <div className="absolute -top-px left-1/2 -translate-x-1/2 rounded-b-lg bg-gradient-to-r from-primary to-accent px-4 py-1 text-[11px] font-semibold text-white shadow-sm">
-              ⭐ Most Popular
+              <HiOutlineStar className="mr-1 inline-block h-4 w-4" aria-hidden="true" /> Most Popular
             </div>
           )}
 
@@ -115,13 +116,13 @@ const PricingCard = ({ plan, yearly, index }: PricingCardProps) => {
               <li key={feature} className="flex items-start gap-2.5 text-sm text-zinc-600">
                 <span
                   className={clsx(
-                    'mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[10px]',
+                    'mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full',
                     plan.popular
-                      ? 'bg-primary/[0.08] text-primary'
-                      : 'bg-zinc-100 text-zinc-500',
+                      ? 'bg-primary/[0.08]'
+                      : 'bg-zinc-100',
                   )}
                 >
-                  ✓
+                  <HiCheck className={clsx('h-3 w-3', plan.popular ? 'text-primary' : 'text-zinc-500')} aria-hidden="true" />
                 </span>
                 {feature}
               </li>

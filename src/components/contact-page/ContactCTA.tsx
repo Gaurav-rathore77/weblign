@@ -1,14 +1,20 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { HiOutlineArrowLongRight } from 'react-icons/hi2';
+import {
+  HiOutlineArrowLongRight,
+  HiOutlineChatBubbleLeftRight,
+  HiOutlineHashtag,
+  HiOutlineBriefcase,
+  HiOutlineClipboardDocument,
+} from 'react-icons/hi2';
 
 const ContactCTA = () => {
   const channels = [
-    { emoji: '💬', label: 'Live Chat', desc: 'Mon–Fri, 9 AM – 6 PM PST' },
-    { emoji: '🐦', label: 'X (Twitter)', desc: '@weblign' },
-    { emoji: '💼', label: 'LinkedIn', desc: '/company/weblign' },
-    { emoji: '📋', label: 'Contact Form', desc: 'Fastest response' },
+    { icon: <HiOutlineChatBubbleLeftRight className="h-5 w-5" />, label: 'Live Chat', desc: 'Mon–Fri, 9 AM – 6 PM PST' },
+    { icon: <HiOutlineHashtag className="h-5 w-5" />, label: 'X (Twitter)', desc: '@weblign' },
+    { icon: <HiOutlineBriefcase className="h-5 w-5" />, label: 'LinkedIn', desc: '/company/weblign' },
+    { icon: <HiOutlineClipboardDocument className="h-5 w-5" />, label: 'Contact Form', desc: 'Fastest response' },
   ];
 
   return (
@@ -41,7 +47,7 @@ const ContactCTA = () => {
             href="#"
             className="inline-flex items-center gap-2.5 rounded-xl border border-zinc-100 bg-white px-5 py-3 text-sm font-medium text-zinc-700 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/20 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-primary/30"
           >
-            <span aria-hidden="true">{ch.emoji}</span>
+            <span aria-hidden="true">{ch.icon}</span>
             <div className="text-left">
               <div>{ch.label}</div>
               <div className="text-xs font-normal text-zinc-400">{ch.desc}</div>

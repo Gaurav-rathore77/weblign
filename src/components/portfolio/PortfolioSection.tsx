@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import PortfolioGrid from './PortfolioGrid';
 import ResultsSection from './ResultsSection';
 import FeaturedCaseStudy from './FeaturedCaseStudy';
+import { HiOutlineBriefcase } from 'react-icons/hi2';
 
 const headerVariants = {
   hidden: { opacity: 0 },
@@ -51,7 +52,7 @@ const PortfolioSection = () => {
           >
             <motion.div variants={headerItem}>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-                <span aria-hidden="true">💼</span>
+                <HiOutlineBriefcase className="h-4 w-4" aria-hidden="true" />
                 Our Portfolio
               </div>
             </motion.div>

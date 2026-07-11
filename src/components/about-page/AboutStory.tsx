@@ -3,6 +3,17 @@
 import { motion } from 'framer-motion';
 import { values, milestones } from './aboutData';
 import { useState } from 'react';
+import { HiOutlineBookOpen, HiOutlineAdjustmentsHorizontal, HiOutlineMagnifyingGlass, HiOutlineStar, HiOutlineCalendarDays, HiOutlineHandRaised, HiOutlineRocketLaunch } from 'react-icons/hi2';
+
+const iconComponents: Record<string, React.ElementType> = {
+  HiOutlineAdjustmentsHorizontal, HiOutlineMagnifyingGlass,
+  HiOutlineHandRaised, HiOutlineRocketLaunch,
+};
+
+function ValIcon({ name, className }: { name: string; className?: string }) {
+  const Comp = iconComponents[name];
+  return Comp ? <Comp className={className} /> : null;
+}
 
 const sectionVariants = {
   hidden: { opacity: 0 },
@@ -43,7 +54,7 @@ const AboutStory = () => {
             >
               <motion.div variants={item}>
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-                  <span aria-hidden="true">📖</span>
+                  <HiOutlineBookOpen className="h-4 w-4" aria-hidden="true" />
                   Our Story
                 </div>
               </motion.div>
@@ -84,7 +95,7 @@ const AboutStory = () => {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
                 className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50/80 to-white p-8 shadow-sm dark:border-zinc-800 dark:from-zinc-900/50 dark:to-zinc-950"
               >
-                <span className="text-3xl" aria-hidden="true">🎯</span>
+                <HiOutlineAdjustmentsHorizontal className="h-8 w-8" aria-hidden="true" />
                 <h3 className="mt-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
                   Our Mission
                 </h3>
@@ -103,7 +114,7 @@ const AboutStory = () => {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const, delay: 0.15 }}
                 className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50/80 to-white p-8 shadow-sm dark:border-zinc-800 dark:from-zinc-900/50 dark:to-zinc-950"
               >
-                <span className="text-3xl" aria-hidden="true">🔭</span>
+                <HiOutlineMagnifyingGlass className="h-8 w-8" aria-hidden="true" />
                 <h3 className="mt-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
                   Our Vision
                 </h3>
@@ -127,7 +138,7 @@ const AboutStory = () => {
             >
               <motion.div variants={item}>
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-                  <span aria-hidden="true">💎</span>
+                  <HiOutlineStar className="h-4 w-4" aria-hidden="true" />
                   Core Values
                 </div>
               </motion.div>
@@ -158,7 +169,7 @@ const AboutStory = () => {
                   className="group rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900"
                 >
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/[0.06] text-xl dark:bg-primary/[0.1]">
-                    <span aria-hidden="true">{v.icon}</span>
+                    <ValIcon name={v.icon} className="h-6 w-6" />
                   </div>
                   <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
                     {v.title}
@@ -182,7 +193,7 @@ const AboutStory = () => {
             >
               <motion.div variants={item}>
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-                  <span aria-hidden="true">🗓️</span>
+                  <HiOutlineCalendarDays className="h-4 w-4" aria-hidden="true" />
                   Our Journey
                 </div>
               </motion.div>

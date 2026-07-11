@@ -106,22 +106,22 @@ export interface GuaranteeItem {
 
 export const guarantees: GuaranteeItem[] = [
   {
-    icon: '🛡',
+    icon: 'HiOutlineShieldCheck',
     title: '30-Day Satisfaction Guarantee',
     description: 'Not happy? We\'ll refund your first month — no questions asked.',
   },
   {
-    icon: '🔒',
+    icon: 'HiOutlineLockClosed',
     title: 'Secure Payments',
     description: 'All transactions are encrypted and processed securely through Stripe.',
   },
   {
-    icon: '💰',
+    icon: 'HiOutlineCurrencyDollar',
     title: 'No Hidden Fees',
     description: 'What you see is what you pay. No surprise charges or upsells.',
   },
   {
-    icon: '📋',
+    icon: 'HiOutlineClipboardDocument',
     title: 'Transparent Process',
     description: 'Clear milestones, timelines, and communication every step of the way.',
   },

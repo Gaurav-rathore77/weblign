@@ -29,7 +29,7 @@ export const serviceDetails: ServiceDetail[] = [
       'SEO-friendly architecture',
     ],
     technologies: ['Next.js', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
-    icon: '🌐',
+    icon: 'HiOutlineGlobeAlt',
   },
   {
     id: 'mobile-development',
@@ -47,7 +47,7 @@ export const serviceDetails: ServiceDetail[] = [
       'Performance monitoring & analytics',
     ],
     technologies: ['React Native', 'Swift', 'Kotlin', 'Firebase', 'GraphQL', 'Redux'],
-    icon: '📱',
+    icon: 'HiOutlineDevicePhoneMobile',
   },
   {
     id: 'ui-ux-design',
@@ -65,7 +65,7 @@ export const serviceDetails: ServiceDetail[] = [
       'Accessibility-first approach',
     ],
     technologies: ['Figma', 'Adobe Creative Suite', 'Principle', 'Maze', 'Storybook', 'Zeroheight'],
-    icon: '🎨',
+    icon: 'HiOutlinePaintBrush',
   },
   {
     id: 'ecommerce',
@@ -83,7 +83,7 @@ export const serviceDetails: ServiceDetail[] = [
       'Analytics & conversion tracking',
     ],
     technologies: ['Shopify', 'Next.js', 'Stripe', 'Algolia', 'Sanity', 'BigCommerce'],
-    icon: '🛒',
+    icon: 'HiOutlineShoppingCart',
   },
   {
     id: 'cloud-devops',
@@ -101,7 +101,7 @@ export const serviceDetails: ServiceDetail[] = [
       'Security audits & compliance',
     ],
     technologies: ['AWS', 'Azure', 'Docker', 'Kubernetes', 'Terraform', 'Datadog'],
-    icon: '☁️',
+    icon: 'HiOutlineCloud',
   },
   {
     id: 'ai-automation',
@@ -119,7 +119,7 @@ export const serviceDetails: ServiceDetail[] = [
       'Predictive analytics & forecasting',
     ],
     technologies: ['Python', 'TensorFlow', 'OpenAI', 'LangChain', 'Airflow', 'Streamlit'],
-    icon: '🤖',
+    icon: 'HiOutlineCpuChip',
   },
 ];
 

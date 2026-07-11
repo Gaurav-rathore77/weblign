@@ -61,7 +61,7 @@ const AboutImages = () => {
         <FloatWrapper className="col-span-2" delay={0.1}>
           <div className="group relative overflow-hidden rounded-2xl shadow-lg shadow-zinc-900/5">
             <Image
-              src={src(gradients.main)}
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
               alt="Our team collaborating on a digital project"
               width={600}
               height={340}
@@ -84,7 +84,7 @@ const AboutImages = () => {
         <FloatWrapper delay={0.3}>
           <div className="overflow-hidden rounded-xl shadow-md shadow-zinc-900/5">
             <Image
-              src={src(gradients.secondary, 300, 240)}
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80"
               alt="Modern office workspace"
               width={300}
               height={240}
@@ -98,7 +98,7 @@ const AboutImages = () => {
           <FloatWrapper delay={0.4}>
             <div className="overflow-hidden rounded-xl shadow-md shadow-zinc-900/5">
               <Image
-                src={src(gradients.tertiary, 300, 140)}
+                src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=400&q=80"
                 alt="Team brainstorming session"
                 width={300}
                 height={140}

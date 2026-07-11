@@ -6,6 +6,7 @@ import WhyFeatureCard from './WhyFeatureCard';
 import WhyProcessTimeline from './WhyProcessTimeline';
 import AchievementCard from './AchievementCard';
 import BenefitsChecklist from './BenefitsChecklist';
+import { HiOutlineStar } from 'react-icons/hi2';
 import { features } from './whyChooseData';
 
 const headerVariants = {
@@ -54,7 +55,7 @@ const WhyChooseSection = () => {
           >
             <motion.div variants={headerItem}>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-                <span aria-hidden="true">💎</span>
+                <HiOutlineStar className="h-4 w-4" aria-hidden="true" />
                 Why Choose Us
               </div>
             </motion.div>

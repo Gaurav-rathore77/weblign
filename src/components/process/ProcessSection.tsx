@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Timeline from './Timeline';
 import HighlightCard from './HighlightCard';
 import ProcessCTA from './ProcessCTA';
+import { HiOutlineCog6Tooth } from 'react-icons/hi2';
 import { highlights } from './processData';
 
 const headerVariants = {
@@ -52,7 +53,7 @@ const ProcessSection = () => {
           >
             <motion.div variants={headerItem}>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-                <span aria-hidden="true">⚙️</span>
+                <HiOutlineCog6Tooth className="h-4 w-4" aria-hidden="true" />
                 Our Process
               </div>
             </motion.div>

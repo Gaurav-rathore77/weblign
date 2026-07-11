@@ -33,11 +33,13 @@ const FeaturedCaseStudy = () => {
         <div className={`relative flex min-h-[280px] items-end bg-gradient-to-br ${p.gradient} lg:min-h-full`}>
           {/* Brand placeholder */}
           <div className="p-8 sm:p-10">
-            <div className="inline-flex items-center gap-3 rounded-xl border border-white/20 bg-white/60 px-4 py-2.5 backdrop-blur-md">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/20 text-sm font-bold text-primary">U</div>
+            <div className="inline-flex items-center gap-3 rounded-xl border border-white/20 bg-white/60 px-4 py-2.5 backdrop-blur-md dark:bg-zinc-800/60">
+              {p.image && (
+                <img src={p.image} alt="" className="h-8 w-8 rounded-lg" />
+              )}
               <div>
-                <div className="text-sm font-semibold text-zinc-900">UrbanGo</div>
-                <div className="text-xs text-zinc-500">Featured Case Study</div>
+                <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Future Mind Educare</div>
+                <div className="text-xs text-zinc-500 dark:text-zinc-400">Featured Case Study</div>
               </div>
             </div>
           </div>

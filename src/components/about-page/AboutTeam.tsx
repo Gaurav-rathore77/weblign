@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { teamMembers, stats } from './aboutData';
+import { HiOutlineUserGroup } from 'react-icons/hi2';
 
 const container = {
   hidden: { opacity: 0 },
@@ -65,7 +66,7 @@ const AboutTeam = () => {
             >
               <motion.div variants={item}>
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-                  <span aria-hidden="true">👥</span>
+                  <HiOutlineUserGroup className="h-5 w-5" aria-hidden="true" />
                   Our Team
                 </div>
               </motion.div>
@@ -95,13 +96,21 @@ const AboutTeam = () => {
                   whileHover={{ y: -4 }}
                   className="group rounded-2xl border border-zinc-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-primary/20 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-primary/30"
                 >
-                  <div
-                    className={`mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br ${member.gradient} shadow-sm`}
-                  >
-                    <span className="text-xl font-bold text-white">
-                      {member.initials}
-                    </span>
-                  </div>
+                  {member.photo ? (
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      className="mx-auto h-20 w-20 rounded-full shadow-sm"
+                    />
+                  ) : (
+                    <div
+                      className={`mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br ${member.gradient} shadow-sm`}
+                    >
+                      <span className="text-xl font-bold text-white">
+                        {member.initials}
+                      </span>
+                    </div>
+                  )}
                   <h3 className="mt-4 text-base font-semibold text-zinc-900 dark:text-zinc-100">
                     {member.name}
                   </h3>

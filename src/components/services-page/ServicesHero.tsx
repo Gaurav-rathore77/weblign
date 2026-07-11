@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { HiOutlineRocketLaunch } from 'react-icons/hi2';
 
 const heroVariants = {
   hidden: { opacity: 0 },
@@ -39,7 +40,7 @@ const ServicesHero = () => {
         >
           <motion.div variants={heroItem}>
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-              <span aria-hidden="true">🚀</span>
+              <HiOutlineRocketLaunch className="h-4 w-4" aria-hidden="true" />
               Our Services
             </div>
           </motion.div>

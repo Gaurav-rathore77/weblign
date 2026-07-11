@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { HiOutlineArrowLongRight } from 'react-icons/hi2';
+import { HiOutlineArrowLongRight, HiCheck } from 'react-icons/hi2';
 import { serviceIcons } from './Icons';
 import type { Service } from './servicesData';
 
@@ -64,8 +64,8 @@ const ServiceCard = ({ service, index }: ServiceCardProps) => {
           <ul className="relative mt-4 space-y-2">
             {service.features.map((feature) => (
               <li key={feature} className="flex items-start gap-2 text-sm text-zinc-600">
-                <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-primary/[0.08] text-[10px] text-primary">
-                  ✓
+                <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-primary/[0.08]">
+                  <HiCheck className="h-4 w-4 text-emerald-500" aria-hidden="true" />
                 </span>
                 {feature}
               </li>

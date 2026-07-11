@@ -56,17 +56,17 @@ const itemVariants = {
 
 const TrustedSection = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-zinc-50/30 via-white to-white py-20 sm:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-zinc-50/30 via-white to-white py-20 sm:py-24 dark:from-zinc-950 dark:via-zinc-900/60 dark:to-zinc-950">
       {/* Divider */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-zinc-200 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-zinc-200 to-transparent dark:via-zinc-800"
         aria-hidden="true"
       />
 
       {/* Background glow */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute left-1/3 top-0 h-64 w-64 -translate-x-1/2 rounded-full bg-primary/[0.02] blur-3xl" />
-        <div className="absolute right-1/4 bottom-0 h-48 w-48 rounded-full bg-accent/[0.02] blur-3xl" />
+        <div className="absolute left-1/3 top-0 h-64 w-64 -translate-x-1/2 rounded-full bg-primary/[0.02] blur-3xl dark:bg-primary/[0.05]" />
+        <div className="absolute right-1/4 bottom-0 h-48 w-48 rounded-full bg-accent/[0.02] blur-3xl dark:bg-accent/[0.05]" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -80,19 +80,19 @@ const TrustedSection = () => {
           {/* ── Section Header ── */}
           <motion.div variants={itemVariants} className="flex max-w-2xl flex-col items-center gap-4 text-center">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-amber-200/60 bg-amber-50/60 px-4 py-1.5 text-sm font-medium text-amber-700">
-              <span className="text-amber-500" aria-hidden="true">✦</span>
+            <div className="inline-flex items-center gap-2 rounded-full border border-amber-200/60 bg-amber-50/60 px-4 py-1.5 text-sm font-medium text-amber-700 dark:border-amber-700/40 dark:bg-amber-900/30 dark:text-amber-300">
+              <HiOutlineStar className="h-4 w-4 text-amber-500 dark:text-amber-400" aria-hidden="true" />
               Trusted Worldwide
             </div>
 
             {/* Heading */}
-            <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
               Trusted by startups, growing businesses{' '}
-              <span className="text-zinc-500">and enterprise teams.</span>
+              <span className="text-zinc-500 dark:text-zinc-400">and enterprise teams.</span>
             </h2>
 
             {/* Description */}
-            <p className="max-w-xl text-base leading-relaxed text-zinc-500 sm:text-lg">
+            <p className="max-w-xl text-base leading-relaxed text-zinc-500 sm:text-lg dark:text-zinc-400">
               From early-stage founders to Fortune 500 companies, teams around
               the world trust us to deliver high-quality digital solutions that
               drive measurable results.

@@ -6,6 +6,8 @@ import {
   HiOutlineCodeBracket,
   HiOutlineHeart,
   HiOutlineLifebuoy,
+  HiOutlineAdjustmentsHorizontal,
+  HiOutlineMagnifyingGlass,
 } from 'react-icons/hi2';
 import FeatureCard from './FeatureCard';
 
@@ -76,7 +78,7 @@ const AboutContent = () => {
       <motion.div variants={itemVariants} className="grid gap-6 sm:grid-cols-2">
         <div className="rounded-xl border border-zinc-100 bg-white p-5 shadow-xs dark:border-zinc-700 dark:bg-zinc-900">
           <h3 className="flex items-center gap-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-            <span className="flex h-6 w-6 items-center justify-center rounded-md bg-primary/[0.06] text-[11px] text-primary">🎯</span>
+            <HiOutlineAdjustmentsHorizontal className="h-4 w-4 text-primary" />
             Our Mission
           </h3>
           <p className="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
@@ -86,7 +88,7 @@ const AboutContent = () => {
         </div>
         <div className="rounded-xl border border-zinc-100 bg-white p-5 shadow-xs dark:border-zinc-700 dark:bg-zinc-900">
           <h3 className="flex items-center gap-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-            <span className="flex h-6 w-6 items-center justify-center rounded-md bg-primary/[0.06] text-[11px] text-primary">🔭</span>
+            <HiOutlineMagnifyingGlass className="h-4 w-4 text-primary" />
             Our Vision
           </h3>
           <p className="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">

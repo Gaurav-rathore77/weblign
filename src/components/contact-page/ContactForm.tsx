@@ -2,8 +2,24 @@
 
 import { useState, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { HiOutlineArrowLongRight, HiCheck } from 'react-icons/hi2';
+import {
+  HiOutlineArrowLongRight,
+  HiCheck,
+  HiOutlineEnvelope,
+  HiOutlinePhone,
+  HiOutlineMapPin,
+  HiOutlineClock,
+} from 'react-icons/hi2';
 import { contactInfo } from './contactData';
+
+const iconComponents: Record<string, React.ElementType> = {
+  HiOutlineEnvelope, HiOutlinePhone, HiOutlineMapPin, HiOutlineClock,
+};
+
+function ContactIcon({ name, className }: { name: string; className?: string }) {
+  const Comp = iconComponents[name];
+  return Comp ? <Comp className={className} /> : null;
+}
 
 const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -122,7 +138,7 @@ const ContactForm = () => {
               className="rounded-xl border border-zinc-100 bg-white p-5 shadow-xs transition-shadow duration-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900"
             >
               <div className="flex items-center gap-3">
-                <span aria-hidden="true" className="text-xl">{item.emoji}</span>
+                <span aria-hidden="true" className="text-xl"><ContactIcon name={item.emoji} className="h-5 w-5" /></span>
                 <div>
                   <div className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
                     {item.label}

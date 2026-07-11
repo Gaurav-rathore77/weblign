@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { approachSteps } from './servicesData';
+import { HiOutlineCog6Tooth } from 'react-icons/hi2';
 
 const ServicesProcess = () => {
   return (
@@ -20,7 +21,7 @@ const ServicesProcess = () => {
           className="mx-auto mb-14 max-w-2xl text-center"
         >
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-            <span aria-hidden="true">⚙️</span>
+            <HiOutlineCog6Tooth className="h-4 w-4" aria-hidden="true" />
             How We Deliver
           </div>
           <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">

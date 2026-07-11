@@ -3,7 +3,7 @@ import HeroIllustration from './HeroIllustration';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-dvh overflow-hidden bg-gradient-to-b from-white via-zinc-50/40 to-white dark:from-zinc-950 dark:via-zinc-900/30 dark:to-zinc-950 pt-28 pb-16 sm:pt-32 sm:pb-20">
+    <section className="relative min-h-dvh bg-gradient-to-b from-white via-zinc-50/40 to-white dark:from-zinc-950 dark:via-zinc-900/30 dark:to-zinc-950 pt-28 pb-16 sm:pt-32 sm:pb-20">
       {/* ── Background decorations ── */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         {/* Subtle dot grid */}

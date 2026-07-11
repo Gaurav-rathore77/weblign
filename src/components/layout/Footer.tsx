@@ -2,6 +2,13 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import {
+  HiOutlineEnvelope,
+  HiOutlinePhone,
+  HiOutlineMapPin,
+  HiOutlineClock,
+  HiHeart,
+} from 'react-icons/hi2';
 import Logo from './Logo';
 import FooterLinks from './footer/FooterLinks';
 import SocialLinks from './footer/SocialLinks';
@@ -12,6 +19,15 @@ import {
   companyLinks,
   contactDetails,
 } from './footer/footerData';
+
+const iconComponents: Record<string, React.ElementType> = {
+  HiOutlineEnvelope, HiOutlinePhone, HiOutlineMapPin, HiOutlineClock,
+};
+
+function FooterIcon({ name, className }: { name: string; className?: string }) {
+  const Comp = iconComponents[name];
+  return Comp ? <Comp className={className} /> : null;
+}
 
 const footerVariants = {
   hidden: { opacity: 0 },
@@ -108,12 +124,12 @@ const Footer = () => {
                           href={detail.href}
                           className="group inline-flex items-center gap-2.5 text-sm text-white/40 transition-colors duration-200 hover:text-white/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50"
                         >
-                          <span className="text-sm" aria-hidden="true">{detail.icon}</span>
+                          <span className="text-sm" aria-hidden="true"><FooterIcon name={detail.icon} className="h-4 w-4" /></span>
                           <span>{detail.value}</span>
                         </a>
                       ) : (
                         <span className="inline-flex items-center gap-2.5 text-sm text-white/40">
-                          <span className="text-sm" aria-hidden="true">{detail.icon}</span>
+                          <span className="text-sm" aria-hidden="true"><FooterIcon name={detail.icon} className="h-4 w-4" /></span>
                           <span>{detail.value}</span>
                         </span>
                       )}
@@ -164,7 +180,7 @@ const Footer = () => {
                 Cookies Policy
               </Link>
               <span className="inline-flex items-center gap-1 text-xs text-white/20">
-                Made with <span aria-label="love">❤️</span> using Next.js
+                Made with <HiHeart className="h-4 w-4 text-red-500" /> using Next.js
               </span>
             </nav>
           </div>

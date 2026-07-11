@@ -2,16 +2,17 @@
 
 import { motion } from 'framer-motion';
 import { comparisonRows } from './whyChooseData';
+import { HiCheck, HiXMark } from 'react-icons/hi2';
 
 const Tick = () => (
-  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-50 text-[11px] text-emerald-600">
-    ✓
+  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-50">
+    <HiCheck className="h-4 w-4 text-emerald-500" aria-hidden="true" />
   </span>
 );
 
 const Cross = () => (
-  <span className="flex h-5 w-5 items-center justify-center rounded-full text-[11px] text-zinc-300">
-    ✕
+  <span className="flex h-5 w-5 items-center justify-center rounded-full">
+    <HiXMark className="h-4 w-4 text-red-500" aria-hidden="true" />
   </span>
 );
 

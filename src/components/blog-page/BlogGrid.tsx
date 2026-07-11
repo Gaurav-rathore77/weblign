@@ -2,8 +2,31 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiOutlineArrowLongRight } from 'react-icons/hi2';
+import {
+  HiOutlineArrowLongRight,
+  HiOutlineBolt,
+  HiOutlinePaintBrush,
+  HiOutlineArrowTrendingUp,
+  HiOutlineChartBarSquare,
+  HiOutlineCpuChip,
+  HiOutlineShoppingCart,
+  HiOutlineLightBulb,
+  HiOutlineGlobeAlt,
+} from 'react-icons/hi2';
+import { FaAccessibleIcon } from 'react-icons/fa';
 import { blogPosts, categories, type BlogPost } from './blogData';
+
+const iconComponents: Record<string, React.ElementType> = {
+  HiOutlineBolt, HiOutlinePaintBrush, HiOutlineArrowTrendingUp,
+  HiOutlineChartBarSquare, HiOutlineCpuChip,
+  HiOutlineShoppingCart, HiOutlineLightBulb, HiOutlineGlobeAlt,
+  FaAccessibleIcon,
+};
+
+function BlogIcon({ name, className }: { name: string; className?: string }) {
+  const Comp = iconComponents[name];
+  return Comp ? <Comp className={className} /> : null;
+}
 
 const BlogCard = ({ post, index }: { post: BlogPost; index: number }) => (
   <motion.article
@@ -17,6 +40,9 @@ const BlogCard = ({ post, index }: { post: BlogPost; index: number }) => (
     <a href={post.href} className="flex flex-1 flex-col">
       {/* Image */}
       <div className={`relative flex aspect-[16/9] items-end bg-gradient-to-br ${post.image.gradient}`}>
+        {post.image.url && (
+          <img src={post.image.url} alt="" className="absolute inset-0 h-full w-full object-cover" />
+        )}
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -25,7 +51,7 @@ const BlogCard = ({ post, index }: { post: BlogPost; index: number }) => (
             backgroundSize: '30px 30px',
           }}
         />
-        <span className="relative p-5 text-3xl" aria-hidden="true">{post.image.emoji}</span>
+        <span className="relative p-5 text-3xl" aria-hidden="true"><BlogIcon name={post.image.iconName} className="h-8 w-8" /></span>
         <span className="absolute right-3 top-3 rounded-full border border-white/20 bg-white/70 px-2.5 py-0.5 text-[10px] font-medium text-zinc-700 shadow-xs backdrop-blur-md dark:bg-zinc-800/70 dark:text-zinc-300 dark:border-zinc-700/30">
           {post.category}
         </span>

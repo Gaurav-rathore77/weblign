@@ -1,7 +1,23 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import {
+  HiOutlineMagnifyingGlass, HiOutlineClipboardDocument,
+  HiOutlineWrench, HiOutlineBeaker, HiOutlineRocketLaunch,
+  HiOutlineHeart,
+} from 'react-icons/hi2';
 import { processSteps } from './whyChooseData';
+
+const iconComponents: Record<string, React.ElementType> = {
+  HiOutlineMagnifyingGlass, HiOutlineClipboardDocument,
+  HiOutlineWrench, HiOutlineBeaker, HiOutlineRocketLaunch,
+  HiOutlineHeart,
+};
+
+function StepIcon({ name, className }: { name: string; className?: string }) {
+  const Comp = iconComponents[name];
+  return Comp ? <Comp className={className} /> : null;
+}
 
 const ProcessTimeline = () => {
   return (
@@ -28,7 +44,7 @@ const ProcessTimeline = () => {
 
             {/* Step circle */}
             <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary/20 bg-white text-sm font-semibold text-primary transition-colors duration-300">
-              {step.icon}
+              <StepIcon name={step.icon} className="h-5 w-5" />
             </div>
 
             <div className="mt-2 text-[10px] font-semibold uppercase tracking-widest text-primary">
@@ -64,7 +80,7 @@ const ProcessTimeline = () => {
 
             {/* Step circle */}
             <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-primary/20 bg-white text-sm font-semibold text-primary">
-              {step.icon}
+              <StepIcon name={step.icon} className="h-5 w-5" />
             </div>
 
             <div className="min-w-0 pt-1">

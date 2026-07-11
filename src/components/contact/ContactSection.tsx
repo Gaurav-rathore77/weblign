@@ -5,6 +5,7 @@ import ContactInfo from './ContactInfo';
 import ContactForm from './ContactForm';
 import FAQ from './FAQ';
 import FinalCTA from './FinalCTA';
+import { HiOutlinePhone } from 'react-icons/hi2';
 
 const headerVariants = {
   hidden: { opacity: 0 },
@@ -52,7 +53,7 @@ const ContactSection = () => {
           >
             <motion.div variants={headerItem}>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-                <span aria-hidden="true">📞</span>
+                <HiOutlinePhone className="h-4 w-4" aria-hidden="true" />
                 Contact Us
               </div>
             </motion.div>

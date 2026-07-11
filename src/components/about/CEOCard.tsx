@@ -16,9 +16,11 @@ const CEOCard = () => (
 
     <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
       {/* Avatar */}
-      <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-accent text-2xl font-bold text-white shadow-md shadow-primary/20">
-        SR
-      </div>
+      <img
+        src="https://ui-avatars.com/api/?name=Sachin+Rathore&background=2563EB&color=fff&size=128"
+        alt="Sachin Rathore"
+        className="h-20 w-20 shrink-0 rounded-2xl shadow-md shadow-primary/20"
+      />
 
       {/* Content */}
       <div className="min-w-0">

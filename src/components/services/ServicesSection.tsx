@@ -5,6 +5,7 @@ import { services, benefits } from './servicesData';
 import ServiceCard from './ServiceCard';
 import BenefitCard from './BenefitCard';
 import ServicesCTA from './ServicesCTA';
+import { HiOutlineRocketLaunch } from 'react-icons/hi2';
 
 const headerVariants = {
   hidden: { opacity: 0 },
@@ -52,7 +53,7 @@ const ServicesSection = () => {
           >
             <motion.div variants={headerItem}>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-                <span aria-hidden="true">🚀</span>
+                <HiOutlineRocketLaunch className="h-4 w-4" aria-hidden="true" />
                 Our Services
               </div>
             </motion.div>

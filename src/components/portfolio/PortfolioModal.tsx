@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiXMark } from 'react-icons/hi2';
+import { HiXMark, HiCheck } from 'react-icons/hi2';
 import type { Project } from './portfolioData';
 
 interface PortfolioModalProps {
@@ -94,8 +94,11 @@ const PortfolioModal = ({ project, onClose }: PortfolioModalProps) => {
                   backgroundSize: '30px 30px',
                 }}
               />
-              <div className="relative p-6 sm:p-8">
-                <span className="rounded-full bg-white/70 px-3 py-1 text-[11px] font-medium text-zinc-700 shadow-xs backdrop-blur-md">
+              <div className="relative flex items-center gap-3 p-6 sm:p-8">
+                {project.image && (
+                  <img src={project.image} alt="" className="h-10 w-10 rounded-lg shadow-lg" />
+                )}
+                <span className="rounded-full bg-white/70 px-3 py-1 text-[11px] font-medium text-zinc-700 shadow-xs backdrop-blur-md dark:bg-zinc-800/70 dark:text-zinc-300">
                   {project.category}
                 </span>
               </div>
@@ -145,7 +148,7 @@ const PortfolioModal = ({ project, onClose }: PortfolioModalProps) => {
                 <ul className="mt-2 space-y-2">
                   {project.results.map((r) => (
                     <li key={r} className="flex items-center gap-2 text-sm text-zinc-700">
-                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-[10px] text-emerald-600">✓</span>
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50"><HiCheck className="h-4 w-4 text-emerald-500" aria-hidden="true" /></span>
                       {r}
                     </li>
                   ))}
