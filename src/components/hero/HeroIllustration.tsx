@@ -92,7 +92,7 @@ const HeroIllustration = () => {
   return (
     <div className="relative mx-auto mt-8 hidden h-full w-full max-w-lg lg:block xl:max-w-xl">
       {/* outer container: holds everything */}
-      <div className="relative aspect-[5/4] w-full">
+      <div className="relative aspect-[4/4] w-full">
         {/* ── Browser window ── */}
         <motion.div
           className="relative z-10 h-full w-full overflow-hidden rounded-2xl border border-zinc-200/60 bg-white shadow-xl shadow-zinc-900/5 dark:border-zinc-700/60 dark:bg-zinc-900"
