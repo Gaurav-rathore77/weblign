@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -46,6 +46,7 @@ interface MobileMenuProps {
 
 const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   const pathname = usePathname();
+  const prevPathname = useRef(pathname);
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -58,7 +59,10 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   }, [isOpen, onClose]);
 
   useEffect(() => {
-    onClose();
+    if (prevPathname.current !== pathname) {
+      onClose();
+      prevPathname.current = pathname;
+    }
   }, [pathname, onClose]);
 
   const isActive = (href: string) => {
@@ -74,19 +78,19 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
-          className="fixed inset-0 z-40 flex flex-col bg-white lg:hidden"
+          className="fixed inset-0 z-50 flex flex-col bg-white dark:bg-zinc-950 lg:hidden"
           initial={{ x: '100%' }}
           animate={{ x: 0 }}
           exit={{ x: '100%' }}
           transition={{ type: 'spring', damping: 35, stiffness: 300 }}
         >
           {/* Header */}
-          <div className="flex h-16 items-center justify-between border-b border-zinc-100 px-4 sm:px-6">
+          <div className="flex h-16 items-center justify-between border-b border-zinc-100 px-4 sm:px-6 dark:border-zinc-800">
             <Logo />
             <button
               type="button"
               onClick={onClose}
-              className="flex h-9 w-9 items-center justify-center rounded-lg text-zinc-700 transition-colors hover:bg-zinc-100"
+              className="flex h-9 w-9 items-center justify-center rounded-lg text-zinc-700 transition-colors hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800"
               aria-label="Close menu"
             >
               <HiXMark className="h-5 w-5" />
@@ -115,7 +119,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       'relative block px-8 py-3 text-center text-2xl font-medium transition-colors duration-200',
                       active
                         ? 'text-primary'
-                        : 'text-zinc-500 hover:text-zinc-900',
+                        : 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100',
                     )}
                     aria-current={active ? 'page' : undefined}
                   >
@@ -159,7 +163,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
 
           {/* Social Icons */}
           <motion.div
-            className="flex items-center justify-center gap-5 border-t border-zinc-100 px-6 py-6"
+            className="flex items-center justify-center gap-5 border-t border-zinc-100 px-6 py-6 dark:border-zinc-800"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.4 }}
@@ -170,7 +174,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-400 transition-colors hover:text-primary"
+                className="text-zinc-400 transition-colors hover:text-primary dark:text-zinc-500 dark:hover:text-primary"
                 aria-label={name}
               >
                 <Icon className="h-5 w-5" />
