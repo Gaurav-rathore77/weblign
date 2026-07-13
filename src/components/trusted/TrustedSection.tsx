@@ -56,7 +56,7 @@ const itemVariants = {
 
 const TrustedSection = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-zinc-50/30 via-white to-white py-20 sm:py-24 dark:from-zinc-950 dark:via-zinc-900/60 dark:to-zinc-950">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24">
       {/* Divider */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-zinc-200 to-transparent dark:via-zinc-800"

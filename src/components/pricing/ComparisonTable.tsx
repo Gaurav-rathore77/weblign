@@ -41,13 +41,13 @@ const ComparisonTable = () => {
                 Feature
               </th>
               <th className="px-3 py-3 text-center text-xs font-semibold uppercase tracking-widest text-zinc-400">
-                Starter
+                Landing
               </th>
               <th className="px-3 py-3 text-center text-xs font-semibold uppercase tracking-widest text-primary">
-                Professional
+                Business
               </th>
               <th className="px-3 py-3 text-center text-xs font-semibold uppercase tracking-widest text-zinc-400">
-                Enterprise
+                Premium
               </th>
             </tr>
           </thead>

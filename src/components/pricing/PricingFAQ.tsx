@@ -15,7 +15,7 @@ const PricingFAQ = () => {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
       className="mx-auto max-w-2xl"
     >
-      <h3 className="mb-6 text-center text-sm font-semibold uppercase tracking-widest text-zinc-400">
+      {/* <h3 className="mb-6 text-center text-sm font-semibold uppercase tracking-widest text-zinc-400">
         Frequently Asked Questions
       </h3>
 
@@ -70,7 +70,7 @@ const PricingFAQ = () => {
             </div>
           );
         })}
-      </div>
+      </div> */}
     </motion.div>
   );
 };

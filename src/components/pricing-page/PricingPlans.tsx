@@ -1,42 +1,14 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { HiCheck, HiOutlineArrowLongRight } from 'react-icons/hi2';
 import { pricingTiers } from './pricingData';
 
 const PricingPlans = () => {
-  const [annual, setAnnual] = useState(true);
-
   return (
     <div>
-      {/* Toggle */}
-      <div className="flex items-center justify-center gap-3">
-        <span className={`text-sm font-medium transition-colors ${annual ? 'text-zinc-400' : 'text-zinc-900 dark:text-zinc-100'}`}>
-          Monthly
-        </span>
-        <button
-          type="button"
-          role="switch"
-          aria-checked={annual}
-          aria-label="Toggle annual billing"
-          onClick={() => setAnnual(!annual)}
-          className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${annual ? 'bg-primary' : 'bg-zinc-200 dark:bg-zinc-700'}`}
-        >
-          <span
-            className={`inline-block h-5 w-5 transform rounded-full bg-white shadow-xs transition-transform duration-300 ${annual ? 'translate-x-6' : 'translate-x-1'}`}
-          />
-        </button>
-        <span className={`text-sm font-medium transition-colors ${annual ? 'text-zinc-900 dark:text-zinc-100' : 'text-zinc-400'}`}>
-          Annual
-        </span>
-        <span className="hidden rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-600 sm:inline dark:bg-emerald-900/30 dark:text-emerald-400">
-          Save up to 20%
-        </span>
-      </div>
-
       {/* Cards */}
-      <div className="mt-10 grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {pricingTiers.map((tier, i) => (
           <motion.div
             key={tier.name}
@@ -58,9 +30,9 @@ const PricingPlans = () => {
               <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{tier.description}</p>
               <div className="mt-3">
                 <span className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-                  ${annual ? tier.annualPrice : tier.monthlyPrice}
+                  ₹{tier.price.toLocaleString('en-IN')}
                 </span>
-                <span className="ml-1 text-sm text-zinc-400">/{annual ? 'yr' : 'mo'}</span>
+                <span className="ml-1 text-sm text-zinc-400">{tier.priceLabel ? `+ (${tier.priceLabel})` : '+'}</span>
               </div>
             </div>
 

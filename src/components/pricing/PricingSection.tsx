@@ -1,9 +1,7 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import PricingCard from './PricingCard';
-import BillingToggle from './BillingToggle';
 import ComparisonTable from './ComparisonTable';
 import GuaranteeBanner from './GuaranteeBanner';
 import PricingFAQ from './PricingFAQ';
@@ -28,8 +26,6 @@ const headerItem = {
 };
 
 const PricingSection = () => {
-  const [yearly, setYearly] = useState(false);
-
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24">
       {/* Background */}
@@ -77,16 +73,12 @@ const PricingSection = () => {
               businesses, and enterprise teams. No hidden fees, no surprises.
             </motion.p>
 
-            {/* Toggle */}
-            <motion.div variants={headerItem}>
-              <BillingToggle yearly={yearly} onChange={setYearly} />
-            </motion.div>
           </motion.div>
 
           {/* ── Pricing Cards ── */}
-          <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {plans.map((plan, i) => (
-              <PricingCard key={plan.id} plan={plan} yearly={yearly} index={i} />
+              <PricingCard key={plan.id} plan={plan} index={i} />
             ))}
           </div>
 
@@ -97,7 +89,7 @@ const PricingSection = () => {
           <GuaranteeBanner />
 
           {/* ── FAQ ── */}
-          <PricingFAQ />
+          {/* <PricingFAQ /> */}
         </div>
       </div>
     </section>
