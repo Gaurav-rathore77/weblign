@@ -35,7 +35,7 @@ const BlogCard = ({ post, index }: { post: BlogPost; index: number }) => (
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: 32 }}
     transition={{ delay: index * 0.05, duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
-    className="group flex flex-col overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-lg shadow-zinc-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-900"
+    className="group flex flex-col overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-lg shadow-zinc-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-100"
   >
     <a href={post.href} className="flex flex-1 flex-col">
       {/* Image */}

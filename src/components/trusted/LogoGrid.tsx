@@ -38,7 +38,7 @@ const LogoGrid = () => {
               duration: 0.4,
               ease: [0.22, 1, 0.36, 1] as const,
             }}
-            className="flex items-center justify-center rounded-xl border border-zinc-100 bg-white/50 px-4 py-5 shadow-xs dark:border-zinc-800 dark:bg-zinc-900/50"
+            className="flex items-center justify-center rounded-xl border border-zinc-100 bg-white/50 px-4 py-5 shadow-xs dark:border-zinc-800 dark:bg-zinc-100/50"
           >
             <LogoItem name={name} />
           </motion.div>

@@ -147,7 +147,7 @@ const ServicesGrid = () => {
                       {activeService.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="rounded-full border border-zinc-200 bg-white px-3.5 py-1.5 text-xs font-medium text-zinc-700 shadow-xs dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300"
+                          className="rounded-full border border-zinc-200 bg-white px-3.5 py-1.5 text-xs font-medium text-zinc-700 shadow-xs dark:border-zinc-700 dark:bg-zinc-100 dark:text-zinc-300"
                         >
                           {tech}
                         </span>

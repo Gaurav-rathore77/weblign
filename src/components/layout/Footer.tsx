@@ -53,7 +53,10 @@ const Footer = () => {
     <>
       <BackToTop />
 
-      <footer className="relative overflow-hidden bg-gradient-to-b from-[#09090b] via-[#18181b] to-black" role="contentinfo">
+      <footer
+        className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-white dark:from-[#09090b] dark:via-[#18181b] dark:to-black"
+        role="contentinfo"
+      >
         {/* Background glow */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
           <div className="absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-primary/[0.03] blur-3xl" />
@@ -81,14 +84,14 @@ const Footer = () => {
                 className="lg:col-span-2"
               >
                 <motion.div variants={footerItem}>
-                  <Logo showText className="text-white hover:text-white/80" />
+                  <Logo showText className="text-zinc-800 hover:text-zinc-600 dark:text-white dark:hover:text-white/80" />
                 </motion.div>
-                <motion.p variants={footerItem} className="mt-4 text-sm leading-relaxed text-white/40">
+                <motion.p variants={footerItem} className="mt-4 text-sm leading-relaxed text-zinc-500 dark:text-white/40">
                   We build beautiful, functional, and user-centered digital
                   products that help businesses grow and succeed in the digital
                   landscape.
                 </motion.p>
-                <motion.p variants={footerItem} className="mt-3 text-sm leading-relaxed text-white/30">
+                <motion.p variants={footerItem} className="mt-3 text-sm leading-relaxed text-zinc-400 dark:text-white/30">
                   Our mission is to empower businesses with cutting-edge
                   technology, exceptional design, and transparent collaboration.
                 </motion.p>
@@ -115,20 +118,20 @@ const Footer = () => {
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
                 className="lg:col-span-1"
               >
-                <h3 className="mb-4 text-sm font-semibold text-white">Contact</h3>
+                <h3 className="mb-4 text-sm font-semibold text-zinc-800 dark:text-white">Contact</h3>
                 <ul className="space-y-3">
                   {contactDetails.map((detail) => (
                     <li key={detail.label}>
                       {detail.href ? (
                         <a
                           href={detail.href}
-                          className="group inline-flex items-center gap-2.5 text-sm text-white/40 transition-colors duration-200 hover:text-white/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50"
+                          className="group inline-flex items-center gap-2.5 text-sm text-zinc-500 transition-colors duration-200 hover:text-zinc-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 dark:text-white/40 dark:hover:text-white/80 dark:focus-visible:outline-white/50"
                         >
                           <span className="text-sm" aria-hidden="true"><FooterIcon name={detail.icon} className="h-4 w-4" /></span>
                           <span>{detail.value}</span>
                         </a>
                       ) : (
-                        <span className="inline-flex items-center gap-2.5 text-sm text-white/40">
+                        <span className="inline-flex items-center gap-2.5 text-sm text-zinc-500 dark:text-white/40">
                           <span className="text-sm" aria-hidden="true"><FooterIcon name={detail.icon} className="h-4 w-4" /></span>
                           <span>{detail.value}</span>
                         </span>
@@ -152,34 +155,34 @@ const Footer = () => {
           </div>
 
           {/* ── Divider ── */}
-          <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" aria-hidden="true" />
+          <div className="h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent dark:via-white/10" aria-hidden="true" />
 
           {/* ── Bottom Bar ── */}
           <div className="flex flex-col items-center justify-between gap-4 py-6 sm:flex-row sm:gap-0">
-            <p className="text-xs text-white/30">
+            <p className="text-xs text-zinc-400 dark:text-white/30">
               &copy; {year} Weblign. All rights reserved.
             </p>
 
             <nav aria-label="Footer legal links" className="flex flex-wrap items-center gap-x-5 gap-y-2">
               <Link
                 href="/privacy"
-                className="text-xs text-white/30 transition-colors duration-200 hover:text-white/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50"
+                className="text-xs text-zinc-400 transition-colors duration-200 hover:text-zinc-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 dark:text-white/30 dark:hover:text-white/60 dark:focus-visible:outline-white/50"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="text-xs text-white/30 transition-colors duration-200 hover:text-white/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50"
+                className="text-xs text-zinc-400 transition-colors duration-200 hover:text-zinc-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 dark:text-white/30 dark:hover:text-white/60 dark:focus-visible:outline-white/50"
               >
                 Terms of Service
               </Link>
               <Link
                 href="/cookies"
-                className="text-xs text-white/30 transition-colors duration-200 hover:text-white/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50"
+                className="text-xs text-zinc-400 transition-colors duration-200 hover:text-zinc-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 dark:text-white/30 dark:hover:text-white/60 dark:focus-visible:outline-white/50"
               >
                 Cookies Policy
               </Link>
-              <span className="inline-flex items-center gap-1 text-xs text-white/20">
+              <span className="inline-flex items-center gap-1 text-xs text-zinc-300 dark:text-white/20">
                 Made with <HiHeart className="h-4 w-4 text-red-500" /> using Next.js
               </span>
             </nav>

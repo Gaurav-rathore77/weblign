@@ -166,7 +166,7 @@ const AboutStory = () => {
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const, delay: i * 0.08 }}
                   whileHover={{ y: -4 }}
-                  className="group rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900"
+                  className="group rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-100"
                 >
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/[0.06] text-xl dark:bg-primary/[0.1]">
                     <ValIcon name={v.icon} className="h-6 w-6" />
@@ -226,7 +226,7 @@ const AboutStory = () => {
                     >
                       <div className={`hidden lg:block lg:w-1/2 ${isLeft ? 'lg:pr-12 lg:text-right' : 'lg:pl-12'}`}>
                         <div
-                          className={`inline-block rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all duration-300 dark:border-zinc-800 dark:bg-zinc-900 ${
+                          className={`inline-block rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all duration-300 dark:border-zinc-800 dark:bg-zinc-100 ${
                             hoveredMilestone === i
                               ? 'border-primary/30 shadow-md dark:border-primary/40'
                               : ''
@@ -249,12 +249,12 @@ const AboutStory = () => {
                           className={`z-10 h-4 w-4 rounded-full border-2 transition-colors duration-300 ${
                             hoveredMilestone === i
                               ? 'border-primary bg-primary'
-                              : 'border-zinc-300 bg-white dark:border-zinc-600 dark:bg-zinc-900'
+                              : 'border-zinc-300 bg-white dark:border-zinc-600 dark:bg-zinc-100'
                           }`}
                         />
                       </div>
 
-                      <div className="lg:hidden rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
+                      <div className="lg:hidden rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-100">
                         <span className="inline-block rounded-full bg-primary/[0.08] px-3 py-0.5 text-xs font-semibold text-primary">
                           {m.year}
                         </span>

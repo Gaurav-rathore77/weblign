@@ -36,7 +36,7 @@ const BlogCTA = () => {
           type="email"
           required
           placeholder="Enter your email"
-          className="min-w-0 flex-1 rounded-full border border-zinc-200 bg-white px-5 py-3 text-sm text-zinc-900 placeholder-zinc-400 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder-zinc-500 dark:focus:border-primary/50 dark:focus:ring-primary/20"
+          className="min-w-0 flex-1 rounded-full border border-zinc-200 bg-white px-5 py-3 text-sm text-zinc-900 placeholder-zinc-400 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-100 dark:text-zinc-100 dark:placeholder-zinc-500 dark:focus:border-primary/50 dark:focus:ring-primary/20"
         />
         <button
           type="submit"

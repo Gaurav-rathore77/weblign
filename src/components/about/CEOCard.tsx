@@ -8,7 +8,7 @@ const CEOCard = () => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: '-80px' }}
     transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-    className="relative overflow-hidden rounded-2xl border border-zinc-100/80 bg-white/60 p-8 shadow-lg shadow-zinc-900/5 backdrop-blur-xl sm:p-10 dark:border-zinc-700/80 dark:bg-zinc-900/60"
+    className="relative overflow-hidden rounded-2xl border border-zinc-100/80 bg-white/60 p-8 shadow-lg shadow-zinc-900/5 backdrop-blur-xl sm:p-10 dark:border-zinc-700/80 dark:bg-zinc-100/60"
   >
     {/* Decorative gradient */}
     <div className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-primary/[0.04] blur-3xl" aria-hidden="true" />

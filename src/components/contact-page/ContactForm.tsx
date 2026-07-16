@@ -39,7 +39,7 @@ const ContactForm = () => {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
         className="lg:col-span-3"
       >
-        <div className="rounded-2xl border border-zinc-100 bg-white p-6 shadow-lg sm:p-8 dark:border-zinc-800 dark:bg-zinc-900">
+        <div className="rounded-2xl border border-zinc-100 bg-white p-6 shadow-lg sm:p-8 dark:border-zinc-800 dark:bg-zinc-100">
           {submitted ? (
             <div className="flex flex-col items-center justify-center py-12 text-center">
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-50 dark:bg-emerald-900/30">
@@ -135,7 +135,7 @@ const ContactForm = () => {
           {contactInfo.map((item) => (
             <div
               key={item.label}
-              className="rounded-xl border border-zinc-100 bg-white p-5 shadow-xs transition-shadow duration-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900"
+              className="rounded-xl border border-zinc-100 bg-white p-5 shadow-xs transition-shadow duration-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-100"
             >
               <div className="flex items-center gap-3">
                 <span aria-hidden="true" className="text-xl"><ContactIcon name={item.emoji} className="h-5 w-5" /></span>

@@ -47,7 +47,7 @@ const AboutCTA = () => {
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Link
                 href="/portfolio"
-                className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-8 py-3 text-sm font-semibold text-zinc-700 shadow-sm transition-all duration-300 hover:border-zinc-300 hover:-translate-y-0.5 hover:shadow-md dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-zinc-600"
+                className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-8 py-3 text-sm font-semibold text-zinc-700 shadow-sm transition-all duration-300 hover:border-zinc-300 hover:-translate-y-0.5 hover:shadow-md dark:border-zinc-700 dark:bg-zinc-100 dark:text-zinc-300 dark:hover:border-zinc-600"
               >
                 View Our Work
               </Link>

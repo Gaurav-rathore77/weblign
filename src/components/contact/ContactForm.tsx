@@ -141,7 +141,7 @@ const ContactForm = () => {
         <Input
           label="Phone Number"
           type="tel"
-          placeholder="+1 (555) 000-0000"
+          placeholder="+91 00000 00000"
           required
           value={form.phone}
           onChange={(e) => update('phone', e.target.value)}

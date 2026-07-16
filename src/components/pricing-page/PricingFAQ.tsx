@@ -39,7 +39,7 @@ const PricingFAQ = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ delay: i * 0.05, duration: 0.4 }}
-              className={`overflow-hidden rounded-xl border transition-colors duration-300 ${isOpen ? 'border-primary/20 bg-primary/[0.02] dark:bg-primary/[0.04]' : 'border-zinc-100 bg-white dark:border-zinc-800 dark:bg-zinc-900'}`}
+              className={`overflow-hidden rounded-xl border transition-colors duration-300 ${isOpen ? 'border-primary/30 bg-primary/[0.04] dark:bg-primary/[0.08]' : 'border-zinc-100 bg-white dark:border-zinc-700 dark:bg-zinc-100'}`}
             >
               <button
                 type="button"
@@ -47,7 +47,7 @@ const PricingFAQ = () => {
                 className="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-semibold text-zinc-900 transition-colors hover:text-primary sm:px-6 dark:text-zinc-100 dark:hover:text-primary"
               >
                 {faq.q}
-                <span className={`ml-4 flex h-6 w-6 shrink-0 items-center justify-center rounded-full transition-colors ${isOpen ? 'bg-primary/10 text-primary' : 'bg-zinc-100 text-zinc-400 dark:bg-zinc-800 dark:text-zinc-500'}`}>
+                <span className={`ml-4 flex h-6 w-6 shrink-0 items-center justify-center rounded-full transition-colors ${isOpen ? 'bg-primary/10 text-primary' : 'bg-zinc-100 text-zinc-400 dark:bg-zinc-700 dark:text-zinc-400'}`}>
                   {isOpen ? <HiMinus className="h-3 w-3" /> : <HiPlus className="h-3 w-3" />}
                 </span>
               </button>
@@ -61,7 +61,7 @@ const PricingFAQ = () => {
                     transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] as const }}
                     className="overflow-hidden"
                   >
-                    <div className="border-t border-zinc-100 px-5 pb-4 pt-3 text-sm leading-relaxed text-zinc-500 sm:px-6 dark:border-zinc-800 dark:text-zinc-400">
+                    <div className="border-t border-zinc-100 px-5 pb-4 pt-3 text-sm leading-relaxed text-zinc-600 sm:px-6 dark:border-zinc-700 dark:text-zinc-300">
                       {faq.a}
                     </div>
                   </motion.div>

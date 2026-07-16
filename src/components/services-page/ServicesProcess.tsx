@@ -48,11 +48,11 @@ const ServicesProcess = () => {
                 className="relative sm:ml-16 sm:pb-12"
               >
                 {/* Number circle — on the line */}
-                <div className="absolute -left-10 top-0 hidden sm:flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-700">
+                <div className="absolute -left-10 top-0 hidden sm:flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-zinc-200 dark:bg-zinc-100 dark:ring-zinc-700">
                   <span className="text-xs font-bold text-primary">{step.number}</span>
                 </div>
 
-                <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
+                <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-100">
                   <div className="flex items-center gap-3 sm:hidden">
                     <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/[0.08] text-xs font-bold text-primary">
                       {step.number}

@@ -11,24 +11,24 @@ export const contactInfo: ContactInfoItem[] = [
   {
     icon: <Mail className="h-5 w-5" />,
     title: 'Email',
-    value: 'hello@weblign.com',
-    href: 'mailto:hello@weblign.com',
+    value: 'Sachinr2012022@gmail.com',
+    href: 'mailto:Sachinr2012022@gmail.com',
   },
   {
     icon: <Phone className="h-5 w-5" />,
     title: 'Phone',
-    value: '+1 (555) 123-4567',
-    href: 'tel:+15551234567',
+    value: '+91 9315051726',
+    href: 'tel:+919315051726',
   },
   {
     icon: <MapPin className="h-5 w-5" />,
     title: 'Location',
-    value: 'San Francisco, CA',
+    value: 'India',
   },
   {
     icon: <Clock className="h-5 w-5" />,
     title: 'Working Hours',
-    value: 'Mon – Fri, 9 AM – 6 PM PST',
+    value: 'Mon – Sat, 10 AM – 7 PM IST',
   },
 ];
 
@@ -111,6 +111,6 @@ export const faqItems: FAQItem[] = [
   {
     question: 'How do we get started?',
     answer:
-      'Getting started is simple. Fill out the contact form or email us at hello@weblign.com. We\'ll schedule a free discovery call to understand your goals, then provide a proposal and timeline within 48 hours.',
+      'Getting started is simple. Fill out the contact form or email us at Sachinr2012022@gmail.com. We\'ll schedule a free discovery call to understand your goals, then provide a proposal and timeline within 48 hours.',
   },
 ];

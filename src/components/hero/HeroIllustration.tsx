@@ -95,7 +95,7 @@ const HeroIllustration = () => {
       <div className="relative aspect-[4/4] w-full">
         {/* ── Browser window ── */}
         <motion.div
-          className="relative z-10 h-full w-full overflow-hidden rounded-2xl border border-zinc-200/60 bg-white shadow-xl shadow-zinc-900/5 dark:border-zinc-700/60 dark:bg-zinc-900"
+          className="relative z-10 h-full w-full overflow-hidden rounded-2xl border border-zinc-200/60 bg-white shadow-xl shadow-zinc-900/5 dark:border-zinc-700/60 dark:bg-zinc-100"
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }}
@@ -150,7 +150,7 @@ const HeroIllustration = () => {
           yOffset={-20}
           className="absolute -right-4 -top-3 z-20"
         >
-          <div className="w-44 rounded-xl border border-zinc-100/80 bg-white/70 p-4 shadow-lg shadow-zinc-900/5 backdrop-blur-xl dark:border-zinc-700/80 dark:bg-zinc-900/70">
+          <div className="w-44 rounded-xl border border-zinc-100/80 bg-white/70 p-4 shadow-lg shadow-zinc-900/5 backdrop-blur-xl dark:border-zinc-700/80 dark:bg-zinc-100/70">
             <div className="mb-2 flex items-center justify-between">
               <span className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Page Views</span>
               <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-600 dark:bg-emerald-900/40 dark:text-emerald-400">
@@ -169,7 +169,7 @@ const HeroIllustration = () => {
           yOffset={20}
           className="absolute bottom-1 -left-6 z-20"
         >
-          <div className="flex w-52 items-center gap-3 rounded-xl border border-zinc-100/80 bg-white/70 p-3 shadow-lg shadow-zinc-900/5 backdrop-blur-xl dark:border-zinc-700/80 dark:bg-zinc-900/70">
+          <div className="flex w-52 items-center gap-3 rounded-xl border border-zinc-100/80 bg-white/70 p-3 shadow-lg shadow-zinc-900/5 backdrop-blur-xl dark:border-zinc-700/80 dark:bg-zinc-100/70">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-[11px] font-bold text-white">
               SR
             </div>
@@ -187,7 +187,7 @@ const HeroIllustration = () => {
           yOffset={15}
           className="absolute bottom-2 -right-3 z-20"
         >
-          <div className="w-36 rounded-xl border border-zinc-100/80 bg-white/70 p-3 shadow-lg shadow-zinc-900/5 backdrop-blur-xl dark:border-zinc-700/80 dark:bg-zinc-900/70">
+          <div className="w-36 rounded-xl border border-zinc-100/80 bg-white/70 p-3 shadow-lg shadow-zinc-900/5 backdrop-blur-xl dark:border-zinc-700/80 dark:bg-zinc-100/70">
             <span className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Avg. Revenue</span>
             <p className="mt-0.5 text-lg font-bold text-zinc-900 dark:text-zinc-100">$12,847</p>
             <div className="mt-1 flex items-center gap-1 text-[11px] text-emerald-600">
@@ -206,7 +206,7 @@ const HeroIllustration = () => {
           yOffset={-25}
           className="absolute right-8 top-2 z-20"
         >
-          <div className="relative flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-100/80 bg-white/70 shadow-md shadow-zinc-900/5 backdrop-blur-xl dark:border-zinc-700/80 dark:bg-zinc-900/70">
+          <div className="relative flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-100/80 bg-white/70 shadow-md shadow-zinc-900/5 backdrop-blur-xl dark:border-zinc-700/80 dark:bg-zinc-100/70">
             <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 text-zinc-500 dark:text-zinc-400" aria-hidden="true">
               <path
                 d="M10 2a6 6 0 00-6 6v3l-1.5 2.5a.5.5 0 00.43.75h14.14a.5.5 0 00.43-.75L16 11V8a6 6 0 00-6-6z"

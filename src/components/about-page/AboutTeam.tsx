@@ -43,7 +43,7 @@ const AboutTeam = () => {
               <motion.div
                 key={s.label}
                 variants={item}
-                className="rounded-2xl border border-zinc-200 bg-white p-6 text-center shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
+                className="rounded-2xl border border-zinc-200 bg-white p-6 text-center shadow-sm dark:border-zinc-800 dark:bg-zinc-100"
               >
                 <span className="block text-3xl font-bold tracking-tight text-primary">
                   {s.value}
@@ -94,7 +94,7 @@ const AboutTeam = () => {
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const, delay: i * 0.1 }}
                   whileHover={{ y: -4 }}
-                  className="group rounded-2xl border border-zinc-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-primary/20 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-primary/30"
+                  className="group rounded-2xl border border-zinc-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-primary/20 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-100 dark:hover:border-primary/30"
                 >
                   {member.photo ? (
                     <img

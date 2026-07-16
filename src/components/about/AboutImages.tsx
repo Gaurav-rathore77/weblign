@@ -69,7 +69,7 @@ const AboutImages = () => {
               priority
             />
             {/* Glassmorphism overlay badge */}
-            <div className="absolute bottom-3 left-3 right-auto inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/60 px-3 py-2 text-xs font-medium text-zinc-700 shadow-xs backdrop-blur-md dark:bg-zinc-900/60 dark:text-zinc-300">
+            <div className="absolute bottom-3 left-3 right-auto inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/60 px-3 py-2 text-xs font-medium text-zinc-700 shadow-xs backdrop-blur-md dark:bg-zinc-100/60 dark:text-zinc-300">
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/10 text-[10px] text-primary">
                 <svg viewBox="0 0 16 16" fill="currentColor" className="h-3 w-3" aria-hidden="true">
                   <path d="M8 0a1 1 0 011 1v.89A6 6 0 0114.11 7H15a1 1 0 110 2h-.89A6 6 0 019 14.11V15a1 1 0 11-2 0v-.89A6 6 0 011.89 9H1a1 1 0 110-2h.89A6 6 0 017 1.89V1a1 1 0 011-1z" />

@@ -44,10 +44,10 @@ export const companyLinks: CompanyLink[] = [
 ];
 
 export const contactDetails: ContactDetail[] = [
-  { icon: 'HiOutlineEnvelope', label: 'Email', value: 'hello@weblign.com', href: 'mailto:hello@weblign.com' },
-  { icon: 'HiOutlinePhone', label: 'Phone', value: '+1 (555) 123-4567', href: 'tel:+15551234567' },
-  { icon: 'HiOutlineMapPin', label: 'Location', value: 'San Francisco, CA' },
-  { icon: 'HiOutlineClock', label: 'Hours', value: 'Mon – Fri, 9 AM – 6 PM PST' },
+  { icon: 'HiOutlineEnvelope', label: 'Email', value: 'Sachinr2012022@gmail.com', href: 'mailto:Sachinr2012022@gmail.com' },
+  { icon: 'HiOutlinePhone', label: 'Phone', value: '+91 9315051726', href: 'tel:+919315051726' },
+  { icon: 'HiOutlineMapPin', label: 'Location', value: 'India' },
+  { icon: 'HiOutlineClock', label: 'Hours', value: 'Mon – Sat, 10 AM – 7 PM IST' },
 ];
 
 export const socialPlatforms: SocialPlatform[] = [

@@ -110,7 +110,7 @@ const AchievementCounter = () => {
             duration: 0.5,
             ease: [0.22, 1, 0.36, 1] as const,
           }}
-          className="flex flex-col items-center rounded-2xl border border-zinc-100 bg-white p-6 text-center shadow-xs dark:border-zinc-700 dark:bg-zinc-900"
+          className="flex flex-col items-center rounded-2xl border border-zinc-100 bg-white p-6 text-center shadow-xs dark:border-zinc-700 dark:bg-zinc-100"
         >
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/[0.06] text-primary">
             {item.icon}

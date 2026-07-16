@@ -34,17 +34,17 @@ export const socialLinks = {
 };
 
 export const contactInfo = {
-  email: 'hello@weblign.com',
-  phone: '+1 (555) 123-4567',
+  email: 'Sachinr2012022@gmail.com',
+  phone: '+91 9315051726',
   address: {
-    street: '123 Design Street',
-    city: 'San Francisco',
-    state: 'CA',
-    zipCode: '94102',
-    country: 'United States',
+    street: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    country: 'India',
   },
   hours: {
-    weekdays: 'Monday - Friday: 9:00 AM - 6:00 PM',
-    weekend: 'Saturday - Sunday: Closed',
+    weekdays: 'Monday - Saturday: 10:00 AM - 7:00 PM',
+    weekend: 'Sunday: Closed',
   },
 };

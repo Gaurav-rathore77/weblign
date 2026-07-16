@@ -20,7 +20,7 @@ const FeatureCard = ({ icon, title, description, index }: FeatureCardProps) => (
       ease: [0.22, 1, 0.36, 1] as const,
     }}
     whileHover={{ y: -3 }}
-    className="group flex gap-4 rounded-xl border border-zinc-100 bg-white p-4 shadow-xs transition-shadow duration-300 hover:shadow-md hover:shadow-zinc-900/5 dark:border-zinc-700 dark:bg-zinc-900"
+    className="group flex gap-4 rounded-xl border border-zinc-100 bg-white p-4 shadow-xs transition-shadow duration-300 hover:shadow-md hover:shadow-zinc-900/5 dark:border-zinc-700 dark:bg-zinc-100"
   >
     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/[0.06] text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
       {icon}

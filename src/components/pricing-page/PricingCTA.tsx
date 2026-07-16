@@ -10,7 +10,7 @@ const PricingCTA = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-      className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 via-primary/[0.04] to-accent/10 p-8 text-center shadow-lg sm:p-12 dark:from-primary/5 dark:to-accent/5"
+      className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 via-primary/[0.04] to-accent/10 p-8 text-center shadow-lg sm:p-12 dark:from-primary/20 dark:via-primary/10 dark:to-accent/20"
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.02]"
@@ -38,7 +38,7 @@ const PricingCTA = () => {
         </a>
         <a
           href="#"
-          className="inline-flex items-center gap-2 rounded-full border border-zinc-200 px-6 py-3 text-sm font-semibold text-zinc-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-sm dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-600"
+          className="inline-flex items-center gap-2 rounded-full border border-zinc-200 px-6 py-3 text-sm font-semibold text-zinc-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-sm dark:border-zinc-600 dark:text-zinc-300 dark:hover:border-zinc-500"
         >
           Email Us Instead
         </a>
