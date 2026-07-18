@@ -1,9 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import PortfolioGrid from './PortfolioGrid';
+import PortfolioCarousel from './PortfolioCarousel';
+import PortfolioModal from './PortfolioModal';
 import FeaturedCaseStudy from './FeaturedCaseStudy';
 import { HiOutlineBriefcase } from 'react-icons/hi2';
+import { projects } from './portfolioData';
 
 const headerVariants = {
   hidden: { opacity: 0 },
@@ -23,8 +26,10 @@ const headerItem = {
 };
 
 const PortfolioSection = () => {
+  const [selectedProject, setSelectedProject] = useState<typeof projects[number] | null>(null);
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24">
+    <section className="relative bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24 dark:from-zinc-950 dark:via-zinc-900/30 dark:to-zinc-950">
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -right-32 top-1/4 h-80 w-80 rounded-full bg-primary/[0.02] blur-3xl" />
@@ -72,13 +77,18 @@ const PortfolioSection = () => {
             </motion.p>
           </motion.div>
 
-          {/* ── Portfolio Grid with Filters + Modal ── */}
-          <PortfolioGrid />
+          {/* ── Portfolio Carousel ── */}
+          <PortfolioCarousel projects={projects} onSelect={setSelectedProject} />
 
           {/* ── Featured Case Study ── */}
           <FeaturedCaseStudy />
         </div>
       </div>
+
+      <PortfolioModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   );
 };

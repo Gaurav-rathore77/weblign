@@ -18,7 +18,7 @@ export default function PortfolioPage() {
   return (
     <>
       <PortfolioHero />
-      <section className="bg-zinc-50/50 py-20 sm:py-28 dark:bg-zinc-900/30">
+      <section className="bg-zinc-50/50 pb-16 pt-10 dark:bg-zinc-900/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <PortfolioGrid />
         </div>

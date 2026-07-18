@@ -1,19 +1,48 @@
 'use client';
+import { useState } from 'react';
 
 const projects = [
-  { name: 'ICFEI India', desc: 'Exam & Learning Portal', logo: 'https://www.google.com/s2/favicons?domain=india.icfei.com&sz=64' },
-  { name: 'Future Mind Educare', desc: 'MBBS Admissions', logo: 'https://www.google.com/s2/favicons?domain=futuremindedu.in&sz=64' },
-  { name: 'Vidya Vriddhi', desc: 'College Guidance Platform', logo: 'https://www.google.com/s2/favicons?domain=vidyavriddhi.com&sz=64' },
-  { name: 'Alpha World Education', desc: 'Study Abroad Portal', logo: 'https://www.google.com/s2/favicons?domain=alphaworldeducation.com&sz=64' },
-  { name: 'Education Times Abroad', desc: 'MBBS & Study Abroad', logo: 'https://www.google.com/s2/favicons?domain=educationtimesabroad.com&sz=64' },
-  { name: 'Admission Campus', desc: 'College Admission Hub', logo: 'https://www.google.com/s2/favicons?domain=admissioncampus.in&sz=64' },
-  { name: 'ICFEI India', desc: 'Exam & Learning Portal', logo: 'https://www.google.com/s2/favicons?domain=india.icfei.com&sz=64' },
-  { name: 'Future Mind Educare', desc: 'MBBS Admissions', logo: 'https://www.google.com/s2/favicons?domain=futuremindedu.in&sz=64' },
-  { name: 'Vidya Vriddhi', desc: 'College Guidance Platform', logo: 'https://www.google.com/s2/favicons?domain=vidyavriddhi.com&sz=64' },
-  { name: 'Alpha World Education', desc: 'Study Abroad Portal', logo: 'https://www.google.com/s2/favicons?domain=alphaworldeducation.com&sz=64' },
-  { name: 'Education Times Abroad', desc: 'MBBS & Study Abroad', logo: 'https://www.google.com/s2/favicons?domain=educationtimesabroad.com&sz=64' },
-  { name: 'Admission Campus', desc: 'College Admission Hub', logo: 'https://www.google.com/s2/favicons?domain=admissioncampus.in&sz=64' },
+  { name: 'ICFEI India', desc: 'Exam & Learning Portal', url: 'https://india.icfei.com', from: 'from-blue-600', to: 'to-indigo-700', shadow: 'shadow-blue-500/20' },
+  { name: 'Future Mind Educare', desc: 'MBBS Admissions', url: 'https://futuremindedu.in', from: 'from-emerald-600', to: 'to-teal-700', shadow: 'shadow-emerald-500/20' },
+  { name: 'Vidya Vriddhi', desc: 'College Guidance Platform', url: 'https://vidyavriddhi.com', from: 'from-violet-600', to: 'to-purple-700', shadow: 'shadow-violet-500/20' },
+  { name: 'Alpha World Education', desc: 'Study Abroad Portal', url: 'https://alphaworldeducation.com', from: 'from-sky-600', to: 'to-cyan-700', shadow: 'shadow-sky-500/20' },
+  { name: 'Education Times Abroad', desc: 'MBBS & Study Abroad', url: 'https://educationtimesabroad.com', from: 'from-rose-600', to: 'to-pink-700', shadow: 'shadow-rose-500/20' },
+  { name: 'Admission Campus', desc: 'College Admission Hub', url: 'https://admissioncampus.in', from: 'from-amber-600', to: 'to-orange-700', shadow: 'shadow-amber-500/20' },
+  { name: 'ICFEI India', desc: 'Exam & Learning Portal', url: 'https://india.icfei.com', from: 'from-blue-600', to: 'to-indigo-700', shadow: 'shadow-blue-500/20' },
+  { name: 'Future Mind Educare', desc: 'MBBS Admissions', url: 'https://futuremindedu.in', from: 'from-emerald-600', to: 'to-teal-700', shadow: 'shadow-emerald-500/20' },
+  { name: 'Vidya Vriddhi', desc: 'College Guidance Platform', url: 'https://vidyavriddhi.com', from: 'from-violet-600', to: 'to-purple-700', shadow: 'shadow-violet-500/20' },
+  { name: 'Alpha World Education', desc: 'Study Abroad Portal', url: 'https://alphaworldeducation.com', from: 'from-sky-600', to: 'to-cyan-700', shadow: 'shadow-sky-500/20' },
+  { name: 'Education Times Abroad', desc: 'MBBS & Study Abroad', url: 'https://educationtimesabroad.com', from: 'from-rose-600', to: 'to-pink-700', shadow: 'shadow-rose-500/20' },
+  { name: 'Admission Campus', desc: 'College Admission Hub', url: 'https://admissioncampus.in', from: 'from-amber-600', to: 'to-orange-700', shadow: 'shadow-amber-500/20' },
 ];
+
+const initials = (name: string) =>
+  name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+
+const ProjectCard = ({ p }: { p: typeof projects[0] }) => {
+  const [imgErr, setImgErr] = useState(false);
+
+  return (
+    <div className={`inline-flex items-center gap-4 rounded-xl bg-gradient-to-br ${p.from} ${p.to} px-5 py-4 shadow-lg ${p.shadow} shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl`}>
+      {imgErr ? (
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/20 text-sm font-bold tracking-wide text-white backdrop-blur-sm">
+          {initials(p.name)}
+        </div>
+      ) : (
+        <img
+          src={`${p.url}/favicon.ico`}
+          alt={p.name}
+          className="h-10 w-10 shrink-0 rounded-lg bg-white/20 object-contain p-1 backdrop-blur-sm"
+          onError={() => setImgErr(true)}
+        />
+      )}
+      <div className="text-left">
+        <p className="text-sm font-semibold text-white">{p.name}</p>
+        <p className="text-xs text-white/70">{p.desc}</p>
+      </div>
+    </div>
+  );
+};
 
 const ProjectSlider = () => {
   return (
@@ -24,38 +53,12 @@ const ProjectSlider = () => {
       <div className="relative flex overflow-x-hidden">
         <div className="animate-marquee flex gap-5 whitespace-nowrap">
           {projects.map((p, i) => (
-            <div
-              key={`first-${i}`}
-              className="inline-flex items-center gap-3.5 rounded-xl border border-zinc-100 bg-white px-5 py-3.5 shadow-sm shadow-zinc-900/5"
-            >
-              <img
-                src={p.logo}
-                alt={p.name}
-                className="h-9 w-9 shrink-0 rounded-lg"
-              />
-              <div className="text-left">
-                <p className="text-sm font-semibold text-zinc-800">{p.name}</p>
-                <p className="text-xs text-zinc-400">{p.desc}</p>
-              </div>
-            </div>
+            <ProjectCard key={`first-${i}`} p={p} />
           ))}
         </div>
         <div className="animate-marquee2 absolute top-0 flex gap-5 whitespace-nowrap">
           {projects.map((p, i) => (
-            <div
-              key={`second-${i}`}
-              className="inline-flex items-center gap-3.5 rounded-xl border border-zinc-100 bg-white px-5 py-3.5 shadow-sm shadow-zinc-900/5"
-            >
-              <img
-                src={p.logo}
-                alt={p.name}
-                className="h-9 w-9 shrink-0 rounded-lg"
-              />
-              <div className="text-left">
-                <p className="text-sm font-semibold text-zinc-800">{p.name}</p>
-                <p className="text-xs text-zinc-400">{p.desc}</p>
-              </div>
-            </div>
+            <ProjectCard key={`second-${i}`} p={p} />
           ))}
         </div>
       </div>
