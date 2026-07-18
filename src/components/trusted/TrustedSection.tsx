@@ -86,7 +86,7 @@ const TrustedSection = () => {
             </div>
 
             {/* Heading */}
-            <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
+            <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
               Trusted by startups, growing businesses{' '}
               <span className="text-zinc-500 dark:text-zinc-400">and enterprise teams.</span>
             </h2>

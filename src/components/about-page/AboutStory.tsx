@@ -36,7 +36,7 @@ const AboutStory = () => {
   const [hoveredMilestone, setHoveredMilestone] = useState<number | null>(null);
 
   return (
-    <section className="relative overflow-hidden bg-white py-20 sm:py-24 dark:bg-zinc-950">
+    <section className="relative overflow-hidden bg-white py-20 sm:py-24">
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -right-40 top-1/4 h-96 w-96 rounded-full bg-primary/[0.02] blur-3xl" />
         <div className="absolute -left-40 bottom-1/4 h-80 w-80 rounded-full bg-accent/[0.02] blur-3xl" />
@@ -60,7 +60,7 @@ const AboutStory = () => {
               </motion.div>
               <motion.h2
                 variants={item}
-                className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100"
+                className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl"
               >
                 From a Bold Idea to a{' '}
                 <span className="text-zinc-500 dark:text-zinc-400">Trusted Digital Agency</span>
@@ -93,10 +93,10 @@ const AboutStory = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-                className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50/80 to-white p-8 shadow-sm dark:border-zinc-800 dark:from-zinc-900/50 dark:to-zinc-950"
+                className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50/80 to-white p-8 shadow-sm dark:border-zinc-800"
               >
                 <HiOutlineAdjustmentsHorizontal className="h-8 w-8" aria-hidden="true" />
-                <h3 className="mt-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                <h3 className="mt-4 text-lg font-semibold text-zinc-900">
                   Our Mission
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
@@ -112,10 +112,10 @@ const AboutStory = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const, delay: 0.15 }}
-                className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50/80 to-white p-8 shadow-sm dark:border-zinc-800 dark:from-zinc-900/50 dark:to-zinc-950"
+                className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50/80 to-white p-8 shadow-sm dark:border-zinc-800"
               >
                 <HiOutlineMagnifyingGlass className="h-8 w-8" aria-hidden="true" />
-                <h3 className="mt-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                <h3 className="mt-4 text-lg font-semibold text-zinc-900">
                   Our Vision
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
@@ -144,7 +144,7 @@ const AboutStory = () => {
               </motion.div>
               <motion.h2
                 variants={item}
-                className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100"
+                className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl"
               >
                 What We Stand For
               </motion.h2>
@@ -171,7 +171,7 @@ const AboutStory = () => {
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/[0.06] text-xl dark:bg-primary/[0.1]">
                     <ValIcon name={v.icon} className="h-6 w-6" />
                   </div>
-                  <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
+                  <h3 className="text-base font-semibold text-zinc-900">
                     {v.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
@@ -199,7 +199,7 @@ const AboutStory = () => {
               </motion.div>
               <motion.h2
                 variants={item}
-                className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100"
+                className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl"
               >
                 Key Milestones
               </motion.h2>
@@ -235,7 +235,7 @@ const AboutStory = () => {
                           <span className="inline-block rounded-full bg-primary/[0.08] px-3 py-0.5 text-xs font-semibold text-primary">
                             {m.year}
                           </span>
-                          <h3 className="mt-2 text-base font-semibold text-zinc-900 dark:text-zinc-100">
+                          <h3 className="mt-2 text-base font-semibold text-zinc-900">
                             {m.title}
                           </h3>
                           <p className="mt-1 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
@@ -258,7 +258,7 @@ const AboutStory = () => {
                         <span className="inline-block rounded-full bg-primary/[0.08] px-3 py-0.5 text-xs font-semibold text-primary">
                           {m.year}
                         </span>
-                        <h3 className="mt-2 text-base font-semibold text-zinc-900 dark:text-zinc-100">
+                        <h3 className="mt-2 text-base font-semibold text-zinc-900">
                           {m.title}
                         </h3>
                         <p className="mt-1 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">

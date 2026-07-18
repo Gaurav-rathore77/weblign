@@ -24,7 +24,7 @@ const PricingFAQ = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
         transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }}
-        className="mb-10 text-center text-3xl font-bold text-zinc-900 sm:text-4xl dark:text-zinc-100"
+        className="mb-10 text-center text-3xl font-bold text-zinc-900 sm:text-4xl"
       >
         Frequently Asked Questions
       </motion.h3>
@@ -44,7 +44,7 @@ const PricingFAQ = () => {
               <button
                 type="button"
                 onClick={() => setOpenIndex(isOpen ? null : i)}
-                className="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-semibold text-zinc-900 transition-colors hover:text-primary sm:px-6 dark:text-zinc-100 dark:hover:text-primary"
+                className="flex w-full items-center justify-between px-5 py-4 text-left text-sm font-semibold text-zinc-900 transition-colors hover:text-primary sm:px-6 dark:hover:text-primary"
               >
                 {faq.q}
                 <span className={`ml-4 flex h-6 w-6 shrink-0 items-center justify-center rounded-full transition-colors ${isOpen ? 'bg-primary/10 text-primary' : 'bg-zinc-100 text-zinc-400 dark:bg-zinc-700 dark:text-zinc-400'}`}>

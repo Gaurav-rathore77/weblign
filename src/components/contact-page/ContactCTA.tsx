@@ -34,7 +34,7 @@ const ContactCTA = () => {
           backgroundSize: '30px 30px',
         }}
       />
-      <h2 className="text-2xl font-bold text-zinc-900 sm:text-3xl dark:text-zinc-100">
+      <h2 className="text-2xl font-bold text-zinc-900 sm:text-3xl">
         Prefer Another Channel?
       </h2>
       <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">

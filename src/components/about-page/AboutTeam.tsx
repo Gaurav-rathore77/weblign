@@ -23,7 +23,7 @@ const item = {
 
 const AboutTeam = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24 dark:from-zinc-950 dark:via-zinc-900/20 dark:to-zinc-950">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24">
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -left-32 top-1/3 h-72 w-72 rounded-full bg-primary/[0.02] blur-3xl" />
         <div className="absolute -right-32 bottom-1/3 h-80 w-80 rounded-full bg-accent/[0.02] blur-3xl" />
@@ -72,7 +72,7 @@ const AboutTeam = () => {
               </motion.div>
               <motion.h2
                 variants={item}
-                className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100"
+                className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl"
               >
                 Meet the People Behind the Products
               </motion.h2>
@@ -111,7 +111,7 @@ const AboutTeam = () => {
                       </span>
                     </div>
                   )}
-                  <h3 className="mt-4 text-base font-semibold text-zinc-900 dark:text-zinc-100">
+                  <h3 className="mt-4 text-base font-semibold text-zinc-900">
                     {member.name}
                   </h3>
                   <p className="text-sm font-medium text-primary">{member.role}</p>

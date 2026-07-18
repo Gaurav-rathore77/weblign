@@ -29,7 +29,7 @@ const PortfolioSection = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projects[number] | null>(null);
 
   return (
-    <section className="relative bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24 dark:from-zinc-950 dark:via-zinc-900/30 dark:to-zinc-950">
+    <section className="relative bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24">
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -right-32 top-1/4 h-80 w-80 rounded-full bg-primary/[0.02] blur-3xl" />

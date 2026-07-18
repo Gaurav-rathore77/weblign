@@ -74,7 +74,7 @@ const ProcessTimeline = () => {
             <div className="mt-3 text-xs font-semibold uppercase tracking-widest text-primary">
               Step {step.number}
             </div>
-            <h4 className="mt-1 text-lg font-semibold text-zinc-900 dark:text-zinc-100">{step.title}</h4>
+            <h4 className="mt-1 text-lg font-semibold text-zinc-900">{step.title}</h4>
             <p className="mt-1 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">{step.description}</p>
           </motion.div>
         ))}
@@ -110,7 +110,7 @@ const ProcessTimeline = () => {
               <div className="text-xs font-semibold uppercase tracking-widest text-primary">
                 Step {step.number}
               </div>
-              <h4 className="mt-0.5 text-base font-semibold text-zinc-900 dark:text-zinc-100">{step.title}</h4>
+              <h4 className="mt-0.5 text-base font-semibold text-zinc-900">{step.title}</h4>
               <p className="mt-1 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">{step.description}</p>
             </div>
           </motion.div>

@@ -78,7 +78,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
-          className="fixed inset-0 z-50 flex flex-col bg-white dark:bg-zinc-950 lg:hidden"
+          className="fixed inset-0 z-50 flex flex-col bg-white lg:hidden"
           initial={{ x: '100%' }}
           animate={{ x: 0 }}
           exit={{ x: '100%' }}

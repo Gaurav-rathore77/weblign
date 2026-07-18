@@ -38,7 +38,7 @@ const FeaturedCaseStudy = () => {
                 <img src={p.image} alt="" className="h-8 w-8 rounded-lg" />
               )}
               <div>
-                <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Future Mind Educare</div>
+                <div className="text-sm font-semibold text-zinc-900">Future Mind Educare</div>
                 <div className="text-xs text-zinc-500 dark:text-zinc-400">Featured Case Study</div>
               </div>
             </div>

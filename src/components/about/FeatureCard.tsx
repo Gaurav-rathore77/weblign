@@ -26,7 +26,7 @@ const FeatureCard = ({ icon, title, description, index }: FeatureCardProps) => (
       {icon}
     </div>
     <div className="min-w-0">
-      <h4 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{title}</h4>
+      <h4 className="text-sm font-semibold text-zinc-900">{title}</h4>
       <p className="mt-0.5 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">{description}</p>
     </div>
   </motion.div>

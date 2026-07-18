@@ -43,7 +43,7 @@ const CEOCard = () => (
         <div className="mt-5 flex items-center gap-4">
           <div className="h-px flex-1 bg-gradient-to-r from-primary/20 to-transparent" />
           <div className="text-right">
-            <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Sachin Rathore</div>
+            <div className="text-sm font-semibold text-zinc-900">Sachin Rathore</div>
             <div className="text-xs text-zinc-400 dark:text-zinc-500">CEO &amp; Founder</div>
           </div>
           {/* Signature placeholder */}

@@ -27,7 +27,7 @@ const TrustCard = ({ icon, value, label, description, index }: TrustCardProps) =
       {icon}
     </div>
     <div>
-      <div className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">{value}</div>
+      <div className="text-2xl font-bold text-zinc-900">{value}</div>
       <div className="mt-0.5 text-sm font-medium text-zinc-700 dark:text-zinc-300">{label}</div>
     </div>
     <p className="text-sm leading-relaxed text-zinc-400 dark:text-zinc-500">{description}</p>

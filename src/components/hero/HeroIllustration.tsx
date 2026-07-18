@@ -130,14 +130,14 @@ const HeroIllustration = () => {
             {/* Metric card */}
             <div className="rounded-xl border border-zinc-100 bg-white p-4 shadow-xs dark:border-zinc-700 dark:bg-zinc-800/50">
               <span className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Total Revenue</span>
-              <p className="mt-1 text-xl font-bold text-zinc-900 dark:text-zinc-100">$48,290</p>
+              <p className="mt-1 text-xl font-bold text-zinc-900">$48,290</p>
               <span className="text-[11px] text-emerald-600">↑ 12.5% this month</span>
             </div>
 
             {/* Metric card */}
             <div className="rounded-xl border border-zinc-100 bg-white p-4 shadow-xs dark:border-zinc-700 dark:bg-zinc-800/50">
               <span className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Active Users</span>
-              <p className="mt-1 text-xl font-bold text-zinc-900 dark:text-zinc-100">2,847</p>
+              <p className="mt-1 text-xl font-bold text-zinc-900">2,847</p>
               <span className="text-[11px] text-emerald-600">↑ 8.3% this week</span>
             </div>
           </div>
@@ -157,7 +157,7 @@ const HeroIllustration = () => {
                 +18.2%
               </span>
             </div>
-            <p className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">128.4K</p>
+            <p className="text-2xl font-bold text-zinc-900">128.4K</p>
             <MiniBarChart className="mt-2 h-auto w-full" />
           </div>
         </FloatWrapper>
@@ -174,7 +174,7 @@ const HeroIllustration = () => {
               SR
             </div>
             <div className="min-w-0">
-              <p className="truncate text-sm font-semibold text-zinc-900 dark:text-zinc-100">Sachin Rathore</p>
+              <p className="truncate text-sm font-semibold text-zinc-900">Sachin Rathore</p>
               <p className="truncate text-[11px] text-zinc-400 dark:text-zinc-500">CEO, Weblign</p>
             </div>
           </div>
@@ -189,7 +189,7 @@ const HeroIllustration = () => {
         >
           <div className="w-36 rounded-xl border border-zinc-100/80 bg-white/70 p-3 shadow-lg shadow-zinc-900/5 backdrop-blur-xl dark:border-zinc-700/80 dark:bg-zinc-100/70">
             <span className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Avg. Revenue</span>
-            <p className="mt-0.5 text-lg font-bold text-zinc-900 dark:text-zinc-100">$12,847</p>
+            <p className="mt-0.5 text-lg font-bold text-zinc-900">$12,847</p>
             <div className="mt-1 flex items-center gap-1 text-[11px] text-emerald-600">
               <svg viewBox="0 0 12 12" fill="currentColor" className="h-2.5 w-2.5" aria-hidden="true">
                 <path d="M6 0l6 8H0z" />

@@ -22,7 +22,7 @@ const heroItem = {
 
 const ContactHero = () => {
   return (
-    <section className="relative min-h-[60dvh] overflow-hidden bg-gradient-to-b from-white via-zinc-50/40 to-white pb-16 pt-32 sm:pb-20 sm:pt-40 dark:from-zinc-950 dark:via-zinc-900/30 dark:to-zinc-950">
+    <section className="relative min-h-[60dvh] overflow-hidden bg-gradient-to-b from-white via-zinc-50/40 to-white pb-16 pt-32 sm:pb-20 sm:pt-40">
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div
           className="absolute inset-0 opacity-[0.025]"
@@ -52,7 +52,7 @@ const ContactHero = () => {
 
           <motion.h1
             variants={heroItem}
-            className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl lg:text-6xl dark:text-zinc-100"
+            className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl lg:text-6xl"
           >
             Let&rsquo;s Build Something{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">

@@ -45,7 +45,7 @@ const ContactForm = () => {
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-50 dark:bg-emerald-900/30">
                 <HiCheck className="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
               </div>
-              <h3 className="mt-4 text-xl font-bold text-zinc-900 dark:text-zinc-100">Message Sent!</h3>
+              <h3 className="mt-4 text-xl font-bold text-zinc-900">Message Sent!</h3>
               <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
                 Thank you for reaching out. We&rsquo;ll get back to you within 24 hours.
               </p>
@@ -146,12 +146,12 @@ const ContactForm = () => {
                   {item.href ? (
                     <a
                       href={item.href}
-                      className="mt-0.5 block text-sm font-medium text-zinc-900 transition-colors hover:text-primary dark:text-zinc-100 dark:hover:text-primary"
+                      className="mt-0.5 block text-sm font-medium text-zinc-900 transition-colors hover:text-primary dark:hover:text-primary"
                     >
                       {item.value}
                     </a>
                   ) : (
-                    <div className="mt-0.5 text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                    <div className="mt-0.5 text-sm font-medium text-zinc-900">
                       {item.value}
                     </div>
                   )}

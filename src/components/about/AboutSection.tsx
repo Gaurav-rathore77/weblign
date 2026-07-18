@@ -27,7 +27,7 @@ const headerItem = {
 
 const AboutSection = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-20 sm:py-24 dark:bg-zinc-950">
+    <section className="relative overflow-hidden bg-white py-20 sm:py-24">
       {/* Background decorations */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -left-32 top-1/4 h-72 w-72 rounded-full bg-primary/[0.02] blur-3xl" />
@@ -52,7 +52,7 @@ const AboutSection = () => {
             </motion.div>
             <motion.h2
               variants={headerItem}
-              className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100"
+              className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl"
             >
               Building Digital Products That{' '}
               <span className="text-zinc-500 dark:text-zinc-400">Drive Business Growth</span>

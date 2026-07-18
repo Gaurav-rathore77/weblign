@@ -26,10 +26,10 @@ const PricingPlans = () => {
 
             {/* Header */}
             <div className={`rounded-xl bg-gradient-to-br ${tier.gradient} p-4 text-center sm:p-5 ${tier.popular ? 'text-white' : ''} dark:bg-zinc-800/80`}>
-              <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">{tier.name}</h3>
+              <h3 className="text-lg font-bold text-zinc-900">{tier.name}</h3>
               <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{tier.description}</p>
               <div className="mt-3">
-                <span className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+                <span className="text-4xl font-bold tracking-tight text-zinc-900">
                   ₹{tier.price.toLocaleString('en-IN')}
                 </span>
                 <span className="ml-1 text-sm text-zinc-400">{tier.priceLabel ? `+ (${tier.priceLabel})` : '+'}</span>
@@ -53,7 +53,7 @@ const PricingPlans = () => {
             {/* CTA */}
             <a
               href="#"
-              className={`mt-6 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 ${tier.popular ? 'bg-gradient-to-r from-primary to-accent text-white shadow-md hover:shadow-lg' : 'border border-zinc-200 text-zinc-900 hover:border-zinc-300 hover:shadow-sm dark:border-zinc-700 dark:text-zinc-100 dark:hover:border-zinc-600'}`}
+              className={`mt-6 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 ${tier.popular ? 'bg-gradient-to-r from-primary to-accent text-white shadow-md hover:shadow-lg' : 'border border-zinc-200 text-zinc-900 hover:border-zinc-300 hover:shadow-sm dark:border-zinc-700 dark:hover:border-zinc-600'}`}
             >
               {tier.cta}
               <HiOutlineArrowLongRight className="h-4 w-4" />

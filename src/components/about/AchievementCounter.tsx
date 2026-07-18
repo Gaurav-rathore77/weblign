@@ -115,7 +115,7 @@ const AchievementCounter = () => {
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/[0.06] text-primary">
             {item.icon}
           </div>
-          <div className="mt-3 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          <div className="mt-3 text-3xl font-bold tracking-tight text-zinc-900">
             <AnimatedNumber value={item.value} suffix={item.suffix} />
           </div>
           <div className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">{item.label}</div>

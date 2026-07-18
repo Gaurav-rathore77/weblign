@@ -42,7 +42,7 @@ const Navbar = ({ className }: NavbarProps) => {
         className={clsx(
           'fixed inset-x-0 top-0 z-50 transition-all duration-300',
           isScrolled
-            ? 'border-b border-zinc-200/60 bg-white/80 shadow-xs backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-950/80'
+            ? 'border-b border-zinc-200/60 bg-white/80 shadow-xs backdrop-blur-xl dark:border-zinc-800'
             : 'bg-transparent',
           className,
         )}

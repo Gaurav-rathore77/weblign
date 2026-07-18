@@ -64,7 +64,7 @@ const BlogCard = ({ post, index }: { post: BlogPost; index: number }) => (
           <span className="h-1 w-1 rounded-full bg-zinc-300 dark:bg-zinc-600" />
           <span>{post.readTime}</span>
         </div>
-        <h3 className="mt-2 text-lg font-semibold text-zinc-900 transition-colors group-hover:text-primary dark:text-zinc-100 dark:group-hover:text-primary">
+        <h3 className="mt-2 text-lg font-semibold text-zinc-900 transition-colors group-hover:text-primary dark:group-hover:text-primary">
           {post.title}
         </h3>
         <p className="mt-1.5 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
@@ -77,7 +77,7 @@ const BlogCard = ({ post, index }: { post: BlogPost; index: number }) => (
             {post.author.initials}
           </div>
           <div>
-            <div className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{post.author.name}</div>
+            <div className="text-sm font-semibold text-zinc-900">{post.author.name}</div>
             <div className="text-xs text-zinc-400">{post.author.role}</div>
           </div>
           <HiOutlineArrowLongRight className="ml-auto h-5 w-5 text-zinc-300 transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary dark:text-zinc-600" />

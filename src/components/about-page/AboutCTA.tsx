@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 
 const AboutCTA = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-20 sm:py-24 dark:bg-zinc-950">
+    <section className="relative overflow-hidden bg-white py-20 sm:py-24">
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.03] blur-3xl" />
         <div className="absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.02] blur-3xl" />
@@ -20,7 +20,7 @@ const AboutCTA = () => {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
           className="mx-auto max-w-2xl text-center"
         >
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
             Ready to Build Something{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Extraordinary
