@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { serviceDetails, approachSteps } from './servicesData';
+import { serviceDetails } from './servicesData';
 
 const iconComponents: Record<string, React.ElementType> = {
   HiOutlineGlobeAlt, HiOutlineDevicePhoneMobile, HiOutlinePaintBrush,
@@ -48,7 +48,7 @@ const ServicesGrid = () => {
   const activeService = serviceDetails.find((s) => s.id === activeTab);
 
   return (
-    <section className="relative overflow-hidden bg-white py-20 sm:py-24 dark:bg-zinc-950">
+    <section className="relative overflow-hidden bg-white py-20 sm:py-24">
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -right-40 top-1/4 h-96 w-96 rounded-full bg-primary/[0.02] blur-3xl" />
         <div className="absolute -left-40 bottom-1/4 h-80 w-80 rounded-full bg-accent/[0.02] blur-3xl" />
@@ -72,7 +72,7 @@ const ServicesGrid = () => {
             </motion.div>
             <motion.h2
               variants={headerItem}
-              className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100"
+              className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl"
             >
               Every Service You Need to{' '}
               <span className="text-zinc-500 dark:text-zinc-400">Succeed Online</span>
@@ -120,7 +120,7 @@ const ServicesGrid = () => {
                 {/* Left: Description + Features */}
                 <div>
                   <span className="mb-3 block text-4xl" aria-hidden="true"><SvcIcon name={activeService.icon} className="h-10 w-10" /></span>
-                  <h3 className="text-2xl font-bold text-zinc-900 sm:text-3xl dark:text-zinc-100">
+                  <h3 className="text-2xl font-bold text-zinc-900 sm:text-3xl">
                     {activeService.title}
                   </h3>
                   <p className="mt-3 leading-relaxed text-zinc-500 dark:text-zinc-400">
@@ -139,7 +139,7 @@ const ServicesGrid = () => {
 
                 {/* Right: Technologies + Approach */}
                 <div className="space-y-6">
-                  <div className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50/80 to-white p-6 shadow-sm dark:border-zinc-800 dark:from-zinc-900/50 dark:to-zinc-950">
+                  <div className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50/80 to-white p-6 shadow-sm dark:border-zinc-800">
                     <h4 className="text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
                       Technologies We Use
                     </h4>
@@ -155,25 +155,20 @@ const ServicesGrid = () => {
                     </div>
                   </div>
 
-                  <div className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50/80 to-white p-6 shadow-sm dark:border-zinc-800 dark:from-zinc-900/50 dark:to-zinc-950">
+                  <div className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50/80 to-white p-6 shadow-sm dark:border-zinc-800">
                     <h4 className="text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-                      Our Approach
+                      Service Includes
                     </h4>
-                    <div className="mt-4 space-y-4">
-                      {approachSteps.map((step) => (
-                        <div key={step.number} className="flex gap-3">
-                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/[0.08] text-xs font-bold text-primary">
-                            {step.number}
+                    <ul className="mt-4 space-y-3">
+                      {activeService.features.map((feature, fi) => (
+                        <li key={fi} className="flex items-start gap-3">
+                          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/[0.08] text-xs text-primary">
+                            ✓
                           </span>
-                          <div>
-                            <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">{step.title}</p>
-                            <p className="text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">
-                              {step.description}
-                            </p>
-                          </div>
-                        </div>
+                          <span className="text-sm text-zinc-600 dark:text-zinc-300">{feature}</span>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </div>
               </motion.div>
