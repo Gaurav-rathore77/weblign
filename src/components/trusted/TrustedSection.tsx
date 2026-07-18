@@ -8,6 +8,7 @@ import {
   HiOutlineTrophy,
 } from 'react-icons/hi2';
 import TrustCard from './TrustCard';
+import ProjectSlider from './ProjectSlider';
 
 const cards = [
   {
@@ -96,6 +97,11 @@ const TrustedSection = () => {
               the world trust us to deliver high-quality digital solutions that
               drive measurable results.
             </p>
+          </motion.div>
+
+          {/* ── Project Slider ── */}
+          <motion.div variants={itemVariants} className="w-full">
+            <ProjectSlider />
           </motion.div>
 
           {/* ── Trust Metrics ── */}

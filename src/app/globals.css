@@ -40,6 +40,7 @@
   --font-sans: var(--font-poppins);
 
   --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee2: marquee2 30s linear infinite;
 }
 
 :root {
@@ -186,6 +187,11 @@
 .dark .to-white\/\[0\.01\] { --tw-gradient-to: rgba(9, 9, 11, 0.01); }
 
 @keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee2 {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }

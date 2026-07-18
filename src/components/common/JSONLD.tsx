@@ -7,7 +7,7 @@ const structuredData = {
   name: companyInfo.name,
   description: companyInfo.description,
   url: 'https://weblign.com',
-  email: 'Sachinr2012022@gmail.com',
+  email: 'info.weblign@gmail.com',
   telephone: '+91 9315051726',
   foundingDate: '2020',
   address: {

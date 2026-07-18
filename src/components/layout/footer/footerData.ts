@@ -44,7 +44,7 @@ export const companyLinks: CompanyLink[] = [
 ];
 
 export const contactDetails: ContactDetail[] = [
-  { icon: 'HiOutlineEnvelope', label: 'Email', value: 'Sachinr2012022@gmail.com', href: 'mailto:Sachinr2012022@gmail.com' },
+  { icon: 'HiOutlineEnvelope', label: 'Email', value: 'info.weblign@gmail.com', href: 'mailto:info.weblign@gmail.com' },
   { icon: 'HiOutlinePhone', label: 'Phone', value: '+91 9315051726', href: 'tel:+919315051726' },
   { icon: 'HiOutlineMapPin', label: 'Location', value: 'India' },
   { icon: 'HiOutlineClock', label: 'Hours', value: 'Mon – Sat, 10 AM – 7 PM IST' },

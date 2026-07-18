@@ -34,7 +34,7 @@ export const socialLinks = {
 };
 
 export const contactInfo = {
-  email: 'Sachinr2012022@gmail.com',
+  email: 'info.weblign@gmail.com',
   phone: '+91 9315051726',
   address: {
     street: '',

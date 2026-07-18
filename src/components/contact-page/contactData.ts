@@ -1,8 +1,8 @@
 export const contactInfo = [
   {
     label: 'Email',
-    value: 'Sachinr2012022@gmail.com',
-    href: 'mailto:Sachinr2012022@gmail.com',
+    value: 'info.weblign@gmail.com',
+    href: 'mailto:info.weblign@gmail.com',
     emoji: 'HiOutlineEnvelope',
   },
   {

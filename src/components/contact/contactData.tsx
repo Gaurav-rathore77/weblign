@@ -11,8 +11,8 @@ export const contactInfo: ContactInfoItem[] = [
   {
     icon: <Mail className="h-5 w-5" />,
     title: 'Email',
-    value: 'Sachinr2012022@gmail.com',
-    href: 'mailto:Sachinr2012022@gmail.com',
+    value: 'info.weblign@gmail.com',
+    href: 'mailto:info.weblign@gmail.com',
   },
   {
     icon: <Phone className="h-5 w-5" />,
@@ -111,6 +111,6 @@ export const faqItems: FAQItem[] = [
   {
     question: 'How do we get started?',
     answer:
-      'Getting started is simple. Fill out the contact form or email us at Sachinr2012022@gmail.com. We\'ll schedule a free discovery call to understand your goals, then provide a proposal and timeline within 48 hours.',
+      'Getting started is simple. Fill out the contact form or email us at info.weblign@gmail.com. We\'ll schedule a free discovery call to understand your goals, then provide a proposal and timeline within 48 hours.',
   },
 ];
