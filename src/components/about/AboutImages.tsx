@@ -122,7 +122,7 @@ const AboutImages = () => {
                 <svg viewBox="0 0 16 16" fill="currentColor" className="h-3.5 w-3.5" aria-hidden="true">
                   <path d="M8 1a4 4 0 014 4c0 1.5-.8 2.8-2 3.5V12h1a2 2 0 012 2H3a2 2 0 012-2h1V8.5A4 4 0 018 1z" />
                 </svg>
-                5+ Projects
+                50+ Projects
               </div>
             </FloatWrapper>
           </div>

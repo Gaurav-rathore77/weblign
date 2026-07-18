@@ -24,14 +24,14 @@ const cards = [
   },
   {
     icon: <HiOutlineBriefcase className="h-5 w-5" />,
-    value: '5+',
+    value: '50+',
     label: 'Projects Delivered',
     description: 'Delivered on time and within budget since day one.',
   },
   {
     icon: <HiOutlineTrophy className="h-5 w-5" />,
-    value: '1+',
-    label: 'Year in Business',
+    value: '5+',
+    label: 'Years Experience',
     description: 'Building digital products that make an impact.',
   },
 ];

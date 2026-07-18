@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { PortfolioHero } from '@/components/portfolio-page';
 import PortfolioGrid from '@/components/portfolio/PortfolioGrid';
-import ResultsSection from '@/components/portfolio/ResultsSection';
 import FeaturedCaseStudy from '@/components/portfolio/FeaturedCaseStudy';
 
 export const metadata: Metadata = {
@@ -29,11 +28,6 @@ export default function PortfolioPage() {
           <FeaturedCaseStudy />
         </div>
       </section>
-      <section className="bg-zinc-50/50 py-20 sm:py-28 dark:bg-zinc-900/30">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ResultsSection />
-        </div>
-      </section>
-    </>
+    </> 
   );
 }

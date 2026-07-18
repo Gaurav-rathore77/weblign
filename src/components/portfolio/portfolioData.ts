@@ -190,18 +190,6 @@ export const projects: Project[] = [
   },
 ];
 
-export const achievements = [
-  { value: '500', suffix: '+', label: 'Projects Delivered' },
-  { value: '99', suffix: '%', label: 'Client Satisfaction' },
-  { value: '50', suffix: 'M+', label: 'Users Reached' },
-  { value: '20', suffix: '+', label: 'Industries Served' },
-];
-
-export const techStack = [
-  'Next.js', 'TypeScript', 'React', 'Node.js',
-  'Tailwind CSS', 'REST API', 'SEO', 'Vercel',
-];
-
 export const featuredProject: Project = {
   id: 'featured-future-mind',
   title: 'Future Mind Educare — MBBS Admission Platform',

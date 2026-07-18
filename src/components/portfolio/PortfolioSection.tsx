@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import PortfolioGrid from './PortfolioGrid';
-import ResultsSection from './ResultsSection';
 import FeaturedCaseStudy from './FeaturedCaseStudy';
 import { HiOutlineBriefcase } from 'react-icons/hi2';
 
@@ -75,9 +74,6 @@ const PortfolioSection = () => {
 
           {/* ── Portfolio Grid with Filters + Modal ── */}
           <PortfolioGrid />
-
-          {/* ── Results + Tech Stack ── */}
-          <ResultsSection />
 
           {/* ── Featured Case Study ── */}
           <FeaturedCaseStudy />

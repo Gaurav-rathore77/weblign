@@ -20,9 +20,9 @@ export interface Milestone {
 }
 
 export const stats = [
-  { value: '5+', label: 'Projects Delivered' },
-  { value: '3+', label: 'Happy Clients' },
-  { value: '1+', label: 'Years Experience' },
+  { value: '50+', label: 'Projects Delivered' },
+  { value: '44+', label: 'Happy Clients' },
+  { value: '5+', label: 'Years Experience' },
   { value: '100%', label: 'Client Satisfaction' },
 ];
 

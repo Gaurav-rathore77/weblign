@@ -109,10 +109,10 @@ export const processSteps: ProcessStep[] = [
 ];
 
 export const achievements: Achievement[] = [
-  { value: '5', suffix: '+', label: 'Projects Delivered' },
+  { value: '50', suffix: '+', label: 'Projects Delivered' },
   { value: '100', suffix: '%', label: 'Success Rate' },
-  { value: '3', suffix: '+', label: 'Happy Clients' },
-  { value: '1', suffix: '+', label: 'Years Experience' },
+  { value: '44', suffix: '+', label: 'Happy Clients' },
+  { value: '5', suffix: '+', label: 'Years Experience' },
 ];
 
 export const benefitsList = [
