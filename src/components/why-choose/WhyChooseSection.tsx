@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import ComparisonTable from './ComparisonTable';
 import WhyFeatureCard from './WhyFeatureCard';
 import WhyProcessTimeline from './WhyProcessTimeline';
 import AchievementCard from './AchievementCard';
@@ -77,16 +76,11 @@ const WhyChooseSection = () => {
             </motion.p>
           </motion.div>
 
-          {/* ── Two-Column: Comparison + Features ── */}
-          <div className="grid items-start gap-8 lg:grid-cols-5 lg:gap-12">
-            <div className="lg:col-span-2">
-              <ComparisonTable />
-            </div>
-            <div className="space-y-4 lg:col-span-3">
-              {features.map((feature, i) => (
-                <WhyFeatureCard key={feature.title} feature={feature} index={i} />
-              ))}
-            </div>
+          {/* ── Features Grid ── */}
+          <div className="space-y-4">
+            {features.map((feature, i) => (
+              <WhyFeatureCard key={feature.title} feature={feature} index={i} />
+            ))}
           </div>
 
           {/* ── Process Timeline ── */}

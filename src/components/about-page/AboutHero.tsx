@@ -65,10 +65,10 @@ const AboutHero = () => {
             variants={heroItem}
             className="mt-5 text-base leading-relaxed text-zinc-500 sm:text-lg dark:text-zinc-400"
           >
-            Founded in 2020, Weblign has grown from a two-person team into a
-            full-service digital agency trusted by startups and enterprises
-            alike. We combine technical rigor with design thinking to ship
-            products that users love and businesses rely on.
+            Weblign is a digital agency built on the belief that great
+            products come from great collaboration. We combine technical rigor
+            with design thinking to ship products that users love and
+            businesses rely on.
           </motion.p>
 
           <motion.div variants={heroItem} className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -76,10 +76,10 @@ const AboutHero = () => {
               <HiOutlineMapPin className="h-4 w-4" aria-hidden="true" /> San Francisco, CA
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-4 py-1.5 text-sm text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
-              <HiOutlineCalendarDays className="h-4 w-4" aria-hidden="true" /> Founded 2020
+              <HiOutlineCalendarDays className="h-4 w-4" aria-hidden="true" /> Founded 2026
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-4 py-1.5 text-sm text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
-              <HiOutlineUserGroup className="h-4 w-4" aria-hidden="true" /> 15+ Team Members
+              <HiOutlineUserGroup className="h-4 w-4" aria-hidden="true" /> Small Team, Big Impact
             </span>
           </motion.div>
         </motion.div>

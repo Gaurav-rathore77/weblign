@@ -7,7 +7,6 @@ import {
   HiOutlineBriefcase,
   HiOutlineTrophy,
 } from 'react-icons/hi2';
-import LogoGrid from './LogoGrid';
 import TrustCard from './TrustCard';
 
 const cards = [
@@ -97,11 +96,6 @@ const TrustedSection = () => {
               the world trust us to deliver high-quality digital solutions that
               drive measurable results.
             </p>
-          </motion.div>
-
-          {/* ── Logo Showcase ── */}
-          <motion.div variants={itemVariants} className="w-full">
-            <LogoGrid />
           </motion.div>
 
           {/* ── Trust Metrics ── */}

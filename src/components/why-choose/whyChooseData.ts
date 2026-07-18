@@ -5,12 +5,6 @@ export interface Feature {
   badge: string;
 }
 
-export interface ComparisonRow {
-  label: string;
-  others: boolean;
-  us: boolean;
-}
-
 export interface ProcessStep {
   number: string;
   icon: string;
@@ -69,16 +63,6 @@ export const features: Feature[] = [
   },
 ];
 
-export const comparisonRows: ComparisonRow[] = [
-  { label: 'Communication', others: false, us: true },
-  { label: 'Project Quality', others: false, us: true },
-  { label: 'Support', others: false, us: true },
-  { label: 'Delivery Speed', others: false, us: true },
-  { label: 'Scalability', others: false, us: true },
-  { label: 'Security', others: false, us: true },
-  { label: 'Transparency', others: false, us: true },
-];
-
 export const processSteps: ProcessStep[] = [
   {
     number: '01',
@@ -125,10 +109,10 @@ export const processSteps: ProcessStep[] = [
 ];
 
 export const achievements: Achievement[] = [
-  { value: '500', suffix: '+', label: 'Projects Delivered' },
-  { value: '99', suffix: '%', label: 'Success Rate' },
-  { value: '250', suffix: '+', label: 'Happy Clients' },
-  { value: '10', suffix: '+', label: 'Years Experience' },
+  { value: '5', suffix: '+', label: 'Projects Delivered' },
+  { value: '100', suffix: '%', label: 'Success Rate' },
+  { value: '3', suffix: '+', label: 'Happy Clients' },
+  { value: '1', suffix: '+', label: 'Years Experience' },
 ];
 
 export const benefitsList = [
