@@ -47,7 +47,7 @@ const TrustBadges = () => {
   return (
     <div>
       <p className="mb-5 text-xs font-medium uppercase tracking-[0.15em] text-zinc-400 dark:text-zinc-500">
-        Trusted by industry leaders
+        Trusted by innovative founders
       </p>
       <div className="flex flex-wrap items-center gap-8 sm:gap-10">
         {logos.map(({ name, svg }) => (

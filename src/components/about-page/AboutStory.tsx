@@ -79,11 +79,11 @@ const AboutStory = () => {
                 variants={item}
                 className="mt-3 leading-relaxed text-zinc-500 dark:text-zinc-400"
               >
-                Today, our team of 15+ designers, engineers, and strategists
+                Today, our team of designers, engineers, and strategists
                 works across web, mobile, and AI to deliver products that drive
-                measurable business outcomes. We&apos;ve shipped 50+ projects for
-                clients ranging from early-stage startups to Fortune 500
-                companies.
+                measurable business outcomes. We&apos;ve shipped projects for
+                clients ranging from early-stage startups to established
+                businesses.
               </motion.p>
             </motion.div>
 

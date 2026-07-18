@@ -20,10 +20,10 @@ export interface Milestone {
 }
 
 export const stats = [
-  { value: '50+', label: 'Projects Delivered' },
-  { value: '30+', label: 'Happy Clients' },
-  { value: '5+', label: 'Years Experience' },
-  { value: '99%', label: 'Client Satisfaction' },
+  { value: '5+', label: 'Projects Delivered' },
+  { value: '3+', label: 'Happy Clients' },
+  { value: '1+', label: 'Years Experience' },
+  { value: '100%', label: 'Client Satisfaction' },
 ];
 
 export const values: Value[] = [
@@ -55,34 +55,22 @@ export const values: Value[] = [
 
 export const milestones: Milestone[] = [
   {
-    year: '2020',
+    year: '2026',
     title: 'The Beginning',
     description:
       'Weblign was founded with a simple mission — help businesses build digital products that truly make an impact. Started by Sachin Rathore, the company began as a two-person team.',
   },
   {
-    year: '2021',
-    title: 'First Major Clients',
+    year: '2026',
+    title: 'First Clients',
     description:
-      'We onboarded our first enterprise clients and grew the team to 8. Our portfolio expanded across web apps, e-commerce platforms, and custom software solutions.',
+      'We onboarded our first clients and began delivering high-quality web applications, e-commerce platforms, and custom software solutions.',
   },
   {
-    year: '2022',
-    title: 'AI & Automation',
+    year: '2026',
+    title: 'Building Momentum',
     description:
-      'Launched our AI automation practice, helping clients integrate machine learning, intelligent workflows, and data-driven features into their products.',
-  },
-  {
-    year: '2023',
-    title: '20+ Projects Delivered',
-    description:
-      'Crossed the 20-project milestone with a 100% client satisfaction rate. Expanded to mobile app development and cloud-native solutions.',
-  },
-  {
-    year: '2024',
-    title: 'Trusted Partner',
-    description:
-      'Became a trusted technology partner for startups and enterprises alike. Our team of 15+ delivers end-to-end digital solutions across web, mobile, and AI.',
+      'Continued delivering impactful projects with a focus on modern web technologies, client satisfaction, and long-term partnerships.',
   },
 ];
 
@@ -98,7 +86,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: 'Priya Sharma',
     role: 'Head of Design',
-    bio: 'Award-winning designer with 8+ years crafting beautiful, intuitive interfaces. Priya ensures every product we ship delivers a world-class user experience.',
+    bio: 'Designer passionate about crafting beautiful, intuitive interfaces. Priya ensures every product we ship delivers a great user experience.',
     initials: 'PS',
     gradient: 'from-emerald-500 to-cyan-500',
     photo: 'https://ui-avatars.com/api/?name=Priya+Sharma&background=059669&color=fff&size=128',
@@ -106,7 +94,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: 'Arjun Mehta',
     role: 'Lead Engineer',
-    bio: 'Full-stack engineer and architect specializing in scalable systems. Arjun has led development for products serving millions of users across fintech and healthcare.',
+    bio: 'Full-stack engineer specializing in building scalable web applications. Arjun brings deep expertise in modern frameworks and clean architecture.',
     initials: 'AM',
     gradient: 'from-violet-500 to-fuchsia-500',
     photo: 'https://ui-avatars.com/api/?name=Arjun+Mehta&background=7C3AED&color=fff&size=128',
@@ -114,7 +102,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: 'Neha Kapoor',
     role: 'Project Manager',
-    bio: 'Certified PMP with a talent for keeping complex projects on track. Neha ensures every milestone is met with clear communication and zero surprises.',
+    bio: 'Organized and detail-oriented project manager with a talent for keeping projects on track. Neha ensures every milestone is met with clear communication.',
     initials: 'NK',
     gradient: 'from-orange-500 to-rose-500',
     photo: 'https://ui-avatars.com/api/?name=Neha+Kapoor&background=F97316&color=fff&size=128',

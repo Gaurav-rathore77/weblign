@@ -38,7 +38,7 @@ const HeroContent = () => {
               <path d="M8 0a1 1 0 011 1v.89A6 6 0 0114.11 7H15a1 1 0 110 2h-.89A6 6 0 019 14.11V15a1 1 0 11-2 0v-.89A6 6 0 011.89 9H1a1 1 0 110-2h.89A6 6 0 017 1.89V1a1 1 0 011-1zM4 8a4 4 0 008 0H4z" />
             </svg>
           </span>
-          Trusted by 500+ Clients Worldwide
+          Trusted by Innovative Founders
         </div>
       </motion.div>
 

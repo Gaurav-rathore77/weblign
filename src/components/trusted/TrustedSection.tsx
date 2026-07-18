@@ -13,27 +13,27 @@ import TrustCard from './TrustCard';
 const cards = [
   {
     icon: <HiOutlineStar className="h-5 w-5" />,
-    value: '4.9/5',
+    value: '5.0/5',
     label: 'Average Rating',
-    description: 'Based on 200+ verified client reviews across platforms.',
+    description: 'Based on early client feedback across platforms.',
   },
   {
     icon: <HiOutlineHeart className="h-5 w-5" />,
-    value: '99%',
+    value: '100%',
     label: 'Client Satisfaction',
-    description: 'Of our clients say they would recommend us to others.',
+    description: 'Every client says they would recommend us to others.',
   },
   {
     icon: <HiOutlineBriefcase className="h-5 w-5" />,
-    value: '150+',
-    label: 'Successful Projects',
+    value: '5+',
+    label: 'Projects Delivered',
     description: 'Delivered on time and within budget since day one.',
   },
   {
     icon: <HiOutlineTrophy className="h-5 w-5" />,
-    value: '12+',
-    label: 'Industry Awards',
-    description: 'Recognized for design excellence and innovation.',
+    value: '1+',
+    label: 'Year in Business',
+    description: 'Building digital products that make an impact.',
   },
 ];
 
@@ -93,7 +93,7 @@ const TrustedSection = () => {
 
             {/* Description */}
             <p className="max-w-xl text-base leading-relaxed text-zinc-500 sm:text-lg dark:text-zinc-400">
-              From early-stage founders to Fortune 500 companies, teams around
+              From early-stage founders to established businesses, teams around
               the world trust us to deliver high-quality digital solutions that
               drive measurable results.
             </p>
