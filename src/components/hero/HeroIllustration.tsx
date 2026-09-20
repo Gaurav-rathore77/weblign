@@ -106,7 +106,7 @@ const HeroIllustration = () => {
             <span className="h-2.5 w-2.5 rounded-full bg-zinc-200 dark:bg-zinc-700" />
             <span className="h-2.5 w-2.5 rounded-full bg-zinc-200 dark:bg-zinc-700" />
             <div className="ml-3 flex-1 rounded-md bg-zinc-50 px-3 py-1 text-[11px] text-zinc-400 dark:bg-zinc-800 dark:text-zinc-500">
-              app.weblign.com/dashboard
+              app.weblign.in/dashboard
             </div>
           </div>
 

@@ -75,7 +75,7 @@ npm run lint
 
 | Variable | Description |
 |----------|-------------|
-| `NEXT_PUBLIC_SITE_URL` | Canonical site URL (default: `https://weblign.com`) |
+| `NEXT_PUBLIC_SITE_URL` | Canonical site URL (default: `https://weblign.in`) |
 
 ## Features
 

@@ -1,7 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { HiOutlineArrowLongRight } from 'react-icons/hi2';
+import { HiOutlineArrowLongRight, HiOutlineEye } from 'react-icons/hi2';
 import type { Project } from './portfolioData';
 
 interface PortfolioCardProps {
@@ -10,16 +11,11 @@ interface PortfolioCardProps {
   onOpenModal: (project: Project) => void;
 }
 
-const initials = (name: string) =>
-  name
-    .split(' ')
-    .map((w) => w[0])
-    .join('')
-    .slice(0, 2)
-    .toUpperCase();
-
 const PortfolioCard = ({ project, index, onOpenModal }: PortfolioCardProps) => {
-  const { title, description, category, gradient, tech, metrics, demoUrl } = project;
+  const { title, description, category, gradient, tech, metrics, demoUrl, image } = project;
+  const [imageError, setImageError] = useState(false);
+
+  const initials = title.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
 
   return (
     <motion.div
@@ -32,65 +28,83 @@ const PortfolioCard = ({ project, index, onOpenModal }: PortfolioCardProps) => {
         duration: 0.6,
         ease: [0.22, 1, 0.36, 1] as const,
       }}
-      whileHover={{ y: -8 }}
+      whileHover={{ y: -8, boxShadow: '0 25px 50px -12px rgb(0 0 0 / 0.15)' }}
       className="group relative"
     >
-      <div className="overflow-hidden rounded-3xl border border-zinc-200/60 bg-white shadow-lg shadow-zinc-900/5 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-zinc-900/10">
-        {/* Thumbnail */}
-        <div className="relative aspect-[16/11] overflow-hidden bg-zinc-100">
-          <div
-            className={`absolute inset-0 bg-gradient-to-br ${gradient} transition-all duration-700 group-hover:scale-110`}
-          />
-
-          {/* Logo */}
-          {project.image ? (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/30 shadow-lg shadow-black/5 backdrop-blur-md transition-all duration-500 group-hover:scale-110 group-hover:bg-white/40">
-                <img
-                  src={project.image}
-                  alt=""
-                  className="h-10 w-10"
-                />
-              </div>
-            </div>
+      <div className="overflow-hidden rounded-2xl border border-white/20 shadow-lg shadow-zinc-900/5 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-zinc-900/10">
+        {/* Thumbnail - Full hero image with gradient overlay */}
+        <div className="relative aspect-video overflow-hidden bg-zinc-100">
+          {image && !imageError ? (
+            <>
+              <motion.img
+                src={image}
+                alt={title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+                style={{ willChange: 'transform' }}
+                onError={() => setImageError(true)}
+              />
+              {/* Light gradient overlay - shows image but keeps text readable */}
+              <div className="absolute inset-0 bg-gradient-to-br" style={{ background: gradient }} />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/15 to-transparent" />
+            </>
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/30 text-xl font-bold tracking-wide text-white shadow-lg backdrop-blur-md transition-all duration-500 group-hover:scale-110">
-                {initials(title)}
-              </div>
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-br" style={{ background: gradient }} />
           )}
 
-          {/* Dot pattern */}
+          {/* Subtle pattern */}
           <div
-            className="absolute inset-0 opacity-[0.06]"
+            className="absolute inset-0 opacity-[0.05]"
             style={{
-              backgroundImage:
-                'radial-gradient(circle at 25px 25px, currentColor 1px, transparent 0)',
+              backgroundImage: 'radial-gradient(circle at 25px 25px, currentColor 1px, transparent 0)',
               backgroundSize: '30px 30px',
             }}
+            aria-hidden="true"
           />
 
-          {/* Bottom fade */}
-          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white/80 via-white/30 to-transparent" />
-
           {/* Category badge */}
-          <div className="absolute left-4 top-4 rounded-full border border-white/30 bg-white/60 px-3 py-1 text-[11px] font-medium text-zinc-700 shadow-sm backdrop-blur-md">
+          <div className="absolute left-4 top-4 rounded-full border border-white/30 bg-white/90 px-3 py-1 text-[11px] font-medium text-zinc-900 shadow-sm backdrop-blur-md">
             {category}
           </div>
 
           {/* Metric badge */}
           {metrics && (
-            <div className="absolute bottom-4 left-4 rounded-full bg-white/70 px-3 py-1 text-[11px] font-semibold text-zinc-700 shadow-sm backdrop-blur-md">
+            <div className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold text-zinc-900 shadow-sm backdrop-blur-md">
               {metrics}
             </div>
           )}
+
+          {/* Project initials - always visible on gradient */}
+          <div className="absolute right-4 bottom-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/20 text-2xl font-bold tracking-wide text-white shadow-lg backdrop-blur-md border border-white/30">
+            {initials}
+          </div>
+
+          {/* Hover action buttons */}
+          <div className="absolute right-4 top-4 flex gap-2 opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); onOpenModal(project); }}
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-zinc-900 shadow-lg backdrop-blur-md transition-all duration-200 hover:bg-white hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              aria-label={`View ${title} case study`}
+            >
+              <HiOutlineEye className="h-4 w-4" />
+            </button>
+            <a
+              href={demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-zinc-900 shadow-lg backdrop-blur-md transition-all duration-200 hover:bg-white hover:scale-110"
+              aria-label={`Visit ${title} live demo`}
+            >
+              <HiOutlineArrowLongRight className="h-4 w-4" />
+            </a>
+          </div>
         </div>
 
         {/* Content */}
-        <div className="p-5 sm:p-6">
-          <h3 className="text-lg font-semibold leading-snug text-zinc-900">{title}</h3>
-          <p className="mt-1.5 text-sm leading-relaxed text-zinc-500">{description}</p>
+        <div className="p-5 sm:p-6 bg-white">
+          <h3 className="text-lg font-semibold leading-snug text-zinc-900 group-hover:text-primary transition-colors">{title}</h3>
+          <p className="mt-1.5 text-sm leading-relaxed text-zinc-500 line-clamp-2">{description}</p>
 
           {/* Tech stack */}
           <div className="mt-4 flex flex-wrap gap-1.5">

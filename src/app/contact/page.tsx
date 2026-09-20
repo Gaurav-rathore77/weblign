@@ -1,15 +1,30 @@
 import type { Metadata } from 'next';
 import { ContactHero, ContactForm, ContactCTA } from '@/components/contact-page';
+import { siteUrl } from '@/constants';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
   description:
-    'Get in touch with Weblign. Have a project, partnership, or question? Reach out and we\'ll respond within 24 hours.',
+    "Get in touch with Weblign. Have a project, partnership, or question? Reach out and we'll respond within 24 hours.",
+  keywords: [
+    'Contact Weblign',
+    'Web Development Inquiry',
+    'Project Consultation',
+    'Digital Agency Contact',
+    'Hire Web Developers',
+    'Hire Mobile App Developers',
+    'UI/UX Design Services Quote',
+    'Custom Software Project',
+  ],
   openGraph: {
-    title: 'Contact Weblign — Let\'s Build Something Great',
+    title: "Contact Weblign — Let's Build Something Great",
     description:
       'Have a project in mind? Fill out the form and we\'ll get back to you within 24 hours.',
+    type: 'website',
+    url: `${siteUrl}/contact`,
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Contact Weblign' }],
   },
+  alternates: { canonical: `${siteUrl}/contact` },
 };
 
 export default function ContactPage() {

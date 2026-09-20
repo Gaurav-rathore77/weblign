@@ -1,3 +1,6 @@
+export const siteUrl = 'https://weblign.in';
+export const siteName = 'Weblign';
+
 export const companyInfo = {
   name: 'Weblign',
   tagline: 'Crafting Digital Experiences',

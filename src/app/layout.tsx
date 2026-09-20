@@ -13,7 +13,7 @@ const poppins = Poppins({
   fallback: ['system-ui', 'sans-serif'],
 });
 
-const siteUrl = 'https://weblign.com';
+const siteUrl = 'https://weblign.in';
 const siteName = 'Weblign';
 
 export const viewport: Viewport = {

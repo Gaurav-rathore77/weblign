@@ -1,7 +1,7 @@
 ﻿import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://weblign.com';
+  const baseUrl = 'https://weblign.in';
 
   return [
     { url: baseUrl, lastModified: new Date(), changeFrequency: 'monthly', priority: 1 },
