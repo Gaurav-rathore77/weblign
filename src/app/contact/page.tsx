@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
-import { ContactHero, ContactForm, ContactCTA } from '@/components/contact-page';
+import ContactHero from '@/components/contact-page/ContactHero';
+import ContactForm from '@/components/contact-page/ContactForm';
+import ContactCTA from '@/components/contact-page/ContactCTA';
 import { siteUrl } from '@/constants';
 
 export const metadata: Metadata = {

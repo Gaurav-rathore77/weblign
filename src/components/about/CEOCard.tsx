@@ -1,26 +1,20 @@
-'use client';
-
-import { motion } from 'framer-motion';
-
 const CEOCard = () => (
-  <motion.div
-    initial={{ opacity: 0, y: 24 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: '-80px' }}
-    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-    className="relative overflow-hidden rounded-2xl border border-zinc-100/80 bg-white/60 p-8 shadow-lg shadow-zinc-900/5 backdrop-blur-xl sm:p-10 dark:border-zinc-700/80 dark:bg-zinc-100/60"
-  >
+  <div className="relative overflow-hidden rounded-2xl border border-zinc-100/80 bg-white/60 p-8 shadow-lg shadow-zinc-900/5 backdrop-blur-xl sm:p-10 dark:border-zinc-700/80 dark:bg-zinc-100/60">
     {/* Decorative gradient */}
-    <div className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-primary/[0.04] blur-3xl" aria-hidden="true" />
-    <div className="pointer-events-none absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-accent/[0.04] blur-3xl" aria-hidden="true" />
+    <div
+      className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_90%_10%,rgba(37,99,235,0.05),transparent_28%),radial-gradient(circle_at_10%_90%,rgba(56,189,248,0.05),transparent_25%)]"
+      aria-hidden="true"
+    />
 
     <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
       {/* Avatar */}
-      <img
-        src="https://ui-avatars.com/api/?name=Sachin+Rathore&background=2563EB&color=fff&size=128"
-        alt="Sachin Rathore"
-        className="h-20 w-20 shrink-0 rounded-2xl shadow-md shadow-primary/20"
-      />
+      <div
+        role="img"
+        aria-label="Sachin Rathore"
+        className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary-dark text-2xl font-semibold tracking-tight text-white shadow-md shadow-primary/20"
+      >
+        SR
+      </div>
 
       {/* Content */}
       <div className="min-w-0">
@@ -60,7 +54,7 @@ const CEOCard = () => (
         </div>
       </div>
     </div>
-  </motion.div>
+  </div>
 );
 
 export default CEOCard;

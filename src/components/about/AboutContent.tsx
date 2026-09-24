@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import {
   HiOutlineUserGroup,
   HiOutlineCodeBracket,
@@ -38,44 +35,21 @@ const features = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
 const AboutContent = () => {
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-80px' }}
-      className="flex flex-col gap-8"
-    >
+    <div className="flex flex-col gap-8">
       {/* Introduction */}
-      <motion.div variants={itemVariants}>
+      <div>
         <p className="text-base leading-relaxed text-zinc-500 sm:text-lg dark:text-zinc-400">
           We are a team of passionate designers, engineers, and strategists who
           believe in the power of great digital products. Since our founding,
           we&rsquo;ve helped startups, scale-ups, and enterprise organizations
           transform complex challenges into elegant, high-performing solutions.
         </p>
-      </motion.div>
+      </div>
 
       {/* Mission + Vision */}
-      <motion.div variants={itemVariants} className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-6 sm:grid-cols-2">
         <div className="rounded-xl border border-zinc-100 bg-white p-5 shadow-xs dark:border-zinc-700 dark:bg-zinc-100">
           <h3 className="flex items-center gap-2 text-sm font-semibold text-zinc-900">
             <HiOutlineAdjustmentsHorizontal className="h-4 w-4 text-primary" />
@@ -96,18 +70,18 @@ const AboutContent = () => {
             quality, integrity, and measurable impact.
           </p>
         </div>
-      </motion.div>
+      </div>
 
       {/* Feature Cards */}
-      <motion.div variants={itemVariants} className="space-y-3">
+      <div className="space-y-3">
         <h3 className="text-sm font-semibold text-zinc-900">Why work with us</h3>
         <div className="grid gap-3 sm:grid-cols-2">
           {features.map((feature, i) => (
             <FeatureCard key={feature.title} {...feature} index={i} />
           ))}
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 };
 

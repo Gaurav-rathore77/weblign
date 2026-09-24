@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import clsx from 'clsx';
 import type { ContactInfoItem } from './contactData';
 
@@ -9,20 +6,9 @@ interface ContactCardProps {
   index: number;
 }
 
-const ContactCard = ({ item, index }: ContactCardProps) => {
+const ContactCard = ({ item }: ContactCardProps) => {
   const content = (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{
-        delay: index * 0.08,
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      whileHover={{ y: -4 }}
-      className="group relative overflow-hidden rounded-xl border border-white/20 bg-white/60 p-5 shadow-lg shadow-zinc-900/5 backdrop-blur-xl transition-all duration-500 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 sm:p-6"
-    >
+    <div className="group relative overflow-hidden rounded-xl border border-white/20 bg-white/60 p-5 shadow-lg shadow-zinc-900/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 sm:p-6">
       {/* Hover glow */}
       <div className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100">
         <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/[0.03] to-accent/[0.03]" />
@@ -42,7 +28,7 @@ const ContactCard = ({ item, index }: ContactCardProps) => {
           </p>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 
   if (item.href) {

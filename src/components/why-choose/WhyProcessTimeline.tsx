@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import {
   HiOutlineMagnifyingGlass, HiOutlineClipboardDocument,
   HiOutlineWrench, HiOutlineBeaker, HiOutlineRocketLaunch,
@@ -25,16 +22,8 @@ const ProcessTimeline = () => {
       {/* Desktop horizontal */}
       <div className="hidden justify-between lg:flex">
         {processSteps.map((step, i) => (
-          <motion.div
+          <div
             key={step.number}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{
-              delay: i * 0.1,
-              duration: 0.5,
-              ease: [0.22, 1, 0.36, 1] as const,
-            }}
             className="relative flex w-24 flex-col items-center text-center"
           >
             {/* Connector */}
@@ -54,23 +43,15 @@ const ProcessTimeline = () => {
             <p className="mt-0.5 text-[11px] leading-relaxed text-zinc-400">
               {step.description}
             </p>
-          </motion.div>
+          </div>
         ))}
       </div>
 
       {/* Mobile vertical */}
       <div className="lg:hidden">
         {processSteps.map((step, i) => (
-          <motion.div
+          <div
             key={step.number}
-            initial={{ opacity: 0, x: -16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{
-              delay: i * 0.1,
-              duration: 0.5,
-              ease: [0.22, 1, 0.36, 1] as const,
-            }}
             className="relative flex gap-5 pb-8 last:pb-0"
           >
             {/* Connector line */}
@@ -92,7 +73,7 @@ const ProcessTimeline = () => {
                 {step.description}
               </p>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>

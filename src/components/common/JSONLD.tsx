@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import { companyInfo, siteUrl, contactInfo, socialLinks } from '@/constants';
 
 const structuredData = {
@@ -146,11 +145,10 @@ const structuredData = {
 };
 
 const JSONLD = () => (
-  <Script
+  <script
     id="json-ld-structured-data"
     type="application/ld+json"
     dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-    strategy="afterInteractive"
   />
 );
 

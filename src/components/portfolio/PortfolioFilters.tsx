@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import { categories, type Category } from './portfolioData';
 import clsx from 'clsx';
 
@@ -31,10 +28,9 @@ const PortfolioFilters = ({ active, onSelect }: PortfolioFiltersProps) => {
           )}
         >
           {active === cat && (
-            <motion.span
-              layoutId="filter-pill"
+            <span
+              aria-hidden="true"
               className="absolute inset-0 rounded-full bg-primary"
-              transition={{ type: 'spring', stiffness: 380, damping: 30 }}
             />
           )}
           <span className="relative z-10">{cat}</span>

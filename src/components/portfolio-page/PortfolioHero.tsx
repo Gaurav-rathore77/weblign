@@ -1,24 +1,4 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import { HiOutlineAdjustmentsHorizontal } from 'react-icons/hi2';
-
-const heroVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-  },
-};
-
-const heroItem = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
 
 const PortfolioHero = () => {
   return (
@@ -38,38 +18,25 @@ const PortfolioHero = () => {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={heroVariants}
-          initial="hidden"
-          animate="visible"
-          className="mx-auto max-w-3xl text-center"
-        >
-          <motion.div variants={heroItem}>
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-              <HiOutlineAdjustmentsHorizontal className="h-4 w-4" aria-hidden="true" />
-              Our Portfolio
-            </div>
-          </motion.div>
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
+            <HiOutlineAdjustmentsHorizontal className="h-4 w-4" aria-hidden="true" />
+            Our Portfolio
+          </div>
 
-          <motion.h1
-            variants={heroItem}
-            className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl lg:text-6xl"
-          >
+          <h1 className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl lg:text-6xl">
             Projects We&rsquo;ve Built With{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Pride & Precision
             </span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            variants={heroItem}
-            className="mt-5 text-base leading-relaxed text-zinc-500 sm:text-lg dark:text-zinc-400"
-          >
+          <p className="mt-5 text-base leading-relaxed text-zinc-500 sm:text-lg dark:text-zinc-400">
             From startups to enterprises — explore a curated selection of web
             apps, mobile experiences, and platforms we&rsquo;ve designed and
             engineered from the ground up.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
       </div>
     </section>
   );

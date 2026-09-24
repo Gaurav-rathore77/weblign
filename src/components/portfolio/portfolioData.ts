@@ -31,6 +31,11 @@ export interface Project {
   };
 }
 
+export type PortfolioPreview = Pick<
+  Project,
+  'id' | 'title' | 'image' | 'imageAlt' | 'gradient' | 'category'
+>;
+
 export const projects: Project[] = [
   {
     id: 'icfei-portal',

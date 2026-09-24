@@ -1,15 +1,43 @@
-'use client';
-
-import { motion } from 'framer-motion';
-import { HiOutlineComputerDesktop, HiOutlineDevicePhoneMobile, HiOutlinePaintBrush, HiOutlineShoppingCart, HiOutlineCloud, HiOutlineCommandLine } from 'react-icons/hi2';
+import {
+  HiOutlineComputerDesktop,
+  HiOutlineDevicePhoneMobile,
+  HiOutlinePaintBrush,
+  HiOutlineShoppingCart,
+  HiOutlineCloud,
+  HiOutlineCommandLine,
+} from 'react-icons/hi2';
 
 const services = [
-  { icon: HiOutlineComputerDesktop, title: 'Web Applications', desc: 'Scalable, high-performance web apps built with modern frameworks like Next.js and React.' },
-  { icon: HiOutlineDevicePhoneMobile, title: 'Mobile Solutions', desc: 'Cross-platform mobile apps that deliver native-quality experiences on iOS and Android.' },
-  { icon: HiOutlinePaintBrush, title: 'UI/UX Design', desc: 'User-centered design that balances aesthetics with usability to drive engagement.' },
-  { icon: HiOutlineShoppingCart, title: 'E-Commerce', desc: 'Custom online stores and marketplaces optimized for conversion and growth.' },
-  { icon: HiOutlineCloud, title: 'Cloud & DevOps', desc: 'Cloud-native architecture, CI/CD pipelines, and infrastructure that scales.' },
-  { icon: HiOutlineCommandLine, title: 'AI & Automation', desc: 'Intelligent automation and AI-powered features that give your product an edge.' },
+  {
+    icon: HiOutlineComputerDesktop,
+    title: 'Web Applications',
+    desc: 'Scalable, high-performance web apps built with modern frameworks like Next.js and React.',
+  },
+  {
+    icon: HiOutlineDevicePhoneMobile,
+    title: 'Mobile Solutions',
+    desc: 'Cross-platform mobile apps that deliver native-quality experiences on iOS and Android.',
+  },
+  {
+    icon: HiOutlinePaintBrush,
+    title: 'UI/UX Design',
+    desc: 'User-centered design that balances aesthetics with usability to drive engagement.',
+  },
+  {
+    icon: HiOutlineShoppingCart,
+    title: 'E-Commerce',
+    desc: 'Custom online stores and marketplaces optimized for conversion and growth.',
+  },
+  {
+    icon: HiOutlineCloud,
+    title: 'Cloud & DevOps',
+    desc: 'Cloud-native architecture, CI/CD pipelines, and infrastructure that scales.',
+  },
+  {
+    icon: HiOutlineCommandLine,
+    title: 'AI & Automation',
+    desc: 'Intelligent automation and AI-powered features that give your product an edge.',
+  },
 ];
 
 const ServicesProcess = () => {
@@ -21,13 +49,7 @@ const ServicesProcess = () => {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto mb-14 max-w-2xl text-center"
-        >
+        <div className="mx-auto mb-14 max-w-2xl text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
             <HiOutlineCommandLine className="h-4 w-4" aria-hidden="true" />
             What We Deliver
@@ -40,24 +62,24 @@ const ServicesProcess = () => {
             From strategy to launch and beyond, we provide everything you need
             to build a successful digital product.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s, i) => (
-            <motion.div
+          {services.map((s) => (
+            <div
               key={s.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 }}
               className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-100"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/[0.08] text-primary">
-                <s.icon className="h-5 w-5" />
+                <s.icon className="h-5 w-5" aria-hidden="true" />
               </div>
-              <h3 className="mt-4 text-base font-semibold text-zinc-900 dark:text-zinc-950">{s.title}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">{s.desc}</p>
-            </motion.div>
+              <h3 className="mt-4 text-base font-semibold text-zinc-900 dark:text-zinc-950">
+                {s.title}
+              </h3>
+              <p className="mt-1.5 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+                {s.desc}
+              </p>
+            </div>
           ))}
         </div>
       </div>

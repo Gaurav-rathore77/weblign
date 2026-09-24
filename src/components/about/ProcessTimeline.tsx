@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import {
   HiOutlineMagnifyingGlass,
   HiOutlinePencilSquare,
@@ -45,16 +42,8 @@ const ProcessTimeline = () => {
       {/* Desktop horizontal */}
       <div className="hidden grid-cols-4 gap-6 lg:grid">
         {steps.map((step, i) => (
-          <motion.div
+          <div
             key={step.number}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{
-              delay: i * 0.15,
-              duration: 0.5,
-              ease: [0.22, 1, 0.36, 1] as const,
-            }}
             className="relative flex flex-col items-start"
           >
             {/* Connector line */}
@@ -76,23 +65,15 @@ const ProcessTimeline = () => {
             </div>
             <h4 className="mt-1 text-lg font-semibold text-zinc-900">{step.title}</h4>
             <p className="mt-1 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">{step.description}</p>
-          </motion.div>
+          </div>
         ))}
       </div>
 
       {/* Mobile vertical */}
       <div className="relative lg:hidden">
         {steps.map((step, i) => (
-          <motion.div
+          <div
             key={step.number}
-            initial={{ opacity: 0, x: -16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{
-              delay: i * 0.12,
-              duration: 0.5,
-              ease: [0.22, 1, 0.36, 1] as const,
-            }}
             className="relative flex gap-5 pb-10 last:pb-0"
           >
             {/* Connector line */}
@@ -113,7 +94,7 @@ const ProcessTimeline = () => {
               <h4 className="mt-0.5 text-base font-semibold text-zinc-900">{step.title}</h4>
               <p className="mt-1 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">{step.description}</p>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </div>

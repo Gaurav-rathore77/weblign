@@ -1,24 +1,4 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import { HiOutlineSparkles, HiOutlineMapPin, HiOutlineCalendarDays, HiOutlineUserGroup } from 'react-icons/hi2';
-
-const heroVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-  },
-};
-
-const heroItem = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
 
 const AboutHero = () => {
   return (
@@ -38,40 +18,27 @@ const AboutHero = () => {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={heroVariants}
-          initial="hidden"
-          animate="visible"
-          className="mx-auto max-w-3xl text-center"
-        >
-          <motion.div variants={heroItem}>
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-              <HiOutlineSparkles className="h-4 w-4" aria-hidden="true" />
-              About Weblign
-            </div>
-          </motion.div>
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
+            <HiOutlineSparkles className="h-4 w-4" aria-hidden="true" />
+            About Weblign
+          </div>
 
-          <motion.h1
-            variants={heroItem}
-            className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl lg:text-6xl"
-          >
+          <h1 className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl lg:text-6xl">
             We Build Digital Products That{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Make a Difference
             </span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            variants={heroItem}
-            className="mt-5 text-base leading-relaxed text-zinc-500 sm:text-lg dark:text-zinc-400"
-          >
-            Weblign is a digital agency built on the belief that great
-            products come from great collaboration. We combine technical rigor
-            with design thinking to ship products that users love and
-            businesses rely on.
-          </motion.p>
+          <p className="mt-5 text-base leading-relaxed text-zinc-500 sm:text-lg dark:text-zinc-400">
+            Weblign is a digital agency built on the belief that great products
+            come from great collaboration. We combine technical rigor with
+            design thinking to ship products that users love and businesses
+            rely on.
+          </p>
 
-          <motion.div variants={heroItem} className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-4 py-1.5 text-sm text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
               <HiOutlineMapPin className="h-4 w-4" aria-hidden="true" /> San Francisco, CA
             </span>
@@ -81,8 +48,8 @@ const AboutHero = () => {
             <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-4 py-1.5 text-sm text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
               <HiOutlineUserGroup className="h-4 w-4" aria-hidden="true" /> Small Team, Big Impact
             </span>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

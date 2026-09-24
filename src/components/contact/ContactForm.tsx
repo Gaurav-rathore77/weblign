@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
-import { motion } from 'framer-motion';
 import { Send, CheckCircle2 } from 'lucide-react';
 import Input from './Input';
 import Textarea from './Textarea';
@@ -86,13 +85,13 @@ const ContactForm = () => {
 
   if (status === 'success') {
     return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
+      <div
+        role="status"
+        aria-live="polite"
         className="flex flex-col items-center justify-center rounded-2xl border border-emerald-100 bg-emerald-50/50 p-10 text-center shadow-lg shadow-zinc-900/5"
       >
         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
-          <CheckCircle2 className="h-7 w-7" />
+          <CheckCircle2 className="h-7 w-7" aria-hidden="true" />
         </div>
         <h3 className="mt-4 text-lg font-semibold text-zinc-900">
           Message Sent Successfully!
@@ -101,16 +100,12 @@ const ContactForm = () => {
           Thank you for reaching out. We&rsquo;ll review your details and get
           back to you within 24 hours.
         </p>
-      </motion.div>
+      </div>
     );
   }
 
   return (
-    <motion.form
-      initial={{ opacity: 0, x: 20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+    <form
       onSubmit={handleSubmit}
       noValidate
       className="relative space-y-5 rounded-2xl border border-zinc-100 bg-white p-6 shadow-lg shadow-zinc-900/5 sm:p-8"
@@ -251,7 +246,7 @@ const ContactForm = () => {
           </>
         )}
       </button>
-    </motion.form>
+    </form>
   );
 };
 

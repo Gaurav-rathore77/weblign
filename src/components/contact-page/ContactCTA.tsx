@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import {
   HiOutlineArrowLongRight,
   HiOutlineChatBubbleLeftRight,
@@ -18,13 +15,7 @@ const ContactCTA = () => {
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-      className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 via-primary/[0.04] to-accent/10 p-8 text-center shadow-lg sm:p-12 dark:from-primary/5 dark:to-accent/5"
-    >
+    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 via-primary/[0.04] to-accent/10 p-8 text-center shadow-lg sm:p-12 dark:from-primary/5 dark:to-accent/5">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.02]"
         aria-hidden="true"
@@ -52,11 +43,11 @@ const ContactCTA = () => {
               <div>{ch.label}</div>
               <div className="text-xs font-normal text-zinc-400">{ch.desc}</div>
             </div>
-            <HiOutlineArrowLongRight className="ml-2 h-4 w-4 text-zinc-300 dark:text-zinc-600" />
+            <HiOutlineArrowLongRight className="ml-2 h-4 w-4 text-zinc-300 dark:text-zinc-600" aria-hidden="true" />
           </a>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

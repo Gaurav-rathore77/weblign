@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import clsx from 'clsx';
 
 interface BillingToggleProps {
@@ -31,12 +30,11 @@ const BillingToggle = ({ yearly, onChange }: BillingToggleProps) => {
           yearly ? 'bg-primary' : 'bg-zinc-200',
         )}
       >
-        <motion.span
-          layout
-          transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+        <span
+          aria-hidden="true"
           className={clsx(
-            'absolute top-1 h-5 w-5 rounded-full bg-white shadow-sm',
-            yearly ? 'left-6' : 'left-1',
+            'absolute left-1 top-1 h-5 w-5 rounded-full bg-white shadow-sm transition-transform duration-300',
+            yearly && 'translate-x-5',
           )}
         />
       </button>
@@ -50,17 +48,15 @@ const BillingToggle = ({ yearly, onChange }: BillingToggleProps) => {
         >
           Yearly
         </span>
-        <motion.span
-          initial={false}
-          animate={{
-            opacity: yearly ? 1 : 0,
-            scale: yearly ? 1 : 0.8,
-          }}
-          transition={{ duration: 0.2 }}
-          className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-600"
+        <span
+          aria-live="polite"
+          className={clsx(
+            'rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-600 transition-all duration-200',
+            yearly ? 'scale-100 opacity-100' : 'scale-80 opacity-0',
+          )}
         >
           Save 20%
-        </motion.span>
+        </span>
       </div>
     </div>
   );

@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import clsx from 'clsx';
 import type { ProcessStep } from './processData';
 
@@ -15,27 +12,16 @@ const ProcessCard = ({ step, index }: ProcessCardProps) => {
   return (
     <div className="relative grid grid-cols-1 items-center gap-6 lg:grid-cols-2 lg:gap-12">
       {/* Card — alternates left/right */}
-      <motion.div
-        initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{
-          duration: 0.7,
-          ease: [0.22, 1, 0.36, 1],
-        }}
+      <div
         className={clsx(
-          'relative z-10',
+          'group relative z-10 transition-transform duration-300 hover:-translate-y-1.5',
           isLeft ? 'lg:order-1 lg:pr-8' : 'lg:order-2 lg:pl-8',
         )}
       >
-        <motion.div
-          whileHover={{ y: -6, scale: 1.01 }}
-          transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-          className="group relative"
-        >
+        <div className="relative">
           {/* Glass card */}
           <div className="relative overflow-hidden rounded-2xl border border-white/20 bg-white/70 p-6 shadow-lg shadow-zinc-900/5 backdrop-blur-xl transition-all duration-500 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 sm:p-7">
-            {/* Animated gradient overlay on hover */}
+            {/* Gradient overlay on hover */}
             <div className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100">
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/[0.03] to-accent/[0.03]" />
             </div>
@@ -67,8 +53,8 @@ const ProcessCard = ({ step, index }: ProcessCardProps) => {
               </div>
             </div>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
       {/* Spacer for the other column (desktop) */}
       <div

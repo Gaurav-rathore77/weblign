@@ -1,7 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
-
 /* ───── floating helper: wraps entrance + continuous bob ───── */
 const FloatWrapper = ({
   children,
@@ -16,21 +12,19 @@ const FloatWrapper = ({
   yOffset?: number;
   className?: string;
 }) => (
-  <motion.div
-    className={className}
-    initial={{ opacity: 0, x: xOffset, y: yOffset }}
-    animate={{ opacity: 1, x: 0, y: 0 }}
-    transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] as const }}
+  <div
+    className={`${className} hero-reveal hero-float-outer`}
+    style={
+      {
+        '--hero-x': `${xOffset}px`,
+        '--hero-y': `${yOffset}px`,
+        '--hero-delay': `${delay}s`,
+        '--float-duration': `${4 + delay * 2}s`,
+      } as React.CSSProperties
+    }
   >
-    <motion.div
-      animate={{
-        y: [0, -6, 0],
-        transition: { duration: 4 + delay * 2, repeat: Infinity, ease: 'easeInOut' },
-      }}
-    >
-      {children}
-    </motion.div>
-  </motion.div>
+    <div className="hero-float">{children}</div>
+  </div>
 );
 
 /* ───── growth-chart SVG ───── */
@@ -94,12 +88,7 @@ const HeroIllustration = () => {
       {/* outer container: holds everything */}
       <div className="relative aspect-[4/4] w-full">
         {/* ── Browser window ── */}
-        <motion.div
-          className="relative z-10 h-full w-full overflow-hidden rounded-2xl border border-zinc-200/60 bg-white shadow-xl shadow-zinc-900/5 dark:border-zinc-700/60 dark:bg-zinc-100"
-          initial={{ opacity: 0, y: 40, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] as const }}
-        >
+        <div className="hero-reveal hero-delay-200 relative z-10 h-full w-full overflow-hidden rounded-2xl border border-zinc-200/60 bg-white shadow-xl shadow-zinc-900/5 dark:border-zinc-700/60 dark:bg-zinc-100">
           {/* Title bar */}
           <div className="flex items-center gap-1.5 border-b border-zinc-100 px-4 py-3 dark:border-zinc-700">
             <span className="h-2.5 w-2.5 rounded-full bg-zinc-200 dark:bg-zinc-700" />
@@ -141,7 +130,7 @@ const HeroIllustration = () => {
               <span className="text-[11px] text-emerald-600">↑ 8.3% this week</span>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* ── Floating card: Analytics ── */}
         <FloatWrapper
@@ -150,7 +139,7 @@ const HeroIllustration = () => {
           yOffset={-20}
           className="absolute -right-4 -top-3 z-20"
         >
-          <div className="w-44 rounded-xl border border-zinc-100/80 bg-white/70 p-4 shadow-lg shadow-zinc-900/5 backdrop-blur-xl dark:border-zinc-700/80 dark:bg-zinc-100/70">
+          <div className="w-44 rounded-xl border border-zinc-100/80 bg-white/90 p-4 shadow-lg shadow-zinc-900/5 dark:border-zinc-700/80 dark:bg-zinc-100/90">
             <div className="mb-2 flex items-center justify-between">
               <span className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Page Views</span>
               <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-600 dark:bg-emerald-900/40 dark:text-emerald-400">
@@ -169,7 +158,7 @@ const HeroIllustration = () => {
           yOffset={20}
           className="absolute bottom-1 -left-6 z-20"
         >
-          <div className="flex w-52 items-center gap-3 rounded-xl border border-zinc-100/80 bg-white/70 p-3 shadow-lg shadow-zinc-900/5 backdrop-blur-xl dark:border-zinc-700/80 dark:bg-zinc-100/70">
+          <div className="flex w-52 items-center gap-3 rounded-xl border border-zinc-100/80 bg-white/90 p-3 shadow-lg shadow-zinc-900/5 dark:border-zinc-700/80 dark:bg-zinc-100/90">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-[11px] font-bold text-white">
               SR
             </div>
@@ -187,7 +176,7 @@ const HeroIllustration = () => {
           yOffset={15}
           className="absolute bottom-2 -right-3 z-20"
         >
-          <div className="w-36 rounded-xl border border-zinc-100/80 bg-white/70 p-3 shadow-lg shadow-zinc-900/5 backdrop-blur-xl dark:border-zinc-700/80 dark:bg-zinc-100/70">
+          <div className="w-36 rounded-xl border border-zinc-100/80 bg-white/90 p-3 shadow-lg shadow-zinc-900/5 dark:border-zinc-700/80 dark:bg-zinc-100/90">
             <span className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Avg. Revenue</span>
             <p className="mt-0.5 text-lg font-bold text-zinc-900">$12,847</p>
             <div className="mt-1 flex items-center gap-1 text-[11px] text-emerald-600">
@@ -206,7 +195,7 @@ const HeroIllustration = () => {
           yOffset={-25}
           className="absolute right-8 top-2 z-20"
         >
-          <div className="relative flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-100/80 bg-white/70 shadow-md shadow-zinc-900/5 backdrop-blur-xl dark:border-zinc-700/80 dark:bg-zinc-100/70">
+          <div className="relative flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-100/80 bg-white/90 shadow-md shadow-zinc-900/5 dark:border-zinc-700/80 dark:bg-zinc-100/90">
             <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 text-zinc-500 dark:text-zinc-400" aria-hidden="true">
               <path
                 d="M10 2a6 6 0 00-6 6v3l-1.5 2.5a.5.5 0 00.43.75h14.14a.5.5 0 00.43-.75L16 11V8a6 6 0 00-6-6z"
@@ -218,18 +207,17 @@ const HeroIllustration = () => {
               <path d="M8 15a2 2 0 004 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
             <span className="absolute -right-0.5 -top-0.5 flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary/40" />
+              <span className="absolute inline-flex h-full w-full rounded-full bg-primary/20" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary" />
             </span>
           </div>
         </FloatWrapper>
 
         {/* ── Decorative background shapes ── */}
-        <div className="pointer-events-none absolute -inset-8" aria-hidden="true">
-          <div className="absolute -bottom-6 -left-6 h-40 w-40 rounded-full bg-primary/[0.03] blur-3xl" />
-          <div className="absolute -right-4 -top-4 h-48 w-48 rounded-full bg-accent/[0.04] blur-3xl" />
-          <div className="absolute bottom-1/4 left-1/3 h-32 w-32 rounded-full bg-primary/[0.02] blur-2xl" />
-        </div>
+        <div
+          className="pointer-events-none absolute -inset-8 bg-[radial-gradient(circle_at_25%_75%,rgba(37,99,235,0.05),transparent_34%),radial-gradient(circle_at_78%_20%,rgba(56,189,248,0.05),transparent_30%)]"
+          aria-hidden="true"
+        />
       </div>
     </div>
   );

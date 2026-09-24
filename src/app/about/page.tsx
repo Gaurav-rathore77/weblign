@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
-import { AboutHero, AboutStory, AboutTeam, AboutCTA } from '@/components/about-page';
+import AboutHero from '@/components/about-page/AboutHero';
+import AboutStory from '@/components/about-page/AboutStory';
+import AboutTeam from '@/components/about-page/AboutTeam';
+import AboutCTA from '@/components/about-page/AboutCTA';
 import { siteUrl } from '@/constants';
 
 export const metadata: Metadata = {

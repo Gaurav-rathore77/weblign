@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import clsx from 'clsx';
 import { comparisonFeatures } from './pricingData';
 import { HiCheck, HiXMark } from 'react-icons/hi2';
@@ -19,13 +16,7 @@ const Cross = () => (
 
 const ComparisonTable = () => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-      className="overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-lg shadow-zinc-900/5"
-    >
+    <div className="overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-lg shadow-zinc-900/5">
       {/* Header */}
       <div className="border-b border-zinc-100 bg-zinc-50/50 p-4 sm:p-6">
         <h3 className="text-lg font-semibold text-zinc-900">Feature Comparison</h3>
@@ -53,12 +44,8 @@ const ComparisonTable = () => {
           </thead>
           <tbody>
             {comparisonFeatures.map((feature, i) => (
-              <motion.tr
+              <tr
                 key={feature.name}
-                initial={{ opacity: 0, x: -8 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.03, duration: 0.3 }}
                 className={clsx(
                   'transition-colors duration-150 hover:bg-zinc-50',
                   i < comparisonFeatures.length - 1 && 'border-b border-zinc-50',
@@ -76,12 +63,12 @@ const ComparisonTable = () => {
                 <td className="px-3 py-3 text-center">
                   {feature.enterprise ? <Tick /> : <Cross />}
                 </td>
-              </motion.tr>
+              </tr>
             ))}
           </tbody>
         </table>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

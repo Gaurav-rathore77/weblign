@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import { Hero } from '@/components/hero';
-import { TrustedSection } from '@/components/trusted';
-import { AboutSection } from '@/components/about';
-import { ServicesSection } from '@/components/services';
-import { WhyChooseSection } from '@/components/why-choose';
-import { PortfolioSection } from '@/components/portfolio';
-import { PricingSection } from '@/components/pricing';
-import { ProcessSection } from '@/components/process';
-import { ContactSection } from '@/components/contact';
+import Hero from '@/components/hero/Hero';
+import TrustedSection from '@/components/trusted/TrustedSection';
+import AboutSection from '@/components/about/AboutSection';
+import ServicesSection from '@/components/services/ServicesSection';
+import WhyChooseSection from '@/components/why-choose/WhyChooseSection';
+import PortfolioSection from '@/components/portfolio/PortfolioSection';
+import PricingSection from '@/components/pricing/PricingSection';
+import ProcessSection from '@/components/process/ProcessSection';
+import ContactSection from '@/components/contact/ContactSection';
 import { siteUrl, siteName } from '@/constants';
 
 export const metadata: Metadata = {

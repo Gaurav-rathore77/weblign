@@ -1,18 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { motion, LayoutGroup } from 'framer-motion';
+import { usePathname, useRouter } from 'next/navigation';
 import clsx from 'clsx';
 import { navigation } from '@/constants';
 
-const underlineVariants = {
-  hover: { scaleX: 1, opacity: 1 },
-  idle: { scaleX: 0, opacity: 0 },
-};
-
 const NavLinks = () => {
   const pathname = usePathname();
+  const router = useRouter();
 
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/';
@@ -20,49 +15,41 @@ const NavLinks = () => {
   };
 
   return (
-    <LayoutGroup>
-      <ul className="flex items-center gap-1">
-        {navigation.main.map((item) => {
-          const active = isActive(item.href);
-          return (
-            <li key={item.href} className="relative">
-              <Link
-                href={item.href}
+    <ul className="flex items-center gap-1">
+      {navigation.main.map((item) => {
+        const active = isActive(item.href);
+
+        return (
+          <li key={item.href} className="relative">
+            <Link
+              href={item.href}
+              prefetch={false}
+              onMouseEnter={() => router.prefetch(item.href)}
+              onFocus={() => router.prefetch(item.href)}
+              onPointerDown={() => router.prefetch(item.href)}
+              className={clsx(
+                'rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200',
+                active
+                  ? 'text-primary'
+                  : 'text-zinc-600 hover:text-zinc-900',
+              )}
+              aria-current={active ? 'page' : undefined}
+            >
+              {item.name}
+              <span
                 className={clsx(
-                  'relative rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200',
+                  'absolute -bottom-0.5 left-2 right-2 h-0.5 origin-center rounded-full transition-transform duration-200',
                   active
-                    ? 'text-primary'
-                    : 'text-zinc-600 hover:text-zinc-900',
+                    ? 'scale-x-100 bg-primary'
+                    : 'scale-x-0 bg-zinc-400 hover:scale-x-100',
                 )}
-                aria-current={active ? 'page' : undefined}
-              >
-                {item.name}
-                {active && (
-                  <motion.span
-                    layoutId="nav-indicator"
-                    className="absolute -bottom-0.5 left-2 right-2 h-0.5 rounded-full bg-primary"
-                    transition={{
-                      type: 'spring',
-                      stiffness: 380,
-                      damping: 30,
-                    }}
-                  />
-                )}
-                {!active && (
-                  <motion.span
-                    className="absolute -bottom-0.5 left-2 right-2 h-0.5 origin-center rounded-full bg-zinc-400"
-                    variants={underlineVariants}
-                    initial="idle"
-                    whileHover="hover"
-                    transition={{ duration: 0.2 }}
-                  />
-                )}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </LayoutGroup>
+                aria-hidden="true"
+              />
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 

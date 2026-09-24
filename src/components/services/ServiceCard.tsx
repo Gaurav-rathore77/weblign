@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import { HiOutlineArrowLongRight, HiCheck } from 'react-icons/hi2';
 import { serviceIcons } from './Icons';
 import type { Service } from './servicesData';
@@ -10,22 +7,11 @@ interface ServiceCardProps {
   index: number;
 }
 
-const ServiceCard = ({ service, index }: ServiceCardProps) => {
+const ServiceCard = ({ service }: ServiceCardProps) => {
   const Icon = serviceIcons[service.iconKey];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{
-        delay: index * 0.1,
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1] as const,
-      }}
-      whileHover={{ y: -6 }}
-      className="group relative"
-    >
+    <div className="group relative transition-transform duration-300 hover:-translate-y-1.5">
       {/* Gradient border wrapper */}
       <div className="relative rounded-2xl bg-gradient-to-b from-primary/20 to-transparent p-px shadow-lg shadow-zinc-900/5 transition-shadow duration-500 group-hover:shadow-xl group-hover:shadow-primary/5">
         {/* Card body */}
@@ -41,13 +27,9 @@ const ServiceCard = ({ service, index }: ServiceCardProps) => {
 
           {/* Icon */}
           <div className="relative mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/[0.06] text-primary transition-all duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
-            <motion.span
-              className="flex items-center justify-center"
-              whileHover={{ rotate: -8 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 10 }}
-            >
+            <span className="flex items-center justify-center transition-transform duration-300 hover:-rotate-[8deg]">
               <Icon className="h-6 w-6" />
-            </motion.span>
+            </span>
           </div>
 
           {/* Title */}
@@ -81,7 +63,7 @@ const ServiceCard = ({ service, index }: ServiceCardProps) => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

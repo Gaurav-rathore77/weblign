@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
-import { ServicesHero, ServicesGrid, ServicesProcess, ServicesCTA } from '@/components/services-page';
+import ServicesHero from '@/components/services-page/ServicesHero';
+import ServicesGrid from '@/components/services-page/ServicesGrid';
+import ServicesProcess from '@/components/services-page/ServicesProcess';
+import ServicesCTA from '@/components/services-page/ServicesCTA';
 import { siteUrl } from '@/constants';
 
 export const metadata: Metadata = {

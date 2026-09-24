@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
-import { PricingHero, PricingPlans, PricingFAQ, PricingCTA } from '@/components/pricing-page';
+import PricingHero from '@/components/pricing-page/PricingHero';
+import PricingPlans from '@/components/pricing-page/PricingPlans';
+import PricingFAQ from '@/components/pricing-page/PricingFAQ';
+import PricingCTA from '@/components/pricing-page/PricingCTA';
 import { siteUrl } from '@/constants';
 
 export const metadata: Metadata = {

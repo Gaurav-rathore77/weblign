@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import {
   HiOutlineStar,
   HiOutlineHeart,
@@ -37,23 +34,6 @@ const cards = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
-
 const TrustedSection = () => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24">
@@ -65,20 +45,13 @@ const TrustedSection = () => {
 
       {/* Background glow */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute left-1/3 top-0 h-64 w-64 -translate-x-1/2 rounded-full bg-primary/[0.02] blur-3xl dark:bg-primary/[0.05]" />
-        <div className="absolute right-1/4 bottom-0 h-48 w-48 rounded-full bg-accent/[0.02] blur-3xl dark:bg-accent/[0.05]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_35%_10%,rgba(37,99,235,0.05),transparent_28%),radial-gradient(circle_at_75%_90%,rgba(56,189,248,0.05),transparent_25%)] dark:opacity-80" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="flex flex-col items-center gap-16"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-        >
+        <div className="flex flex-col items-center gap-16">
           {/* ── Section Header ── */}
-          <motion.div variants={itemVariants} className="flex max-w-2xl flex-col items-center gap-4 text-center">
+          <div className="flex max-w-2xl flex-col items-center gap-4 text-center">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-amber-200/60 bg-amber-50/60 px-4 py-1.5 text-sm font-medium text-amber-700 dark:border-amber-700/40 dark:bg-amber-900/30 dark:text-amber-300">
               <HiOutlineStar className="h-4 w-4 text-amber-500 dark:text-amber-400" aria-hidden="true" />
@@ -97,22 +70,22 @@ const TrustedSection = () => {
               the world trust us to deliver high-quality digital solutions that
               drive measurable results.
             </p>
-          </motion.div>
+          </div>
 
           {/* ── Project Slider ── */}
-          <motion.div variants={itemVariants} className="w-full">
+          <div className="w-full">
             <ProjectSlider />
-          </motion.div>
+          </div>
 
           {/* ── Trust Metrics ── */}
-          <motion.div variants={itemVariants} className="w-full">
+          <div className="w-full">
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {cards.map((card, i) => (
                 <TrustCard key={card.label} {...card} index={i} />
               ))}
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

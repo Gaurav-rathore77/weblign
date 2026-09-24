@@ -16,10 +16,8 @@ const Hero = () => {
           }}
         />
 
-        {/* Glow orbs */}
-        <div className="absolute -right-48 -top-48 h-[500px] w-[500px] rounded-full bg-primary/[0.04] blur-3xl" />
-        <div className="absolute -bottom-48 -left-48 h-[450px] w-[450px] rounded-full bg-accent/[0.04] blur-3xl" />
-        <div className="absolute right-1/3 top-1/2 h-[250px] w-[250px] -translate-y-1/2 rounded-full bg-primary/[0.02] blur-2xl" />
+        {/* Lightweight ambient gradients */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(37,99,235,0.06),transparent_32%),radial-gradient(circle_at_82%_78%,rgba(56,189,248,0.05),transparent_30%)]" />
       </div>
 
       {/* ── Main content ── */}

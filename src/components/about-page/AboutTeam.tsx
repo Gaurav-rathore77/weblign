@@ -1,25 +1,5 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import { teamMembers, stats } from './aboutData';
 import { HiOutlineUserGroup } from 'react-icons/hi2';
-
-const container = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
 
 const AboutTeam = () => {
   return (
@@ -32,17 +12,10 @@ const AboutTeam = () => {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-20 sm:gap-24">
           {/* ── Stats ── */}
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
-          >
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((s) => (
-              <motion.div
+              <div
                 key={s.label}
-                variants={item}
                 className="rounded-2xl border border-zinc-200 bg-white p-6 text-center shadow-sm dark:border-zinc-800 dark:bg-zinc-100"
               >
                 <span className="block text-3xl font-bold tracking-tight text-primary">
@@ -51,66 +24,41 @@ const AboutTeam = () => {
                 <span className="mt-1 block text-sm text-zinc-500 dark:text-zinc-400">
                   {s.label}
                 </span>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
 
           {/* ── Team ── */}
           <div>
-            <motion.div
-              variants={container}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
-              className="mx-auto mb-12 max-w-2xl text-center"
-            >
-              <motion.div variants={item}>
-                <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-                  <HiOutlineUserGroup className="h-5 w-5" aria-hidden="true" />
-                  Our Team
-                </div>
-              </motion.div>
-              <motion.h2
-                variants={item}
-                className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl"
-              >
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
+                <HiOutlineUserGroup className="h-5 w-5" aria-hidden="true" />
+                Our Team
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
                 Meet the People Behind the Products
-              </motion.h2>
-              <motion.p
-                variants={item}
-                className="mt-3 text-base leading-relaxed text-zinc-500 dark:text-zinc-400"
-              >
+              </h2>
+              <p className="mt-3 text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
                 A passionate team of designers, engineers, and strategists
                 dedicated to building exceptional digital experiences.
-              </motion.p>
-            </motion.div>
+              </p>
+            </div>
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {teamMembers.map((member, i) => (
-                <motion.div
+              {teamMembers.map((member) => (
+                <div
                   key={member.name}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-60px' }}
-                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const, delay: i * 0.1 }}
-                  whileHover={{ y: -4 }}
-                  className="group rounded-2xl border border-zinc-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-primary/20 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-100 dark:hover:border-primary/30"
+                  className="group rounded-2xl border border-zinc-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-100 dark:hover:border-primary/30"
                 >
-                  {member.photo ? (
-                    <img
-                      src={member.photo}
-                      alt={member.name}
-                      className="mx-auto h-20 w-20 rounded-full shadow-sm"
-                    />
-                  ) : (
-                    <div
-                      className={`mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br ${member.gradient} shadow-sm`}
-                    >
-                      <span className="text-xl font-bold text-white">
-                        {member.initials}
-                      </span>
-                    </div>
-                  )}
+                  <div
+                    role="img"
+                    aria-label={member.name}
+                    className={`mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br ${member.gradient} shadow-sm`}
+                  >
+                    <span aria-hidden="true" className="text-xl font-bold text-white">
+                      {member.initials}
+                    </span>
+                  </div>
                   <h3 className="mt-4 text-base font-semibold text-zinc-900">
                     {member.name}
                   </h3>
@@ -118,7 +66,7 @@ const AboutTeam = () => {
                   <p className="mt-2 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400">
                     {member.bio}
                   </p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>

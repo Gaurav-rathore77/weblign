@@ -1,7 +1,4 @@
-'use client';
-
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import clsx from 'clsx';
 import type { PricingPlan } from './pricingData';
 import { HiCheck, HiOutlineStar } from 'react-icons/hi2';
@@ -11,21 +8,11 @@ interface PricingCardProps {
   index: number;
 }
 
-const PricingCard = ({ plan, index }: PricingCardProps) => {
-
+const PricingCard = ({ plan }: PricingCardProps) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{
-        delay: index * 0.1,
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1] as const,
-      }}
-      whileHover={{ y: -6 }}
+    <div
       className={clsx(
-        'group relative',
+        'group relative transition-transform duration-300 hover:-translate-y-1.5',
         plan.popular && 'lg:-mt-4 lg:mb-[-1rem]',
       )}
     >
@@ -113,23 +100,21 @@ const PricingCard = ({ plan, index }: PricingCardProps) => {
 
           {/* Spacer */}
           <div className="mt-auto pt-6">
-            <Link href={plan.ctaHref}>
-              <button
-                type="button"
-                className={clsx(
-                  'w-full rounded-full px-6 py-3 text-sm font-semibold shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
-                  plan.popular
-                    ? 'bg-gradient-to-r from-primary to-accent text-white shadow-primary/20'
-                    : 'border border-zinc-200 bg-white text-zinc-700 hover:border-primary/30 hover:text-primary',
-                )}
-              >
-                {plan.cta}
-              </button>
+            <Link
+              href={plan.ctaHref}
+              className={clsx(
+                'block w-full rounded-full px-6 py-3 text-center text-sm font-semibold shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
+                plan.popular
+                  ? 'bg-gradient-to-r from-primary to-accent text-white shadow-primary/20'
+                  : 'border border-zinc-200 bg-white text-zinc-700 hover:border-primary/30 hover:text-primary',
+              )}
+            >
+              {plan.cta}
             </Link>
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

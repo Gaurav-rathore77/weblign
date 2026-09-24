@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, type FormEvent } from 'react';
-import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const Newsletter = () => {
@@ -16,13 +15,7 @@ const Newsletter = () => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50 to-white p-6 shadow-lg sm:p-8 dark:border-white/[0.06] dark:bg-gradient-to-br dark:from-white/[0.03] dark:to-white/[0.01]"
-    >
+    <div className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50 to-white p-6 shadow-lg sm:p-8 dark:border-white/[0.06] dark:bg-gradient-to-br dark:from-white/[0.03] dark:to-white/[0.01]">
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -right-16 -top-16 h-32 w-32 rounded-full bg-zinc-100 blur-3xl dark:bg-white/[0.03]" />
       </div>
@@ -35,14 +28,10 @@ const Newsletter = () => {
         </p>
 
         {status === 'success' ? (
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-4 flex items-center gap-2 text-sm text-emerald-400"
-          >
+          <div className="mt-4 flex items-center gap-2 text-sm text-emerald-400">
             <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
             Subscribed successfully!
-          </motion.div>
+          </div>
         ) : (
           <form onSubmit={handleSubmit} className="mt-4 space-y-3">
             <div className="flex gap-2">
@@ -83,7 +72,7 @@ const Newsletter = () => {
           </form>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

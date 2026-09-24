@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import {
   HiOutlineBolt, HiOutlineShieldCheck, HiOutlineDevicePhoneMobile,
   HiOutlineRocketLaunch, HiOutlinePaintBrush, HiOutlineHandRaised,
@@ -22,19 +19,8 @@ interface FeatureCardProps {
   index: number;
 }
 
-const FeatureCard = ({ feature, index }: FeatureCardProps) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: '-60px' }}
-    transition={{
-      delay: index * 0.08,
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1] as const,
-    }}
-    whileHover={{ y: -4 }}
-    className="group relative rounded-xl border border-zinc-100 bg-white p-5 shadow-xs transition-shadow duration-300 hover:shadow-lg hover:shadow-zinc-900/5 sm:p-6"
-  >
+const FeatureCard = ({ feature }: FeatureCardProps) => (
+  <div className="group relative rounded-xl border border-zinc-100 bg-white p-5 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-zinc-900/5 sm:p-6">
     {/* Hover glow */}
     <div
       className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -59,7 +45,7 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => (
         </p>
       </div>
     </div>
-  </motion.div>
+  </div>
 );
 
 export default FeatureCard;

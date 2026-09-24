@@ -1,13 +1,16 @@
 import type { Metadata, Viewport } from 'next';
 import { Poppins } from 'next/font/google';
-import { Navbar, Footer } from '@/components/layout';
-import { ThemeProvider, ScrollProgress, JSONLD } from '@/components/common';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
+import ThemeProvider from '@/components/common/ThemeProvider';
+import ScrollProgress from '@/components/common/ScrollProgress';
+import JSONLD from '@/components/common/JSONLD';
 import './globals.css';
 
 const poppins = Poppins({
   variable: '--font-poppins',
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
   preload: true,
   fallback: ['system-ui', 'sans-serif'],
@@ -100,10 +103,7 @@ export default function RootLayout({
       className={`${poppins.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <head>
-        {/* Preconnect to analytics/CDN origins if needed */}
-      </head>
-      <body className="flex min-h-full flex-col bg-background text-text-primary transition-colors duration-300">
+      <body className="flex min-h-full flex-col bg-background text-text-primary">
         <ThemeProvider>
           <ScrollProgress />
           <Navbar />

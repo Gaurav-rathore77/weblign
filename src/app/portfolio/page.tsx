@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { PortfolioHero } from '@/components/portfolio-page';
+import PortfolioHero from '@/components/portfolio-page/PortfolioHero';
 import PortfolioGrid from '@/components/portfolio/PortfolioGrid';
 import FeaturedCaseStudy from '@/components/portfolio/FeaturedCaseStudy';
 import { siteUrl } from '@/constants';

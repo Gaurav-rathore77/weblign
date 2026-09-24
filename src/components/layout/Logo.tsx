@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 
 const Logomark = () => (
@@ -49,6 +47,7 @@ interface LogoProps {
 const Logo = ({ showText = true, className = '' }: LogoProps) => (
   <Link
     href="/"
+    prefetch={false}
     className={`group flex items-center gap-2.5 text-zinc-900 transition-colors hover:text-primary ${className}`}
     aria-label="Weblign - Go to homepage"
   >

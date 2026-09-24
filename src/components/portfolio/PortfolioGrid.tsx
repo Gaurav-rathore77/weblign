@@ -1,14 +1,25 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, type ComponentType } from 'react';
 import PortfolioFilters from './PortfolioFilters';
 import PortfolioCard from './PortfolioCard';
-import PortfolioModal from './PortfolioModal';
 import { projects, type Category } from './portfolioData';
+
+type PortfolioModalComponent = ComponentType<{
+  projectId: string;
+  onClose: () => void;
+}>;
 
 const PortfolioGrid = () => {
   const [activeCategory, setActiveCategory] = useState<Category>('All');
-  const [selectedProject, setSelectedProject] = useState<typeof projects[number] | null>(null);
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  const [Modal, setModal] = useState<PortfolioModalComponent | null>(null);
+
+  const openProject = async (projectId: string) => {
+    const { default: PortfolioModal } = await import('./PortfolioModalLoader');
+    setSelectedProjectId(projectId);
+    setModal(() => PortfolioModal);
+  };
 
   const filtered =
     activeCategory === 'All'
@@ -25,15 +36,20 @@ const PortfolioGrid = () => {
             key={project.id}
             project={project}
             index={i}
-            onOpenModal={setSelectedProject}
+            onOpenModal={(project) => void openProject(project.id)}
           />
         ))}
       </div>
 
-      <PortfolioModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+      {selectedProjectId && Modal && (
+        <Modal
+          projectId={selectedProjectId}
+          onClose={() => {
+            setSelectedProjectId(null);
+            setModal(null);
+          }}
+        />
+      )}
     </>
   );
 };

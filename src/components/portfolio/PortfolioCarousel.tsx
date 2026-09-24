@@ -1,22 +1,23 @@
 'use client';
 
-import { useState } from 'react';
-import type { Project } from './portfolioData';
+import Image from 'next/image';
+import { useState, type CSSProperties } from 'react';
+import type { PortfolioPreview, Project } from './portfolioData';
 
 const initials = (name: string) =>
-  name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+  name.split(' ').map((w) => w[0]).join('').slice(0, 2).toUpperCase();
 
-interface Props {
-  projects: Project[];
-  onSelect: (p: Project) => void;
+interface Props<T extends PortfolioPreview = Project> {
+  projects: T[];
+  onSelect: (p: T) => void;
 }
 
-const PortfolioCarousel = ({ projects, onSelect }: Props) => {
+function PortfolioCarousel<T extends PortfolioPreview>({ projects, onSelect }: Props<T>) {
   const qty = projects.length;
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
 
   const handleImageError = (id: string) => {
-    setImageErrors(prev => new Set(prev).add(id));
+    setImageErrors((prev) => new Set(prev).add(id));
   };
 
   return (
@@ -47,19 +48,33 @@ const PortfolioCarousel = ({ projects, onSelect }: Props) => {
         }
         .carousel-card {
           position: absolute;
+          display: block;
+          width: 100%;
+          height: 100%;
+          padding: 0;
+          border: 0;
           border-radius: 16px;
           overflow: hidden;
           inset: 0;
           cursor: pointer;
+          color: inherit;
+          background: transparent;
+          font: inherit;
+          text-align: center;
           box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
           transform: rotateY(calc((360deg / ${qty}) * var(--index))) translateZ(var(--translateZ));
-          transition: all 0.4s ease;
+          transition: transform 0.4s ease, box-shadow 0.4s ease;
           backface-visibility: hidden;
         }
-        .carousel-card:hover {
+        .carousel-card:hover,
+        .carousel-card:focus-visible {
           box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.25);
           transform: rotateY(calc((360deg / ${qty}) * var(--index))) translateZ(calc(var(--translateZ) + 30px)) scale(1.05);
           z-index: 10;
+        }
+        .carousel-card:focus-visible {
+          outline: 2px solid #2563eb;
+          outline-offset: 4px;
         }
         .carousel-img {
           width: 100%;
@@ -82,7 +97,7 @@ const PortfolioCarousel = ({ projects, onSelect }: Props) => {
           content: '';
           position: absolute;
           inset: 0;
-          background: linear-gradient(to bottom right, var(--gradient)), 
+          background: linear-gradient(to bottom right, var(--gradient)),
                       linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.2), transparent);
           background-size: 30px 30px;
           opacity: 1;
@@ -131,31 +146,39 @@ const PortfolioCarousel = ({ projects, onSelect }: Props) => {
             --translateZ: calc(var(--w) + var(--h) - 30px);
           }
           .carousel-title { font-size: 13px; }
-          .carousel-category { fontSize: 10px; }
+          .carousel-category { font-size: 10px; }
           .carousel-icon { width: 44px; height: 44px; font-size: 16px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .carousel-inner { animation: none; }
+          .carousel-card { transition: none; }
         }
       `}</style>
 
-      <div className="carousel-inner" style={{ '--quantity': qty } as React.CSSProperties}>
+      <div className="carousel-inner">
         {projects.map((p, i) => (
-          <div
+          <button
             key={p.id}
+            type="button"
             className="carousel-card"
-            style={{ '--index': i } as React.CSSProperties}
+            style={{ '--index': i } as CSSProperties}
             onClick={() => onSelect(p)}
+            aria-label={`View ${p.title} case study`}
           >
             {p.image && !imageErrors.has(p.id) ? (
               <>
-                <img
+                <Image
                   src={p.image}
-                  alt={p.title}
-                  className="carousel-img"
+                  alt={p.imageAlt ?? p.title}
+                  fill
+                  sizes="(max-width: 640px) 200px, 280px"
                   loading="lazy"
+                  className="carousel-img"
                   onError={() => handleImageError(p.id)}
                 />
                 <div
                   className="carousel-overlay"
-                  style={{ '--gradient': `linear-gradient(to bottom right, ${p.gradient})` } as React.CSSProperties}
+                  style={{ '--gradient': `linear-gradient(to bottom right, ${p.gradient})` } as CSSProperties}
                 >
                   <div className="carousel-icon">{initials(p.title)}</div>
                   <p className="carousel-title">{p.title.split('—')[0].trim()}</p>
@@ -165,14 +188,14 @@ const PortfolioCarousel = ({ projects, onSelect }: Props) => {
             ) : (
               <div
                 className="carousel-overlay"
-                style={{ '--gradient': `linear-gradient(to bottom right, ${p.gradient})` } as React.CSSProperties}
+                style={{ '--gradient': `linear-gradient(to bottom right, ${p.gradient})` } as CSSProperties}
               >
                 <div className="carousel-icon">{initials(p.title)}</div>
                 <p className="carousel-title">{p.title.split('—')[0].trim()}</p>
                 <p className="carousel-category">{p.category}</p>
               </div>
             )}
-          </div>
+          </button>
         ))}
       </div>
 
@@ -181,15 +204,16 @@ const PortfolioCarousel = ({ projects, onSelect }: Props) => {
         {projects.map((_, i) => (
           <button
             key={i}
+            type="button"
             role="tab"
             aria-selected={false}
             aria-label={`Go to slide ${i + 1}`}
-            className="h-2 w-2 rounded-full bg-white/40 transition-all duration-300 hover:bg-white hover:scale-125"
+            className="h-2 w-2 rounded-full bg-white/40 transition-all duration-300 hover:scale-125 hover:bg-white"
           />
         ))}
       </div>
     </div>
   );
-};
+}
 
 export default PortfolioCarousel;

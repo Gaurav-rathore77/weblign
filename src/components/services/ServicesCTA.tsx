@@ -1,16 +1,7 @@
-'use client';
-
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 
 const ServicesCTA = () => (
-  <motion.div
-    initial={{ opacity: 0, y: 32 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: '-80px' }}
-    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-    className="relative overflow-hidden rounded-2xl sm:rounded-3xl"
-  >
+  <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl">
     {/* Gradient background */}
     <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-accent" />
 
@@ -33,26 +24,22 @@ const ServicesCTA = () => (
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Link href="/contact">
-            <button
-              type="button"
-              className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-primary shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
-              Start Your Project
-            </button>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-primary no-underline shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            Start Your Project
           </Link>
-          <Link href="/contact">
-            <button
-              type="button"
-              className="inline-flex items-center justify-center rounded-full border border-white/30 px-7 py-3 text-sm font-semibold text-white shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-white/50 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
-              Schedule a Call
-            </button>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-full border border-white/30 px-7 py-3 text-sm font-semibold text-white no-underline shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-white/50 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            Schedule a Call
           </Link>
         </div>
       </div>
     </div>
-  </motion.div>
+  </div>
 );
 
 export default ServicesCTA;

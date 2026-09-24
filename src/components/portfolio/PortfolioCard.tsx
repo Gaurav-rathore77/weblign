@@ -1,7 +1,7 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { HiOutlineArrowLongRight, HiOutlineEye } from 'react-icons/hi2';
 import type { Project } from './portfolioData';
 
@@ -11,37 +11,26 @@ interface PortfolioCardProps {
   onOpenModal: (project: Project) => void;
 }
 
-const PortfolioCard = ({ project, index, onOpenModal }: PortfolioCardProps) => {
-  const { title, description, category, gradient, tech, metrics, demoUrl, image } = project;
+const PortfolioCard = ({ project, onOpenModal }: PortfolioCardProps) => {
+  const { title, description, category, gradient, tech, metrics, demoUrl, image, imageAlt } = project;
   const [imageError, setImageError] = useState(false);
 
-  const initials = title.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+  const initials = title.split(' ').map((w) => w[0]).join('').slice(0, 2).toUpperCase();
 
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{
-        delay: index * 0.08,
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1] as const,
-      }}
-      whileHover={{ y: -8, boxShadow: '0 25px 50px -12px rgb(0 0 0 / 0.15)' }}
-      className="group relative"
-    >
+    <div className="group relative transition-transform duration-300 hover:-translate-y-2">
       <div className="overflow-hidden rounded-2xl border border-white/20 shadow-lg shadow-zinc-900/5 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-zinc-900/10">
         {/* Thumbnail - Full hero image with gradient overlay */}
         <div className="relative aspect-video overflow-hidden bg-zinc-100">
           {image && !imageError ? (
             <>
-              <motion.img
+              <Image
                 src={image}
-                alt={title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                alt={imageAlt ?? title}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 loading="lazy"
-                style={{ willChange: 'transform' }}
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 onError={() => setImageError(true)}
               />
               {/* Light gradient overlay - shows image but keeps text readable */}
@@ -84,26 +73,26 @@ const PortfolioCard = ({ project, index, onOpenModal }: PortfolioCardProps) => {
             <button
               type="button"
               onClick={(e) => { e.stopPropagation(); onOpenModal(project); }}
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-zinc-900 shadow-lg backdrop-blur-md transition-all duration-200 hover:bg-white hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-zinc-900 shadow-lg backdrop-blur-md transition-all duration-200 hover:scale-110 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               aria-label={`View ${title} case study`}
             >
-              <HiOutlineEye className="h-4 w-4" />
+              <HiOutlineEye className="h-4 w-4" aria-hidden="true" />
             </button>
             <a
               href={demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-zinc-900 shadow-lg backdrop-blur-md transition-all duration-200 hover:bg-white hover:scale-110"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-zinc-900 shadow-lg backdrop-blur-md transition-all duration-200 hover:scale-110 hover:bg-white"
               aria-label={`Visit ${title} live demo`}
             >
-              <HiOutlineArrowLongRight className="h-4 w-4" />
+              <HiOutlineArrowLongRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </div>
         </div>
 
         {/* Content */}
         <div className="p-5 sm:p-6 bg-white">
-          <h3 className="text-lg font-semibold leading-snug text-zinc-900 group-hover:text-primary transition-colors">{title}</h3>
+          <h3 className="text-lg font-semibold leading-snug text-zinc-900 transition-colors group-hover:text-primary">{title}</h3>
           <p className="mt-1.5 text-sm leading-relaxed text-zinc-500 line-clamp-2">{description}</p>
 
           {/* Tech stack */}
@@ -126,7 +115,7 @@ const PortfolioCard = ({ project, index, onOpenModal }: PortfolioCardProps) => {
               className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-all duration-300 hover:gap-2.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
               View Case Study
-              <HiOutlineArrowLongRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <HiOutlineArrowLongRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
             </button>
             <a
               href={demoUrl}
@@ -140,7 +129,7 @@ const PortfolioCard = ({ project, index, onOpenModal }: PortfolioCardProps) => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
