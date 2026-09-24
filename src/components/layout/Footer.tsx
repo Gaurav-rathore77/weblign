@@ -157,8 +157,7 @@ const Footer = () => {
                 Cookies Policy
               </Link>
               <span className="inline-flex items-center gap-1 text-xs text-zinc-300 dark:text-white/20">
-                Made with <HiHeart className="h-4 w-4 text-red-500" /> using
-                Next.js
+                Gaurav ne banaya h <HiHeart className="h-4 w-4 text-red-500" aria-hidden="true" />
               </span>
             </nav>
           </div>

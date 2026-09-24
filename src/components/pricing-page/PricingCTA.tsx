@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { HiOutlineArrowLongRight } from 'react-icons/hi2';
 
 const PricingCTA = () => {
@@ -20,15 +21,15 @@ const PricingCTA = () => {
         recommend the right plan, and answer any questions you have.
       </p>
       <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-        <a
-          href="#"
+        <Link
+          href="/contact?source=pricing"
           className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
         >
           Book a Free Call
           <HiOutlineArrowLongRight className="h-4 w-4" aria-hidden="true" />
-        </a>
+        </Link>
         <a
-          href="#"
+          href="mailto:info.weblign@gmail.com"
           className="inline-flex items-center gap-2 rounded-full border border-zinc-200 px-6 py-3 text-sm font-semibold text-zinc-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-zinc-300 hover:shadow-sm dark:border-zinc-600 dark:text-zinc-300 dark:hover:border-zinc-500"
         >
           Email Us Instead

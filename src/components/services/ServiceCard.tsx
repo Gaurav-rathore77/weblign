@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { HiOutlineArrowLongRight, HiCheck } from 'react-icons/hi2';
 import { serviceIcons } from './Icons';
 import type { Service } from './servicesData';
@@ -56,10 +57,13 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
 
           {/* Spacer */}
           <div className="relative mt-auto pt-5">
-            <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-all duration-300 group-hover:gap-2.5">
+            <Link
+              href={`/services/${service.id}`}
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-all duration-300 hover:gap-2.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+            >
               Learn More
               <HiOutlineArrowLongRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-            </span>
+            </Link>
           </div>
         </div>
       </div>

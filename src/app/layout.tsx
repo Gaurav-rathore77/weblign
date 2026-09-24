@@ -4,6 +4,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ThemeProvider from '@/components/common/ThemeProvider';
 import ScrollProgress from '@/components/common/ScrollProgress';
+import AIConcierge from '@/components/common/AIConcierge';
 import JSONLD from '@/components/common/JSONLD';
 import './globals.css';
 
@@ -106,6 +107,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col bg-background text-text-primary">
         <ThemeProvider>
           <ScrollProgress />
+          <AIConcierge />
           <Navbar />
           <main className="flex-1 pt-16">{children}</main>
           <Footer />

@@ -131,6 +131,12 @@ npm run dev
 
 Then open `http://localhost:3000/admin`.
 
+## Weblign Guide
+
+A floating website guide is available on public pages. Visitors can ask about services, pricing, portfolio, process, team and contact options. The guide works with its built-in website knowledge immediately; set `OPENAI_API_KEY` and `OPENAI_MODEL` if you want optional OpenAI-powered answers.
+
+The guide is server-side through `/api/assistant`, and the API key is never exposed to the browser.
+
 ## Features
 
 ### SEO

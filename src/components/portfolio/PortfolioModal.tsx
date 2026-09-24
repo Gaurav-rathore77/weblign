@@ -56,27 +56,28 @@ const PortfolioModal = ({ project, onClose }: PortfolioModalProps) => {
         </button>
 
         {/* Hero image */}
-        <div className={`relative flex aspect-[21/9] items-end bg-gradient-to-br ${project.gradient}`}>
+        <div className={`relative aspect-[21/9] overflow-hidden bg-gradient-to-br ${project.gradient}`}>
+          {project.image && (
+            <Image
+              src={project.image}
+              alt={`${project.title} project preview`}
+              fill
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-cover"
+              priority
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
           <div
-            className="absolute inset-0 opacity-[0.04]"
+            className="absolute inset-0 opacity-[0.06]"
             style={{
               backgroundImage:
                 'radial-gradient(circle at 25px 25px, currentColor 1px, transparent 0)',
               backgroundSize: '30px 30px',
             }}
+            aria-hidden="true"
           />
-          <div className="relative flex items-center gap-3 p-6 sm:p-8">
-            {project.image && (
-              <Image
-                src={project.image}
-                alt=""
-                width={40}
-                height={40}
-                sizes="40px"
-                loading="lazy"
-                className="h-10 w-10 rounded-lg shadow-lg"
-              />
-            )}
+          <div className="relative flex h-full items-end p-6 sm:p-8">
             <span className="portfolio-modal-chip rounded-full px-3 py-1 text-[11px] font-medium shadow-xs backdrop-blur-md">
               {project.category}
             </span>

@@ -34,6 +34,20 @@ export const newsletterSubscriptionSchema = z.object({
   website: z.string().max(0).optional(),
 });
 
+export const assistantMessageSchema = z.object({
+  message: z.string().trim().min(1).max(1_000),
+  history: z
+    .array(
+      z.object({
+        role: z.enum(['user', 'assistant']),
+        content: z.string().trim().min(1).max(2_000),
+      }),
+    )
+    .max(10)
+    .optional()
+    .default([]),
+});
+
 export const siteSettingsSchema = z.object({
   brandName: z.string().trim().min(1).max(80),
   hero: z.object({

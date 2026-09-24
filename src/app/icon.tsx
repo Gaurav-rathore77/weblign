@@ -15,13 +15,22 @@ export default function Icon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontFamily: 'system-ui',
-          fontWeight: 700,
-          fontSize: 18,
-          color: 'white',
         }}
       >
-        W
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            width: 19,
+            height: 19,
+            gap: 3,
+          }}
+        >
+          <div style={{ width: 8, height: 8, borderRadius: 2, background: '#ffffff' }} />
+          <div style={{ width: 8, height: 8, borderRadius: 2, background: '#ffffff', opacity: 0.3 }} />
+          <div style={{ width: 8, height: 8, borderRadius: 2, background: '#ffffff', opacity: 0.3 }} />
+          <div style={{ width: 8, height: 8, borderRadius: 2, background: '#ffffff', opacity: 0.55 }} />
+        </div>
       </div>
     ),
     { ...size },

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { HiCheck, HiOutlineArrowLongRight } from 'react-icons/hi2';
 import { pricingTiers } from './pricingData';
 
@@ -48,13 +49,13 @@ const PricingPlans = () => {
             </ul>
 
             {/* CTA */}
-            <a
-              href="#"
+            <Link
+              href={`/contact?plan=${encodeURIComponent(tier.name)}`}
               className={`mt-6 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 ${tier.popular ? 'bg-gradient-to-r from-primary to-accent text-white shadow-md hover:shadow-lg' : 'border border-zinc-200 text-zinc-900 hover:border-zinc-300 hover:shadow-sm dark:border-zinc-700 dark:hover:border-zinc-600'}`}
             >
               {tier.cta}
               <HiOutlineArrowLongRight className="h-4 w-4" aria-hidden="true" />
-            </a>
+            </Link>
           </div>
         ))}
       </div>

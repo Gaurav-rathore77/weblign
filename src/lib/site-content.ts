@@ -13,6 +13,10 @@ import {
   services as fallbackServices,
   type Service,
 } from '@/components/services/servicesData';
+import {
+  serviceDetails as fallbackServiceDetails,
+  type ServiceDetail,
+} from '@/components/services-page/servicesData';
 import { contentSchemaForCollection, siteSettingsSchema } from '@/lib/validators';
 
 export interface SiteSettings {
@@ -213,6 +217,53 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
 
 export async function getServices(): Promise<Service[]> {
   return getCollection('services', fallbackServices);
+}
+
+export async function getServiceDetails(): Promise<ServiceDetail[]> {
+  const services = await getServices();
+  const merged = fallbackServiceDetails.map((detail) => {
+    const editable = services.find((service) => service.id === detail.id);
+    return editable
+      ? {
+          ...detail,
+          title: editable.title,
+          description: editable.description,
+          features: editable.features,
+        }
+      : detail;
+  });
+
+  for (const service of services) {
+    if (!merged.some((detail) => detail.id === service.id)) {
+      merged.push({
+        id: service.id,
+        title: service.title,
+        description: service.description,
+        longDescription: service.description,
+        features: service.features,
+        technologies: [],
+        icon: service.iconKey,
+      });
+    }
+  }
+
+  return merged;
+}
+
+export async function getServiceDetail(slug: string): Promise<ServiceDetail | null> {
+  const normalizedSlug = decodeURIComponent(slug).toLowerCase().trim();
+  const services = await getServiceDetails();
+  return (
+    services.find((service) => service.id.toLowerCase() === normalizedSlug) ??
+    services.find(
+      (service) =>
+        service.title
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, '') === normalizedSlug,
+    ) ??
+    null
+  );
 }
 
 export async function getAdminCollection(

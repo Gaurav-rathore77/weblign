@@ -15,13 +15,22 @@ export default function AppleIcon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontFamily: 'system-ui',
-          fontWeight: 700,
-          fontSize: 96,
-          color: 'white',
         }}
       >
-        W
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            width: 108,
+            height: 108,
+            gap: 12,
+          }}
+        >
+          <div style={{ width: 48, height: 48, borderRadius: 12, background: '#ffffff' }} />
+          <div style={{ width: 48, height: 48, borderRadius: 12, background: '#ffffff', opacity: 0.3 }} />
+          <div style={{ width: 48, height: 48, borderRadius: 12, background: '#ffffff', opacity: 0.3 }} />
+          <div style={{ width: 48, height: 48, borderRadius: 12, background: '#ffffff', opacity: 0.55 }} />
+        </div>
       </div>
     ),
     { ...size },
