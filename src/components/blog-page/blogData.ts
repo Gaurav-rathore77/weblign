@@ -7,6 +7,7 @@ export interface BlogPost {
   readTime: string;
   author: { name: string; role: string; initials: string };
   image: { gradient: string; iconName: string; url: string };
+  content?: string;
   href: string;
 }
 

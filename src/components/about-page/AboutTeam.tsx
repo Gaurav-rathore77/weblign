@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { teamMembers, stats } from './aboutData';
 import { HiOutlineUserGroup } from 'react-icons/hi2';
 
@@ -47,16 +48,17 @@ const AboutTeam = () => {
               {teamMembers.map((member) => (
                 <div
                   key={member.name}
-                  className="group rounded-2xl border border-zinc-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-100 dark:hover:border-primary/30"
+                  className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-md dark:border-zinc-800 dark:bg-[#18181b] dark:hover:border-primary/30"
                 >
-                  <div
-                    role="img"
-                    aria-label={member.name}
-                    className={`mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br ${member.gradient} shadow-sm`}
-                  >
-                    <span aria-hidden="true" className="text-xl font-bold text-white">
-                      {member.initials}
-                    </span>
+                  <div className="relative mx-auto aspect-square w-32 overflow-hidden rounded-3xl border-4 border-white bg-zinc-100 shadow-lg shadow-primary/10 dark:border-[#27272a] dark:bg-[#27272a]">
+                    <Image
+                      src={member.image}
+                      alt={member.imageAlt}
+                      fill
+                      sizes="128px"
+                      unoptimized
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
                   </div>
                   <h3 className="mt-4 text-base font-semibold text-zinc-900">
                     {member.name}

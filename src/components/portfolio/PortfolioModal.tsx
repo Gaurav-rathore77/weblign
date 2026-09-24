@@ -43,13 +43,13 @@ const PortfolioModal = ({ project, onClose }: PortfolioModalProps) => {
         role="dialog"
         aria-modal="true"
         aria-label={`Case study: ${project.title}`}
-        className="relative z-10 mt-8 w-full max-w-3xl overflow-hidden rounded-2xl bg-white shadow-2xl sm:mt-12"
+        className="portfolio-modal-panel relative z-10 mt-8 w-full max-w-3xl overflow-hidden rounded-2xl shadow-2xl sm:mt-12"
       >
         {/* Close button */}
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 text-zinc-600 shadow-xs backdrop-blur-sm transition-colors hover:bg-white hover:text-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          className="portfolio-modal-close absolute right-4 top-4 z-20 flex h-8 w-8 items-center justify-center rounded-full shadow-xs backdrop-blur-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           aria-label="Close case study"
         >
           <HiXMark className="h-4 w-4" aria-hidden="true" />
@@ -77,7 +77,7 @@ const PortfolioModal = ({ project, onClose }: PortfolioModalProps) => {
                 className="h-10 w-10 rounded-lg shadow-lg"
               />
             )}
-            <span className="rounded-full bg-white/70 px-3 py-1 text-[11px] font-medium text-zinc-700 shadow-xs backdrop-blur-md dark:bg-zinc-800/70 dark:text-zinc-300">
+            <span className="portfolio-modal-chip rounded-full px-3 py-1 text-[11px] font-medium shadow-xs backdrop-blur-md">
               {project.category}
             </span>
           </div>
@@ -85,16 +85,16 @@ const PortfolioModal = ({ project, onClose }: PortfolioModalProps) => {
 
         <div className="p-6 sm:p-8">
           {/* Title + overview */}
-          <h2 className="text-2xl font-bold text-zinc-900 sm:text-3xl">{project.title}</h2>
-          <p className="mt-2 text-sm leading-relaxed text-zinc-500">{project.overview}</p>
+          <h2 className="portfolio-modal-surface text-2xl font-bold sm:text-3xl">{project.title}</h2>
+          <p className="portfolio-modal-muted mt-2 text-sm leading-relaxed">{project.overview}</p>
 
           {/* Problem & Solution */}
           <div className="mt-6 grid gap-6 sm:grid-cols-2">
-            <div className="rounded-xl border border-zinc-100 bg-zinc-50/50 p-4">
+            <div className="portfolio-modal-box rounded-xl border p-4">
               <h3 className="text-xs font-semibold uppercase tracking-widest text-red-500">Problem</h3>
               <p className="mt-2 text-sm leading-relaxed text-zinc-600">{project.problem}</p>
             </div>
-            <div className="rounded-xl border border-zinc-100 bg-zinc-50/50 p-4">
+            <div className="portfolio-modal-box rounded-xl border p-4">
               <h3 className="text-xs font-semibold uppercase tracking-widest text-emerald-600">Solution</h3>
               <p className="mt-2 text-sm leading-relaxed text-zinc-600">{project.solution}</p>
             </div>
@@ -135,7 +135,7 @@ const PortfolioModal = ({ project, onClose }: PortfolioModalProps) => {
           </div>
 
           {/* Testimonial */}
-          <div className="mt-6 rounded-xl border border-zinc-100 bg-zinc-50/30 p-5">
+          <div className="portfolio-modal-box mt-6 rounded-xl border p-5">
             <svg viewBox="0 0 24 24" fill="currentColor" className="mb-2 h-5 w-5 text-primary/20" aria-hidden="true">
               <path d="M11.3 3.7a1 1 0 011.4 0l6.4 6.4a1 1 0 010 1.4l-6.4 6.4a1 1 0 01-1.4-1.4L16.6 11 11.3 5.7a1 1 0 010-1.4z" />
             </svg>

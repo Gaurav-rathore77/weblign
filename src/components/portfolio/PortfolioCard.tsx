@@ -19,7 +19,7 @@ const PortfolioCard = ({ project, onOpenModal }: PortfolioCardProps) => {
 
   return (
     <div className="group relative transition-transform duration-300 hover:-translate-y-2">
-      <div className="overflow-hidden rounded-2xl border border-white/20 shadow-lg shadow-zinc-900/5 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-zinc-900/10">
+      <div className="portfolio-card-frame overflow-hidden rounded-2xl border shadow-lg shadow-zinc-900/5 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-zinc-900/10">
         {/* Thumbnail - Full hero image with gradient overlay */}
         <div className="relative aspect-video overflow-hidden bg-zinc-100">
           {image && !imageError ? (
@@ -52,13 +52,13 @@ const PortfolioCard = ({ project, onOpenModal }: PortfolioCardProps) => {
           />
 
           {/* Category badge */}
-          <div className="absolute left-4 top-4 rounded-full border border-white/30 bg-white/90 px-3 py-1 text-[11px] font-medium text-zinc-900 shadow-sm backdrop-blur-md">
+          <div className="portfolio-overlay-badge absolute left-4 top-4 rounded-full border px-3 py-1 text-[11px] font-medium shadow-sm backdrop-blur-md">
             {category}
           </div>
 
           {/* Metric badge */}
           {metrics && (
-            <div className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold text-zinc-900 shadow-sm backdrop-blur-md">
+            <div className="portfolio-overlay-badge absolute bottom-4 left-4 rounded-full border px-3 py-1 text-[11px] font-semibold shadow-sm backdrop-blur-md">
               {metrics}
             </div>
           )}
@@ -73,7 +73,7 @@ const PortfolioCard = ({ project, onOpenModal }: PortfolioCardProps) => {
             <button
               type="button"
               onClick={(e) => { e.stopPropagation(); onOpenModal(project); }}
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-zinc-900 shadow-lg backdrop-blur-md transition-all duration-200 hover:scale-110 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              className="portfolio-overlay-action flex h-9 w-9 items-center justify-center rounded-full shadow-lg backdrop-blur-md transition-all duration-200 hover:scale-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               aria-label={`View ${title} case study`}
             >
               <HiOutlineEye className="h-4 w-4" aria-hidden="true" />
@@ -82,7 +82,7 @@ const PortfolioCard = ({ project, onOpenModal }: PortfolioCardProps) => {
               href={demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-zinc-900 shadow-lg backdrop-blur-md transition-all duration-200 hover:scale-110 hover:bg-white"
+              className="portfolio-overlay-action flex h-9 w-9 items-center justify-center rounded-full shadow-lg backdrop-blur-md transition-all duration-200 hover:scale-110"
               aria-label={`Visit ${title} live demo`}
             >
               <HiOutlineArrowLongRight className="h-4 w-4" aria-hidden="true" />
@@ -91,16 +91,16 @@ const PortfolioCard = ({ project, onOpenModal }: PortfolioCardProps) => {
         </div>
 
         {/* Content */}
-        <div className="p-5 sm:p-6 bg-white">
-          <h3 className="text-lg font-semibold leading-snug text-zinc-900 transition-colors group-hover:text-primary">{title}</h3>
-          <p className="mt-1.5 text-sm leading-relaxed text-zinc-500 line-clamp-2">{description}</p>
+        <div className="portfolio-card-content p-5 sm:p-6">
+          <h3 className="portfolio-card-title text-lg font-semibold leading-snug transition-colors group-hover:text-primary">{title}</h3>
+          <p className="portfolio-card-description mt-1.5 text-sm leading-relaxed line-clamp-2">{description}</p>
 
           {/* Tech stack */}
           <div className="mt-4 flex flex-wrap gap-1.5">
             {tech.map((t) => (
               <span
                 key={t}
-                className="rounded-lg bg-zinc-50 px-2.5 py-1 text-[11px] font-medium text-zinc-500 ring-1 ring-zinc-100 transition-all duration-200 group-hover:bg-primary/[0.06] group-hover:text-primary group-hover:ring-primary/15"
+                className="portfolio-tech-tag rounded-lg px-2.5 py-1 text-[11px] font-medium ring-1 transition-all duration-200 group-hover:bg-primary/[0.06] group-hover:text-primary group-hover:ring-primary/15"
               >
                 {t}
               </span>
@@ -108,7 +108,7 @@ const PortfolioCard = ({ project, onOpenModal }: PortfolioCardProps) => {
           </div>
 
           {/* Actions */}
-          <div className="mt-5 flex items-center gap-4 border-t border-zinc-100 pt-4">
+          <div className="portfolio-card-divider mt-5 flex items-center gap-4 border-t pt-4">
             <button
               type="button"
               onClick={() => onOpenModal(project)}
@@ -121,7 +121,7 @@ const PortfolioCard = ({ project, onOpenModal }: PortfolioCardProps) => {
               href={demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-auto text-sm text-zinc-400 underline decoration-zinc-200 underline-offset-2 transition-colors hover:text-zinc-700 hover:decoration-zinc-400"
+              className="portfolio-demo-link ml-auto text-sm underline underline-offset-2 transition-colors hover:text-zinc-700 hover:decoration-zinc-400"
             >
               Live Demo
               <span className="sr-only"> (opens in new tab)</span>

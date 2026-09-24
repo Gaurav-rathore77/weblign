@@ -109,7 +109,7 @@ const ContactForm = ({ contact }: { contact: SiteSettings['contact'] }) => {
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                  <label htmlFor="name" className="contact-form-label block text-sm font-medium">
                     Name <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -118,12 +118,12 @@ const ContactForm = ({ contact }: { contact: SiteSettings['contact'] }) => {
                     type="text"
                     required
                     autoComplete="name"
-                    className="mt-1.5 block w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:placeholder-zinc-500"
+                    className="contact-form-field mt-1.5 block w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-500"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                  <label htmlFor="email" className="contact-form-label block text-sm font-medium">
                     Email <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -132,7 +132,7 @@ const ContactForm = ({ contact }: { contact: SiteSettings['contact'] }) => {
                     type="email"
                     required
                     autoComplete="email"
-                    className="mt-1.5 block w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:placeholder-zinc-500"
+                    className="contact-form-field mt-1.5 block w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-500"
                     placeholder="you@company.com"
                   />
                 </div>
@@ -140,7 +140,7 @@ const ContactForm = ({ contact }: { contact: SiteSettings['contact'] }) => {
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                  <label htmlFor="phone" className="contact-form-label block text-sm font-medium">
                     Phone <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -149,12 +149,12 @@ const ContactForm = ({ contact }: { contact: SiteSettings['contact'] }) => {
                     type="tel"
                     required
                     autoComplete="tel"
-                    className="mt-1.5 block w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:placeholder-zinc-500"
+                    className="contact-form-field mt-1.5 block w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-500"
                     placeholder="+91 00000 00000"
                   />
                 </div>
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                  <label htmlFor="company" className="contact-form-label block text-sm font-medium">
                     Company
                   </label>
                   <input
@@ -162,7 +162,7 @@ const ContactForm = ({ contact }: { contact: SiteSettings['contact'] }) => {
                     name="company"
                     type="text"
                     autoComplete="organization"
-                    className="mt-1.5 block w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:placeholder-zinc-500"
+                    className="contact-form-field mt-1.5 block w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-500"
                     placeholder="Company name (optional)"
                   />
                 </div>
@@ -170,7 +170,7 @@ const ContactForm = ({ contact }: { contact: SiteSettings['contact'] }) => {
 
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                  <label htmlFor="service" className="contact-form-label block text-sm font-medium">
                     Service <span className="text-red-500">*</span>
                   </label>
                   <select
@@ -178,7 +178,7 @@ const ContactForm = ({ contact }: { contact: SiteSettings['contact'] }) => {
                     name="service"
                     required
                     defaultValue=""
-                    className="mt-1.5 block w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
+                    className="contact-form-field mt-1.5 block w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white"
                   >
                     {serviceOptions.map((option) => (
                       <option key={option.value} value={option.value}>{option.label}</option>
@@ -186,7 +186,7 @@ const ContactForm = ({ contact }: { contact: SiteSettings['contact'] }) => {
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="budget" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                  <label htmlFor="budget" className="contact-form-label block text-sm font-medium">
                     Budget <span className="text-red-500">*</span>
                   </label>
                   <select
@@ -194,7 +194,7 @@ const ContactForm = ({ contact }: { contact: SiteSettings['contact'] }) => {
                     name="budget"
                     required
                     defaultValue=""
-                    className="mt-1.5 block w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100"
+                    className="contact-form-field mt-1.5 block w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white"
                   >
                     {budgetOptions.map((option) => (
                       <option key={option.value} value={option.value}>{option.label}</option>
@@ -204,20 +204,20 @@ const ContactForm = ({ contact }: { contact: SiteSettings['contact'] }) => {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                <label htmlFor="subject" className="contact-form-label block text-sm font-medium">
                   Subject
                 </label>
                 <input
                   id="subject"
                   name="subject"
                   type="text"
-                  className="mt-1.5 block w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:placeholder-zinc-500"
+                  className="contact-form-field mt-1.5 block w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-500"
                   placeholder="What is this about?"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                <label htmlFor="message" className="contact-form-label block text-sm font-medium">
                   Message <span className="text-red-500">*</span>
                 </label>
                 <textarea
@@ -225,7 +225,7 @@ const ContactForm = ({ contact }: { contact: SiteSettings['contact'] }) => {
                   name="message"
                   required
                   rows={5}
-                  className="mt-1.5 block w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:placeholder-zinc-500"
+                  className="contact-form-field mt-1.5 block w-full rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm text-zinc-900 placeholder-zinc-400 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:placeholder-zinc-500"
                   placeholder="Tell us about your project..."
                 />
               </div>

@@ -12,7 +12,7 @@ const FeaturedCaseStudy = async () => {
     .toUpperCase();
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-xl shadow-zinc-900/5">
+    <div className="portfolio-featured-panel relative overflow-hidden rounded-2xl border shadow-xl shadow-zinc-900/5">
       <div className="relative grid gap-8 lg:grid-cols-2 lg:gap-0 items-stretch">
         {/* Left: Image area */}
         <div className="relative aspect-[3/4] min-h-[280px] overflow-hidden lg:min-h-[500px]">
@@ -36,7 +36,7 @@ const FeaturedCaseStudy = async () => {
 
           {/* Brand placeholder */}
           <div className="absolute inset-0 flex items-end p-8 sm:p-10">
-            <div className="inline-flex items-center gap-3 rounded-xl border border-white/20 bg-white/90 px-4 py-2.5 backdrop-blur-md shadow-lg">
+            <div className="portfolio-featured-brand inline-flex items-center gap-3 rounded-xl border px-4 py-2.5 backdrop-blur-md shadow-lg">
               <span
                 aria-hidden="true"
                 className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-xs font-bold text-primary"

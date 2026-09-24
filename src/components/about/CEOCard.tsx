@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const CEOCard = () => (
   <div className="relative overflow-hidden rounded-2xl border border-zinc-100/80 bg-white/60 p-8 shadow-lg shadow-zinc-900/5 backdrop-blur-xl sm:p-10 dark:border-zinc-700/80 dark:bg-zinc-100/60">
     {/* Decorative gradient */}
@@ -8,12 +10,15 @@ const CEOCard = () => (
 
     <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
       {/* Avatar */}
-      <div
-        role="img"
-        aria-label="Sachin Rathore"
-        className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary-dark text-2xl font-semibold tracking-tight text-white shadow-md shadow-primary/20"
-      >
-        SR
+      <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border-4 border-white bg-primary shadow-md shadow-primary/20 dark:border-[#27272a] dark:bg-[#27272a]">
+        <Image
+          src="/images/team-sachin.svg"
+          alt="Cartoon portrait of Sachin Rathore"
+          fill
+          sizes="80px"
+          unoptimized
+          className="object-cover"
+        />
       </div>
 
       {/* Content */}

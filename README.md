@@ -118,7 +118,7 @@ The admin Inquiries page remains the source of truth if email delivery is tempor
 ### What the dashboard manages
 
 - Homepage hero copy, CTA labels, and contact details
-- Projects, services, and blog posts through structured JSON editors
+- Projects, services, and blog posts through simple add/edit forms
 - Contact inquiries from both contact forms, including read/unread and delete actions
 
 Public pages read MongoDB on each request when configured. If MongoDB is unavailable, the site safely falls back to the existing local content so the public pages remain available. Contact submissions return a clear configuration error until storage is connected.

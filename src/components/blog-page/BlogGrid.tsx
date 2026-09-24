@@ -33,9 +33,12 @@ function BlogIcon({ name, className }: { name: string; className?: string }) {
   return Comp ? <Comp className={className} aria-hidden="true" /> : null;
 }
 
-const BlogCard = ({ post }: { post: BlogPost }) => (
-  <article className="group flex flex-col overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-lg shadow-zinc-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-100">
-    <a href={post.href} className="flex flex-1 flex-col">
+const BlogCard = ({ post }: { post: BlogPost }) => {
+  const postHref = post.href && post.href !== '#' ? post.href : `/blog/${post.id}`;
+
+  return (
+    <article className="group flex flex-col overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-lg shadow-zinc-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-100">
+    <a href={postHref} className="flex flex-1 flex-col">
       {/* Image */}
       <div className={`relative flex aspect-[16/9] items-end bg-gradient-to-br ${post.image.gradient}`}>
         {post.image.url && (
@@ -98,8 +101,9 @@ const BlogCard = ({ post }: { post: BlogPost }) => (
         </div>
       </div>
     </a>
-  </article>
-);
+    </article>
+  );
+};
 
 const BlogGrid = ({ posts = blogPosts }: { posts?: BlogPost[] }) => {
   const [activeCategory, setActiveCategory] = useState<string>('All');

@@ -4,6 +4,8 @@ export interface TeamMember {
   bio: string;
   initials: string;
   gradient: string;
+  image: string;
+  imageAlt: string;
 }
 
 export interface Value {
@@ -80,26 +82,34 @@ export const teamMembers: TeamMember[] = [
     bio: 'Visionary leader with deep expertise in software engineering and product strategy. Sachin founded Weblign to bridge the gap between cutting-edge technology and real business value.',
     initials: 'SR',
     gradient: 'from-primary to-accent',
+    image: '/images/team-sachin.svg',
+    imageAlt: 'Cartoon portrait of Sachin Rathore, CEO and Founder',
   },
   {
-    name: 'Priya Sharma',
-    role: 'Head of Design',
-    bio: 'Designer passionate about crafting beautiful, intuitive interfaces. Priya ensures every product we ship delivers a great user experience.',
-    initials: 'PS',
-    gradient: 'from-emerald-500 to-cyan-500',
+    name: 'Gaurav',
+    role: 'Tech Head',
+    bio: 'Technology leader focused on scalable architecture, developer experience, and keeping our engineering team aligned around reliable solutions.',
+    initials: 'GT',
+    gradient: 'from-violet-500 to-cyan-500',
+    image: '/images/team-gaurav.svg',
+    imageAlt: 'Cartoon portrait of Gaurav, Tech Head',
   },
   {
-    name: 'Arjun Mehta',
-    role: 'Lead Engineer',
-    bio: 'Full-stack engineer specializing in building scalable web applications. Arjun brings deep expertise in modern frameworks and clean architecture.',
-    initials: 'AM',
-    gradient: 'from-violet-500 to-fuchsia-500',
+    name: 'Sagar Bist',
+    role: 'Web Developer',
+    bio: 'Web developer passionate about building fast, accessible experiences and turning ideas into polished products that users love.',
+    initials: 'SB',
+    gradient: 'from-orange-500 to-fuchsia-500',
+    image: '/images/team-sagar.svg',
+    imageAlt: 'Cartoon portrait of Sagar Bist, Web Developer',
   },
   {
-    name: 'Neha Kapoor',
-    role: 'Project Manager',
-    bio: 'Organized and detail-oriented project manager with a talent for keeping projects on track. Neha ensures every milestone is met with clear communication.',
-    initials: 'NK',
-    gradient: 'from-orange-500 to-rose-500',
+    name: 'Arun Rathore',
+    role: 'Web Developer',
+    bio: 'Web developer with a focus on thoughtful UI, clean implementation, and smooth performance across every project we deliver.',
+    initials: 'AR',
+    gradient: 'from-sky-500 to-blue-600',
+    image: '/images/team-arun.svg',
+    imageAlt: 'Cartoon portrait of Arun Rathore, Web Developer',
   },
 ];

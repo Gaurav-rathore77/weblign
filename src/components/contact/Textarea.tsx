@@ -15,7 +15,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       <div className="space-y-1.5">
         <label
           htmlFor={inputId}
-          className="block text-sm font-medium text-zinc-700"
+          className="contact-form-label block text-sm font-medium"
         >
           {label}
           {props.required && (
@@ -28,7 +28,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           ref={ref}
           id={inputId}
           className={clsx(
-            'min-h-[120px] w-full resize-y rounded-lg border bg-white px-4 py-2.5 text-sm text-zinc-900 shadow-xs transition-all duration-200 placeholder:text-zinc-400 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10',
+            'contact-form-field min-h-[120px] w-full resize-y rounded-lg border px-4 py-2.5 text-sm shadow-xs transition-all duration-200 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10',
             error
               ? 'border-red-300 focus:border-red-400 focus:ring-red-100'
               : 'border-zinc-200 hover:border-zinc-300',

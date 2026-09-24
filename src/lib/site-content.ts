@@ -194,6 +194,23 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
   return getCollection('blog-posts', fallbackBlogPosts);
 }
 
+export async function getBlogPost(slug: string): Promise<BlogPost | null> {
+  const normalizedSlug = decodeURIComponent(slug).toLowerCase().trim();
+  const posts = await getBlogPosts();
+
+  return (
+    posts.find((post) => post.id.toLowerCase() === normalizedSlug) ??
+    posts.find(
+      (post) =>
+        post.title
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, '') === normalizedSlug,
+    ) ??
+    null
+  );
+}
+
 export async function getServices(): Promise<Service[]> {
   return getCollection('services', fallbackServices);
 }
@@ -203,6 +220,17 @@ export async function getAdminCollection(
 ): Promise<unknown | null> {
   const document = await getContentDocument(key, true);
   return document?.value ?? null;
+}
+
+export async function getAdminCollectionState(key: string): Promise<{
+  value: unknown | null;
+  published: boolean;
+}> {
+  const document = await getContentDocument(key, true);
+  return {
+    value: document?.value ?? null,
+    published: document?.published !== false,
+  };
 }
 
 function serializeSubmission(document: SubmissionDocument): ContactSubmission {

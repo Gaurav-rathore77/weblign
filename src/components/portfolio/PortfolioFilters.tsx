@@ -24,7 +24,7 @@ const PortfolioFilters = ({ active, onSelect }: PortfolioFiltersProps) => {
             'relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
             active === cat
               ? 'text-white'
-              : 'text-zinc-500 hover:text-zinc-800',
+              : 'portfolio-filter-idle',
           )}
         >
           {active === cat && (

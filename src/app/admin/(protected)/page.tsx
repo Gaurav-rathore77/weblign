@@ -92,7 +92,7 @@ export default async function AdminOverviewPage() {
         <Link href="/admin/library/projects" className="group rounded-2xl border border-dashed border-zinc-300 p-5 transition hover:border-primary/50 hover:bg-primary/[0.02] dark:border-zinc-700">
           <BriefcaseBusiness className="h-5 w-5 text-primary" aria-hidden="true" />
           <h2 className="mt-4 font-semibold text-zinc-900 dark:text-white">Content libraries</h2>
-          <p className="mt-1 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">Publish projects, services, and blog posts as structured JSON.</p>
+          <p className="mt-1 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">Publish projects, services, and blog posts through simple content forms.</p>
           <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">Manage content <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden="true" /></span>
         </Link>
       </div>

@@ -100,6 +100,7 @@ const blogPostSchema = z.object({
     iconName: z.string().trim().min(1).max(120),
     url: localAssetPath,
   }),
+  content: z.string().trim().max(30_000).optional().default(''),
   href: z.string().trim().max(500),
 });
 
