@@ -3,8 +3,9 @@ import ContactForm from './ContactForm';
 import FAQ from './FAQ';
 import FinalCTA from './FinalCTA';
 import { HiOutlinePhone } from 'react-icons/hi2';
+import type { SiteSettings } from '@/lib/site-content';
 
-const ContactSection = () => {
+const ContactSection = ({ contact }: { contact?: SiteSettings['contact'] }) => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24">
       {/* Background decorations */}
@@ -44,7 +45,7 @@ const ContactSection = () => {
           <div className="grid items-start gap-8 lg:grid-cols-5 lg:gap-12">
             {/* Left: Contact Info */}
             <div className="lg:col-span-2">
-              <ContactInfo />
+              <ContactInfo contact={contact} />
             </div>
 
             {/* Right: Contact Form */}

@@ -5,13 +5,35 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const Newsletter = () => {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+
     setStatus('loading');
-    setTimeout(() => setStatus('success'), 1200);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, website: '' }),
+      });
+      const result = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Unable to subscribe right now.');
+      }
+
+      setStatus('success');
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage(
+        error instanceof Error ? error.message : 'Unable to subscribe right now.',
+      );
+    }
   };
 
   return (
@@ -66,6 +88,11 @@ const Newsletter = () => {
                 )}
               </button>
             </div>
+            {status === 'error' && (
+              <p className="text-xs text-red-400" role="alert">
+                {errorMessage}
+              </p>
+            )}
             <p className="text-xs leading-relaxed text-zinc-400 dark:text-white/20">
               No spam, ever. Unsubscribe anytime. We respect your privacy.
             </p>

@@ -3,6 +3,8 @@ import ServicesHero from '@/components/services-page/ServicesHero';
 import ServicesGrid from '@/components/services-page/ServicesGrid';
 import ServicesProcess from '@/components/services-page/ServicesProcess';
 import ServicesCTA from '@/components/services-page/ServicesCTA';
+import { serviceDetails } from '@/components/services-page/servicesData';
+import { getServices } from '@/lib/site-content';
 import { siteUrl } from '@/constants';
 
 export const metadata: Metadata = {
@@ -31,11 +33,26 @@ export const metadata: Metadata = {
   alternates: { canonical: `${siteUrl}/services` },
 };
 
-export default function ServicesPage() {
+export const dynamic = 'force-dynamic';
+
+export default async function ServicesPage() {
+  const services = await getServices();
+  const mergedServiceDetails = serviceDetails.map((detail) => {
+    const editable = services.find((service) => service.id === detail.id);
+    return editable
+      ? {
+          ...detail,
+          title: editable.title,
+          description: editable.description,
+          features: editable.features,
+        }
+      : detail;
+  });
+
   return (
     <>
       <ServicesHero />
-      <ServicesGrid />
+      <ServicesGrid serviceDetails={mergedServiceDetails} />
       <ServicesProcess />
       <ServicesCTA />
     </>

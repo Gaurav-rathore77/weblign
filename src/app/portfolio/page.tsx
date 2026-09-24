@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import PortfolioHero from '@/components/portfolio-page/PortfolioHero';
 import PortfolioGrid from '@/components/portfolio/PortfolioGrid';
 import FeaturedCaseStudy from '@/components/portfolio/FeaturedCaseStudy';
+import { getProjects } from '@/lib/site-content';
 import { siteUrl } from '@/constants';
 
 export const metadata: Metadata = {
@@ -29,13 +30,17 @@ export const metadata: Metadata = {
   alternates: { canonical: `${siteUrl}/portfolio` },
 };
 
-export default function PortfolioPage() {
+export const dynamic = 'force-dynamic';
+
+export default async function PortfolioPage() {
+  const projects = await getProjects();
+
   return (
     <>
       <PortfolioHero />
       <section className="bg-zinc-50/50 pb-16 pt-10 dark:bg-zinc-900/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <PortfolioGrid />
+          <PortfolioGrid projects={projects} />
         </div>
       </section>
       <section className="py-20 sm:py-28">

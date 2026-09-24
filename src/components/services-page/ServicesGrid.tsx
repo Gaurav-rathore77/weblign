@@ -11,7 +11,10 @@ import {
   HiOutlineShoppingCart,
 } from 'react-icons/hi2';
 import { CheckCircle2 } from 'lucide-react';
-import { serviceDetails } from './servicesData';
+import {
+  serviceDetails as fallbackServiceDetails,
+  type ServiceDetail,
+} from './servicesData';
 
 const iconComponents: Record<string, ElementType> = {
   HiOutlineGlobeAlt,
@@ -27,7 +30,11 @@ function SvcIcon({ name, className }: { name: string; className?: string }) {
   return Comp ? <Comp className={className} aria-hidden="true" /> : null;
 }
 
-const ServicesGrid = () => {
+const ServicesGrid = ({
+  serviceDetails = fallbackServiceDetails,
+}: {
+  serviceDetails?: ServiceDetail[];
+}) => {
   const [activeTab, setActiveTab] = useState(serviceDetails[0].id);
   const activeService = serviceDetails.find((service) => service.id === activeTab);
 

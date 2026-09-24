@@ -8,6 +8,7 @@ import PortfolioSection from '@/components/portfolio/PortfolioSection';
 import PricingSection from '@/components/pricing/PricingSection';
 import ProcessSection from '@/components/process/ProcessSection';
 import ContactSection from '@/components/contact/ContactSection';
+import { getServices, getSiteSettings } from '@/lib/site-content';
 import { siteUrl, siteName } from '@/constants';
 
 export const metadata: Metadata = {
@@ -77,18 +78,25 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+export const dynamic = 'force-dynamic';
+
+export default async function Home() {
+  const [settings, serviceItems] = await Promise.all([
+    getSiteSettings(),
+    getServices(),
+  ]);
+
   return (
     <>
-      <Hero />
+      <Hero settings={settings} />
       <TrustedSection />
       <AboutSection />
-      <ServicesSection />
+      <ServicesSection serviceItems={serviceItems} />
       <WhyChooseSection />
       <PortfolioSection />
       <ProcessSection />
       <PricingSection />
-      <ContactSection />
+      <ContactSection contact={settings.contact} />
     </>
   );
 }

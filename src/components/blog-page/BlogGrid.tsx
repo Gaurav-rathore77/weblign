@@ -101,12 +101,12 @@ const BlogCard = ({ post }: { post: BlogPost }) => (
   </article>
 );
 
-const BlogGrid = () => {
+const BlogGrid = ({ posts = blogPosts }: { posts?: BlogPost[] }) => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const filtered =
     activeCategory === 'All'
-      ? blogPosts
-      : blogPosts.filter((post) => post.category === activeCategory);
+      ? posts
+      : posts.filter((post) => post.category === activeCategory);
 
   return (
     <div>

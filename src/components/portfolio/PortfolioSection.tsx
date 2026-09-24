@@ -1,20 +1,22 @@
 import PortfolioExperience from './PortfolioExperience';
 import FeaturedCaseStudy from './FeaturedCaseStudy';
 import { HiOutlineBriefcase } from 'react-icons/hi2';
-import { projects, type PortfolioPreview } from './portfolioData';
+import type { PortfolioPreview } from './portfolioData';
+import { getProjects } from '@/lib/site-content';
 
-const carouselProjects: PortfolioPreview[] = projects.map(
-  ({ id, title, image, imageAlt, gradient, category }) => ({
-    id,
-    title,
-    image,
-    imageAlt,
-    gradient,
-    category,
-  }),
-);
+const PortfolioSection = async () => {
+  const projects = await getProjects();
+  const carouselProjects: PortfolioPreview[] = projects.map(
+    ({ id, title, image, imageAlt, gradient, category }) => ({
+      id,
+      title,
+      image,
+      imageAlt,
+      gradient,
+      category,
+    }),
+  );
 
-const PortfolioSection = () => {
   return (
     <section className="relative bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24">
       {/* Background */}

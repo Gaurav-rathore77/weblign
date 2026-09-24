@@ -42,7 +42,8 @@ const initialForm: FormData = {
 const ContactForm = () => {
   const [form, setForm] = useState<FormData>(initialForm);
   const [errors, setErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const validate = (): boolean => {
     const errs: FormErrors = {};
@@ -63,14 +64,34 @@ const ContactForm = () => {
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validate()) return;
 
     setStatus('loading');
-    setTimeout(() => {
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, website: '' }),
+      });
+      const result = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Unable to send your message right now.');
+      }
+
       setStatus('success');
-    }, 1500);
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : 'Unable to send your message right now.',
+      );
+    }
   };
 
   const update = <K extends keyof FormData>(
@@ -209,6 +230,12 @@ const ContactForm = () => {
           </p>
         )}
       </div>
+
+      {status === 'error' && (
+        <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-300" role="alert">
+          {errorMessage}
+        </p>
+      )}
 
       <button
         type="submit"

@@ -1,18 +1,14 @@
 'use client';
 
-import { projects } from './portfolioData';
 import PortfolioModal from './PortfolioModal';
+import type { Project } from './portfolioData';
 
 interface PortfolioModalLoaderProps {
-  projectId: string;
+  project: Project;
   onClose: () => void;
 }
 
-const PortfolioModalLoader = ({ projectId, onClose }: PortfolioModalLoaderProps) => {
-  const project = projects.find((item) => item.id === projectId);
-
-  if (!project) return null;
-
+const PortfolioModalLoader = ({ project, onClose }: PortfolioModalLoaderProps) => {
   return <PortfolioModal project={project} onClose={onClose} />;
 };
 

@@ -47,25 +47,7 @@ export const socialLinks: SocialLink[] = [
   { label: 'Behance', href: '#', initial: 'Be' },
 ];
 
-export const serviceOptions = [
-  { value: '', label: 'Select a service' },
-  { value: 'web-development', label: 'Web Development' },
-  { value: 'web-app', label: 'Web App' },
-  { value: 'mobile-app', label: 'Mobile App' },
-  { value: 'ui-ux-design', label: 'UI/UX Design' },
-  { value: 'ai-automation', label: 'AI Automation' },
-  { value: 'ecommerce', label: 'E-commerce' },
-  { value: 'custom-software', label: 'Custom Software' },
-  { value: 'other', label: 'Other' },
-];
-
-export const budgetOptions = [
-  { value: '', label: 'Select your budget' },
-  { value: 'under-500', label: 'Under $500' },
-  { value: '500-1000', label: '$500 – $1,000' },
-  { value: '1000-5000', label: '$1,000 – $5,000' },
-  { value: '5000-plus', label: '$5,000+' },
-];
+export { contactBudgetOptions as budgetOptions, contactServiceOptions as serviceOptions } from '@/lib/contact-options';
 
 export interface FAQItem {
   question: string;

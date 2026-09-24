@@ -1,12 +1,12 @@
 'use client';
 
-import { services, benefits } from './servicesData';
+import { services as fallbackServices, benefits, type Service } from './servicesData';
 import ServiceCard from './ServiceCard';
 import BenefitCard from './BenefitCard';
 import ServicesCTA from './ServicesCTA';
 import { HiOutlineRocketLaunch } from 'react-icons/hi2';
 
-const ServicesSection = () => {
+const ServicesSection = ({ serviceItems = fallbackServices }: { serviceItems?: Service[] }) => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24">
       {/* Background decorations */}
@@ -45,7 +45,7 @@ const ServicesSection = () => {
 
           {/* ── Service Cards Grid ── */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, i) => (
+            {serviceItems.map((service, i) => (
               <ServiceCard key={service.id} service={service} index={i} />
             ))}
           </div>

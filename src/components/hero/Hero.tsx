@@ -1,7 +1,8 @@
 import HeroContent from './HeroContent';
 import HeroIllustration from './HeroIllustration';
+import type { SiteSettings } from '@/lib/site-content';
 
-const Hero = () => {
+const Hero = ({ settings }: { settings: SiteSettings }) => {
   return (
     <section className="relative min-h-dvh bg-gradient-to-b from-white via-zinc-50/40 to-white pt-28 pb-16 sm:pt-32 sm:pb-20">
       {/* ── Background decorations ── */}
@@ -23,7 +24,7 @@ const Hero = () => {
       {/* ── Main content ── */}
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <HeroContent />
+          <HeroContent content={settings.hero} />
           <HeroIllustration />
         </div>
       </div>

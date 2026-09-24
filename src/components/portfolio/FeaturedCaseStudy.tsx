@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { HiOutlineArrowLongRight } from 'react-icons/hi2';
-import { featuredProject } from './portfolioData';
+import { getFeaturedProject } from '@/lib/site-content';
 
-const FeaturedCaseStudy = () => {
-  const p = featuredProject;
+const FeaturedCaseStudy = async () => {
+  const p = await getFeaturedProject();
   const initials = p.title
     .split(' ')
     .map((word) => word[0])
@@ -63,21 +63,15 @@ const FeaturedCaseStudy = () => {
               <div className="mt-5 grid gap-4 sm:grid-cols-3">
                 <div>
                   <span className="text-xs font-semibold uppercase tracking-wider text-red-500">Challenge</span>
-                  <p className="mt-1 text-sm leading-relaxed text-zinc-600">
-                    {p.problem}
-                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-zinc-600">{p.problem}</p>
                 </div>
                 <div>
                   <span className="text-xs font-semibold uppercase tracking-wider text-emerald-600">Solution</span>
-                  <p className="mt-1 text-sm leading-relaxed text-zinc-600">
-                    {p.solution}
-                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-zinc-600">{p.solution}</p>
                 </div>
                 <div>
                   <span className="text-xs font-semibold uppercase tracking-wider text-primary">Outcome</span>
-                  <p className="mt-1 text-sm leading-relaxed text-zinc-600">
-                    {p.results[0]}
-                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-zinc-600">{p.results[0]}</p>
                 </div>
               </div>
 

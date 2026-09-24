@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, type ComponentType } from 'react';
-import type { PortfolioPreview } from './portfolioData';
+import type { PortfolioPreview, Project } from './portfolioData';
 import PortfolioCarousel from './PortfolioCarousel';
 
 type PortfolioModalComponent = ComponentType<{
-  projectId: string;
+  project: Project;
   onClose: () => void;
 }>;
 
@@ -14,13 +14,22 @@ interface PortfolioExperienceProps {
 }
 
 const PortfolioExperience = ({ projects }: PortfolioExperienceProps) => {
-  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [Modal, setModal] = useState<PortfolioModalComponent | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const openProject = async (projectId: string) => {
-    const { default: PortfolioModal } = await import('./PortfolioModalLoader');
-    setSelectedProjectId(projectId);
-    setModal(() => PortfolioModal);
+    setLoading(true);
+    try {
+      const response = await fetch(`/api/portfolio/${encodeURIComponent(projectId)}`);
+      if (!response.ok) return;
+      const project = (await response.json()) as Project;
+      const { default: PortfolioModal } = await import('./PortfolioModalLoader');
+      setSelectedProject(project);
+      setModal(() => PortfolioModal);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -29,11 +38,14 @@ const PortfolioExperience = ({ projects }: PortfolioExperienceProps) => {
         projects={projects}
         onSelect={(project) => void openProject(project.id)}
       />
-      {selectedProjectId && Modal && (
+      {loading && (
+        <p className="sr-only" role="status">Loading project details…</p>
+      )}
+      {selectedProject && Modal && (
         <Modal
-          projectId={selectedProjectId}
+          project={selectedProject}
           onClose={() => {
-            setSelectedProjectId(null);
+            setSelectedProject(null);
             setModal(null);
           }}
         />

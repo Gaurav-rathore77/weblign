@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import BlogHero from '@/components/blog-page/BlogHero';
 import BlogGrid from '@/components/blog-page/BlogGrid';
 import BlogCTA from '@/components/blog-page/BlogCTA';
+import { getBlogPosts } from '@/lib/site-content';
 import { siteUrl } from '@/constants';
 
 export const metadata: Metadata = {
@@ -29,13 +30,17 @@ export const metadata: Metadata = {
   alternates: { canonical: `${siteUrl}/blog` },
 };
 
-export default function BlogPage() {
+export const dynamic = 'force-dynamic';
+
+export default async function BlogPage() {
+  const posts = await getBlogPosts();
+
   return (
     <>
       <BlogHero />
       <section className="bg-zinc-50/50 py-20 sm:py-28 dark:bg-zinc-900/30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <BlogGrid />
+          <BlogGrid posts={posts} />
         </div>
       </section>
       <section className="py-20 sm:py-28">
