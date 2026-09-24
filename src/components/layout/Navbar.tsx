@@ -40,9 +40,9 @@ const Navbar = ({ className }: NavbarProps) => {
     <>
       <header
         className={clsx(
-          'site-header fixed inset-x-0 top-0 z-50 transition-all duration-300',
+          'site-header fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow] duration-200',
           isScrolled
-            ? 'border-b border-zinc-200/60 bg-white/90 shadow-xs dark:border-zinc-800 dark:bg-zinc-950/90'
+            ? 'is-scrolled border-b border-zinc-200/60 shadow-xs'
             : 'bg-transparent',
           className,
         )}

@@ -36,11 +36,7 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30,
     deviceSizes: [640, 768, 1024, 1280, 1536],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    remotePatterns: [
-      { protocol: 'https', hostname: 'images.unsplash.com' },
-      { protocol: 'https', hostname: 'www.google.com' },
-      { protocol: 'https', hostname: 'ui-avatars.com' },
-    ],
+    remotePatterns: [],
   },
 
   compiler: {

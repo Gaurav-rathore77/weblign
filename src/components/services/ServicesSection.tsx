@@ -1,3 +1,5 @@
+'use client';
+
 import { services, benefits } from './servicesData';
 import ServiceCard from './ServiceCard';
 import BenefitCard from './BenefitCard';

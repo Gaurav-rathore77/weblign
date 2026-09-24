@@ -216,6 +216,11 @@
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
+@keyframes scroll-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
 @keyframes hero-reveal {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -234,8 +239,26 @@
   50% { transform: translateY(-6px); }
 }
 
+@keyframes page-transition-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-transition {
+  animation: page-transition-enter 400ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 .site-header {
   animation: site-header-enter 450ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.site-header.is-scrolled {
+  background-color: #ffffff;
+}
+
+.dark .site-header.is-scrolled {
+  background-color: #09090b;
+  border-color: #27272a;
 }
 
 .mobile-menu-panel {
@@ -250,6 +273,18 @@
 
 .back-to-top {
   animation: back-to-top-enter 200ms ease-out both;
+}
+
+.scroll-progress {
+  display: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    display: block;
+    animation: scroll-progress linear both;
+    animation-timeline: scroll(root);
+  }
 }
 
 .hero-reveal {

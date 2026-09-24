@@ -1,3 +1,5 @@
+'use client';
+
 import WhyFeatureCard from './WhyFeatureCard';
 import WhyProcessTimeline from './WhyProcessTimeline';
 import AchievementCard from './AchievementCard';

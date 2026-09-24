@@ -1,3 +1,5 @@
+'use client';
+
 import AboutImages from './AboutImages';
 import AboutContent from './AboutContent';
 import AchievementCounter from './AchievementCounter';

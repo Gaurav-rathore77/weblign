@@ -22,7 +22,11 @@ export const blogPosts: BlogPost[] = [
     date: 'Jun 28, 2026',
     readTime: '8 min read',
     author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
-    image: { gradient: 'from-blue-600/20 to-cyan-600/20', iconName: 'HiOutlineBolt', url: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&q=80' },
+    image: {
+      gradient: 'from-blue-600/20 to-cyan-600/20',
+      iconName: 'HiOutlineBolt',
+      url: '/images/blog-performance.webp',
+    },
     href: '#',
   },
   {
@@ -34,7 +38,11 @@ export const blogPosts: BlogPost[] = [
     date: 'Jun 22, 2026',
     readTime: '6 min read',
     author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
-    image: { gradient: 'from-purple-600/20 to-pink-600/20', iconName: 'HiOutlinePaintBrush', url: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80' },
+    image: {
+      gradient: 'from-purple-600/20 to-pink-600/20',
+      iconName: 'HiOutlinePaintBrush',
+      url: '/images/blog-design.webp',
+    },
     href: '#',
   },
   {
@@ -46,7 +54,11 @@ export const blogPosts: BlogPost[] = [
     date: 'Jun 15, 2026',
     readTime: '10 min read',
     author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
-    image: { gradient: 'from-emerald-600/20 to-teal-600/20', iconName: 'HiOutlineArrowTrendingUp', url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80' },
+    image: {
+      gradient: 'from-emerald-600/20 to-teal-600/20',
+      iconName: 'HiOutlineArrowTrendingUp',
+      url: '/images/blog-scaling.webp',
+    },
     href: '#',
   },
   {
@@ -58,7 +70,11 @@ export const blogPosts: BlogPost[] = [
     date: 'Jun 8, 2026',
     readTime: '12 min read',
     author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
-    image: { gradient: 'from-orange-600/20 to-amber-600/20', iconName: 'HiOutlineChartBarSquare', url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80' },
+    image: {
+      gradient: 'from-orange-600/20 to-amber-600/20',
+      iconName: 'HiOutlineChartBarSquare',
+      url: '/images/blog-analytics.webp',
+    },
     href: '#',
   },
   {
@@ -70,7 +86,11 @@ export const blogPosts: BlogPost[] = [
     date: 'May 29, 2026',
     readTime: '7 min read',
     author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
-    image: { gradient: 'from-sky-600/20 to-indigo-600/20', iconName: 'FaAccessibleIcon', url: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80' },
+    image: {
+      gradient: 'from-sky-600/20 to-indigo-600/20',
+      iconName: 'HiOutlineHandRaised',
+      url: '/images/blog-accessibility.webp',
+    },
     href: '#',
   },
   {
@@ -82,7 +102,11 @@ export const blogPosts: BlogPost[] = [
     date: 'May 20, 2026',
     readTime: '9 min read',
     author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
-    image: { gradient: 'from-violet-600/20 to-fuchsia-600/20', iconName: 'HiOutlineCpuChip', url: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&q=80' },
+    image: {
+      gradient: 'from-violet-600/20 to-fuchsia-600/20',
+      iconName: 'HiOutlineCpuChip',
+      url: '/images/blog-llm.webp',
+    },
     href: '#',
   },
   {
@@ -94,7 +118,11 @@ export const blogPosts: BlogPost[] = [
     date: 'May 12, 2026',
     readTime: '11 min read',
     author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
-    image: { gradient: 'from-rose-600/20 to-red-600/20', iconName: 'HiOutlineShoppingCart', url: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80' },
+    image: {
+      gradient: 'from-rose-600/20 to-red-600/20',
+      iconName: 'HiOutlineShoppingCart',
+      url: '/images/blog-ecommerce.webp',
+    },
     href: '#',
   },
   {
@@ -106,7 +134,11 @@ export const blogPosts: BlogPost[] = [
     date: 'May 4, 2026',
     readTime: '6 min read',
     author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
-    image: { gradient: 'from-yellow-600/20 to-orange-600/20', iconName: 'HiOutlineLightBulb', url: 'https://images.unsplash.com/photo-1553729459-afe8f8aeb4b5?w=600&q=80' },
+    image: {
+      gradient: 'from-yellow-600/20 to-orange-600/20',
+      iconName: 'HiOutlineLightBulb',
+      url: '/images/blog-conversion.webp',
+    },
     href: '#',
   },
   {
@@ -118,7 +150,11 @@ export const blogPosts: BlogPost[] = [
     date: 'Apr 25, 2026',
     readTime: '8 min read',
     author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
-    image: { gradient: 'from-cyan-600/20 to-blue-600/20', iconName: 'HiOutlineGlobeAlt', url: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80' },
+    image: {
+      gradient: 'from-cyan-600/20 to-blue-600/20',
+      iconName: 'HiOutlineGlobeAlt',
+      url: '/images/blog-edge.webp',
+    },
     href: '#',
   },
 ];

@@ -12,8 +12,8 @@ import {
   HiOutlineShoppingCart,
   HiOutlineLightBulb,
   HiOutlineGlobeAlt,
+  HiOutlineHandRaised,
 } from 'react-icons/hi2';
-import { FaAccessibleIcon } from 'react-icons/fa';
 import { blogPosts, categories, type BlogPost } from './blogData';
 
 const iconComponents: Record<string, ElementType> = {
@@ -25,7 +25,7 @@ const iconComponents: Record<string, ElementType> = {
   HiOutlineShoppingCart,
   HiOutlineLightBulb,
   HiOutlineGlobeAlt,
-  FaAccessibleIcon,
+  HiOutlineHandRaised,
 };
 
 function BlogIcon({ name, className }: { name: string; className?: string }) {

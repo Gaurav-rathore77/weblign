@@ -11,7 +11,7 @@ const poppins = Poppins({
   variable: '--font-poppins',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  display: 'swap',
+  display: 'optional',
   preload: true,
   fallback: ['system-ui', 'sans-serif'],
 });

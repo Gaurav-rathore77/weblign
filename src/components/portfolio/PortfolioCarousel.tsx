@@ -199,17 +199,10 @@ function PortfolioCarousel<T extends PortfolioPreview>({ projects, onSelect }: P
         ))}
       </div>
 
-      {/* Pagination dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2" role="tablist" aria-label="Carousel pagination">
-        {projects.map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            role="tab"
-            aria-selected={false}
-            aria-label={`Go to slide ${i + 1}`}
-            className="h-2 w-2 rounded-full bg-white/40 transition-all duration-300 hover:scale-125 hover:bg-white"
-          />
+      {/* Decorative pagination indicator */}
+      <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2" aria-hidden="true">
+        {projects.map((_, index) => (
+          <span key={index} className="h-2 w-2 rounded-full bg-white/50" />
         ))}
       </div>
     </div>

@@ -4,6 +4,7 @@ import {
   HiOutlineBriefcase,
   HiOutlineTrophy,
 } from 'react-icons/hi2';
+
 import TrustCard from './TrustCard';
 import ProjectSlider from './ProjectSlider';
 

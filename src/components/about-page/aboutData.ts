@@ -4,7 +4,6 @@ export interface TeamMember {
   bio: string;
   initials: string;
   gradient: string;
-  photo: string;
 }
 
 export interface Value {
@@ -81,7 +80,6 @@ export const teamMembers: TeamMember[] = [
     bio: 'Visionary leader with deep expertise in software engineering and product strategy. Sachin founded Weblign to bridge the gap between cutting-edge technology and real business value.',
     initials: 'SR',
     gradient: 'from-primary to-accent',
-    photo: '',
   },
   {
     name: 'Priya Sharma',
@@ -89,7 +87,6 @@ export const teamMembers: TeamMember[] = [
     bio: 'Designer passionate about crafting beautiful, intuitive interfaces. Priya ensures every product we ship delivers a great user experience.',
     initials: 'PS',
     gradient: 'from-emerald-500 to-cyan-500',
-    photo: '',
   },
   {
     name: 'Arjun Mehta',
@@ -97,7 +94,6 @@ export const teamMembers: TeamMember[] = [
     bio: 'Full-stack engineer specializing in building scalable web applications. Arjun brings deep expertise in modern frameworks and clean architecture.',
     initials: 'AM',
     gradient: 'from-violet-500 to-fuchsia-500',
-    photo: '',
   },
   {
     name: 'Neha Kapoor',
@@ -105,6 +101,5 @@ export const teamMembers: TeamMember[] = [
     bio: 'Organized and detail-oriented project manager with a talent for keeping projects on track. Neha ensures every milestone is met with clear communication.',
     initials: 'NK',
     gradient: 'from-orange-500 to-rose-500',
-    photo: '',
   },
 ];

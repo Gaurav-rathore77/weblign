@@ -1,3 +1,5 @@
+'use client';
+
 import Timeline from './Timeline';
 import HighlightCard from './HighlightCard';
 import ProcessCTA from './ProcessCTA';
