@@ -12,7 +12,7 @@ export default async function AdminLoginPage() {
   if (await getAdminSession()) redirect('/admin');
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 px-4 py-16 dark:bg-zinc-950">
+    <div className="admin-shell flex min-h-screen items-center justify-center bg-zinc-50 px-4 py-16 dark:bg-zinc-950">
       <div className="w-full max-w-md rounded-3xl border border-zinc-200 bg-white p-7 shadow-xl shadow-zinc-900/5 sm:p-10 dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-black/20">
         <div className="mb-8">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Weblign</p>

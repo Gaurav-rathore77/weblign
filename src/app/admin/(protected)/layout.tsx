@@ -17,7 +17,7 @@ export default async function ProtectedAdminLayout({
   const session = await requireAdmin();
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
+    <div className="admin-shell min-h-screen bg-zinc-50 dark:bg-zinc-950">
       <div className="mx-auto flex max-w-7xl">
         <aside className="hidden w-64 shrink-0 border-r border-zinc-200 bg-white px-4 py-6 lg:block dark:border-zinc-800 dark:bg-zinc-900">
           <Link href="/admin" className="mb-8 block px-3 text-lg font-bold text-zinc-900 dark:text-white">

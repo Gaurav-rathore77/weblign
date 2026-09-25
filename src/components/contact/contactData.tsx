@@ -28,7 +28,7 @@ export const contactInfo: ContactInfoItem[] = [
   {
     icon: <Clock className="h-5 w-5" />,
     title: 'Working Hours',
-    value: 'Mon – Sat, 10 AM – 7 PM IST',
+    value: 'Mon – Fri, 10 AM – 6 PM IST',
   },
 ];
 

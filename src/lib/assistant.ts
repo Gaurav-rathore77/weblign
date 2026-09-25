@@ -135,6 +135,10 @@ function localGuideReply(message: string, context: AssistantContext): string {
     return 'Weblign is a digital services team led by Sachin Rathore, CEO and Founder. Our team includes Gaurav (Tech Head), Sagar Bist and Arun Rathore (Web Developers). We combine thoughtful design with practical engineering and transparent communication.';
   }
 
+  if (/hour|office|open|close|working time|availability/.test(text)) {
+    return 'Our office hours are Monday to Friday, 10:00 AM to 6:00 PM IST. Saturday and Sunday are closed. You can still send a message through the Contact page outside office hours.';
+  }
+
   if (/contact|email|call|hire|talk|speak|get started/.test(text)) {
     return 'You can reach Weblign at info.weblign@gmail.com or use the Contact page. Share your project goals, preferred service and budget, and our team will get back to you within 24 hours.';
   }

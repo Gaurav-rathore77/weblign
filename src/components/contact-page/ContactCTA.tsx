@@ -8,7 +8,7 @@ import {
 
 const ContactCTA = () => {
   const channels = [
-    { icon: <HiOutlineChatBubbleLeftRight className="h-5 w-5" />, label: 'Live Chat', desc: 'Mon–Fri, 9 AM – 6 PM PST' },
+    { icon: <HiOutlineChatBubbleLeftRight className="h-5 w-5" />, label: 'Live Chat', desc: 'Mon–Fri, 10 AM – 6 PM IST' },
     { icon: <HiOutlineHashtag className="h-5 w-5" />, label: 'X (Twitter)', desc: '@weblign' },
     { icon: <HiOutlineBriefcase className="h-5 w-5" />, label: 'LinkedIn', desc: '/company/weblign' },
     { icon: <HiOutlineClipboardDocument className="h-5 w-5" />, label: 'Contact Form', desc: 'Fastest response' },

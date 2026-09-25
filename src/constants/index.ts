@@ -47,7 +47,7 @@ export const contactInfo = {
     country: 'India',
   },
   hours: {
-    weekdays: 'Monday - Saturday: 10:00 AM - 7:00 PM',
-    weekend: 'Sunday: Closed',
+    weekdays: 'Monday - Friday: 10:00 AM - 6:00 PM',
+    weekend: 'Saturday & Sunday: Closed',
   },
 };

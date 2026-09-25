@@ -19,7 +19,7 @@ export const contactInfo = [
   },
   {
     label: 'Hours',
-    value: 'Mon–Sat, 10 AM – 7 PM IST',
+    value: 'Mon–Fri, 10 AM – 6 PM IST',
     href: null,
     emoji: 'HiOutlineClock',
   },
