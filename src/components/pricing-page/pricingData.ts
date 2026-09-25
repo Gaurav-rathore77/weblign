@@ -126,6 +126,42 @@ export const pricingTiers: PricingTier[] = [
     cta: 'Contact Sales',
     gradient: 'from-primary to-accent',
   },
+  {
+    name: 'AI Chatbot',
+    description: 'Smart conversational assistant for support, lead capture and customer experience.',
+    price: 24999,
+    priceLabel: 'Starting',
+    features: [
+      { text: 'Custom Chatbot Design', included: true },
+      { text: 'Website & WhatsApp Integration', included: true },
+      { text: 'AI-Powered Responses', included: true },
+      { text: 'Lead Capture & Routing', included: true },
+      { text: 'Analytics & Conversation Logs', included: true },
+      { text: 'Unlimited Revisions', included: false },
+      { text: '24/7 Support', included: false },
+      { text: 'Ongoing Maintenance', included: false },
+    ],
+    cta: 'Get Quote',
+    gradient: 'from-violet-500/20 to-cyan-500/10',
+  },
+  {
+    name: 'Business Automation',
+    description: 'Automate repetitive workflows and keep your team focused on growth.',
+    price: 49999,
+    priceLabel: 'Starting',
+    features: [
+      { text: 'Workflow Discovery & Mapping', included: true },
+      { text: 'CRM & Email Automation', included: true },
+      { text: 'Document & Data Processing', included: true },
+      { text: 'Integration with Existing Tools', included: true },
+      { text: 'Automation Dashboards', included: true },
+      { text: 'Unlimited Revisions', included: false },
+      { text: '24/7 Support', included: false },
+      { text: 'Ongoing Maintenance', included: false },
+    ],
+    cta: 'Get Quote',
+    gradient: 'from-amber-500/20 to-primary/10',
+  },
 ];
 
 export const faqs = [

@@ -5,6 +5,8 @@ import {
   HiOutlineSquares2X2,
   HiOutlineChartBarSquare,
   HiOutlineCommandLine,
+  HiOutlineChatBubbleLeftRight,
+  HiOutlineBolt,
 } from 'react-icons/hi2';
 
 export interface PricingPlan {
@@ -129,6 +131,42 @@ export const plans: PricingPlan[] = [
     cta: 'Contact Sales',
     ctaHref: '/contact',
   },
+  {
+    id: 'ai-chatbot',
+    name: 'AI Chatbot',
+    description: 'Smart conversational assistant for support, lead capture and customer experience.',
+    icon: <HiOutlineChatBubbleLeftRight className="h-6 w-6" />,
+    price: 24999,
+    priceLabel: 'Starting',
+    features: [
+      'Custom Chatbot Design',
+      'Website & WhatsApp Integration',
+      'AI-Powered Responses',
+      'Lead Capture & Routing',
+      'Analytics & Conversation Logs',
+      '1 Month Support',
+    ],
+    cta: 'Get Quote',
+    ctaHref: '/contact',
+  },
+  {
+    id: 'business-automation',
+    name: 'Business Automation',
+    description: 'Automate repetitive workflows and keep your team focused on growth.',
+    icon: <HiOutlineBolt className="h-6 w-6" />,
+    price: 49999,
+    priceLabel: 'Starting',
+    features: [
+      'Workflow Discovery & Mapping',
+      'CRM & Email Automation',
+      'Document & Data Processing',
+      'Integration with Existing Tools',
+      'Automation Dashboards',
+      '1 Month Support',
+    ],
+    cta: 'Get Quote',
+    ctaHref: '/contact',
+  },
 ];
 
 export interface ComparisonFeature {
@@ -146,6 +184,8 @@ export const comparisonFeatures: ComparisonFeature[] = [
   { name: 'API Integration', starter: false, professional: true, enterprise: true },
   { name: 'Cloud Deployment', starter: false, professional: false, enterprise: true },
   { name: 'AI Features', starter: false, professional: false, enterprise: true },
+  { name: 'AI Chatbot', starter: false, professional: false, enterprise: true },
+  { name: 'Business Automation', starter: false, professional: false, enterprise: true },
   { name: 'Priority Support', starter: false, professional: false, enterprise: true },
   { name: 'Custom Development', starter: false, professional: false, enterprise: true },
 ];
@@ -168,7 +208,7 @@ export const guarantees: GuaranteeItem[] = [
     description: 'All transactions are encrypted and processed securely through Stripe.',
   },
   {
-    icon: 'HiOutlineCurrencyDollar',
+    icon: 'HiOutlineCurrencyRupee',
     title: 'No Hidden Fees',
     description: 'What you see is what you pay. No surprise charges or upsells.',
   },

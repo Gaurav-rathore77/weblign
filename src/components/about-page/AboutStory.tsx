@@ -142,7 +142,7 @@ const AboutStory = () => {
                   const isLeft = i % 2 === 0;
                   return (
                     <div
-                      key={m.year}
+                      key={`${m.year}-${m.title}-${i}`}
                       className={`group relative flex flex-col gap-2 lg:flex-row lg:items-start ${
                         isLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'
                       }`}

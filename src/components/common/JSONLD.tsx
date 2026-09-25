@@ -122,6 +122,20 @@ const organization = {
     },
     {
       '@type': 'Offer',
+      name: 'AI Chatbot',
+      description: 'Custom conversational AI assistants for websites, WhatsApp and customer support.',
+      category: 'AI/ML',
+      url: `${siteUrl}/services/ai-automation`,
+    },
+    {
+      '@type': 'Offer',
+      name: 'Business Automation',
+      description: 'Workflow, CRM, document and data automation for growing businesses.',
+      category: 'Business Automation',
+      url: `${siteUrl}/services/ai-automation`,
+    },
+    {
+      '@type': 'Offer',
       name: 'AI Automation',
       description: 'AI-powered solutions for business process automation.',
       category: 'AI/ML',

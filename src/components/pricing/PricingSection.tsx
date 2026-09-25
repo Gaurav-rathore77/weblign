@@ -1,7 +1,7 @@
 import PricingCard from './PricingCard';
 import ComparisonTable from './ComparisonTable';
 import GuaranteeBanner from './GuaranteeBanner';
-import { HiOutlineCurrencyDollar } from 'react-icons/hi2';
+import { HiOutlineCurrencyRupee } from 'react-icons/hi2';
 import { plans } from './pricingData';
 
 const PricingSection = () => {
@@ -26,7 +26,7 @@ const PricingSection = () => {
           {/* ── Section Header ── */}
           <div className="mx-auto flex max-w-2xl flex-col items-center gap-5 text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-              <HiOutlineCurrencyDollar className="h-4 w-4" aria-hidden="true" />
+              <HiOutlineCurrencyRupee className="h-4 w-4" aria-hidden="true" />
               Pricing
             </div>
             <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">

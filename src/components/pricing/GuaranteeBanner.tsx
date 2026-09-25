@@ -1,7 +1,7 @@
 import {
   HiOutlineShieldCheck,
   HiOutlineLockClosed,
-  HiOutlineCurrencyDollar,
+  HiOutlineCurrencyRupee,
   HiOutlineClipboardDocument,
 } from 'react-icons/hi2';
 import { guarantees } from './pricingData';
@@ -9,7 +9,7 @@ import { guarantees } from './pricingData';
 const iconComponents: Record<string, React.ElementType> = {
   HiOutlineShieldCheck,
   HiOutlineLockClosed,
-  HiOutlineCurrencyDollar,
+  HiOutlineCurrencyRupee,
   HiOutlineClipboardDocument,
 };
 

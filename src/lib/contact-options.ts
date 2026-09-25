@@ -17,10 +17,10 @@ export const contactServiceOptions: ContactOption[] = [
 
 export const contactBudgetOptions: ContactOption[] = [
   { value: '', label: 'Select your budget' },
-  { value: 'under-500', label: 'Under $500' },
-  { value: '500-1000', label: '$500 – $1,000' },
-  { value: '1000-5000', label: '$1,000 – $5,000' },
-  { value: '5000-plus', label: '$5,000+' },
+  { value: 'under-10000', label: 'Under ₹10,000' },
+  { value: '10000-25000', label: '₹10,000 – ₹25,000' },
+  { value: '25000-75000', label: '₹25,000 – ₹75,000' },
+  { value: '75000-plus', label: '₹75,000+' },
 ];
 
 export function getContactOptionLabel(

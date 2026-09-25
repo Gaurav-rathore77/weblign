@@ -63,7 +63,7 @@ export const faqItems: FAQItem[] = [
   {
     question: 'How much does a website cost?',
     answer:
-      'Pricing depends on complexity and features. Our plans start at $299/month for a Starter site and scale up based on your needs. Contact us for a custom quote tailored to your project.',
+      'Pricing depends on complexity and features. Our plans start at ₹9,999/month for a Starter site and scale up based on your needs. Contact us for a custom quote tailored to your project.',
   },
   {
     question: 'Do you provide maintenance after launch?',

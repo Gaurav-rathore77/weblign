@@ -13,7 +13,7 @@ const achievements: Achievement[] = [
         <path d="M8 15a2 2 0 004 0" />
       </svg>
     ),
-    value: '500',
+    value: '50',
     suffix: '+',
     label: 'Projects Delivered',
   },
@@ -24,7 +24,7 @@ const achievements: Achievement[] = [
         <path d="M7 14a3 3 0 006 0" />
       </svg>
     ),
-    value: '250',
+    value: '44',
     suffix: '+',
     label: 'Happy Clients',
   },
@@ -35,9 +35,9 @@ const achievements: Achievement[] = [
         <circle cx="10" cy="10" r="9" />
       </svg>
     ),
-    value: '15',
+    value: '5',
     suffix: '+',
-    label: 'Countries Served',
+    label: 'Years Experience',
   },
   {
     icon: (
@@ -45,9 +45,9 @@ const achievements: Achievement[] = [
         <path d="M12 2l3.1 6.3L22 9.5l-5 4.9 1.2 7L12 17.5 5.8 21.4 7 14.4 2 9.5l6.9-1.2L12 2z" />
       </svg>
     ),
-    value: '98',
+    value: '100',
     suffix: '%',
-    label: 'Client Retention',
+    label: 'Client Satisfaction',
   },
 ];
 

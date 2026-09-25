@@ -119,7 +119,7 @@ const HeroIllustration = () => {
             {/* Metric card */}
             <div className="rounded-xl border border-zinc-100 bg-white p-4 shadow-xs dark:border-zinc-700 dark:bg-zinc-800/50">
               <span className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Total Revenue</span>
-              <p className="mt-1 text-xl font-bold text-zinc-900">$48,290</p>
+              <p className="mt-1 text-xl font-bold text-zinc-900">₹4,82,900</p>
               <span className="text-[11px] text-emerald-600">↑ 12.5% this month</span>
             </div>
 
@@ -178,7 +178,7 @@ const HeroIllustration = () => {
         >
           <div className="w-36 rounded-xl border border-zinc-100/80 bg-white/90 p-3 shadow-lg shadow-zinc-900/5 dark:border-zinc-700/80 dark:bg-zinc-100/90">
             <span className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Avg. Revenue</span>
-            <p className="mt-0.5 text-lg font-bold text-zinc-900">$12,847</p>
+            <p className="mt-0.5 text-lg font-bold text-zinc-900">₹1,28,470</p>
             <div className="mt-1 flex items-center gap-1 text-[11px] text-emerald-600">
               <svg viewBox="0 0 12 12" fill="currentColor" className="h-2.5 w-2.5" aria-hidden="true">
                 <path d="M6 0l6 8H0z" />
