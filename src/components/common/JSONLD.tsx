@@ -1,28 +1,27 @@
 import { companyInfo, siteUrl, contactInfo, socialLinks } from '@/constants';
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareCompany',
+const organizationId = `${siteUrl}/#organization`;
+const websiteId = `${siteUrl}/#website`;
+
+const organization = {
+  '@type': 'Organization',
+  '@id': organizationId,
   name: companyInfo.name,
   description: companyInfo.description,
   url: siteUrl,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${siteUrl}/images/weblign-mark.png`,
+    width: 512,
+    height: 512,
+  },
+  image: `${siteUrl}/opengraph-image`,
   email: contactInfo.email,
   telephone: contactInfo.phone,
-  foundingDate: '2020',
-  logo: `${siteUrl}/icon.png`,
-  image: `${siteUrl}/opengraph-image`,
+  foundingDate: '2026',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: contactInfo.address.street || 'Tech Park',
-    addressLocality: contactInfo.address.city || 'Bengaluru',
-    addressRegion: contactInfo.address.state || 'Karnataka',
-    postalCode: contactInfo.address.zipCode || '560001',
     addressCountry: contactInfo.address.country || 'IN',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: '12.9716',
-    longitude: '77.5946',
   },
   sameAs: [
     socialLinks.linkedin,
@@ -34,7 +33,7 @@ const structuredData = {
   ],
   knowsAbout: [
     'Web Development',
-    'Mobile Apps',
+    'Mobile App Development',
     'UI/UX Design',
     'AI Automation',
     'Cloud Solutions',
@@ -78,10 +77,25 @@ const structuredData = {
       '@type': 'Person',
       name: 'Sachin Rathore',
       jobTitle: 'CEO & Founder',
-      worksFor: {
-        '@type': 'Organization',
-        name: 'Weblign',
-      },
+      worksFor: { '@id': organizationId },
+    },
+    {
+      '@type': 'Person',
+      name: 'Gaurav',
+      jobTitle: 'Tech Head',
+      worksFor: { '@id': organizationId },
+    },
+    {
+      '@type': 'Person',
+      name: 'Sagar Bist',
+      jobTitle: 'Web Developer',
+      worksFor: { '@id': organizationId },
+    },
+    {
+      '@type': 'Person',
+      name: 'Arun Rathore',
+      jobTitle: 'Web Developer',
+      worksFor: { '@id': organizationId },
     },
   ],
   makesOffer: [
@@ -90,56 +104,44 @@ const structuredData = {
       name: 'Web Development',
       description: 'Custom web applications built with Next.js, React, and modern technologies.',
       category: 'Web Development',
-      url: `${siteUrl}/services#web-development`,
+      url: `${siteUrl}/services/web-development`,
     },
     {
       '@type': 'Offer',
       name: 'Mobile App Development',
       description: 'Cross-platform mobile apps for iOS and Android.',
       category: 'Mobile Development',
-      url: `${siteUrl}/services#mobile-apps`,
+      url: `${siteUrl}/services/mobile-development`,
     },
     {
       '@type': 'Offer',
       name: 'UI/UX Design',
       description: 'User-centered design for web and mobile applications.',
       category: 'Design',
-      url: `${siteUrl}/services#ui-ux-design`,
+      url: `${siteUrl}/services/ui-ux-design`,
     },
     {
       '@type': 'Offer',
       name: 'AI Automation',
       description: 'AI-powered solutions for business process automation.',
       category: 'AI/ML',
-      url: `${siteUrl}/services#ai-automation`,
+      url: `${siteUrl}/services/ai-automation`,
     },
   ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '50',
-    bestRating: '5',
-    worstRating: '1',
-  },
-  review: [
+};
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    organization,
     {
-      '@type': 'Review',
-      author: {
-        '@type': 'Person',
-        name: 'Rajesh Patel',
-      },
-      datePublished: '2024-01-15',
-      reviewBody:
-        'Working with Weblign transformed our digital presence. The platform handles thousands of visitors seamlessly.',
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: '5',
-        bestRating: '5',
-      },
-      itemReviewed: {
-        '@type': 'SoftwareCompany',
-        name: 'Weblign',
-      },
+      '@type': 'WebSite',
+      '@id': websiteId,
+      url: siteUrl,
+      name: companyInfo.name,
+      description: companyInfo.description,
+      publisher: { '@id': organizationId },
+      inLanguage: 'en-US',
     },
   ],
 };

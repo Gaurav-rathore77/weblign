@@ -40,7 +40,7 @@ const AboutHero = () => {
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-4 py-1.5 text-sm text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
-              <HiOutlineMapPin className="h-4 w-4" aria-hidden="true" /> San Francisco, CA
+              <HiOutlineMapPin className="h-4 w-4" aria-hidden="true" /> India · Remote worldwide
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-zinc-100 px-4 py-1.5 text-sm text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
               <HiOutlineCalendarDays className="h-4 w-4" aria-hidden="true" /> Founded 2026

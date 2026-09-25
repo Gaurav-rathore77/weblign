@@ -20,6 +20,7 @@ await mkdir('public/images', { recursive: true });
 await writeFile('public/images/weblign-mark.svg', svg);
 
 const png = await sharp(Buffer.from(svg)).resize(256, 256).png().toBuffer();
+await sharp(Buffer.from(svg)).resize(512, 512).png().toFile('public/images/weblign-mark.png');
 const header = Buffer.alloc(22);
 header.writeUInt16LE(0, 0);
 header.writeUInt16LE(1, 2);

@@ -54,13 +54,23 @@ export default function OpenGraphImage() {
             height: 64,
             borderRadius: 16,
             background: 'linear-gradient(135deg, #2563EB 0%, #38BDF8 100%)',
-            color: 'white',
-            fontSize: 32,
-            fontWeight: 700,
             marginBottom: 24,
           }}
         >
-          W
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              width: 38,
+              height: 38,
+              gap: 5,
+            }}
+          >
+            <div style={{ width: 16, height: 16, borderRadius: 4, background: '#ffffff' }} />
+            <div style={{ width: 16, height: 16, borderRadius: 4, background: '#ffffff', opacity: 0.3 }} />
+            <div style={{ width: 16, height: 16, borderRadius: 4, background: '#ffffff', opacity: 0.3 }} />
+            <div style={{ width: 16, height: 16, borderRadius: 4, background: '#ffffff', opacity: 0.55 }} />
+          </div>
         </div>
 
         <h1
