@@ -1,0 +1,105 @@
+<svg width="800" height="534" viewBox="0 0 800 534" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="534" fill="#F4F8FF"/>
+  <circle cx="400" cy="205" r="190" fill="#D9E9FF" opacity="0.55"/>
+  <circle cx="118" cy="88" r="58" fill="#CDE4FF" opacity="0.5"/>
+  <circle cx="702" cy="428" r="66" fill="#D9E9FF" opacity="0.5"/>
+  <circle cx="250" cy="70" r="5" fill="#93C5FD"/>
+  <circle cx="560" cy="60" r="5" fill="#93C5FD"/>
+  <circle cx="740" cy="200" r="5" fill="#93C5FD"/>
+  <circle cx="60" cy="250" r="5" fill="#93C5FD"/>
+  <circle cx="110" cy="112" r="34" stroke="#1E3A8A" stroke-width="10" opacity="0.85"/>
+  <line x1="110" y1="112" x2="134" y2="88" stroke="#1E3A8A" stroke-width="6" stroke-linecap="round" opacity="0.85"/>
+  <rect x="330" y="58" width="140" height="12" rx="6" fill="#1E3A8A" opacity="0.85"/>
+  <circle cx="662" cy="96" r="30" fill="#38BDF8"/>
+  <path d="M662 96 L692 96 A30 30 0 0 0 662 66 Z" fill="#FFFFFF"/>
+  <circle cx="662" cy="96" r="6" fill="#1E3A8A"/>
+  <rect x="0" y="468" width="800" height="66" fill="#BFDBFE" opacity="0.6"/>
+
+  <!-- Person A: man, orange shirt, glasses -->
+  <g>
+    <rect x="128" y="358" width="24" height="106" rx="8" fill="#1E2A5A"/>
+    <rect x="162" y="358" width="24" height="106" rx="8" fill="#1E2A5A"/>
+    <ellipse cx="140" cy="468" rx="18" ry="8" fill="#141A2E"/>
+    <ellipse cx="174" cy="468" rx="18" ry="8" fill="#141A2E"/>
+    <rect x="112" y="222" width="92" height="140" rx="20" fill="#FB923C"/>
+    <rect x="90" y="232" width="22" height="102" rx="11" fill="#FB923C"/>
+    <rect x="202" y="232" width="22" height="102" rx="11" fill="#FB923C"/>
+    <circle cx="101" cy="340" r="11" fill="#B0713A"/>
+    <circle cx="213" cy="340" r="11" fill="#B0713A"/>
+    <rect x="146" y="198" width="22" height="28" fill="#B0713A"/>
+    <circle cx="157" cy="170" r="30" fill="#B0713A"/>
+    <path d="M127 170 a30 30 0 0 1 60 0 Z" fill="#141A2E"/>
+    <rect x="125" y="166" width="10" height="22" rx="5" fill="#141A2E"/>
+    <rect x="179" y="166" width="10" height="22" rx="5" fill="#141A2E"/>
+    <circle cx="146" cy="172" r="9" stroke="#141A2E" stroke-width="3" fill="#FFFFFF" opacity="0.3"/>
+    <circle cx="168" cy="172" r="9" stroke="#141A2E" stroke-width="3" fill="#FFFFFF" opacity="0.3"/>
+    <line x1="155" y1="172" x2="159" y2="172" stroke="#141A2E" stroke-width="3"/>
+  </g>
+
+  <!-- Person B: man, blue shirt + tie -->
+  <g>
+    <rect x="286" y="358" width="24" height="106" rx="8" fill="#1E2A5A"/>
+    <rect x="320" y="358" width="24" height="106" rx="8" fill="#1E2A5A"/>
+    <ellipse cx="298" cy="468" rx="18" ry="8" fill="#141A2E"/>
+    <ellipse cx="332" cy="468" rx="18" ry="8" fill="#141A2E"/>
+    <rect x="270" y="222" width="92" height="140" rx="20" fill="#60A5FA"/>
+    <rect x="248" y="232" width="22" height="102" rx="11" fill="#60A5FA"/>
+    <rect x="360" y="232" width="22" height="102" rx="11" fill="#60A5FA"/>
+    <circle cx="259" cy="340" r="11" fill="#8D5524"/>
+    <circle cx="371" cy="340" r="11" fill="#8D5524"/>
+    <rect x="304" y="198" width="22" height="28" fill="#8D5524"/>
+    <path d="M307 226 L323 226 L318 300 L312 300 Z" fill="#1E3A8A"/>
+    <path d="M308 226 L322 226 L315 240 L308 226 Z" fill="#FFFFFF"/>
+    <circle cx="315" cy="170" r="30" fill="#8D5524"/>
+    <path d="M285 170 a30 30 0 0 1 60 0 Z" fill="#141A2E"/>
+    <rect x="283" y="166" width="10" height="20" rx="5" fill="#141A2E"/>
+    <rect x="337" y="166" width="10" height="20" rx="5" fill="#141A2E"/>
+  </g>
+
+  <!-- Person C: woman, coral top + skirt, long hair -->
+  <g>
+    <rect x="446" y="150" width="68" height="130" rx="30" fill="#141A2E"/>
+    <path d="M452 310 L528 310 L544 402 L436 402 Z" fill="#9D174D"/>
+    <rect x="460" y="402" width="20" height="62" rx="8" fill="#C68642"/>
+    <rect x="500" y="402" width="20" height="62" rx="8" fill="#C68642"/>
+    <ellipse cx="470" cy="468" rx="15" ry="7" fill="#141A2E"/>
+    <ellipse cx="510" cy="468" rx="15" ry="7" fill="#141A2E"/>
+    <rect x="444" y="222" width="92" height="100" rx="20" fill="#FB7185"/>
+    <rect x="422" y="232" width="22" height="96" rx="11" fill="#FB7185"/>
+    <rect x="536" y="232" width="22" height="96" rx="11" fill="#FB7185"/>
+    <circle cx="433" cy="334" r="11" fill="#C68642"/>
+    <circle cx="547" cy="334" r="11" fill="#C68642"/>
+    <rect x="479" y="198" width="22" height="28" fill="#C68642"/>
+    <circle cx="490" cy="172" r="28" fill="#C68642"/>
+    <path d="M462 172 a28 28 0 0 1 56 0 Z" fill="#141A2E"/>
+    <rect x="460" y="168" width="10" height="40" rx="5" fill="#141A2E"/>
+    <rect x="510" y="168" width="10" height="40" rx="5" fill="#141A2E"/>
+  </g>
+
+  <!-- Person D: woman, navy top + skirt, bob hair -->
+  <g>
+    <path d="M610 312 L686 312 L700 402 L596 402 Z" fill="#9D174D"/>
+    <rect x="618" y="402" width="20" height="62" rx="8" fill="#8D5524"/>
+    <rect x="658" y="402" width="20" height="62" rx="8" fill="#8D5524"/>
+    <ellipse cx="628" cy="468" rx="15" ry="7" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <ellipse cx="668" cy="468" rx="15" ry="7" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <rect x="602" y="222" width="92" height="100" rx="20" fill="#1E40AF"/>
+    <rect x="580" y="232" width="22" height="96" rx="11" fill="#1E40AF"/>
+    <rect x="694" y="232" width="22" height="96" rx="11" fill="#1E40AF"/>
+    <circle cx="591" cy="334" r="11" fill="#8D5524"/>
+    <circle cx="705" cy="334" r="11" fill="#8D5524"/>
+    <rect x="637" y="198" width="22" height="28" fill="#8D5524"/>
+    <rect x="616" y="146" width="64" height="70" rx="28" fill="#141A2E"/>
+    <circle cx="648" cy="172" r="28" fill="#8D5524"/>
+    <path d="M620 172 a28 28 0 0 1 56 0 Z" fill="#141A2E"/>
+  </g>
+
+  <!-- Table + laptops in front -->
+  <rect x="30" y="350" width="740" height="12" rx="6" fill="#1E293B"/>
+  <rect x="70" y="362" width="10" height="106" fill="#1E293B"/>
+  <rect x="720" y="362" width="10" height="106" fill="#1E293B"/>
+  <rect x="118" y="312" width="56" height="38" rx="4" fill="#1E3A8A"/>
+  <rect x="112" y="350" width="68" height="8" rx="4" fill="#334155"/>
+  <rect x="452" y="312" width="56" height="38" rx="4" fill="#0EA5E9"/>
+  <rect x="446" y="350" width="68" height="8" rx="4" fill="#334155"/>
+</svg>

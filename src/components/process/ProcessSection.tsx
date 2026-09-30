@@ -4,11 +4,12 @@ import Timeline from './Timeline';
 import HighlightCard from './HighlightCard';
 import ProcessCTA from './ProcessCTA';
 import { HiOutlineCog6Tooth } from 'react-icons/hi2';
+import Reveal from '@/components/common/Reveal';
 import { highlights } from './processData';
 
 const ProcessSection = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-16 sm:py-20">
       {/* Background decorations */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -right-40 top-1/4 h-96 w-96 rounded-full bg-primary/[0.02] blur-3xl" />
@@ -24,9 +25,9 @@ const ProcessSection = () => {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-20 sm:gap-24">
+        <div className="flex flex-col gap-12 sm:gap-16">
           {/* ── Section Header ── */}
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
               <HiOutlineCog6Tooth className="h-4 w-4" aria-hidden="true" />
               Our Process
@@ -42,25 +43,33 @@ const ProcessSection = () => {
               deliver high-quality digital solutions. From the first discovery
               call to post-launch growth, you&rsquo;re always in the loop.
             </p>
-          </div>
+          </Reveal>
 
           {/* ── Timeline ── */}
-          <Timeline />
+          <Reveal>
+            <Timeline />
+          </Reveal>
 
           {/* ── Why Our Process Works ── */}
           <div>
-            <h3 className="mb-10 text-center text-sm font-semibold uppercase tracking-widest text-zinc-400">
-              Why Our Process Works
-            </h3>
+            <Reveal>
+              <h3 className="mb-10 text-center text-sm font-semibold uppercase tracking-widest text-zinc-400">
+                Why Our Process Works
+              </h3>
+            </Reveal>
             <div className="grid gap-4 sm:grid-cols-2">
               {highlights.map((item, i) => (
-                <HighlightCard key={item.title} item={item} index={i} />
+                <Reveal key={item.title} delay={i * 0.08}>
+                  <HighlightCard item={item} index={i} />
+                </Reveal>
               ))}
             </div>
           </div>
 
           {/* ── CTA ── */}
-          <ProcessCTA />
+          <Reveal>
+            <ProcessCTA />
+          </Reveal>
         </div>
       </div>
     </section>

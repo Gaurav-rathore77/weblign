@@ -8,10 +8,10 @@ interface ContactCardProps {
 
 const ContactCard = ({ item }: ContactCardProps) => {
   const content = (
-    <div className="group relative overflow-hidden rounded-xl border border-white/20 bg-white/60 p-5 shadow-lg shadow-zinc-900/5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 sm:p-6">
+    <div className="card-glow group relative overflow-hidden rounded-xl border border-white/20 bg-white/60 p-5 shadow-lg shadow-zinc-900/5 backdrop-blur-xl sm:p-6">
       {/* Hover glow */}
       <div className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-        <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/[0.03] to-accent/[0.03]" />
+        <div className="animate-glow-pulse absolute inset-0 rounded-xl bg-gradient-to-br from-primary/[0.04] to-accent/[0.04]" />
       </div>
 
       <div className="relative flex items-start gap-4">

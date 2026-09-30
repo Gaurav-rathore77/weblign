@@ -50,8 +50,8 @@ const AboutContent = () => {
 
       {/* Mission + Vision */}
       <div className="grid gap-6 sm:grid-cols-2">
-        <div className="rounded-xl border border-zinc-100 bg-white p-5 shadow-xs dark:border-zinc-700 dark:bg-zinc-100">
-          <h3 className="flex items-center gap-2 text-sm font-semibold text-zinc-900">
+        <div className="card-glow group rounded-xl border border-zinc-100 bg-white p-5 shadow-xs dark:border-zinc-700 dark:bg-zinc-100">
+          <h3 className="flex items-center gap-2 text-sm font-semibold text-zinc-900 transition-colors duration-300 group-hover:text-primary">
             <HiOutlineAdjustmentsHorizontal className="h-4 w-4 text-primary" />
             Our Mission
           </h3>
@@ -60,8 +60,8 @@ const AboutContent = () => {
             efficiency, and meaningful user experiences.
           </p>
         </div>
-        <div className="rounded-xl border border-zinc-100 bg-white p-5 shadow-xs dark:border-zinc-700 dark:bg-zinc-100">
-          <h3 className="flex items-center gap-2 text-sm font-semibold text-zinc-900">
+        <div className="card-glow group rounded-xl border border-zinc-100 bg-white p-5 shadow-xs dark:border-zinc-700 dark:bg-zinc-100">
+          <h3 className="flex items-center gap-2 text-sm font-semibold text-zinc-900 transition-colors duration-300 group-hover:text-primary">
             <HiOutlineMagnifyingGlass className="h-4 w-4 text-primary" />
             Our Vision
           </h3>

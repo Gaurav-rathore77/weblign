@@ -20,10 +20,10 @@ const ProcessCard = ({ step, index }: ProcessCardProps) => {
       >
         <div className="relative">
           {/* Glass card */}
-          <div className="relative overflow-hidden rounded-2xl border border-white/20 bg-white/70 p-6 shadow-lg shadow-zinc-900/5 backdrop-blur-xl transition-all duration-500 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 sm:p-7">
+          <div className="card-glow relative overflow-hidden rounded-2xl border border-white/20 bg-white/70 p-6 shadow-lg shadow-zinc-900/5 backdrop-blur-xl hover:border-primary/20 sm:p-7">
             {/* Gradient overlay on hover */}
             <div className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/[0.03] to-accent/[0.03]" />
+              <div className="animate-glow-pulse absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/[0.04] to-accent/[0.04]" />
             </div>
 
             {/* Step number — large, subtle */}
@@ -44,7 +44,7 @@ const ProcessCard = ({ step, index }: ProcessCardProps) => {
                     Step {step.number}
                   </span>
                 </div>
-                <h3 className="mt-1 text-lg font-semibold text-zinc-900">
+                <h3 className="mt-1 text-lg font-semibold text-zinc-900 transition-colors duration-300 group-hover:text-primary">
                   {step.title}
                 </h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-zinc-500">

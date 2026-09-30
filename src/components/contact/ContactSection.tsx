@@ -3,11 +3,12 @@ import ContactForm from './ContactForm';
 import FAQ from './FAQ';
 import FinalCTA from './FinalCTA';
 import { HiOutlinePhone } from 'react-icons/hi2';
+import Reveal from '@/components/common/Reveal';
 import type { SiteSettings } from '@/lib/site-content';
 
 const ContactSection = ({ contact }: { contact?: SiteSettings['contact'] }) => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-16 sm:py-20">
       {/* Background decorations */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -right-40 top-1/4 h-96 w-96 rounded-full bg-primary/[0.02] blur-3xl" />
@@ -23,9 +24,9 @@ const ContactSection = ({ contact }: { contact?: SiteSettings['contact'] }) => {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-20 sm:gap-24">
+        <div className="flex flex-col gap-12 sm:gap-16">
           {/* ── Section Header ── */}
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
               <HiOutlinePhone className="h-4 w-4" aria-hidden="true" />
               Contact Us
@@ -39,17 +40,17 @@ const ContactSection = ({ contact }: { contact?: SiteSettings['contact'] }) => {
               out for a free consultation, custom quote, or just to explore what
               we can build together.
             </p>
-          </div>
+          </Reveal>
 
           {/* ── Contact Info + Form ── */}
           <div className="grid items-start gap-8 lg:grid-cols-5 lg:gap-12">
             {/* Left: Contact Info */}
-            <div className="lg:col-span-2">
+            <Reveal className="lg:col-span-2">
               <ContactInfo contact={contact} />
-            </div>
+            </Reveal>
 
             {/* Right: Contact Form */}
-            <div className="relative lg:col-span-3">
+            <Reveal delay={0.15} className="relative lg:col-span-3">
               {/* Decorative elements behind the form */}
               <div className="pointer-events-none absolute -inset-4 overflow-hidden" aria-hidden="true">
                 <div className="absolute -right-8 -top-8 h-40 w-40 rounded-full bg-primary/[0.03] blur-2xl" />
@@ -57,14 +58,18 @@ const ContactSection = ({ contact }: { contact?: SiteSettings['contact'] }) => {
               </div>
 
               <ContactForm />
-            </div>
+            </Reveal>
           </div>
 
           {/* ── FAQ ── */}
-          <FAQ />
+          <Reveal>
+            <FAQ />
+          </Reveal>
 
           {/* ── Final CTA ── */}
-          <FinalCTA />
+          <Reveal>
+            <FinalCTA />
+          </Reveal>
         </div>
       </div>
     </section>

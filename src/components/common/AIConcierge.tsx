@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Bot, Loader2, Send, Sparkles, X } from 'lucide-react';
+import { Bot, Loader2, MessageCircle, Send, X } from 'lucide-react';
 
 type GuideRole = 'user' | 'assistant';
 
@@ -142,7 +142,7 @@ export default function AIConcierge() {
       )}
 
       <button type="button" onClick={() => setOpen((current) => !current)} aria-label={open ? 'Close Weblign guide' : 'Open Weblign guide'} className="fixed bottom-20 right-4 z-[69] inline-flex h-12 items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-4 text-sm font-semibold text-white shadow-xl shadow-primary/25 transition hover:-translate-y-0.5 hover:shadow-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:bottom-20">
-        {open ? <X className="h-5 w-5" aria-hidden="true" /> : <Sparkles className="h-5 w-5" aria-hidden="true" />}
+        {open ? <X className="h-5 w-5" aria-hidden="true" /> : <MessageCircle className="h-5 w-5" aria-hidden="true" />}
         <span className="hidden sm:inline">{open ? 'Close' : 'Ask Weblign'}</span>
       </button>
     </>

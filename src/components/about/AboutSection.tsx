@@ -6,19 +6,20 @@ import AchievementCounter from './AchievementCounter';
 import ProcessTimeline from './ProcessTimeline';
 import CEOCard from './CEOCard';
 import { HiOutlineSparkles } from 'react-icons/hi2';
+import Reveal from '@/components/common/Reveal';
 
 const AboutSection = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-20 sm:py-24">
+    <section className="relative overflow-hidden bg-white py-16 sm:py-20">
       {/* Background decorations */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_30%,rgba(37,99,235,0.04),transparent_28%),radial-gradient(circle_at_85%_70%,rgba(56,189,248,0.04),transparent_30%)]" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-20 sm:gap-24">
+        <div className="flex flex-col gap-12 sm:gap-16">
           {/* ── Section Header ── */}
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <div>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
                 <HiOutlineSparkles className="h-4 w-4" aria-hidden="true" />
@@ -34,32 +35,42 @@ const AboutSection = () => {
               through modern technology, thoughtful design, and a relentless
               focus on user experience.
             </p>
-          </div>
+          </Reveal>
 
           {/* ── Two-Column Layout ── */}
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <AboutImages />
-            <AboutContent />
+            <Reveal>
+              <AboutImages />
+            </Reveal>
+            <Reveal delay={0.15}>
+              <AboutContent />
+            </Reveal>
           </div>
 
           {/* ── Achievement Counters ── */}
           <div>
-            <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-              By the Numbers
-            </h3>
+            <Reveal>
+              <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+                By the Numbers
+              </h3>
+            </Reveal>
             <AchievementCounter />
           </div>
 
           {/* ── Process Timeline ── */}
           <div>
-            <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-              Our Process
-            </h3>
+            <Reveal>
+              <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+                Our Process
+              </h3>
+            </Reveal>
             <ProcessTimeline />
           </div>
 
           {/* ── CEO Card ── */}
-          <CEOCard />
+          <Reveal>
+            <CEOCard />
+          </Reveal>
         </div>
       </div>
     </section>

@@ -9,8 +9,8 @@ const TimelineLine = () => {
     >
       {/* Track */}
       <div className="absolute inset-x-0 top-0 h-full w-px bg-zinc-200" />
-      {/* Static gradient line replaces scroll-linked animation without JavaScript. */}
-      <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-primary via-accent to-primary" />
+      {/* Animated gradient line */}
+      <div className="animate-gradient-text absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-primary via-accent to-primary" />
     </div>
   );
 };

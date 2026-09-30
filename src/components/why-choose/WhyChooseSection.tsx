@@ -2,14 +2,15 @@
 
 import WhyFeatureCard from './WhyFeatureCard';
 import WhyProcessTimeline from './WhyProcessTimeline';
-import AchievementCard from './AchievementCard';
 import BenefitsChecklist from './BenefitsChecklist';
-import { HiOutlineStar } from 'react-icons/hi2';
+import Link from 'next/link';
+import { HiOutlineStar, HiOutlineArrowLongRight } from 'react-icons/hi2';
+import Reveal from '@/components/common/Reveal';
 import { features } from './whyChooseData';
 
 const WhyChooseSection = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-16 sm:py-20">
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_35%,rgba(37,99,235,0.04),transparent_28%),radial-gradient(circle_at_85%_70%,rgba(56,189,248,0.04),transparent_30%)]" />
@@ -24,9 +25,9 @@ const WhyChooseSection = () => {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-20 sm:gap-24">
+        <div className="flex flex-col gap-12 sm:gap-16">
           {/* ── Section Header ── */}
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <div>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
                 <HiOutlineStar className="h-4 w-4" aria-hidden="true" />
@@ -43,31 +44,75 @@ const WhyChooseSection = () => {
               partnership is built on trust, quality, and a shared commitment
               to your success.
             </p>
-          </div>
+          </Reveal>
 
           {/* ── Features Grid ── */}
           <div className="space-y-4">
             {features.map((feature, i) => (
-              <WhyFeatureCard key={feature.title} feature={feature} index={i} />
+              <Reveal key={feature.title} delay={i * 0.06}>
+                <WhyFeatureCard feature={feature} index={i} />
+              </Reveal>
             ))}
           </div>
 
           {/* ── Process Timeline ── */}
           <div>
-            <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-zinc-400">
-              How We Work
-            </h3>
+            <Reveal>
+              <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-zinc-400">
+                How We Work
+              </h3>
+            </Reveal>
             <WhyProcessTimeline />
           </div>
 
           {/* ── Achievements + Benefits ── */}
-          <div className="grid items-start gap-8 lg:grid-cols-5 lg:gap-12">
-            <div className="lg:col-span-3">
-              <AchievementCard />
-            </div>
-            <div className="lg:col-span-2">
+          <div className="grid items-stretch gap-8 lg:grid-cols-5 lg:gap-12">
+            <Reveal className="lg:col-span-3">
+              <div className="flex h-full flex-col">
+                <div className="group relative flex-1 overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-accent p-8 shadow-lg shadow-primary/20 sm:p-10">
+                  <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+                    <div className="animate-glow-pulse absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/15 blur-3xl" />
+                    <div
+                      className="animate-glow-pulse absolute -bottom-12 -left-12 h-40 w-40 rounded-full bg-white/10 blur-3xl"
+                      style={{ animationDelay: '1.5s' }}
+                    />
+                    <div
+                      className="absolute inset-0 opacity-[0.08]"
+                      style={{
+                        backgroundImage:
+                          'radial-gradient(circle at 25px 25px, #ffffff 1px, transparent 0)',
+                        backgroundSize: '30px 30px',
+                      }}
+                    />
+                  </div>
+                  <div className="relative flex h-full flex-col items-start justify-center">
+                    <h3 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                      Have a project in mind?
+                    </h3>
+                    <p className="mt-3 max-w-md text-sm leading-relaxed text-white/85 sm:text-base">
+                      Tell us about your goals — get a free consultation and a
+                      transparent quote within 24 hours. No pressure, no
+                      obligations.
+                    </p>
+                    <Link
+                      href="/contact"
+                      prefetch={false}
+                      className="btn-shine group/btn relative mt-6 inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                    >
+                      <span className="relative z-10">Get Free Quote</span>
+                      <HiOutlineArrowLongRight className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5" aria-hidden="true" />
+                      <span
+                        className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary/15 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full"
+                        aria-hidden="true"
+                      />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={0.15} className="lg:col-span-2">
               <BenefitsChecklist />
-            </div>
+            </Reveal>
           </div>
         </div>
       </div>

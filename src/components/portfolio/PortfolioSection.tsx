@@ -1,6 +1,8 @@
 import PortfolioExperience from './PortfolioExperience';
 import FeaturedCaseStudy from './FeaturedCaseStudy';
+import ProjectSlider from '@/components/trusted/ProjectSlider';
 import { HiOutlineBriefcase } from 'react-icons/hi2';
+import Reveal from '@/components/common/Reveal';
 import type { PortfolioPreview } from './portfolioData';
 import { getProjects } from '@/lib/site-content';
 
@@ -18,7 +20,7 @@ const PortfolioSection = async () => {
   );
 
   return (
-    <section className="relative bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24">
+    <section className="relative bg-gradient-to-b from-white via-zinc-50/30 to-white py-12 sm:py-16">
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -right-32 top-1/4 h-80 w-80 rounded-full bg-primary/[0.02] blur-3xl" />
@@ -34,9 +36,9 @@ const PortfolioSection = async () => {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-20 sm:gap-24">
+        <div className="flex flex-col gap-8 sm:gap-12">
           {/* ── Section Header ── */}
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
               <HiOutlineBriefcase className="h-4 w-4" aria-hidden="true" />
               Our Portfolio
@@ -50,13 +52,22 @@ const PortfolioSection = async () => {
               thoughtful user experience, and measurable business impact at its
               core.
             </p>
-          </div>
+          </Reveal>
 
           {/* ── Portfolio Carousel ── */}
-          <PortfolioExperience projects={carouselProjects} />
+          <Reveal>
+            <PortfolioExperience projects={carouselProjects} />
+          </Reveal>
 
           {/* ── Featured Case Study ── */}
-          <FeaturedCaseStudy />
+          <Reveal>
+            <FeaturedCaseStudy />
+          </Reveal>
+
+          {/* ── Project Slider ── */}
+          <Reveal>
+            <ProjectSlider />
+          </Reveal>
         </div>
       </div>
     </section>

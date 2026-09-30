@@ -15,12 +15,12 @@ const HeroStats = () => {
   return (
     <div className="grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4">
       {stats.map((stat) => (
-        <div key={stat.label}>
-          <div className="text-3xl font-bold tracking-tight text-zinc-900 md:text-4xl">
+        <div key={stat.label} className="group">
+          <div className="text-3xl font-bold tracking-tight text-zinc-900 transition-colors duration-300 group-hover:text-primary md:text-4xl">
             {stat.value}
             {stat.suffix}
           </div>
-          <div className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+          <div className="mt-1 text-sm text-zinc-500 transition-colors duration-300 group-hover:text-zinc-700 dark:text-zinc-400 dark:group-hover:text-zinc-300">
             {stat.label}
           </div>
         </div>

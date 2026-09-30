@@ -6,9 +6,9 @@ const AchievementCard = () => {
       {achievements.map((item) => (
         <div
           key={item.label}
-          className="flex flex-col items-center rounded-2xl border border-zinc-100 bg-white p-6 text-center shadow-xs"
+          className="card-glow group flex flex-col items-center rounded-2xl border border-zinc-100 bg-white p-6 text-center shadow-xs"
         >
-          <div className="text-3xl font-bold tracking-tight text-zinc-900">
+          <div className="text-3xl font-bold tracking-tight text-zinc-900 transition-colors duration-300 group-hover:text-primary">
             <span>
               {item.value}
               {item.suffix}

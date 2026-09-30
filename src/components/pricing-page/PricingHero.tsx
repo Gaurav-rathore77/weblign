@@ -2,7 +2,7 @@ import { HiOutlineStar } from 'react-icons/hi2';
 
 const PricingHero = () => {
   return (
-    <section className="relative min-h-[65dvh] overflow-hidden bg-gradient-to-b from-white via-zinc-50/40 to-white pb-16 pt-32 sm:pb-20 sm:pt-40">
+    <section className="relative min-h-[65dvh] overflow-hidden bg-gradient-to-b from-white via-zinc-50/40 to-white pb-16 pt-20 sm:pb-20 sm:pt-24">
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div
           className="absolute inset-0 opacity-[0.025]"
@@ -12,9 +12,15 @@ const PricingHero = () => {
             backgroundSize: '32px 32px',
           }}
         />
-        <div className="absolute -left-48 -top-48 h-[500px] w-[500px] rounded-full bg-primary/[0.04] blur-3xl" />
-        <div className="absolute -bottom-48 -right-48 h-[450px] w-[450px] rounded-full bg-accent/[0.04] blur-3xl" />
-        <div className="absolute left-1/3 top-1/3 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-primary/[0.02] blur-2xl" />
+        <div className="animate-glow-pulse absolute -left-48 -top-48 h-[500px] w-[500px] rounded-full bg-primary/[0.04] blur-3xl" />
+        <div
+          className="animate-glow-pulse absolute -bottom-48 -right-48 h-[450px] w-[450px] rounded-full bg-accent/[0.04] blur-3xl"
+          style={{ animationDelay: '1.5s' }}
+        />
+        <div
+          className="animate-float-slow absolute left-1/3 top-1/3 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-primary/[0.02] blur-2xl"
+          style={{ animationDelay: '0.8s' }}
+        />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -26,12 +32,12 @@ const PricingHero = () => {
 
           <h1 className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl lg:text-6xl">
             Straightforward Plans for{' '}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <span className="animate-text-shimmer bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Every Stage
             </span>
           </h1>
 
-          <p className="mt-5 text-base leading-relaxed text-zinc-500 sm:text-lg dark:text-zinc-400">
+          <p className="mt-5 text-base leading-relaxed text-zinc-500 sm:text-lg">
             No hidden fees, no fine print. Choose a plan that fits your needs and
             budget — upgrade or customize anytime as your business grows.
           </p>

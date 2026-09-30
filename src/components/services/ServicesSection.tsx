@@ -5,10 +5,11 @@ import ServiceCard from './ServiceCard';
 import BenefitCard from './BenefitCard';
 import ServicesCTA from './ServicesCTA';
 import { HiOutlineRocketLaunch } from 'react-icons/hi2';
+import Reveal from '@/components/common/Reveal';
 
 const ServicesSection = ({ serviceItems = fallbackServices }: { serviceItems?: Service[] }) => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-16 sm:py-20">
       {/* Background decorations */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_30%,rgba(37,99,235,0.04),transparent_30%),radial-gradient(circle_at_15%_70%,rgba(56,189,248,0.04),transparent_28%)]" />
@@ -23,9 +24,9 @@ const ServicesSection = ({ serviceItems = fallbackServices }: { serviceItems?: S
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-20 sm:gap-24">
+        <div className="flex flex-col gap-12 sm:gap-16">
           {/* ── Section Header ── */}
-          <div className="mx-auto max-w-2xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <div>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
                 <HiOutlineRocketLaunch className="h-4 w-4" aria-hidden="true" />
@@ -41,29 +42,37 @@ const ServicesSection = ({ serviceItems = fallbackServices }: { serviceItems?: S
               businesses, and enterprise organizations — from strategy and
               design to development and ongoing support.
             </p>
-          </div>
+          </Reveal>
 
           {/* ── Service Cards Grid ── */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {serviceItems.map((service, i) => (
-              <ServiceCard key={service.id} service={service} index={i} />
+              <Reveal key={service.id} delay={i * 0.08}>
+                <ServiceCard service={service} index={i} />
+              </Reveal>
             ))}
           </div>
 
           {/* ── Why Choose These Services ── */}
           <div>
-            <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-zinc-400">
-              Why Choose These Services
-            </h3>
+            <Reveal>
+              <h3 className="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-zinc-400">
+                Why Choose These Services
+              </h3>
+            </Reveal>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {benefits.map((benefit, i) => (
-                <BenefitCard key={benefit.title} benefit={benefit} index={i} />
+                <Reveal key={benefit.title} delay={i * 0.06}>
+                  <BenefitCard benefit={benefit} index={i} />
+                </Reveal>
               ))}
             </div>
           </div>
 
           {/* ── CTA Banner ── */}
-          <ServicesCTA />
+          <Reveal>
+            <ServicesCTA />
+          </Reveal>
         </div>
       </div>
     </section>

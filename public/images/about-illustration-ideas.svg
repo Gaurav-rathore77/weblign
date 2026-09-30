@@ -1,0 +1,70 @@
+<svg width="400" height="267" viewBox="0 0 400 267" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="267" fill="#F3EFFF"/>
+  <circle cx="200" cy="120" r="95" fill="#E2D9FF" opacity="0.6"/>
+  <circle cx="52" cy="210" r="30" fill="#E2D9FF" opacity="0.5"/>
+  <circle cx="120" cy="40" r="4" fill="#A78BFA"/>
+  <circle cx="330" cy="200" r="4" fill="#A78BFA"/>
+  <circle cx="360" cy="120" r="4" fill="#A78BFA"/>
+  <rect x="0" y="232" width="400" height="35" fill="#DDD0FA" opacity="0.6"/>
+
+  <!-- Check bubble -->
+  <circle cx="72" cy="52" r="16" fill="#FFFFFF"/>
+  <path d="M64 52 L70 58 L81 45" stroke="#7C3AED" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Gear -->
+  <g transform="translate(348,58)" fill="#8B5CF6">
+    <rect x="-6" y="-22" width="12" height="44" rx="3"/>
+    <rect x="-6" y="-22" width="12" height="44" rx="3" transform="rotate(60)"/>
+    <rect x="-6" y="-22" width="12" height="44" rx="3" transform="rotate(120)"/>
+    <circle r="16" fill="#8B5CF6"/>
+    <circle r="7" fill="#F3EFFF"/>
+  </g>
+
+  <!-- Person A: woman, yellow top, holding idea bulb -->
+  <g>
+    <rect x="106" y="182" width="13" height="50" rx="5" fill="#1F2937"/>
+    <rect x="127" y="182" width="13" height="50" rx="5" fill="#1F2937"/>
+    <ellipse cx="112" cy="234" rx="10" ry="5" fill="#7C3AED"/>
+    <ellipse cx="134" cy="234" rx="10" ry="5" fill="#7C3AED"/>
+    <rect x="94" y="152" width="12" height="62" rx="15" fill="#141A2E"/>
+    <rect x="98" y="118" width="52" height="68" rx="12" fill="#FBBF24"/>
+    <rect x="84" y="124" width="13" height="56" rx="6" fill="#FBBF24"/>
+    <rect x="151" y="124" width="13" height="56" rx="6" fill="#FBBF24"/>
+    <circle cx="90" cy="184" r="7" fill="#B0713A"/>
+    <circle cx="157" cy="184" r="7" fill="#B0713A"/>
+    <rect x="117" y="104" width="12" height="16" fill="#B0713A"/>
+    <circle cx="123" cy="90" r="17" fill="#B0713A"/>
+    <path d="M106 90 a17 17 0 0 1 34 0 Z" fill="#141A2E"/>
+    <rect x="104" y="88" width="7" height="24" rx="3" fill="#141A2E"/>
+    <rect x="134" y="88" width="7" height="24" rx="3" fill="#141A2E"/>
+  </g>
+
+  <!-- Idea bulb above her hand -->
+  <g>
+    <line x1="168" y1="150" x2="178" y2="118" stroke="#B0713A" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="182" cy="98" r="15" fill="#FDE047"/>
+    <rect x="173" y="110" width="18" height="10" rx="3" fill="#92400E"/>
+    <line x1="182" y1="74" x2="182" y2="66" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+    <line x1="162" y1="82" x2="156" y2="77" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+    <line x1="202" y1="82" x2="208" y2="77" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Person B: man, orange shirt + purple pants, laptop -->
+  <g>
+    <rect x="238" y="182" width="14" height="50" rx="5" fill="#6D28D9"/>
+    <rect x="260" y="182" width="14" height="50" rx="5" fill="#6D28D9"/>
+    <ellipse cx="245" cy="234" rx="10" ry="5" fill="#141A2E"/>
+    <ellipse cx="267" cy="234" rx="10" ry="5" fill="#141A2E"/>
+    <rect x="230" y="118" width="52" height="68" rx="12" fill="#FB923C"/>
+    <rect x="216" y="124" width="13" height="56" rx="6" fill="#FB923C"/>
+    <rect x="283" y="124" width="13" height="52" rx="6" fill="#FB923C"/>
+    <circle cx="222" cy="184" r="7" fill="#8D5524"/>
+    <circle cx="289" cy="180" r="7" fill="#8D5524"/>
+    <rect x="249" y="104" width="12" height="16" fill="#8D5524"/>
+    <circle cx="255" cy="90" r="17" fill="#8D5524"/>
+    <path d="M238 90 a17 17 0 0 1 34 0 Z" fill="#141A2E"/>
+    <rect x="236" y="88" width="7" height="14" rx="3" fill="#141A2E"/>
+    <rect x="230" y="150" width="34" height="22" rx="3" fill="#1E3A8A"/>
+    <rect x="227" y="172" width="40" height="5" rx="2" fill="#334155"/>
+  </g>
+</svg>

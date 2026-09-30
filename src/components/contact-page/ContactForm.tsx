@@ -80,7 +80,7 @@ const ContactForm = ({ contact }: { contact: SiteSettings['contact'] }) => {
   });
 
   return (
-    <div className="grid gap-10 lg:grid-cols-5">
+    <div id="inquiry-form" className="grid scroll-mt-24 gap-10 lg:grid-cols-5">
       {/* Form */}
       <div className="lg:col-span-3">
         <div className="rounded-2xl border border-zinc-100 bg-white p-6 shadow-lg sm:p-8 dark:border-zinc-800 dark:bg-zinc-100">

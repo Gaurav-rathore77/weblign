@@ -22,19 +22,19 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
             className="pointer-events-none absolute inset-0 rounded-[calc(1.5rem-1px)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
             aria-hidden="true"
           >
-            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-primary/[0.04] blur-2xl" />
-            <div className="absolute -bottom-6 -left-6 h-20 w-20 rounded-full bg-accent/[0.04] blur-2xl" />
+            <div className="animate-glow-pulse absolute -right-8 -top-8 h-24 w-24 rounded-full bg-primary/[0.06] blur-2xl" />
+            <div className="animate-glow-pulse absolute -bottom-6 -left-6 h-20 w-20 rounded-full bg-accent/[0.06] blur-2xl" style={{ animationDelay: '1s' }} />
           </div>
 
           {/* Icon */}
           <div className="relative mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/[0.06] text-primary transition-all duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
-            <span className="flex items-center justify-center transition-transform duration-300 hover:-rotate-[8deg]">
+            <span className="flex items-center justify-center transition-transform duration-300 group-hover:-rotate-[8deg]">
               <Icon className="h-6 w-6" />
             </span>
           </div>
 
           {/* Title */}
-          <h3 className="relative text-lg font-semibold text-zinc-900">
+          <h3 className="relative text-lg font-semibold text-zinc-900 transition-colors duration-300 group-hover:text-primary">
             {service.title}
           </h3>
 
@@ -59,10 +59,10 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
           <div className="relative mt-auto pt-5">
             <Link
               href={`/services/${service.id}`}
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-all duration-300 hover:gap-2.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              className="group/link inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-all duration-300 hover:gap-2.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
             >
               Learn More
-              <HiOutlineArrowLongRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+              <HiOutlineArrowLongRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />
             </Link>
           </div>
         </div>

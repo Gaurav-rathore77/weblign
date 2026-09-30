@@ -1,5 +1,4 @@
 import HeroButtons from './HeroButtons';
-import TrustBadges from './TrustBadges';
 import HeroStats from './HeroStats';
 import type { SiteSettings } from '@/lib/site-content';
 
@@ -19,12 +18,12 @@ const HeroContent = ({ content }: { content: SiteSettings['hero'] }) => {
 
       <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-zinc-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
         {content.titleLine1Before}{' '}
-        <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+        <span className="animate-text-shimmer">
           {content.titleLine1Accent}
         </span>
         <br />
         {content.titleLine2Before}{' '}
-        <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+        <span className="animate-text-shimmer">
           {content.titleLine2Accent}
         </span>
       </h1>
@@ -41,10 +40,6 @@ const HeroContent = ({ content }: { content: SiteSettings['hero'] }) => {
       </div>
 
       <div className="hero-reveal hero-delay-500">
-        <TrustBadges />
-      </div>
-
-      <div className="hero-reveal hero-delay-600">
         <HeroStats />
       </div>
     </div>

@@ -13,197 +13,191 @@ interface Props<T extends PortfolioPreview = Project> {
 }
 
 function PortfolioCarousel<T extends PortfolioPreview>({ projects, onSelect }: Props<T>) {
-  const qty = projects.length;
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
 
   const handleImageError = (id: string) => {
     setImageErrors((prev) => new Set(prev).add(id));
   };
 
+  const doubled = [...projects, ...projects];
+
   return (
-    <div className="wrapper relative flex h-[650px] w-full items-center justify-center text-center">
+    <div className="relative w-full">
       <style>{`
-        .carousel-inner {
-          --w: 280px;
-          --h: 180px;
-          --translateZ: calc(var(--w) + var(--h) - 40px);
-          --rotateX: -6deg;
-          --perspective: 2200px;
-          position: absolute;
-          width: var(--w);
-          height: var(--h);
-          top: 20%;
-          left: calc(50% - (var(--w) / 2));
-          z-index: 2;
-          transform-style: preserve-3d;
-          transform: perspective(var(--perspective));
-          animation: rotating 40s linear infinite;
+        .h-scroll {
+          display: flex;
+          gap: 20px;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          padding: 20px 0;
         }
-        .carousel-inner:hover {
-          animation-play-state: paused;
-        }
-        @keyframes rotating {
-          from { transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(0); }
-          to { transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(1turn); }
-        }
-        .carousel-card {
-          position: absolute;
-          display: block;
-          width: 100%;
-          height: 100%;
-          padding: 0;
-          border: 0;
-          border-radius: 16px;
+        .h-scroll::-webkit-scrollbar { display: none; }
+        .h-card {
+          flex: 0 0 300px;
+          scroll-snap-align: center;
+          border-radius: 20px;
           overflow: hidden;
-          inset: 0;
+          position: relative;
           cursor: pointer;
-          color: inherit;
-          background: transparent;
-          font: inherit;
-          text-align: center;
-          box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
-          transform: rotateY(calc((360deg / ${qty}) * var(--index))) translateZ(var(--translateZ));
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
-          backface-visibility: hidden;
+          box-shadow: 0 12px 32px -8px rgba(0,0,0,0.18);
+          transition: transform 0.35s ease, box-shadow 0.35s ease;
         }
-        .carousel-card:hover,
-        .carousel-card:focus-visible {
-          box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.25);
-          transform: rotateY(calc((360deg / ${qty}) * var(--index))) translateZ(calc(var(--translateZ) + 30px)) scale(1.05);
-          z-index: 10;
+        .h-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 20px 48px -12px rgba(0,0,0,0.28);
         }
-        .carousel-card:focus-visible {
+        .h-card:focus-visible {
           outline: 2px solid #2563eb;
           outline-offset: 4px;
         }
-        .carousel-img {
+        .h-img {
           width: 100%;
-          height: 100%;
+          height: 200px;
           object-fit: cover;
           display: block;
         }
-        .carousel-overlay {
+        .h-overlay {
           position: absolute;
           inset: 0;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          padding: 16px;
+          padding: 20px;
           text-align: center;
           color: white;
         }
-        .carousel-overlay::before {
+        .h-overlay::before {
           content: '';
           position: absolute;
           inset: 0;
           background: linear-gradient(to bottom right, var(--gradient)),
-                      linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.2), transparent);
-          background-size: 30px 30px;
-          opacity: 1;
+                      linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.15), transparent);
         }
-        .carousel-overlay::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: radial-gradient(circle at 25px 25px, currentColor 1px, transparent 0);
-          background-size: 30px 30px;
-          opacity: 0.05;
-        }
-        .carousel-icon {
-          width: 56px;
-          height: 56px;
+        .h-badge {
+          width: 52px;
+          height: 52px;
           border-radius: 14px;
-          background: rgba(255,255,255,0.2);
+          background: rgba(255,255,255,0.22);
           backdrop-filter: blur(8px);
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 20px;
+          font-size: 18px;
           font-weight: 700;
-          margin-bottom: 14px;
-          border: 1px solid rgba(255,255,255,0.3);
-          box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+          margin-bottom: 12px;
+          border: 1px solid rgba(255,255,255,0.35);
+          box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+          position: relative;
+          z-index: 1;
         }
-        .carousel-title {
-          font-size: 15px;
+        .h-title {
+          font-size: 14px;
           font-weight: 700;
           line-height: 1.3;
           margin-bottom: 4px;
-          text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+          text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+          position: relative;
+          z-index: 1;
         }
-        .carousel-category {
-          font-size: 11px;
+        .h-cat {
+          font-size: 10px;
           opacity: 0.9;
           text-transform: uppercase;
-          letter-spacing: 0.5px;
+          letter-spacing: 0.6px;
           text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+          position: relative;
+          z-index: 1;
+        }
+        .h-logo-divider {
+          flex: 0 0 auto;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0 12px;
+        }
+        .h-logo-badge {
+          width: 72px;
+          height: 72px;
+          border-radius: 20px;
+          background: white;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
         }
         @media (max-width: 640px) {
-          .carousel-inner {
-            --w: 200px;
-            --h: 140px;
-            --translateZ: calc(var(--w) + var(--h) - 30px);
-          }
-          .carousel-title { font-size: 13px; }
-          .carousel-category { font-size: 10px; }
-          .carousel-icon { width: 44px; height: 44px; font-size: 16px; }
+          .h-card { flex: 0 0 240px; }
+          .h-img { height: 160px; }
+          .h-logo-badge { width: 56px; height: 56px; border-radius: 16px; }
         }
         @media (prefers-reduced-motion: reduce) {
-          .carousel-inner { animation: none; }
-          .carousel-card { transition: none; }
+          .h-card { transition: none; }
         }
       `}</style>
 
-      <div className="carousel-inner">
-        {projects.map((p, i) => (
-          <button
-            key={p.id}
-            type="button"
-            className="carousel-card"
-            style={{ '--index': i } as CSSProperties}
-            onClick={() => onSelect(p)}
-            aria-label={`View ${p.title} case study`}
-          >
-            {p.image && !imageErrors.has(p.id) ? (
-              <>
-                <Image
-                  src={p.image}
-                  alt={p.imageAlt ?? p.title}
-                  fill
-                  sizes="(max-width: 640px) 200px, 280px"
-                  loading="lazy"
-                  className="carousel-img"
-                  onError={() => handleImageError(p.id)}
-                />
+      <div className="h-scroll">
+        {doubled.map((p, i) => {
+          const isLogo = i === projects.length;
+          if (isLogo) {
+            return (
+              <div className="h-logo-divider" key="logo-divider" aria-hidden="true">
+                <div className="h-logo-badge">
+                  <Image
+                    src="/images/weblign-mark.svg"
+                    alt="Weblign logo"
+                    width={44}
+                    height={44}
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+            );
+          }
+          return (
+            <button
+              key={`${p.id}-${i}`}
+              type="button"
+              className="h-card"
+              onClick={() => onSelect(p)}
+              aria-label={`View ${p.title} case study`}
+            >
+              {p.image && !imageErrors.has(p.id) ? (
+                <>
+                  <Image
+                    src={p.image}
+                    alt={p.imageAlt ?? p.title}
+                    fill
+                    sizes="300px"
+                    loading="lazy"
+                    className="h-img"
+                    onError={() => handleImageError(p.id)}
+                  />
+                  <div
+                    className="h-overlay"
+                    style={{ '--gradient': `linear-gradient(to bottom right, ${p.gradient})` } as CSSProperties}
+                  >
+                    <div className="h-badge">{initials(p.title)}</div>
+                    <p className="h-title">{p.title.split('—')[0].trim()}</p>
+                    <p className="h-cat">{p.category}</p>
+                  </div>
+                </>
+              ) : (
                 <div
-                  className="carousel-overlay"
+                  className="h-overlay"
                   style={{ '--gradient': `linear-gradient(to bottom right, ${p.gradient})` } as CSSProperties}
                 >
-                  <div className="carousel-icon">{initials(p.title)}</div>
-                  <p className="carousel-title">{p.title.split('—')[0].trim()}</p>
-                  <p className="carousel-category">{p.category}</p>
+                  <div className="h-badge">{initials(p.title)}</div>
+                  <p className="h-title">{p.title.split('—')[0].trim()}</p>
+                  <p className="h-cat">{p.category}</p>
                 </div>
-              </>
-            ) : (
-              <div
-                className="carousel-overlay"
-                style={{ '--gradient': `linear-gradient(to bottom right, ${p.gradient})` } as CSSProperties}
-              >
-                <div className="carousel-icon">{initials(p.title)}</div>
-                <p className="carousel-title">{p.title.split('—')[0].trim()}</p>
-                <p className="carousel-category">{p.category}</p>
-              </div>
-            )}
-          </button>
-        ))}
-      </div>
-
-      {/* Decorative pagination indicator */}
-      <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2" aria-hidden="true">
-        {projects.map((_, index) => (
-          <span key={index} className="h-2 w-2 rounded-full bg-white/50" />
-        ))}
+              )}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

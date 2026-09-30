@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import Hero from '@/components/hero/Hero';
+import TechMarquee from '@/components/tech/TechMarquee';
 import TrustedSection from '@/components/trusted/TrustedSection';
 import AboutSection from '@/components/about/AboutSection';
 import ServicesSection from '@/components/services/ServicesSection';
 import WhyChooseSection from '@/components/why-choose/WhyChooseSection';
 import PortfolioSection from '@/components/portfolio/PortfolioSection';
+import TestimonialsSection from '@/components/testimonials/TestimonialsSection';
 import PricingSection from '@/components/pricing/PricingSection';
 import ProcessSection from '@/components/process/ProcessSection';
 import ContactSection from '@/components/contact/ContactSection';
@@ -89,11 +91,13 @@ export default async function Home() {
   return (
     <>
       <Hero settings={settings} />
+      <TechMarquee />
       <TrustedSection />
       <AboutSection />
       <ServicesSection serviceItems={serviceItems} />
       <WhyChooseSection />
       <PortfolioSection />
+      <TestimonialsSection />
       <ProcessSection />
       <PricingSection />
       <ContactSection contact={settings.contact} />

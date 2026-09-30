@@ -1,10 +1,10 @@
 import Image from 'next/image';
 
 const CEOCard = () => (
-  <div className="relative overflow-hidden rounded-2xl border border-zinc-100/80 bg-white/60 p-8 shadow-lg shadow-zinc-900/5 backdrop-blur-xl sm:p-10 dark:border-zinc-700/80 dark:bg-zinc-100/60">
+  <div className="card-glow group relative overflow-hidden rounded-2xl border border-zinc-100/80 bg-white/60 p-8 shadow-lg shadow-zinc-900/5 backdrop-blur-xl sm:p-10 dark:border-zinc-700/80 dark:bg-zinc-100/60">
     {/* Decorative gradient */}
     <div
-      className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_90%_10%,rgba(37,99,235,0.05),transparent_28%),radial-gradient(circle_at_10%_90%,rgba(56,189,248,0.05),transparent_25%)]"
+      className="animate-glow-pulse pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_90%_10%,rgba(37,99,235,0.06),transparent_28%),radial-gradient(circle_at_10%_90%,rgba(56,189,248,0.06),transparent_25%)]"
       aria-hidden="true"
     />
 
@@ -12,8 +12,8 @@ const CEOCard = () => (
       {/* Avatar */}
       <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border-4 border-white bg-primary shadow-md shadow-primary/20 dark:border-[#27272a] dark:bg-[#27272a]">
         <Image
-          src="/images/team-sachin.svg"
-          alt="Cartoon portrait of Sachin Rathore"
+          src="/images/ceo-illustration-avatar.svg"
+          alt="Illustrated avatar of Sachin Rathore"
           fill
           sizes="80px"
           unoptimized

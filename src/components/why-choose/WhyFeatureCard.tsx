@@ -20,13 +20,14 @@ interface FeatureCardProps {
 }
 
 const FeatureCard = ({ feature }: FeatureCardProps) => (
-  <div className="group relative rounded-xl border border-zinc-100 bg-white p-5 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-zinc-900/5 sm:p-6">
+  <div className="card-glow group relative rounded-xl border border-zinc-100 bg-white p-5 shadow-xs sm:p-6">
     {/* Hover glow */}
     <div
       className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
       aria-hidden="true"
     >
-      <div className="absolute -right-6 -top-6 h-16 w-16 rounded-full bg-primary/[0.03] blur-2xl" />
+      <div className="animate-glow-pulse absolute -right-6 -top-6 h-16 w-16 rounded-full bg-primary/[0.05] blur-2xl" />
+      <div className="animate-glow-pulse absolute -bottom-6 -left-6 h-14 w-14 rounded-full bg-accent/[0.04] blur-2xl" style={{ animationDelay: '1s' }} />
     </div>
 
     <div className="relative flex items-start gap-4">
@@ -35,7 +36,7 @@ const FeatureCard = ({ feature }: FeatureCardProps) => (
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
-          <h4 className="text-sm font-semibold text-zinc-900">{feature.title}</h4>
+          <h4 className="text-sm font-semibold text-zinc-900 transition-colors duration-300 group-hover:text-primary">{feature.title}</h4>
           <span className="rounded-full bg-primary/[0.06] px-2 py-0.5 text-[10px] font-medium text-primary">
             {feature.badge}
           </span>

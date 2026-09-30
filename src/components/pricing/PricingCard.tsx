@@ -21,7 +21,7 @@ const PricingCard = ({ plan }: PricingCardProps) => {
         className={clsx(
           'relative rounded-2xl p-px shadow-lg shadow-zinc-900/5 transition-shadow duration-500 group-hover:shadow-xl',
           plan.popular
-            ? 'bg-gradient-to-b from-primary via-accent to-primary/30'
+            ? 'animate-gradient-border bg-gradient-to-b from-primary via-accent to-primary/30'
             : 'bg-gradient-to-b from-primary/10 to-transparent',
         )}
       >
@@ -37,7 +37,8 @@ const PricingCard = ({ plan }: PricingCardProps) => {
             className="pointer-events-none absolute inset-0 rounded-[calc(1.5rem-1px)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
             aria-hidden="true"
           >
-            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-primary/[0.04] blur-2xl" />
+            <div className="animate-glow-pulse absolute -right-8 -top-8 h-24 w-24 rounded-full bg-primary/[0.06] blur-2xl" />
+            <div className="animate-glow-pulse absolute -bottom-8 -left-8 h-20 w-20 rounded-full bg-accent/[0.05] blur-2xl" style={{ animationDelay: '1.5s' }} />
           </div>
 
           {/* Most Popular badge */}
@@ -103,13 +104,14 @@ const PricingCard = ({ plan }: PricingCardProps) => {
             <Link
               href={plan.ctaHref}
               className={clsx(
-                'block w-full rounded-full px-6 py-3 text-center text-sm font-semibold shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
+                'btn-shine group/btn relative block w-full overflow-hidden rounded-full px-6 py-3 text-center text-sm font-semibold shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
                 plan.popular
                   ? 'bg-gradient-to-r from-primary to-accent text-white shadow-primary/20'
                   : 'border border-zinc-200 bg-white text-zinc-700 hover:border-primary/30 hover:text-primary',
               )}
             >
-              {plan.cta}
+              <span className="relative z-10">{plan.cta}</span>
+              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full" />
             </Link>
           </div>
         </div>

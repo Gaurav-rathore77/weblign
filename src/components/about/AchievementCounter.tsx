@@ -57,12 +57,12 @@ const AchievementCounter = () => {
       {achievements.map((item) => (
         <div
           key={item.label}
-          className="flex flex-col items-center rounded-2xl border border-zinc-100 bg-white p-6 text-center shadow-xs dark:border-zinc-700 dark:bg-zinc-100"
+          className="card-glow group flex flex-col items-center rounded-2xl border border-zinc-100 bg-white p-6 text-center shadow-xs dark:border-zinc-700 dark:bg-zinc-100"
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/[0.06] text-primary">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/[0.06] text-primary transition-all duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
             {item.icon}
           </div>
-          <div className="mt-3 text-3xl font-bold tracking-tight text-zinc-900">
+          <div className="mt-3 text-3xl font-bold tracking-tight text-zinc-900 transition-colors duration-300 group-hover:text-primary">
             <span>
               {item.value}
               {item.suffix}

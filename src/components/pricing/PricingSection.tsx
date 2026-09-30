@@ -2,11 +2,12 @@ import PricingCard from './PricingCard';
 import ComparisonTable from './ComparisonTable';
 import GuaranteeBanner from './GuaranteeBanner';
 import { HiOutlineCurrencyRupee } from 'react-icons/hi2';
+import Reveal from '@/components/common/Reveal';
 import { plans } from './pricingData';
 
 const PricingSection = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-16 sm:py-20">
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -right-32 top-1/4 h-80 w-80 rounded-full bg-primary/[0.02] blur-3xl" />
@@ -22,9 +23,9 @@ const PricingSection = () => {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-16 sm:gap-20">
+        <div className="flex flex-col gap-12 sm:gap-16">
           {/* ── Section Header ── */}
-          <div className="mx-auto flex max-w-2xl flex-col items-center gap-5 text-center">
+          <Reveal className="mx-auto flex max-w-2xl flex-col items-center gap-5 text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
               <HiOutlineCurrencyRupee className="h-4 w-4" aria-hidden="true" />
               Pricing
@@ -37,20 +38,26 @@ const PricingSection = () => {
               Transparent, scalable pricing designed for startups, growing
               businesses, and enterprise teams. No hidden fees, no surprises.
             </p>
-          </div>
+          </Reveal>
 
           {/* ── Pricing Cards ── */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
             {plans.map((plan, i) => (
-              <PricingCard key={plan.id} plan={plan} index={i} />
+              <Reveal key={plan.id} delay={i * 0.1}>
+                <PricingCard plan={plan} index={i} />
+              </Reveal>
             ))}
           </div>
 
           {/* ── Comparison Table ── */}
-          <ComparisonTable />
+          <Reveal>
+            <ComparisonTable />
+          </Reveal>
 
           {/* ── Guarantee Banner ── */}
-          <GuaranteeBanner />
+          <Reveal>
+            <GuaranteeBanner />
+          </Reveal>
         </div>
       </div>
     </section>

@@ -167,7 +167,7 @@ export const pricingTiers: PricingTier[] = [
 export const faqs = [
   {
     q: 'How do your pricing plans work?',
-    a: 'Each plan covers the full lifecycle of a project — from discovery and design to development, testing, and launch. You pay a fixed monthly or annual retainer based on the scope and complexity outlined in your plan. All plans include a kickoff call and a dedicated point of contact.',
+    a: 'Each plan covers the full lifecycle of a project — from discovery and design to development, testing, and launch. You get a fixed project quote based on the scope and complexity outlined in your plan. Every project starts with a kickoff call and a dedicated point of contact.',
   },
   {
     q: 'Can I switch plans mid-project?',
@@ -175,7 +175,7 @@ export const faqs = [
   },
   {
     q: 'What if I need more than what\'s listed?',
-    a: 'No problem. The Enterprise plan is fully customizable. We\'ll build a scope of work tailored to your exact requirements, including custom integrations, dedicated infrastructure, and ongoing managed support.',
+    a: 'No problem. Every plan is fully customizable. We\'ll build a scope of work tailored to your exact requirements, including custom integrations, dedicated infrastructure, and ongoing managed support.',
   },
   {
     q: 'Do you offer refunds?',
@@ -187,6 +187,6 @@ export const faqs = [
   },
   {
     q: 'Do you provide ongoing support after launch?',
-    a: 'Yes. Every plan includes post-launch support. The Starter plan includes basic support, Growth includes priority support, and Enterprise includes 24/7 dedicated support with maintenance and hosting included.',
+    a: 'Yes. Every project includes post-launch support — the Landing Page plan includes 7 days of support, Business and Premium plans include priority support, and custom projects include 24/7 dedicated support with optional ongoing maintenance.',
   },
 ];

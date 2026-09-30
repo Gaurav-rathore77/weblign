@@ -51,9 +51,11 @@ export const contactDetails: ContactDetail[] = [
 ];
 
 export const socialPlatforms: SocialPlatform[] = [
-  { label: 'LinkedIn', href: '#', initial: 'in' },
-  { label: 'GitHub', href: '#', initial: 'GH' },
-  { label: 'Instagram', href: '#', initial: 'IG' },
-  { label: 'Facebook', href: '#', initial: 'f' },
-  { label: 'X (Twitter)', href: '#', initial: 'X' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/company/weblign', initial: 'in' },
+  { label: 'GitHub', href: 'https://github.com/Gaurav-rathore77', initial: 'GH' },
+  { label: 'Instagram', href: 'https://www.instagram.com/info.weblign/', initial: 'IG' },
+  { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61595129480839', initial: 'f' },
+  { label: 'X (Twitter)', href: 'https://x.com/Info_weblign', initial: 'X' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@Weblign-d7g', initial: 'YT' },
+  { label: 'Reddit', href: 'https://www.reddit.com/user/Basic_Clothes_9772/', initial: 'R' },
 ];

@@ -29,6 +29,8 @@ const organization = {
     socialLinks.twitter,
     socialLinks.facebook,
     socialLinks.instagram,
+    socialLinks.youtube,
+    socialLinks.reddit,
     socialLinks.dribbble,
   ],
   knowsAbout: [

@@ -6,7 +6,7 @@ import {
 } from 'react-icons/hi2';
 
 import TrustCard from './TrustCard';
-import ProjectSlider from './ProjectSlider';
+import Reveal from '@/components/common/Reveal';
 
 const cards = [
   {
@@ -37,7 +37,7 @@ const cards = [
 
 const TrustedSection = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white pb-16 pt-20 sm:pb-20 sm:pt-24">
       {/* Divider */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-zinc-200 to-transparent dark:via-zinc-800"
@@ -50,9 +50,9 @@ const TrustedSection = () => {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center gap-16">
+        <div className="flex flex-col items-center gap-12">
           {/* ── Section Header ── */}
-          <div className="flex max-w-2xl flex-col items-center gap-4 text-center">
+          <Reveal className="flex max-w-2xl flex-col items-center gap-4 text-center">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-amber-200/60 bg-amber-50/60 px-4 py-1.5 text-sm font-medium text-amber-700 dark:border-amber-700/40 dark:bg-amber-900/30 dark:text-amber-300">
               <HiOutlineStar className="h-4 w-4 text-amber-500 dark:text-amber-400" aria-hidden="true" />
@@ -71,20 +71,15 @@ const TrustedSection = () => {
               the world trust us to deliver high-quality digital solutions that
               drive measurable results.
             </p>
-          </div>
-
-          {/* ── Project Slider ── */}
-          <div className="w-full">
-            <ProjectSlider />
-          </div>
+          </Reveal>
 
           {/* ── Trust Metrics ── */}
-          <div className="w-full">
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {cards.map((card, i) => (
-                <TrustCard key={card.label} {...card} index={i} />
-              ))}
-            </div>
+          <div className="grid w-full gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {cards.map((card, i) => (
+              <Reveal key={card.label} delay={i * 0.08}>
+                <TrustCard {...card} index={i} />
+              </Reveal>
+            ))}
           </div>
         </div>
       </div>

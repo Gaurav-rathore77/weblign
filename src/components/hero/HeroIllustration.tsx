@@ -139,10 +139,10 @@ const HeroIllustration = () => {
           yOffset={-20}
           className="absolute -right-4 -top-3 z-20"
         >
-          <div className="w-44 rounded-xl border border-zinc-100/80 bg-white/90 p-4 shadow-lg shadow-zinc-900/5 dark:border-zinc-700/80 dark:bg-zinc-100/90">
+          <div className="animate-border-glow w-44 rounded-xl border border-zinc-100/80 bg-white/90 p-4 shadow-lg shadow-zinc-900/5 backdrop-blur-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-primary/10 dark:border-zinc-700/80 dark:bg-zinc-100/90">
             <div className="mb-2 flex items-center justify-between">
               <span className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Page Views</span>
-              <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-600 dark:bg-emerald-900/40 dark:text-emerald-400">
+              <span className="animate-glow-pulse rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-600 dark:bg-emerald-900/40 dark:text-emerald-400">
                 +18.2%
               </span>
             </div>
@@ -158,8 +158,8 @@ const HeroIllustration = () => {
           yOffset={20}
           className="absolute bottom-1 -left-6 z-20"
         >
-          <div className="flex w-52 items-center gap-3 rounded-xl border border-zinc-100/80 bg-white/90 p-3 shadow-lg shadow-zinc-900/5 dark:border-zinc-700/80 dark:bg-zinc-100/90">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-[11px] font-bold text-white">
+          <div className="card-glow flex w-52 items-center gap-3 rounded-xl border border-zinc-100/80 bg-white/90 p-3 shadow-lg shadow-zinc-900/5 backdrop-blur-sm dark:border-zinc-700/80 dark:bg-zinc-100/90">
+            <div className="animate-glow-pulse flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-[11px] font-bold text-white">
               SR
             </div>
             <div className="min-w-0">
@@ -176,7 +176,7 @@ const HeroIllustration = () => {
           yOffset={15}
           className="absolute bottom-2 -right-3 z-20"
         >
-          <div className="w-36 rounded-xl border border-zinc-100/80 bg-white/90 p-3 shadow-lg shadow-zinc-900/5 dark:border-zinc-700/80 dark:bg-zinc-100/90">
+          <div className="card-glow w-36 rounded-xl border border-zinc-100/80 bg-white/90 p-3 shadow-lg shadow-zinc-900/5 backdrop-blur-sm dark:border-zinc-700/80 dark:bg-zinc-100/90">
             <span className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Avg. Revenue</span>
             <p className="mt-0.5 text-lg font-bold text-zinc-900">₹1,28,470</p>
             <div className="mt-1 flex items-center gap-1 text-[11px] text-emerald-600">
@@ -195,7 +195,7 @@ const HeroIllustration = () => {
           yOffset={-25}
           className="absolute right-8 top-2 z-20"
         >
-          <div className="relative flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-100/80 bg-white/90 shadow-md shadow-zinc-900/5 dark:border-zinc-700/80 dark:bg-zinc-100/90">
+          <div className="relative flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-100/80 bg-white/90 shadow-md shadow-zinc-900/5 backdrop-blur-sm dark:border-zinc-700/80 dark:bg-zinc-100/90">
             <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 text-zinc-500 dark:text-zinc-400" aria-hidden="true">
               <path
                 d="M10 2a6 6 0 00-6 6v3l-1.5 2.5a.5.5 0 00.43.75h14.14a.5.5 0 00.43-.75L16 11V8a6 6 0 00-6-6z"
@@ -207,7 +207,7 @@ const HeroIllustration = () => {
               <path d="M8 15a2 2 0 004 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
             <span className="absolute -right-0.5 -top-0.5 flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-primary/20" />
+              <span className="animate-pulse-ring absolute inline-flex h-full w-full rounded-full bg-primary/30" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary" />
             </span>
           </div>

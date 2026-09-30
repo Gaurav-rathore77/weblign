@@ -21,8 +21,8 @@ const AboutImages = () => {
         <FloatWrapper className="col-span-2">
           <div className="group relative overflow-hidden rounded-2xl shadow-lg shadow-zinc-900/5">
             <Image
-              src="/images/about-team.webp"
-              alt="Our team collaborating on a digital project"
+              src="/images/about-illustration-collab.svg"
+              alt="Flat illustration of our Indian team collaborating on a digital project"
               width={800}
               height={534}
               sizes="(min-width: 1024px) 50vw, 100vw"
@@ -45,8 +45,8 @@ const AboutImages = () => {
         <FloatWrapper>
           <div className="overflow-hidden rounded-xl shadow-md shadow-zinc-900/5">
             <Image
-              src="/images/about-office.webp"
-              alt="Modern office workspace"
+              src="/images/about-illustration-ideas.svg"
+              alt="Flat illustration of teammates sharing ideas with a lightbulb and laptop"
               width={400}
               height={267}
               sizes="(min-width: 640px) 25vw, 50vw"
@@ -61,8 +61,8 @@ const AboutImages = () => {
           <FloatWrapper>
             <div className="overflow-hidden rounded-xl shadow-md shadow-zinc-900/5">
               <Image
-                src="/images/about-brainstorm.webp"
-                alt="Team brainstorming session"
+                src="/images/about-illustration-growth.svg"
+                alt="Flat illustration of growth charts and goals with a teammate"
                 width={400}
                 height={267}
                 sizes="(min-width: 640px) 25vw, 50vw"
