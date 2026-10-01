@@ -1,8 +1,10 @@
 ﻿import type { MetadataRoute } from 'next';
 import { getBlogPosts } from '@/lib/site-content';
+import { blogSlug } from '@/components/blog-page/blogData';
+import { siteUrl } from '@/constants';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://weblign.in';
+  const baseUrl = siteUrl;
   const posts = await getBlogPosts();
 
   return [
@@ -13,7 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/pricing`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     ...posts.map((post) => ({
-      url: `${baseUrl}/blog/${post.id}`,
+      url: `${baseUrl}/blog/${blogSlug(post)}`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.6,

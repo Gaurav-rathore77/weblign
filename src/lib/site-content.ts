@@ -2,6 +2,7 @@ import { ObjectId, type Document } from 'mongodb';
 import { getDb } from '@/lib/mongodb';
 import {
   blogPosts as fallbackBlogPosts,
+  slugify,
   type BlogPost,
 } from '@/components/blog-page/blogData';
 import {
@@ -198,19 +199,22 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
   return getCollection('blog-posts', fallbackBlogPosts);
 }
 
+/**
+ * Resolves a blog post from a URL segment. Tries, in order:
+ *   1. the post's explicit `slug`
+ *   2. a slugified title (covers older admin-saved posts)
+ *   3. the numeric `id` — keeps legacy `/blog/7` links working
+ */
 export async function getBlogPost(slug: string): Promise<BlogPost | null> {
   const normalizedSlug = decodeURIComponent(slug).toLowerCase().trim();
   const posts = await getBlogPosts();
 
+  const matches = (value: string) => value.toLowerCase().trim() === normalizedSlug;
+
   return (
-    posts.find((post) => post.id.toLowerCase() === normalizedSlug) ??
-    posts.find(
-      (post) =>
-        post.title
-          .toLowerCase()
-          .replace(/[^a-z0-9]+/g, '-')
-          .replace(/(^-|-$)/g, '') === normalizedSlug,
-    ) ??
+    posts.find((post) => post.slug && matches(post.slug)) ??
+    posts.find((post) => matches(slugify(post.title))) ??
+    posts.find((post) => matches(post.id)) ??
     null
   );
 }

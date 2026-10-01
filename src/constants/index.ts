@@ -1,4 +1,4 @@
-export const siteUrl = 'https://weblign.in';
+export const siteUrl = 'https://www.weblign.in';
 export const siteName = 'Weblign';
 
 export const companyInfo = {

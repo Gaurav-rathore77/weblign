@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState, type ElementType } from 'react';
 import {
   HiOutlineArrowLongRight,
@@ -14,7 +15,7 @@ import {
   HiOutlineGlobeAlt,
   HiOutlineHandRaised,
 } from 'react-icons/hi2';
-import { blogPosts, categories, type BlogPost } from './blogData';
+import { blogHref, blogPosts, categories, type BlogPost } from './blogData';
 
 const iconComponents: Record<string, ElementType> = {
   HiOutlineBolt,
@@ -34,11 +35,9 @@ function BlogIcon({ name, className }: { name: string; className?: string }) {
 }
 
 const BlogCard = ({ post }: { post: BlogPost }) => {
-  const postHref = post.href && post.href !== '#' ? post.href : `/blog/${post.id}`;
-
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-lg shadow-zinc-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-100">
-    <a href={postHref} className="flex flex-1 flex-col">
+    <Link href={blogHref(post)} className="flex flex-1 flex-col">
       {/* Image */}
       <div className={`relative flex aspect-[16/9] items-end bg-gradient-to-br ${post.image.gradient}`}>
         {post.image.url && (
@@ -100,7 +99,7 @@ const BlogCard = ({ post }: { post: BlogPost }) => {
           />
         </div>
       </div>
-    </a>
+    </Link>
     </article>
   );
 };

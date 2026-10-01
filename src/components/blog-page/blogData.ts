@@ -1,5 +1,8 @@
 export interface BlogPost {
   id: string;
+  /** SEO-friendly URL segment. Falls back to a slugified title when absent
+   *  (older entries saved via the admin panel may not have one). */
+  slug?: string;
   title: string;
   excerpt: string;
   category: string;
@@ -11,11 +14,31 @@ export interface BlogPost {
   href: string;
 }
 
+/** Mirrors the lookup order used by `getBlogPost`. */
+export function blogSlug(post: BlogPost): string {
+  return post.slug?.trim() || slugify(post.title);
+}
+
+export function slugify(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/['’]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 80);
+}
+
+/** Canonical, indexable URL for a post. */
+export function blogHref(post: BlogPost): string {
+  return post.href && post.href !== '#' ? post.href : `/blog/${blogSlug(post)}`;
+}
+
 export const categories = ['All', 'Development', 'Design', 'Business', 'AI & Tech'] as const;
 
 export const blogPosts: BlogPost[] = [
   {
     id: '1',
+    slug: 'building-performant-nextjs-apps-with-turbopack',
     title: 'Building Performant Next.js Apps with Turbopack',
     excerpt:
       'Learn how Turbopack speeds up local development and production builds in Next.js 16, and how to configure it for maximum performance.',
@@ -32,6 +55,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: '2',
+    slug: 'future-of-ui-design-ai-assisted-workflows',
     title: 'The Future of UI Design: AI-Assisted Workflows',
     excerpt:
       'How AI tools are reshaping the design process — from wireframing to prototyping — and what it means for designers and developers.',
@@ -48,6 +72,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: '3',
+    slug: 'scaling-from-startup-to-enterprise-technical-roadmap',
     title: 'Scaling from Startup to Enterprise: A Technical Roadmap',
     excerpt:
       'A practical guide to scaling your architecture, team, and processes as you grow from MVP to millions of users.',
@@ -64,6 +89,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: '4',
+    slug: 'building-real-time-saas-analytics-dashboard',
     title: 'How We Built a Real-Time SaaS Analytics Dashboard',
     excerpt:
       'A deep dive into the architecture, tech stack, and design decisions behind a real-time analytics dashboard handling millions of events.',
@@ -80,6 +106,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: '5',
+    slug: 'accessibility-first-why-it-matters-where-to-start',
     title: 'Accessibility First: Why It Matters and Where to Start',
     excerpt:
       'An accessibility-first approach isn\'t just ethical — it improves SEO, user experience, and conversion rates across the board.',
@@ -96,6 +123,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: '6',
+    slug: 'integrating-llms-into-your-web-application',
     title: 'Integrating LLMs into Your Web Application',
     excerpt:
       'A beginner-friendly walkthrough of adding GPT-powered features — chatbots, content generation, and smart search — to your web app.',
@@ -112,6 +140,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: '7',
+    slug: 'ecommerce-migration-monolith-to-headless-cms',
     title: 'E-Commerce Migration: Monolith to Headless CMS',
     excerpt:
       'Why we migrated a legacy e-commerce platform to a headless architecture and how it improved performance, flexibility, and revenue.',
@@ -128,6 +157,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: '8',
+    slug: 'designing-for-conversion-psychology-principles',
     title: 'Designing for Conversion: Psychology Principles That Work',
     excerpt:
       'Understand the psychological triggers — social proof, scarcity, reciprocity — that drive user action and boost conversion rates.',
@@ -144,6 +174,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: '9',
+    slug: 'edge-computing-with-nextjs-deploying-at-the-edge',
     title: 'Edge Computing with Next.js: Deploying at the Edge',
     excerpt:
       'How to leverage edge functions and regional deployments to reduce latency and improve global performance for your Next.js app.',

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { siteUrl } from '@/constants';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -9,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/admin/', '/_next/'],
       },
     ],
-    sitemap: 'https://weblign.in/sitemap.xml',
+    sitemap: `${siteUrl}/sitemap.xml`,
   };
 }

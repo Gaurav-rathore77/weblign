@@ -27,6 +27,22 @@ const securityHeaders = [
   },
 ];
 
+/**
+ * Legacy numeric blog URLs -> SEO slugs. Keeps existing rankings and any
+ * shared links alive instead of 404ing.
+ */
+const blogSlugRedirects = [
+  ['1', 'building-performant-nextjs-apps-with-turbopack'],
+  ['2', 'future-of-ui-design-ai-assisted-workflows'],
+  ['3', 'scaling-from-startup-to-enterprise-technical-roadmap'],
+  ['4', 'building-real-time-saas-analytics-dashboard'],
+  ['5', 'accessibility-first-why-it-matters-where-to-start'],
+  ['6', 'integrating-llms-into-your-web-application'],
+  ['7', 'ecommerce-migration-monolith-to-headless-cms'],
+  ['8', 'designing-for-conversion-psychology-principles'],
+  ['9', 'edge-computing-with-nextjs-deploying-at-the-edge'],
+] as const;
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
@@ -41,6 +57,14 @@ const nextConfig: NextConfig = {
 
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
+  },
+
+  async redirects() {
+    return blogSlugRedirects.map(([id, slug]) => ({
+      source: `/blog/${id}`,
+      destination: `/blog/${slug}`,
+      permanent: true,
+    }));
   },
 
   async headers() {

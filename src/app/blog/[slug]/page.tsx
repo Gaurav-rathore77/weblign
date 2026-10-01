@@ -9,6 +9,7 @@ import {
   HiOutlineClock,
 } from 'react-icons/hi2';
 import { getBlogPost, getBlogPosts } from '@/lib/site-content';
+import { blogHref } from '@/components/blog-page/blogData';
 import { siteUrl } from '@/constants';
 
 export const dynamic = 'force-dynamic';
@@ -16,10 +17,6 @@ export const dynamic = 'force-dynamic';
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
-
-function postHref(id: string, href?: string): string {
-  return href && href !== '#' ? href : `/blog/${id}`;
-}
 
 function fallbackContent(title: string, excerpt: string, category: string): string {
   return [
@@ -37,14 +34,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!post) return { title: 'Blog post not found' };
 
+  const canonical = `${siteUrl}/blog/${blogHref(post).split('/').pop()}`;
+
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: { canonical },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: 'article',
-      url: `${siteUrl}/blog/${post.id}`,
+      url: canonical,
       images: post.image.url
         ? [{ url: `${siteUrl}${post.image.url}`, width: 1200, height: 630, alt: post.title }]
         : undefined,
@@ -130,7 +130,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <h2 className="text-sm font-semibold uppercase tracking-widest text-zinc-400">More in {post.category}</h2>
                 <div className="mt-3 space-y-2">
                   {relatedPosts.map((related) => (
-                    <Link key={related.id} href={postHref(related.id, related.href)} className="group block rounded-xl border border-zinc-100 p-3 transition hover:border-primary/30 hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900">
+                    <Link key={related.id} href={blogHref(related)} className="group block rounded-xl border border-zinc-100 p-3 transition hover:border-primary/30 hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-900">
                       <p className="text-sm font-medium leading-snug text-zinc-800 group-hover:text-primary dark:text-zinc-200">{related.title}</p>
                       <p className="mt-1 text-xs text-zinc-400">{related.readTime}</p>
                     </Link>
