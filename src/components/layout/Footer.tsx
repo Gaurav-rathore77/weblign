@@ -4,7 +4,6 @@ import {
   HiOutlinePhone,
   HiOutlineMapPin,
   HiOutlineClock,
-  HiHeart,
 } from 'react-icons/hi2';
 import Logo from './Logo';
 import FooterLinks from './footer/FooterLinks';
@@ -134,6 +133,10 @@ const Footer = () => {
               &copy; {year} Weblign. All rights reserved.
             </p>
 
+            <p className="text-xs text-zinc-500 dark:text-white/60">
+              Gaurav, cofounder
+            </p>
+
             <nav
               aria-label="Footer legal links"
               className="flex flex-wrap items-center gap-x-5 gap-y-2"
@@ -156,9 +159,7 @@ const Footer = () => {
               >
                 Cookies Policy
               </Link>
-              <span className="inline-flex items-center gap-1 text-xs text-zinc-300 dark:text-white/20">
-                Gaurav ne banaya h <HiHeart className="h-4 w-4 text-red-500" aria-hidden="true" />
-              </span>
+
             </nav>
           </div>
         </div>

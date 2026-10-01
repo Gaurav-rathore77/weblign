@@ -1,8 +1,11 @@
+import { additionalProjects } from './portfolioAdditional';
+
 export const categories = [
   'All',
   'Web Apps',
   'Business Websites',
   'Education Portals',
+  'Landing Pages',
 ] as const;
 
 export type Category = (typeof categories)[number];
@@ -94,7 +97,7 @@ export const projects: Project[] = [
     title: 'Vidya Vriddhi — College Guidance Platform',
     description: 'A comprehensive Next.js platform for college discovery, exam prep, and admission guidance serving 50K+ students.',
     category: 'Web Apps',
-image: '/images/portfolio-vidya-vriddhi.webp',
+    image: '/images/portfolio-vidya-vriddhi.webp',
     gradient: 'from-orange-700 via-amber-700 to-yellow-700',
     tech: ['Next.js', 'TypeScript', 'Node.js'],
     metrics: '50K+ Students',
@@ -194,6 +197,13 @@ image: '/images/portfolio-vidya-vriddhi.webp',
     },
   },
 ];
+
+/**
+ * Full catalogue: the six flagship case studies plus every additional live
+ * client build. `projects` stays the single source of truth for the carousel,
+ * portfolio grid, testimonials and the admin dashboard.
+ */
+projects.push(...additionalProjects);
 
 export const featuredProject: Project = {
   id: 'featured-vidya-vriddhi',

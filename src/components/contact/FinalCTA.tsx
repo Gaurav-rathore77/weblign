@@ -3,11 +3,11 @@ import { ArrowRight } from 'lucide-react';
 
 const FinalCTA = () => {
   return (
-    <div className="card-glow group relative overflow-hidden rounded-2xl border border-primary/10 bg-gradient-to-br from-primary/[0.03] via-white to-accent/[0.03] p-8 shadow-lg shadow-zinc-900/5 sm:p-12">
+    <div className="card-glow group relative overflow-hidden rounded-2xl border border-primary/10 bg-gradient-to-br from-primary/[0.04] via-white to-accent/[0.04] p-8 shadow-lg shadow-zinc-900/5 sm:p-12 dark:border-primary/15 dark:from-primary/[0.06] dark:via-zinc-100/60 dark:to-accent/[0.06] dark:shadow-black/20">
       {/* Background glow */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="animate-glow-pulse absolute -right-20 -top-20 h-60 w-60 rounded-full bg-primary/[0.08] blur-3xl" />
-        <div className="animate-glow-pulse absolute -bottom-20 -left-20 h-48 w-48 rounded-full bg-accent/[0.08] blur-3xl" style={{ animationDelay: '1.5s' }} />
+        <div className="animate-glow-pulse absolute -right-20 -top-20 h-60 w-60 rounded-full bg-primary/[0.08] blur-3xl dark:bg-primary/[0.14]" />
+        <div className="animate-glow-pulse absolute -bottom-20 -left-20 h-48 w-48 rounded-full bg-accent/[0.08] blur-3xl dark:bg-accent/[0.14]" style={{ animationDelay: '1.5s' }} />
         <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
@@ -19,11 +19,11 @@ const FinalCTA = () => {
       </div>
 
       <div className="relative flex flex-col items-center gap-6 text-center sm:gap-8">
-        <h3 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">
+        <h3 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl dark:text-white">
           Ready To Transform Your Business?
         </h3>
 
-        <p className="max-w-lg text-base leading-relaxed text-zinc-500">
+        <p className="max-w-lg text-base leading-relaxed text-zinc-500 dark:text-zinc-300">
           Let&rsquo;s build fast, scalable and beautiful digital products
           together.
         </p>
@@ -40,7 +40,7 @@ const FinalCTA = () => {
 
           <Link
             href="/contact"
-            className="group/btn2 relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-zinc-200 bg-white px-7 py-3 text-sm font-semibold text-zinc-700 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:text-primary hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className="group/btn2 relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-zinc-200 bg-white px-7 py-3 text-sm font-semibold text-zinc-700 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:text-primary hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:border-primary/40 dark:hover:bg-white/15 dark:hover:text-white"
           >
             <span className="relative z-10">Schedule a Free Call</span>
             <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary/5 to-transparent transition-transform duration-700 group-hover/btn2:translate-x-full" />

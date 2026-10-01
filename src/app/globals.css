@@ -338,11 +338,7 @@
   50% { transform: scale(0.78); }
 }
 
-@keyframes logo-letter-wave {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  35% { transform: translateY(-3.5px) rotate(-5deg); }
-  65% { transform: translateY(1px) rotate(2deg); }
-}
+
 
 @keyframes logo-spark-pop {
   0% { opacity: 0; transform: scale(0) rotate(-30deg); }
@@ -572,20 +568,14 @@
   animation-duration: 0.9s;
 }
 
+/* The wordmark stays perfectly still — only the squares animate. */
 .logo-text {
-  display: inline-flex;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .logo-letter {
   display: inline-block;
-  animation: logo-letter-wave 2.6s ease-in-out infinite;
-  animation-delay: calc(var(--logo-i, 0) * 150ms);
-}
-
-.logo-link:hover .logo-letter,
-.logo-link:focus-visible .logo-letter {
-  animation-duration: 0.55s;
-  animation-delay: calc(var(--logo-i, 0) * 45ms);
 }
 
 .logo-spark {

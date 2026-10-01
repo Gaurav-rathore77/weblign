@@ -87,7 +87,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: 'Gaurav',
-    role: 'Tech Head',
+    role: 'Cofounder & Tech Head',
     bio: 'Technology leader focused on scalable architecture, developer experience, and keeping our engineering team aligned around reliable solutions.',
     initials: 'GT',
     gradient: 'from-violet-500 to-cyan-500',

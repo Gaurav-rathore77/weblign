@@ -56,7 +56,7 @@ const PortfolioModal = ({ project, onClose }: PortfolioModalProps) => {
         </button>
 
         {/* Hero image */}
-        <div className={`relative aspect-[21/9] overflow-hidden bg-gradient-to-br ${project.gradient}`}>
+        <div className={`relative aspect-[16/10] overflow-hidden bg-gradient-to-br ${project.gradient}`}>
           {project.image && (
             <Image
               src={project.image}

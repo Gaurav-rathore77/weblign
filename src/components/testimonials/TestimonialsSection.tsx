@@ -3,6 +3,10 @@ import { HiStar } from 'react-icons/hi2';
 import Reveal from '@/components/common/Reveal';
 import { projects } from '@/components/portfolio/portfolioData';
 
+/* Only a handful of testimonials — one per flagship project. Rendering every
+   project here would turn this into a 49-card wall. */
+const featuredTestimonials = projects.slice(0, 3);
+
 const TestimonialsSection = () => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-16 sm:py-20">
@@ -39,7 +43,7 @@ const TestimonialsSection = () => {
 
           {/* ── Testimonial Cards ── */}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project, i) => (
+            {featuredTestimonials.map((project, i) => (
               <Reveal key={project.id} delay={(i % 3) * 0.08}>
                 <figure className="card-glow group flex h-full flex-col rounded-2xl border border-zinc-100 bg-white p-6 shadow-xs">
                   {/* Stars */}

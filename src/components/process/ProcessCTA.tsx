@@ -2,11 +2,11 @@ import Link from 'next/link';
 
 const ProcessCTA = () => {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-primary/10 bg-gradient-to-br from-primary/[0.03] via-white to-accent/[0.03] p-8 shadow-lg shadow-zinc-900/5 sm:p-12">
+    <div className="relative overflow-hidden rounded-2xl border border-primary/10 bg-gradient-to-br from-primary/[0.04] via-white to-accent/[0.04] p-8 shadow-lg shadow-zinc-900/5 sm:p-12 dark:border-primary/15 dark:from-primary/[0.06] dark:via-zinc-100/60 dark:to-accent/[0.06] dark:shadow-black/20">
       {/* Background glow */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-primary/[0.06] blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 h-48 w-48 rounded-full bg-accent/[0.06] blur-3xl" />
+        <div className="absolute -right-20 -top-20 h-60 w-60 rounded-full bg-primary/[0.06] blur-3xl dark:bg-primary/[0.12]" />
+        <div className="absolute -bottom-20 -left-20 h-48 w-48 rounded-full bg-accent/[0.06] blur-3xl dark:bg-accent/[0.12]" />
         <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
@@ -18,11 +18,11 @@ const ProcessCTA = () => {
       </div>
 
       <div className="relative flex flex-col items-center gap-6 text-center sm:gap-8">
-        <h3 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">
+        <h3 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl dark:text-white">
           Ready to Start Your Project?
         </h3>
 
-        <p className="max-w-lg text-base leading-relaxed text-zinc-500">
+        <p className="max-w-lg text-base leading-relaxed text-zinc-500 dark:text-zinc-300">
           Let&rsquo;s discuss your idea and turn it into a powerful digital
           product.
         </p>
@@ -49,7 +49,7 @@ const ProcessCTA = () => {
 
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-7 py-3 text-sm font-semibold text-zinc-700 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:text-primary hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-7 py-3 text-sm font-semibold text-zinc-700 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:text-primary hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:border-primary/40 dark:hover:bg-white/15 dark:hover:text-white"
           >
             Get a Quote
           </Link>
