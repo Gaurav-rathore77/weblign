@@ -13,6 +13,7 @@ import {
   Wrench,
   X,
 } from 'lucide-react';
+import IconPicker from './IconPicker';
 
 export type CollectionName = 'projects' | 'blog-posts' | 'services';
 type FormValues = Record<string, string>;
@@ -274,7 +275,7 @@ function validateValues(collection: CollectionName, values: FormValues): string 
   if (!values.id.trim()) return 'ID is required. Use a short unique ID.';
 
   if (collection === 'projects') {
-    if (!values.image.trim()) return 'Project image path is required.';
+    if (!values.image.trim()) return 'Project image is required.';
     if (!values.description.trim()) return 'Project description is required.';
     if (!values.overview.trim()) return 'Project overview is required.';
     if (!values.problem.trim()) return 'Project problem is required.';
@@ -291,7 +292,7 @@ function validateValues(collection: CollectionName, values: FormValues): string 
     }
     if (!values.authorName.trim()) return 'Author name is required.';
     if (!values.authorInitials.trim()) return 'Author initials are required.';
-    if (!values.imageUrl.trim()) return 'Blog image path is required.';
+    if (!values.imageUrl.trim()) return 'Blog image is required.';
     if (!values.imageGradient.trim() || !values.imageIconName.trim()) {
       return 'Blog image gradient and icon name are required.';
     }
@@ -388,6 +389,44 @@ function TextAreaField({
         className={textareaClass}
       />
     </Field>
+  );
+}
+
+function ImagePreview({ src }: { src: string }) {
+  const isRemote = /^https?:\/\//i.test(src);
+  const isLocal = src.startsWith('/') && !src.startsWith('//');
+  const looksValid = isRemote || isLocal;
+
+  return (
+    <div className="mt-2">
+      {looksValid ? (
+        <>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={src}
+            alt=""
+            className="h-28 w-full rounded-lg border border-zinc-200 object-cover dark:border-zinc-700"
+            onError={(event) => {
+              event.currentTarget.style.display = 'none';
+              event.currentTarget.nextElementSibling?.classList.remove('hidden');
+            }}
+          />
+          <p className="hidden rounded-lg border border-red-300 bg-red-50 p-2 text-xs text-red-600 dark:border-red-500/40 dark:bg-red-500/10 dark:text-red-400">
+            Image failed to load. Check the URL is correct and publicly reachable.
+          </p>
+          <p className="mt-1.5 text-xs text-zinc-500 dark:text-zinc-400">
+            {isRemote
+              ? 'Remote URL — works, but slower than a local file (extra DNS + TLS per visitor).'
+              : 'Local path — fastest option.'}
+          </p>
+        </>
+      ) : (
+        <p className="text-xs text-amber-600 dark:text-amber-400">
+          Start with <code className="font-mono">/images/</code> or paste a full
+          <code className="font-mono"> https:// </code> URL.
+        </p>
+      )}
+    </div>
   );
 }
 
@@ -497,7 +536,17 @@ function CollectionForm({
           <TextAreaField label="Short description" value={values.description} onChange={(value) => update('description', value)} placeholder="One or two lines shown on the project card" required />
           <div className="grid gap-5 md:grid-cols-2">
             <SelectField label="Category" value={values.category} options={projectCategories.map((category) => ({ value: category, label: category }))} onChange={(value) => update('category', value)} required />
-            <TextField label="Image path" value={values.image} onChange={(value) => update('image', value)} placeholder="/images/project.webp" required hint="Use a local image path." />
+            <div>
+              <TextField
+                label="Image"
+                value={values.image}
+                onChange={(value) => update('image', value)}
+                placeholder="/images/project.webp"
+                required
+                hint="A local path (/images/…) is fastest. You can also paste an image URL — make sure you have the right to use it."
+              />
+              {values.image.trim() && <ImagePreview src={values.image.trim()} />}
+            </div>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
             <TextField label="Image alt text" value={values.imageAlt} onChange={(value) => update('imageAlt', value)} placeholder="Describe the image" />
@@ -554,9 +603,23 @@ function CollectionForm({
           <div className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-[#27272a]">
             <h4 className="mb-4 text-sm font-semibold text-zinc-900 dark:text-white">Blog image</h4>
             <div className="grid gap-5 md:grid-cols-2">
-              <TextField label="Image path" value={values.imageUrl} onChange={(value) => update('imageUrl', value)} placeholder="/images/blog-cover.webp" required />
+              <div className="md:col-span-2">
+                <TextField
+                  label="Image"
+                  value={values.imageUrl}
+                  onChange={(value) => update('imageUrl', value)}
+                  placeholder="/images/blog-cover.webp"
+                  required
+                  hint="A local path (/images/…) is fastest. You can also paste an image URL — make sure you have the right to use it."
+                />
+                {values.imageUrl.trim() && <ImagePreview src={values.imageUrl.trim()} />}
+              </div>
               <TextField label="Gradient" value={values.imageGradient} onChange={(value) => update('imageGradient', value)} placeholder="from-blue-600/20 to-cyan-600/20" />
-              <TextField label="Icon name" value={values.imageIconName} onChange={(value) => update('imageIconName', value)} placeholder="HiOutlineBolt" />
+              <IconPicker
+                label="Icon"
+                value={values.imageIconName}
+                onChange={(value) => update('imageIconName', value)}
+              />
             </div>
           </div>
         </>

@@ -67,18 +67,28 @@ export const siteSettingsSchema = z.object({
   }),
 });
 
-const localAssetPath = z
+/**
+ * Accepts either a local asset path (`/images/foo.webp`) or a fully-qualified
+ * https URL from an allow-listed image host. Local paths stay preferred — they
+ * are served from the same origin and skip the extra DNS + TLS round trip.
+ */
+const imageAssetRef = z
   .string()
   .trim()
   .max(500)
-  .refine((value) => value.startsWith('/'), 'Use a local asset path beginning with /.');
+  .refine(
+    (value) =>
+      value.startsWith('/') ||
+      /^https:\/\/[a-z0-9.-]+(?:\/|$)/i.test(value),
+    'Use a local path beginning with / or a full https:// image URL.',
+  );
 
 const projectSchema = z.object({
   id: z.string().trim().min(1).max(160),
   title: z.string().trim().min(1).max(240),
   description: z.string().trim().min(1).max(2_000),
   category: z.string().trim().min(1).max(80),
-  image: localAssetPath,
+  image: imageAssetRef,
   imageAlt: z.string().trim().max(240).optional(),
   gradient: z.string().trim().min(1).max(240),
   tech: z.array(z.string().trim().min(1).max(80)).max(30),
@@ -112,7 +122,7 @@ const blogPostSchema = z.object({
   image: z.object({
     gradient: z.string().trim().min(1).max(240),
     iconName: z.string().trim().min(1).max(120),
-    url: localAssetPath,
+    url: imageAssetRef,
   }),
   content: z.string().trim().max(30_000).optional().default(''),
   href: z.string().trim().max(500),

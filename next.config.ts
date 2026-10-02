@@ -60,7 +60,23 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30,
     deviceSizes: [640, 768, 1024, 1280, 1536],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    remotePatterns: [],
+    // Lets an editor paste a remote image URL instead of uploading a file.
+    // Local paths under /public remain the faster option — a remote host adds
+    // a DNS lookup and TLS handshake to every first load.
+    remotePatterns: [
+      { protocol: 'https', hostname: 'images.unsplash.com' },
+      { protocol: 'https', hostname: 'images.pexels.com' },
+      { protocol: 'https', hostname: 'plus.unsplash.com' },
+      { protocol: 'https', hostname: 'cdn.pixabay.com' },
+      { protocol: 'https', hostname: 'res.cloudinary.com' },
+      { protocol: 'https', hostname: 'images.ctfassets.net' },
+      // Google image thumbnails. Works, but these are small cached copies and
+      // can expire, so a local file is still the better long-term choice.
+      { protocol: 'https', hostname: 'encrypted-tbn0.gstatic.com' },
+      { protocol: 'https', hostname: 'encrypted-tbn1.gstatic.com' },
+      { protocol: 'https', hostname: 'encrypted-tbn2.gstatic.com' },
+      { protocol: 'https', hostname: 'encrypted-tbn3.gstatic.com' },
+    ],
   },
 
   compiler: {
