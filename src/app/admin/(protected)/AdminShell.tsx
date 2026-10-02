@@ -6,18 +6,32 @@ import {
   Inbox,
   Settings2,
   ExternalLink,
+  type LucideIcon,
 } from 'lucide-react';
 import Logo from '@/components/layout/Logo';
-import AdminNavLink, { type AdminNavItem } from './AdminNavLink';
+import AdminNavLink, {
+  type AdminNavIcon,
+  type AdminNavItem,
+} from './AdminNavLink';
 import LogoutButton from './LogoutButton';
 
 const navigation: AdminNavItem[] = [
-  { href: '/admin', label: 'Overview', icon: BarChart3, exact: true },
-  { href: '/admin/content', label: 'Site content', icon: Settings2 },
-  { href: '/admin/library/projects', label: 'Projects', icon: FolderKanban },
-  { href: '/admin/library/blog-posts', label: 'Blog posts', icon: FileText },
-  { href: '/admin/inquiries', label: 'Inquiries', icon: Inbox },
+  { href: '/admin', label: 'Overview', icon: 'overview', exact: true },
+  { href: '/admin/content', label: 'Site content', icon: 'content' },
+  { href: '/admin/library/projects', label: 'Projects', icon: 'projects' },
+  { href: '/admin/library/blog-posts', label: 'Blog posts', icon: 'blog-posts' },
+  { href: '/admin/inquiries', label: 'Inquiries', icon: 'inquiries' },
 ];
+
+/* Mobile strip renders icons here, server-side, so it can use components
+   directly. The sidebar passes only string keys across to the client. */
+const MOBILE_ICONS: Record<AdminNavIcon, LucideIcon> = {
+  overview: BarChart3,
+  content: Settings2,
+  projects: FolderKanban,
+  'blog-posts': FileText,
+  inquiries: Inbox,
+};
 
 export default function AdminShell({
   email,
@@ -90,7 +104,7 @@ export default function AdminShell({
           aria-label="Admin sections"
         >
           {navigation.map((item) => {
-            const Icon = item.icon;
+            const Icon = MOBILE_ICONS[item.icon];
             return (
               <Link
                 key={item.href}

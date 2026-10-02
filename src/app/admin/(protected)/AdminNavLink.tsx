@@ -3,12 +3,39 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
-import type { LucideIcon } from 'lucide-react';
+import {
+  BarChart3,
+  FileText,
+  FolderKanban,
+  Inbox,
+  Settings2,
+  type LucideIcon,
+} from 'lucide-react';
+
+/**
+ * Icons are looked up from this map on the client rather than passed across the
+ * server -> client boundary as components — a React component is a function,
+ * and only plain serialisable objects can cross that boundary.
+ */
+const ICONS: Record<AdminNavIcon, LucideIcon> = {
+  overview: BarChart3,
+  content: Settings2,
+  projects: FolderKanban,
+  'blog-posts': FileText,
+  inquiries: Inbox,
+};
+
+export type AdminNavIcon =
+  | 'overview'
+  | 'content'
+  | 'projects'
+  | 'blog-posts'
+  | 'inquiries';
 
 export interface AdminNavItem {
   href: string;
   label: string;
-  icon: LucideIcon;
+  icon: AdminNavIcon;
   exact?: boolean;
 }
 
@@ -18,7 +45,7 @@ export interface AdminNavItem {
  */
 export default function AdminNavLink({ item }: { item: AdminNavItem }) {
   const pathname = usePathname();
-  const Icon = item.icon;
+  const Icon = ICONS[item.icon];
   const active = item.exact
     ? pathname === item.href
     : (pathname ?? '').startsWith(item.href);
