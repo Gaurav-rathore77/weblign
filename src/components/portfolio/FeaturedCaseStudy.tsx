@@ -1,9 +1,14 @@
 import Image from 'next/image';
-import { HiOutlineArrowLongRight } from 'react-icons/hi2';
+import Link from 'next/link';
+import {
+  HiOutlineArrowLongRight,
+  HiOutlineCheck,
+} from 'react-icons/hi2';
 import { getFeaturedProject } from '@/lib/site-content';
 
 const FeaturedCaseStudy = async () => {
   const p = await getFeaturedProject();
+  const shortTitle = p.title.split('—')[0].trim();
   const initials = p.title
     .split(' ')
     .map((word) => word[0])
@@ -11,98 +16,167 @@ const FeaturedCaseStudy = async () => {
     .slice(0, 2)
     .toUpperCase();
 
-  return (
-    <div className="portfolio-featured-panel relative overflow-hidden rounded-2xl border shadow-xl shadow-zinc-900/5">
-      <div className="relative grid gap-8 lg:grid-cols-2 lg:gap-0 items-stretch">
-        {/* Left: Image area */}
-        <div className="relative aspect-[3/4] min-h-[280px] overflow-hidden lg:min-h-[500px]">
-          {p.image ? (
-            <>
-              <Image
-                src={p.image}
-                alt={p.title}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-              />
-              {/* Light gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br" style={{ background: p.gradient }} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/15 to-transparent" />
-            </>
-          ) : (
-            <div className="absolute inset-0 bg-gradient-to-br" style={{ background: p.gradient }} />
-          )}
+  const pillars = [
+    { label: 'The challenge', body: p.problem, dot: 'bg-red-500' },
+    { label: 'The solution', body: p.solution, dot: 'bg-emerald-500' },
+  ];
 
-          {/* Brand placeholder */}
-          <div className="absolute inset-0 flex items-end p-8 sm:p-10">
-            <div className="portfolio-featured-brand inline-flex items-center gap-3 rounded-xl border px-4 py-2.5 backdrop-blur-md shadow-lg">
-              <span
-                aria-hidden="true"
-                className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-xs font-bold text-primary"
-              >
-                {initials}
-              </span>
-              <div>
-                <div className="text-sm font-semibold text-zinc-900">{p.title.split(' — ')[0]}</div>
-                <div className="text-xs text-zinc-500 dark:text-zinc-400">Featured Case Study</div>
-              </div>
-            </div>
+  return (
+    <div className="portfolio-featured-panel relative isolate overflow-hidden rounded-2xl border border-zinc-200/80 shadow-2xl shadow-zinc-900/20 dark:border-zinc-800">
+      {/* ── Background image layer ── */}
+      <div className="absolute inset-0 -z-10">
+        {p.image ? (
+          <Image
+            src={p.image}
+            alt=""
+            fill
+            sizes="100vw"
+            loading="lazy"
+            className="object-cover"
+          />
+        ) : (
+          <div className="absolute inset-0" style={{ background: p.gradient }} />
+        )}
+
+        {/* Brand tint over the photo, tied to the project gradient. */}
+        <div
+          className="absolute inset-0 opacity-90"
+          style={{ background: p.gradient }}
+        />
+
+        {/* Mobile-first scrim: strong at the bottom where the text sits,
+            light at the top so the photo still reads as a photo. */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+      </div>
+
+      {/* ── Content layer ── */}
+      <div className="relative flex flex-col gap-5 p-5 sm:gap-6 sm:p-8 lg:max-w-3xl lg:p-12">
+        {/* Top row */}
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-md">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            </span>
+            Featured Project
+          </span>
+
+          {p.metrics && (
+            <span className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[11px] font-semibold text-white backdrop-blur-md">
+              {p.metrics}
+            </span>
+          )}
+        </div>
+
+        {/* Identity */}
+        <div className="flex items-center gap-3">
+          <span
+            aria-hidden="true"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/25 bg-white/15 text-sm font-bold text-white backdrop-blur-md"
+          >
+            {initials}
+          </span>
+          <div className="min-w-0">
+            <p className="text-xs font-medium uppercase tracking-wider text-white/70">
+              {p.category}
+            </p>
+            <h3 className="text-xl font-bold leading-tight text-white sm:text-2xl lg:text-3xl">
+              {shortTitle}
+            </h3>
           </div>
         </div>
 
-        {/* Right: Content - matches image height */}
-        <div className="relative flex flex-col h-full">
-          <div className="flex flex-col h-full p-6 sm:p-8 lg:p-10">
-            <div className="flex flex-col flex-1">
-              <span className="text-xs font-semibold uppercase tracking-widest text-primary">Featured Project</span>
-              <h3 className="mt-2 text-2xl font-bold text-zinc-900 sm:text-3xl">{p.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-zinc-500">{p.description}</p>
+        <p className="text-sm leading-relaxed text-white/80 sm:text-base">
+          {p.description}
+        </p>
 
-              {/* Challenge / Solution / Outcome */}
-              <div className="mt-5 grid gap-4 sm:grid-cols-3">
-                <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-red-500">Challenge</span>
-                  <p className="mt-1 text-sm leading-relaxed text-zinc-600">{p.problem}</p>
-                </div>
-                <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-emerald-600">Solution</span>
-                  <p className="mt-1 text-sm leading-relaxed text-zinc-600">{p.solution}</p>
-                </div>
-                <div>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-primary">Outcome</span>
-                  <p className="mt-1 text-sm leading-relaxed text-zinc-600">{p.results[0]}</p>
-                </div>
-              </div>
-
-              {/* Client quote */}
-              <div className="mt-5 rounded-xl border border-zinc-100 bg-zinc-50/50 p-4">
-                <blockquote className="text-sm leading-relaxed text-zinc-600 italic">
-                  &ldquo;{p.testimonial.quote}&rdquo;
-                </blockquote>
-                <div className="mt-2 flex items-center gap-2">
-                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-[10px] font-bold text-primary">
-                    {p.testimonial.name.split(' ').map((n) => n[0]).join('')}
-                  </div>
-                  <div className="text-xs">
-                    <span className="font-semibold text-zinc-900">{p.testimonial.name}</span>
-                    <span className="text-zinc-400"> — {p.testimonial.role}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA at bottom */}
-            <div className="mt-8 pt-6 border-t border-zinc-100">
-              <a
-                href={p.demoUrl}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all duration-300 hover:gap-3"
+        {/* Tech chips */}
+        {p.tech.length > 0 && (
+          <div className="flex flex-wrap gap-1.5">
+            {p.tech.map((t) => (
+              <span
+                key={t}
+                className="rounded-lg border border-white/15 bg-white/10 px-2.5 py-1 text-[11px] font-medium text-white/90 backdrop-blur-sm"
               >
-                Read Full Case Study
-                <HiOutlineArrowLongRight className="h-4 w-4" aria-hidden="true" />
-              </a>
-            </div>
+                {t}
+              </span>
+            ))}
           </div>
+        )}
+
+        {/* Challenge / Solution — stacked, readable on every width. */}
+        <dl className="grid gap-3 sm:grid-cols-2">
+          {pillars.map((item) => (
+            <div
+              key={item.label}
+              className="rounded-xl border border-white/15 bg-white/10 p-4 backdrop-blur-md"
+            >
+              <dt className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-white">
+                <span className={`h-1.5 w-1.5 rounded-full ${item.dot}`} />
+                {item.label}
+              </dt>
+              <dd className="mt-2 text-sm leading-relaxed text-white/75">
+                {item.body}
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        {/* Outcomes */}
+        {p.results.length > 0 && (
+          <div className="rounded-xl border border-white/15 bg-white/10 p-4 backdrop-blur-md">
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-white">
+              Outcomes
+            </span>
+            <ul className="mt-2.5 grid gap-2">
+              {p.results.slice(0, 3).map((result) => (
+                <li
+                  key={result}
+                  className="flex items-start gap-2.5 text-sm leading-relaxed text-white/85"
+                >
+                  <HiOutlineCheck
+                    className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400"
+                    aria-hidden="true"
+                  />
+                  {result}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Quote */}
+        <figure className="border-l-2 border-white/40 pl-4">
+          <blockquote className="text-sm leading-relaxed text-white/85 italic">
+            &ldquo;{p.testimonial.quote}&rdquo;
+          </blockquote>
+          <figcaption className="mt-2 text-xs text-white/65">
+            <span className="font-semibold text-white">{p.testimonial.name}</span>
+            <span> — {p.testimonial.role}</span>
+          </figcaption>
+        </figure>
+
+        {/* CTA */}
+        <div className="flex flex-wrap items-center gap-4 pt-1">
+          <Link
+            href={p.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-shine group/btn relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-zinc-900 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            <span className="relative z-10">Visit Live Site</span>
+            <HiOutlineArrowLongRight
+              className="relative z-10 h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5"
+              aria-hidden="true"
+            />
+            <span
+              className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-primary/15 to-transparent transition-transform duration-700 group-hover/btn:translate-x-full"
+              aria-hidden="true"
+            />
+          </Link>
+
+          <span className="text-xs text-white/60">{p.timeline} build</span>
         </div>
       </div>
     </div>

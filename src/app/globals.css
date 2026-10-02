@@ -37,7 +37,8 @@
   --color-warning-light: #FCD34D;
   --color-warning-dark: #D97706;
 
-  --font-sans: var(--font-poppins);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
 
   --animate-marquee: marquee 30s linear infinite;
   --animate-marquee2: marquee2 30s linear infinite;
@@ -717,10 +718,24 @@ html {
 body {
   background: var(--color-background);
   color: var(--color-text-primary);
-  font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings get the display face for a distinct tech/product voice while the
+   body stays on the highly legible sans. Applied globally so existing markup
+   picks it up without needing a `font-display` class on every heading. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-grotesk), system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 img {
@@ -923,14 +938,6 @@ textarea:focus-visible, select:focus-visible {
 .dark .portfolio-demo-link { color: #d4d4d8; text-decoration-color: #52525b; }
 .portfolio-featured-panel { border-color: #f4f4f5; background-color: #ffffff; }
 .dark .portfolio-featured-panel { border-color: #27272a; background-color: #18181b; }
-.portfolio-featured-brand {
-  border-color: rgba(255, 255, 255, 0.3);
-  background-color: rgba(255, 255, 255, 0.92);
-}
-.dark .portfolio-featured-brand {
-  border-color: rgba(255, 255, 255, 0.2);
-  background-color: rgba(39, 39, 42, 0.94);
-}
 .portfolio-modal-panel { background-color: #ffffff; }
 .dark .portfolio-modal-panel { background-color: #18181b; }
 .portfolio-modal-close {

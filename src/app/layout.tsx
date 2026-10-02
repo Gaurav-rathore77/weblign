@@ -1,23 +1,35 @@
 import type { Metadata, Viewport } from 'next';
-import { Poppins } from 'next/font/google';
+import { Inter, Space_Grotesk } from 'next/font/google';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ThemeProvider from '@/components/common/ThemeProvider';
 import ScrollProgress from '@/components/common/ScrollProgress';
 import AIConcierge from '@/components/common/AIConcierge';
 import JSONLD from '@/components/common/JSONLD';
+import { siteUrl } from '@/constants';
 import './globals.css';
 
-const poppins = Poppins({
-  variable: '--font-poppins',
+/* Space Grotesk carries the tech/product character in headings, Inter keeps
+   long-form body copy readable. Both are variable, latin-subset, and load as a
+   single woff2 each. */
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-grotesk',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  display: 'optional',
+  display: 'swap',
   preload: true,
   fallback: ['system-ui', 'sans-serif'],
 });
 
-const siteUrl = 'https://weblign.in';
+const inter = Inter({
+  variable: '--font-inter',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'sans-serif'],
+});
+
 const siteName = 'Weblign';
 
 export const viewport: Viewport = {
@@ -101,7 +113,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-background text-text-primary">

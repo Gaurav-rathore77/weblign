@@ -36,11 +36,19 @@ const blogSlugRedirects = [
   ['2', 'future-of-ui-design-ai-assisted-workflows'],
   ['3', 'scaling-from-startup-to-enterprise-technical-roadmap'],
   ['4', 'building-real-time-saas-analytics-dashboard'],
-  ['5', 'accessibility-first-why-it-matters-where-to-start'],
+  ['5', 'accessibility-first-why-it-matters-and-where-to-start'],
   ['6', 'integrating-llms-into-your-web-application'],
   ['7', 'ecommerce-migration-monolith-to-headless-cms'],
   ['8', 'designing-for-conversion-psychology-principles'],
   ['9', 'edge-computing-with-nextjs-deploying-at-the-edge'],
+] as const;
+
+/**
+ * Slugs that have been corrected after being published. Google may already
+ * have indexed the old form, so keep it alive as a permanent redirect.
+ */
+const blogSlugCorrections = [
+  ['accessibility-first-why-it-matters-where-to-start', 'accessibility-first-why-it-matters-and-where-to-start'],
 ] as const;
 
 const nextConfig: NextConfig = {
@@ -60,11 +68,24 @@ const nextConfig: NextConfig = {
   },
 
   async redirects() {
-    return blogSlugRedirects.map(([id, slug]) => ({
-      source: `/blog/${id}`,
-      destination: `/blog/${slug}`,
-      permanent: true,
-    }));
+    // Host-level apex -> www runs before Next.js, so legacy numeric URLs cost
+    // two hops. That is fine — Google follows the chain — and a 308 keeps the
+    // ranking signals attached to the slug.
+    return [
+      // Legacy numeric URLs -> current slug.
+      ...blogSlugRedirects.map(([id, slug]) => ({
+        source: `/blog/${id}`,
+        destination: `/blog/${slug}`,
+        permanent: true,
+      })),
+      // Superseded slug -> current slug, so renaming a post later cannot
+      // silently 404 an already-indexed URL.
+      ...blogSlugCorrections.map(([from, to]) => ({
+        source: `/blog/${from}`,
+        destination: `/blog/${to}`,
+        permanent: true,
+      })),
+    ];
   },
 
   async headers() {

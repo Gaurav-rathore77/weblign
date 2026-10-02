@@ -13,8 +13,10 @@ const socialItems = [
   { name: 'LinkedIn', href: socialLinks.linkedin, initial: 'in' },
   { name: 'GitHub', href: socialLinks.github, initial: 'GH' },
   { name: 'Instagram', href: socialLinks.instagram, initial: 'IG' },
+  { name: 'Facebook', href: socialLinks.facebook, initial: 'f' },
   { name: 'YouTube', href: socialLinks.youtube, initial: 'YT' },
   { name: 'Reddit', href: socialLinks.reddit, initial: 'R' },
+  { name: 'WhatsApp', href: socialLinks.whatsapp, initial: 'WA' },
   { name: 'Dribbble', href: socialLinks.dribbble, initial: 'Dr' },
 ] as const;
 

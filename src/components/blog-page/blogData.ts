@@ -106,7 +106,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: '5',
-    slug: 'accessibility-first-why-it-matters-where-to-start',
+    slug: 'accessibility-first-why-it-matters-and-where-to-start',
     title: 'Accessibility First: Why It Matters and Where to Start',
     excerpt:
       'An accessibility-first approach isn\'t just ethical — it improves SEO, user experience, and conversion rates across the board.',

@@ -27,14 +27,18 @@ export const navigation = {
   ],
 };
 
+export const WHATSAPP_NUMBER = '919315051726';
+
 export const socialLinks = {
   twitter: 'https://x.com/Info_weblign',
-  linkedin: 'https://linkedin.com/company/weblign',
+  linkedin:
+    'https://www.linkedin.com/in/weblign-undefined-534300440/?isSelfProfile=true',
   github: 'https://github.com/Gaurav-rathore77',
   instagram: 'https://www.instagram.com/info.weblign/',
   facebook: 'https://www.facebook.com/profile.php?id=61595129480839',
   youtube: 'https://www.youtube.com/@Weblign-d7g',
   reddit: 'https://www.reddit.com/user/Basic_Clothes_9772/',
+  whatsapp: `https://wa.me/${WHATSAPP_NUMBER}`,
   dribbble: 'https://dribbble.com/weblign',
 };
 

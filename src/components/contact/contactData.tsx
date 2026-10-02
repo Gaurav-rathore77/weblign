@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { socialLinks as socialLinksRaw } from '@/constants';
 
 export interface ContactInfoItem {
   icon: React.ReactNode;
@@ -35,17 +36,18 @@ export const contactInfo: ContactInfoItem[] = [
 export interface SocialLink {
   label: string;
   href: string;
-  initial: string;
+  icon: string;
 }
 
 export const socialLinks: SocialLink[] = [
-  { label: 'LinkedIn', href: 'https://linkedin.com/company/weblign', initial: 'in' },
-  { label: 'GitHub', href: 'https://github.com/Gaurav-rathore77', initial: 'GH' },
-  { label: 'Instagram', href: 'https://www.instagram.com/info.weblign/', initial: 'IG' },
-  { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61595129480839', initial: 'f' },
-  { label: 'X (Twitter)', href: 'https://x.com/Info_weblign', initial: 'X' },
-  { label: 'YouTube', href: 'https://www.youtube.com/@Weblign-d7g', initial: 'YT' },
-  { label: 'Reddit', href: 'https://www.reddit.com/user/Basic_Clothes_9772/', initial: 'R' },
+  { label: 'LinkedIn', href: socialLinksRaw.linkedin, icon: 'linkedin' },
+  { label: 'GitHub', href: socialLinksRaw.github, icon: 'github' },
+  { label: 'Instagram', href: socialLinksRaw.instagram, icon: 'instagram' },
+  { label: 'Facebook', href: socialLinksRaw.facebook, icon: 'facebook' },
+  { label: 'X (Twitter)', href: socialLinksRaw.twitter, icon: 'x' },
+  { label: 'YouTube', href: socialLinksRaw.youtube, icon: 'youtube' },
+  { label: 'Reddit', href: socialLinksRaw.reddit, icon: 'reddit' },
+  { label: 'WhatsApp', href: socialLinksRaw.whatsapp, icon: 'whatsapp' },
 ];
 
 export { contactBudgetOptions as budgetOptions, contactServiceOptions as serviceOptions } from '@/lib/contact-options';

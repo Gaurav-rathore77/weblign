@@ -1,4 +1,5 @@
 import ContactCard from './ContactCard';
+import SocialIcon from '@/components/common/SocialIcon';
 import { contactInfo, socialLinks } from './contactData';
 import type { SiteSettings } from '@/lib/site-content';
 
@@ -40,9 +41,15 @@ const ContactInfo = ({ contact }: { contact?: SiteSettings['contact'] }) => {
               key={link.label}
               href={link.href}
               aria-label={link.label}
-              className="group/social flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-[11px] font-semibold text-zinc-500 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-primary hover:text-white hover:shadow-md hover:shadow-primary/20 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              title={link.label}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/social flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 bg-white text-zinc-500 shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:bg-primary hover:text-white hover:shadow-md hover:shadow-primary/20 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
             >
-              <span className="transition-transform duration-300 group-hover/social:scale-110">{link.initial}</span>
+              <SocialIcon
+                name={link.icon}
+                className="h-4 w-4 transition-transform duration-300 group-hover/social:scale-110"
+              />
             </a>
           ))}
         </div>

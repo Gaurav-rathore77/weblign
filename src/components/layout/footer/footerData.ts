@@ -19,7 +19,8 @@ export interface ContactDetail {
 export interface SocialPlatform {
   label: string;
   href: string;
-  initial: string;
+  /** Key into the icon map in `SocialLinks`. */
+  icon: string;
 }
 
 export const services: ServiceLink[] = [
@@ -50,12 +51,15 @@ export const contactDetails: ContactDetail[] = [
   { icon: 'HiOutlineClock', label: 'Hours', value: 'Mon – Fri, 10 AM – 6 PM IST' },
 ];
 
+export const WHATSAPP_NUMBER = '919315051726';
+
 export const socialPlatforms: SocialPlatform[] = [
-  { label: 'LinkedIn', href: 'https://linkedin.com/company/weblign', initial: 'in' },
-  { label: 'GitHub', href: 'https://github.com/Gaurav-rathore77', initial: 'GH' },
-  { label: 'Instagram', href: 'https://www.instagram.com/info.weblign/', initial: 'IG' },
-  { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61595129480839', initial: 'f' },
-  { label: 'X (Twitter)', href: 'https://x.com/Info_weblign', initial: 'X' },
-  { label: 'YouTube', href: 'https://www.youtube.com/@Weblign-d7g', initial: 'YT' },
-  { label: 'Reddit', href: 'https://www.reddit.com/user/Basic_Clothes_9772/', initial: 'R' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/weblign-undefined-534300440/?isSelfProfile=true', icon: 'linkedin' },
+  { label: 'GitHub', href: 'https://github.com/Gaurav-rathore77', icon: 'github' },
+  { label: 'Instagram', href: 'https://www.instagram.com/info.weblign/', icon: 'instagram' },
+  { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61595129480839', icon: 'facebook' },
+  { label: 'X (Twitter)', href: 'https://x.com/Info_weblign', icon: 'x' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@Weblign-d7g', icon: 'youtube' },
+  { label: 'Reddit', href: 'https://www.reddit.com/user/Basic_Clothes_9772/', icon: 'reddit' },
+  { label: 'WhatsApp', href: `https://wa.me/${WHATSAPP_NUMBER}`, icon: 'whatsapp' },
 ];
