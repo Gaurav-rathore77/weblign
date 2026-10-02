@@ -1,6 +1,27 @@
 export const siteUrl = 'https://www.weblign.in';
 export const siteName = 'Weblign';
 
+/**
+ * ImageKit CDN. Delivers images from a global edge network with automatic
+ * format negotiation, so pages stay light without hand-tuning every file.
+ *
+ * Only the public URL endpoint is needed at runtime — the private key stays
+ * server-side and is never bundled. Env vars let the endpoint change without a
+ * code edit, but the literal fallback keeps the app working when unset.
+ */
+export const imageKit = {
+  baseUrl:
+    process.env.NEXT_PUBLIC_IMAGEKIT_URL?.replace(/\/$/, '') ??
+    'https://ik.imagekit.io/uzfbs5ap1',
+  /** Folder path within the ImageKit account used for this site's uploads. */
+  path: 'weblign',
+};
+
+export const imageKitUrl = (file: string): string => {
+  const clean = file.replace(/^\/+/, '');
+  return `${imageKit.baseUrl}/${imageKit.path}/${clean}`;
+};
+
 export const companyInfo = {
   name: 'Weblign',
   tagline: 'Crafting Digital Experiences',

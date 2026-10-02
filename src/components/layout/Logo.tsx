@@ -64,16 +64,27 @@ const LogoSpark = () => (
 interface LogoProps {
   showText?: boolean;
   className?: string;
+  /**
+   * Where the logo links to. Override inside the admin shell so the mark can
+   * live inside its own link without nesting one <a> inside another.
+   */
+  href?: string;
+  ariaLabel?: string;
 }
 
 const BRAND_NAME = 'Weblign';
 
-const Logo = ({ showText = true, className = '' }: LogoProps) => (
+const Logo = ({
+  showText = true,
+  className = '',
+  href = '/',
+  ariaLabel = 'Weblign - Go to homepage',
+}: LogoProps) => (
   <Link
-    href="/"
+    href={href}
     prefetch={false}
     className={`logo-link group flex items-center gap-2.5 text-zinc-900 transition-colors hover:text-primary ${className}`}
-    aria-label="Weblign - Go to homepage"
+    aria-label={ariaLabel}
   >
     <span className="logo-glow" aria-hidden="true" />
     <span className="logo-mark-enter">

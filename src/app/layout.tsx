@@ -115,6 +115,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}
+      // Lets Next.js skip smooth scrolling on route transitions while keeping
+      // it for in-page anchor jumps.
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-background text-text-primary">

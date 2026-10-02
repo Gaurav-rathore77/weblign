@@ -44,14 +44,18 @@ export default function AdminShell({
     <div className="admin-shell min-h-screen bg-zinc-50 dark:bg-zinc-950">
       {/* ── Desktop sidebar ── */}
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-64 flex-col border-r border-zinc-200 bg-white lg:flex dark:border-zinc-800 dark:bg-zinc-900">
-        <div className="flex h-16 shrink-0 items-center border-b border-zinc-200 px-5 dark:border-zinc-800">
-          <Link href="/admin" className="flex items-center gap-2.5">
-            <Logo showText={false} className="text-zinc-900 dark:text-white" />
-            <span className="text-base font-bold tracking-tight text-zinc-900 dark:text-white">
-              Weblign
-              <span className="ml-1.5 font-medium text-primary">Admin</span>
-            </span>
-          </Link>
+        <div className="flex h-16 shrink-0 items-center gap-2.5 border-b border-zinc-200 px-5 dark:border-zinc-800">
+          {/* Logo renders its own link — do not wrap it in another <a>. */}
+          <Logo
+            href="/admin"
+            ariaLabel="Weblign admin home"
+            showText={false}
+            className="text-zinc-900 dark:text-white"
+          />
+          <span className="text-base font-bold tracking-tight text-zinc-900 dark:text-white">
+            Weblign
+            <span className="ml-1.5 font-medium text-primary">Admin</span>
+          </span>
         </div>
 
         <nav
@@ -90,12 +94,17 @@ export default function AdminShell({
       {/* ── Main column ── */}
       <div className="lg:pl-64">
         <header className="sticky top-0 z-20 flex h-16 items-center justify-between gap-3 border-b border-zinc-200 bg-white/90 px-4 backdrop-blur-md lg:hidden dark:border-zinc-800 dark:bg-zinc-900/90">
-          <Link href="/admin" className="flex items-center gap-2">
-            <Logo showText={false} className="text-zinc-900 dark:text-white" />
+          <div className="flex items-center gap-2">
+            <Logo
+              href="/admin"
+              ariaLabel="Weblign admin home"
+              showText={false}
+              className="text-zinc-900 dark:text-white"
+            />
             <span className="text-sm font-bold text-zinc-900 dark:text-white">
               Weblign <span className="font-medium text-primary">Admin</span>
             </span>
-          </Link>
+          </div>
           <LogoutButton />
         </header>
 
