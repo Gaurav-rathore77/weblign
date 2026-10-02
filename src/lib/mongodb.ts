@@ -10,6 +10,9 @@ type MongoGlobal = typeof globalThis & {
 
 export const isMongoConfigured = Boolean(mongoUri);
 
+/** How long to keep the "database is unreachable" flag in place. */
+const RETRY_BACKOFF_MS = 30_000;
+
 export async function getDb(): Promise<Db | null> {
   if (!mongoUri) return null;
 
@@ -24,13 +27,15 @@ export async function getDb(): Promise<Db | null> {
   if (!mongoGlobal.__weblignMongoClientPromise) {
     const client = new MongoClient(mongoUri, {
       maxPoolSize: 10,
-      serverSelectionTimeoutMS: 5_000,
-      connectTimeoutMS: 5_000,
+      // Kept short on purpose. Content reads always have bundled fallbacks, so
+      // a slow or misconfigured database must never hold up a page render.
+      serverSelectionTimeoutMS: 1_500,
+      connectTimeoutMS: 1_500,
     });
 
     mongoGlobal.__weblignMongoClientPromise = client.connect().catch((error) => {
       mongoGlobal.__weblignMongoClientPromise = undefined;
-      mongoGlobal.__weblignMongoRetryAfter = Date.now() + 30_000;
+      mongoGlobal.__weblignMongoRetryAfter = Date.now() + RETRY_BACKOFF_MS;
       throw error;
     });
   }

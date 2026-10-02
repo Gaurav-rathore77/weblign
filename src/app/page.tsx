@@ -13,6 +13,13 @@ import ContactSection from '@/components/contact/ContactSection';
 import { getServices, getSiteSettings } from '@/lib/site-content';
 import { siteUrl, siteName } from '@/constants';
 
+/**
+ * Content is served from the data cache, so the page can be regenerated in the
+ * background rather than rendered per request. Admin saves call revalidateTag,
+ * which refreshes this immediately when an editor changes something.
+ */
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: {
     default: `${siteName} - Crafting Digital Experiences`,

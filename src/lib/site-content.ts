@@ -1,4 +1,5 @@
 import { ObjectId, type Document } from 'mongodb';
+import { unstable_cache, revalidateTag } from 'next/cache';
 import { getDb } from '@/lib/mongodb';
 import {
   blogPosts as fallbackBlogPosts,
@@ -59,6 +60,66 @@ interface ContentDocument extends Document {
   updatedAt: Date;
 }
 
+/**
+ * Content reads go through Next's data cache rather than hitting MongoDB on
+ * every render. Without this the home page paid the database round trip on
+ * every request, which measured ~1.3s when the database was slow and ~4s when
+ * it was unreachable.
+ *
+ * Entries are tagged per collection so an admin save can invalidate exactly
+ * the affected one, giving both static-speed delivery and instant edits.
+ */
+const contentTag = (key: string) => `content:${key}`;
+
+/** Serialisable shape — Mongo documents carry ObjectId/Date we cannot cache. */
+type CachedDocument = {
+  value: unknown;
+  published: boolean;
+} | null;
+
+async function readContentFromDb(key: string): Promise<CachedDocument> {
+  try {
+    const db = await getDb();
+    if (!db) return null;
+    const document = await db
+      .collection<ContentDocument>('content')
+      .findOne({ key, published: { $ne: false } });
+    if (!document) return null;
+    return { value: document.value, published: document.published !== false };
+  } catch {
+    return null;
+  }
+}
+
+/** One cached wrapper per key, so the cache key parts stay stable. */
+const cachedReaders = new Map<string, () => Promise<CachedDocument>>();
+
+function cachedReader(key: string): () => Promise<CachedDocument> {
+  let reader = cachedReaders.get(key);
+  if (!reader) {
+    reader = unstable_cache(() => readContentFromDb(key), ['weblign-content', key], {
+      tags: [contentTag(key)],
+      revalidate: 3600,
+    });
+    cachedReaders.set(key, reader);
+  }
+  return reader;
+}
+
+/** Called after an admin save so editors see their change immediately. */
+export function invalidateContentCache(key?: string): void {
+  if (key) {
+    // `{ expire: 0 }` forces immediate expiry. Admin edits go through a Route
+    // Handler, and an editor should see their own change on the next load.
+    revalidateTag(contentTag(key), { expire: 0 });
+    return;
+  }
+  // There is no wildcard tag, so every known collection is listed explicitly.
+  for (const name of contentCollectionNames) {
+    revalidateTag(contentTag(name), { expire: 0 });
+  }
+}
+
 interface SubmissionDocument extends Document {
   fullName: string;
   email: string;
@@ -104,16 +165,25 @@ async function getContentDocument(
   key: string,
   includeUnpublished = false,
 ): Promise<ContentDocument | null> {
-  try {
-    const db = await getDb();
-    if (!db) return null;
-    return await db.collection<ContentDocument>('content').findOne({
-      key,
-      ...(includeUnpublished ? {} : { published: { $ne: false } }),
-    });
-  } catch {
-    return null;
+  // Admin previews must always read through so drafts stay accurate.
+  if (includeUnpublished) {
+    try {
+      const db = await getDb();
+      if (!db) return null;
+      return await db.collection<ContentDocument>('content').findOne({ key });
+    } catch {
+      return null;
+    }
   }
+
+  const cached = await cachedReader(key)();
+  if (!cached) return null;
+  return {
+    key,
+    value: cached.value,
+    published: cached.published,
+    updatedAt: new Date(),
+  } as ContentDocument;
 }
 
 export async function getSiteSettings(): Promise<SiteSettings> {
@@ -140,6 +210,7 @@ export async function saveSiteSettings(settings: SiteSettings): Promise<boolean>
       },
       { upsert: true },
     );
+    invalidateContentCache('site-settings');
     return true;
   } catch {
     return false;
@@ -172,6 +243,8 @@ export async function saveCollection(
       },
       { upsert: true },
     );
+    // Editors expect their save to show up on the next page load.
+    invalidateContentCache(key);
     return true;
   } catch {
     return false;
