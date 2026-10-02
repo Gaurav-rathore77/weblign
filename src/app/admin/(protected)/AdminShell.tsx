@@ -6,25 +6,17 @@ import {
   Inbox,
   Settings2,
   ExternalLink,
-  type LucideIcon,
 } from 'lucide-react';
 import Logo from '@/components/layout/Logo';
 import AdminNavLink, { type AdminNavItem } from './AdminNavLink';
 import LogoutButton from './LogoutButton';
 
-/* `iconKey` is a plain string so it can cross the server/client boundary; the
-   mobile strip uses the real component from `iconComponent` below. */
-const navigation: {
-  href: string;
-  label: string;
-  iconKey: AdminNavItem['icon'];
-  iconComponent: LucideIcon;
-}[] = [
-  { href: '/admin', label: 'Overview', iconKey: 'overview', iconComponent: BarChart3 },
-  { href: '/admin/content', label: 'Site content', iconKey: 'settings', iconComponent: Settings2 },
-  { href: '/admin/library/projects', label: 'Projects', iconKey: 'projects', iconComponent: FolderKanban },
-  { href: '/admin/library/blog-posts', label: 'Blog posts', iconKey: 'posts', iconComponent: FileText },
-  { href: '/admin/inquiries', label: 'Inquiries', iconKey: 'inquiries', iconComponent: Inbox },
+const navigation: AdminNavItem[] = [
+  { href: '/admin', label: 'Overview', icon: BarChart3, exact: true },
+  { href: '/admin/content', label: 'Site content', icon: Settings2 },
+  { href: '/admin/library/projects', label: 'Projects', icon: FolderKanban },
+  { href: '/admin/library/blog-posts', label: 'Blog posts', icon: FileText },
+  { href: '/admin/inquiries', label: 'Inquiries', icon: Inbox },
 ];
 
 export default function AdminShell({
@@ -53,10 +45,7 @@ export default function AdminShell({
           aria-label="Admin navigation"
         >
           {navigation.map((item) => (
-            <AdminNavLink
-              key={item.href}
-              item={{ href: item.href, label: item.label, icon: item.iconKey }}
-            />
+            <AdminNavLink key={item.href} item={item} />
           ))}
         </nav>
 
@@ -101,7 +90,7 @@ export default function AdminShell({
           aria-label="Admin sections"
         >
           {navigation.map((item) => {
-            const Icon = item.iconComponent;
+            const Icon = item.icon;
             return (
               <Link
                 key={item.href}

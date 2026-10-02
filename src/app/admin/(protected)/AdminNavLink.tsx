@@ -3,47 +3,22 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
-import {
-  BarChart3,
-  FileText,
-  FolderKanban,
-  Inbox,
-  Settings2,
-  type LucideIcon,
-} from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 export interface AdminNavItem {
   href: string;
   label: string;
-  /** Icon key — resolved on the client, since component references cannot be
-   *  serialised across the server/client boundary. */
-  icon: 'overview' | 'settings' | 'projects' | 'posts' | 'inquiries';
+  icon: LucideIcon;
   exact?: boolean;
 }
 
-const icons: Record<AdminNavItem['icon'], LucideIcon> = {
-  overview: BarChart3,
-  settings: Settings2,
-  projects: FolderKanban,
-  posts: FileText,
-  inquiries: Inbox,
-};
-
-export const adminNavItems: AdminNavItem[] = [
-  { href: '/admin', label: 'Overview', icon: 'overview', exact: true },
-  { href: '/admin/content', label: 'Site content', icon: 'settings' },
-  { href: '/admin/library/projects', label: 'Projects', icon: 'projects' },
-  { href: '/admin/library/blog-posts', label: 'Blog posts', icon: 'posts' },
-  { href: '/admin/inquiries', label: 'Inquiries', icon: 'inquiries' },
-];
-
 /**
- * A client island because active-route highlighting needs `usePathname`.
- * The surrounding sidebar shell stays a server component.
+ * Split into a client island because active-route highlighting needs
+ * `usePathname`. The sidebar shell around it stays a server component.
  */
 export default function AdminNavLink({ item }: { item: AdminNavItem }) {
   const pathname = usePathname();
-  const Icon = icons[item.icon];
+  const Icon = item.icon;
   const active = item.exact
     ? pathname === item.href
     : (pathname ?? '').startsWith(item.href);
