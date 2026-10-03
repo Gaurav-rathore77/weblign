@@ -59,6 +59,8 @@ export const metadata: Metadata = {
     'Custom Software',
     'Digital Agency',
     'Digital Agency India',
+    'Web Development Company Noida',
+    'Web Design Company Delhi NCR',
   ],
   authors: [{ name: 'Weblign' }],
   creator: 'Weblign',

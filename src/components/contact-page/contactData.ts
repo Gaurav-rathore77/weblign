@@ -13,7 +13,7 @@ export const contactInfo = [
   },
   {
     label: 'Location',
-    value: 'India',
+    value: 'Noida, Uttar Pradesh',
     href: null,
     emoji: 'HiOutlineMapPin',
   },

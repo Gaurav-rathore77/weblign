@@ -21,6 +21,12 @@ const organization = {
   foundingDate: '2026',
   address: {
     '@type': 'PostalAddress',
+    // Only include what is actually known. Empty fields are left out so
+    // search engines are not told a blank street or postcode exists.
+    ...(contactInfo.address.street && { streetAddress: contactInfo.address.street }),
+    ...(contactInfo.address.city && { addressLocality: contactInfo.address.city }),
+    ...(contactInfo.address.state && { addressRegion: contactInfo.address.state }),
+    ...(contactInfo.address.zipCode && { postalCode: contactInfo.address.zipCode }),
     addressCountry: contactInfo.address.country || 'IN',
   },
   sameAs: [

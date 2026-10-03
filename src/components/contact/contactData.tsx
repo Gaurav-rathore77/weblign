@@ -24,7 +24,7 @@ export const contactInfo: ContactInfoItem[] = [
   {
     icon: <MapPin className="h-5 w-5" />,
     title: 'Location',
-    value: 'India',
+    value: 'Noida, Uttar Pradesh',
   },
   {
     icon: <Clock className="h-5 w-5" />,

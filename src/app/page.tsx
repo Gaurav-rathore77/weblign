@@ -37,6 +37,8 @@ export const metadata: Metadata = {
     'Digital Agency India',
     'Next.js Development',
     'React Development',
+    'Web Development Company Noida',
+    'Web Design Company Delhi',
   ],
   authors: [{ name: 'Weblign' }],
   creator: 'Weblign',

@@ -67,9 +67,11 @@ export const contactInfo = {
   email: 'info.weblign@gmail.com',
   phone: '+91 9315051726',
   address: {
+    // Street and postcode are intentionally blank — a partial but accurate
+    // address beats a fabricated one. Add them here once you have them.
     street: '',
-    city: '',
-    state: '',
+    city: 'Noida',
+    state: 'Uttar Pradesh',
     zipCode: '',
     country: 'India',
   },

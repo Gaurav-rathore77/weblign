@@ -147,8 +147,8 @@ function localGuideReply(message: string, context: AssistantContext): string {
     return `Our blog covers development, design, AI, accessibility, e-commerce and digital business. Recent topics include:\n${context.blog}\n\nOpen Blog to read the full articles.`;
   }
 
-  if (/location|where|india|office|based/.test(text)) {
-    return 'Weblign works with clients remotely and is based in India. We collaborate with businesses across locations and time zones.';
+  if (/location|where|india|office|based|noida|delhi/.test(text)) {
+    return 'Weblign is based in Noida, Uttar Pradesh (Delhi NCR), India. We work with clients remotely and collaborate with businesses across India and other time zones.';
   }
 
   return 'I can help with Weblign services, pricing, portfolio, process, team and contact details. Try asking: “What services do you offer?”, “Show me pricing” or “How do I contact you?”';

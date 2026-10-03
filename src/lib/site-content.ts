@@ -148,7 +148,7 @@ export const defaultSiteSettings: SiteSettings = {
   contact: {
     email: 'info.weblign@gmail.com',
     phone: '+91 9315051726',
-    address: 'India',
+    address: 'Noida, Uttar Pradesh',
   },
 };
 
