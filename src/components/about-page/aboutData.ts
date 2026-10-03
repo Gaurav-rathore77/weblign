@@ -112,4 +112,22 @@ export const teamMembers: TeamMember[] = [
     image: '/images/team-arun.svg',
     imageAlt: 'Cartoon portrait of Arun Rathore, Web Developer',
   },
+  {
+    name: 'Amisha',
+    role: 'Sales Executive',
+    bio: 'Client-facing lead who turns first conversations into clear, honest proposals — scoping the work, setting expectations and keeping everyone on the same page.',
+    initials: 'AS',
+    gradient: 'from-pink-500 to-violet-600',
+    image: '/images/team-amisha.svg',
+    imageAlt: 'Cartoon portrait of Amisha, Sales Executive',
+  },
+  {
+    name: 'Himansu',
+    role: 'Digital Marketing',
+    bio: 'Digital marketer focused on campaigns that actually convert — SEO, paid ads and analytics, with every rupee tracked back to enquiries.',
+    initials: 'HM',
+    gradient: 'from-cyan-500 to-blue-700',
+    image: '/images/team-himansu.svg',
+    imageAlt: 'Cartoon portrait of Himansu, Digital Marketing',
+  },
 ];

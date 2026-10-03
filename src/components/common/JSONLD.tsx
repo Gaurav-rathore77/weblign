@@ -89,7 +89,7 @@ const organization = {
     {
       '@type': 'Person',
       name: 'Gaurav',
-      jobTitle: 'Tech Head',
+      jobTitle: 'Cofounder & Tech Head',
       worksFor: { '@id': organizationId },
     },
     {
@@ -102,6 +102,18 @@ const organization = {
       '@type': 'Person',
       name: 'Arun Rathore',
       jobTitle: 'Web Developer',
+      worksFor: { '@id': organizationId },
+    },
+    {
+      '@type': 'Person',
+      name: 'Amisha',
+      jobTitle: 'Sales Executive',
+      worksFor: { '@id': organizationId },
+    },
+    {
+      '@type': 'Person',
+      name: 'Himansu',
+      jobTitle: 'Digital Marketing',
       worksFor: { '@id': organizationId },
     },
   ],

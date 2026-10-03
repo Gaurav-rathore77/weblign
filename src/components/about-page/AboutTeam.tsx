@@ -44,7 +44,8 @@ const AboutTeam = () => {
               </p>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Six members lay out as 3x2 on desktop for a balanced grid. */}
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {teamMembers.map((member) => (
                 <div
                   key={member.name}

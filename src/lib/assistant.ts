@@ -131,8 +131,8 @@ function localGuideReply(message: string, context: AssistantContext): string {
     return 'Our process is simple: discovery and strategy, design and prototyping, development in sprints, testing and launch, then growth and maintenance. You receive regular updates and a clear point of contact throughout the project.';
   }
 
-  if (/about|team|founder|sachin|gaurav|employee|who are/.test(text)) {
-    return 'Weblign is a digital services team led by Sachin Rathore, CEO and Founder, and Gaurav, Cofounder and Tech Head. Our team also includes Sagar Bist and Arun Rathore (Web Developers). We combine thoughtful design with practical engineering and transparent communication.';
+  if (/about|team|founder|sachin|gaurav|amisha|himansu|employee|who are/.test(text)) {
+    return 'Weblign is a digital services team led by Sachin Rathore, CEO and Founder, and Gaurav, Cofounder and Tech Head. Amisha handles Sales, Himansu handles Digital Marketing, and Sagar Bist and Arun Rathore are our Web Developers. We combine thoughtful design with practical engineering and transparent communication.';
   }
 
   if (/hour|office|open|close|working time|availability/.test(text)) {
