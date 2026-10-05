@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import HeroContent from './HeroContent';
 import HeroIllustration from './HeroIllustration';
 import type { SiteSettings } from '@/lib/site-content';
@@ -7,6 +8,30 @@ const Hero = ({ settings }: { settings: SiteSettings }) => {
     <section className="animated-bg relative min-h-dvh overflow-hidden pt-20 pb-16 sm:pt-24 sm:pb-20">
       {/* ── Background decorations ── */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        {/* Circuit-board texture. Masked away from the text column: at full
+            strength behind the paragraph it dropped that text's contrast from
+            4.5:1 to 2.6:1, so the texture now fades to a faint trace on the left
+            and only reaches full opacity behind the illustration. */}
+        <div
+          className="absolute inset-0"
+          style={{
+            maskImage:
+              'radial-gradient(78% 70% at 84% 48%, black 0%, black 18%, rgba(0,0,0,0.22) 48%, transparent 72%)',
+            WebkitMaskImage:
+              'radial-gradient(78% 70% at 84% 48%, black 0%, black 18%, rgba(0,0,0,0.22) 48%, transparent 72%)',
+          }}
+        >
+          <Image
+            src="/images/hero-bg.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            loading="eager"
+            fetchPriority="low"
+            className="object-cover opacity-[0.26] dark:opacity-[0.20]"
+          />
+        </div>
+
         {/* Subtle dot grid */}
         <div
           className="absolute inset-0 opacity-[0.025]"

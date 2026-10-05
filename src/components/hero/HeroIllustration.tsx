@@ -12,6 +12,9 @@ type FrameProps = {
   /** Adds the continuous vertical drift. Kept off the primary frame so the
    *  largest element never sits on a permanently promoted layer. */
   drift?: boolean;
+  /** Aspect ratio for the screenshot area, as a Tailwind `aspect-*` value.
+   *  Keep this equal to the source image ratio so `object-cover` never crops. */
+  aspect?: string;
 };
 
 /** Thin browser chrome so a screenshot reads as a live site, not a flat image. */
@@ -25,6 +28,7 @@ const BrowserFrame = ({
   style,
   showChrome = true,
   drift = false,
+  aspect = 'aspect-[16/10]',
 }: FrameProps) => (
   <div
     className={`overflow-hidden rounded-2xl border border-zinc-200/80 bg-white shadow-2xl shadow-zinc-900/20 dark:border-zinc-700/70 dark:bg-zinc-100 ${drift ? 'hero-float' : ''} ${className}`}
@@ -40,7 +44,7 @@ const BrowserFrame = ({
         </span>
       </div>
     )}
-    <div className="relative aspect-[16/10] w-full">
+    <div className={`relative w-full ${aspect}`}>
       <Image
         src={src}
         alt={alt}
@@ -85,13 +89,16 @@ const HeroIllustration = () => {
           sizes="(min-width: 1536px) 42rem, (min-width: 1280px) 42rem, (min-width: 1024px) 36rem"
           priority
           showChrome={false}
+          aspect="aspect-[5/4]"
           className="rounded-[22px]"
         />
       </div>
 
-      {/* ── Floating: ICFEI enquiry-management dashboard ── */}
+      {/* ── Floating: ICFEI enquiry-management dashboard ──
+          Offset far enough out that it overlaps only the frame's corner, leaving
+          the screenshot's own nav and headline readable. */}
       <div
-        className="absolute -right-4 -top-8 z-20 w-44 sm:w-52 lg:w-56"
+        className="absolute -right-7 -top-11 z-20 w-44 sm:w-52 lg:w-56"
         style={{ '--float-duration': '5.5s' } as React.CSSProperties}
       >
         <BrowserFrame
@@ -106,7 +113,7 @@ const HeroIllustration = () => {
 
       {/* ── Floating: third project ── */}
       <div
-        className="absolute -bottom-9 -left-5 z-20 hidden w-40 sm:block sm:w-48 lg:w-52"
+        className="absolute -bottom-11 -left-8 z-20 hidden w-40 sm:block sm:w-48 lg:w-52"
         style={{ '--float-duration': '6.5s' } as React.CSSProperties}
       >
         <BrowserFrame
@@ -120,7 +127,7 @@ const HeroIllustration = () => {
       </div>
 
       {/* ── Stat chip ── */}
-      <div className="absolute -bottom-6 right-8 z-30 hidden lg:block">
+      <div className="absolute -bottom-9 right-6 z-30 hidden lg:block">
         <div className="animate-border-glow flex items-center gap-3 rounded-2xl border border-zinc-200/80 bg-white/95 px-4 py-3 shadow-2xl shadow-zinc-900/15 backdrop-blur-md dark:border-zinc-700/70 dark:bg-zinc-100/95">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
             <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5 text-primary" aria-hidden="true">
@@ -135,7 +142,7 @@ const HeroIllustration = () => {
       </div>
 
       {/* ── Availability chip ── */}
-      <div className="absolute -left-2 top-10 z-30 hidden xl:block">
+      <div className="absolute -left-7 top-8 z-30 hidden xl:block">
         <div className="card-glow flex items-center gap-2.5 rounded-full border border-zinc-200/80 bg-white/95 py-2 pl-3 pr-4 shadow-xl shadow-zinc-900/10 backdrop-blur-md dark:border-zinc-700/70 dark:bg-zinc-100/95">
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
