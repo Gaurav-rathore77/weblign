@@ -1,223 +1,150 @@
-/* ───── floating helper: wraps entrance + continuous bob ───── */
-const FloatWrapper = ({
-  children,
-  delay = 0,
-  xOffset = 0,
-  yOffset = 0,
-  className = '',
-}: {
-  children: React.ReactNode;
-  delay?: number;
-  xOffset?: number;
-  yOffset?: number;
+import Image from 'next/image';
+
+type FrameProps = {
+  src: string;
+  alt: string;
+  url: string;
+  sizes: string;
+  priority?: boolean;
   className?: string;
-}) => (
+  style?: React.CSSProperties;
+  showChrome?: boolean;
+  /** Adds the continuous vertical drift. Kept off the primary frame so the
+   *  largest element never sits on a permanently promoted layer. */
+  drift?: boolean;
+};
+
+/** Thin browser chrome so a screenshot reads as a live site, not a flat image. */
+const BrowserFrame = ({
+  src,
+  alt,
+  url,
+  sizes,
+  priority,
+  className = '',
+  style,
+  showChrome = true,
+  drift = false,
+}: FrameProps) => (
   <div
-    className={`${className} hero-reveal hero-float-outer`}
-    style={
-      {
-        '--hero-x': `${xOffset}px`,
-        '--hero-y': `${yOffset}px`,
-        '--hero-delay': `${delay}s`,
-        '--float-duration': `${4 + delay * 2}s`,
-      } as React.CSSProperties
-    }
+    className={`overflow-hidden rounded-2xl border border-zinc-200/80 bg-white shadow-2xl shadow-zinc-900/20 dark:border-zinc-700/70 dark:bg-zinc-100 ${drift ? 'hero-float' : ''} ${className}`}
+    style={style}
   >
-    <div className="hero-float">{children}</div>
+    {showChrome && (
+      <div className="flex items-center gap-1.5 border-b border-zinc-100 bg-zinc-50/90 px-3.5 py-2.5 dark:border-zinc-700 dark:bg-zinc-800/60">
+        <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+        <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" />
+        <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
+        <span className="ml-1.5 flex-1 truncate rounded-md bg-white px-2.5 py-1 text-[10px] font-medium tracking-tight text-zinc-400 dark:bg-zinc-300/60 dark:text-zinc-500">
+          {url}
+        </span>
+      </div>
+    )}
+    <div className="relative aspect-[16/10] w-full">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        priority={priority}
+        sizes={sizes}
+        className="object-cover object-top"
+      />
+    </div>
   </div>
 );
 
-/* ───── growth-chart SVG ───── */
-const GrowthChart = ({ className = '' }: { className?: string }) => (
-  <svg viewBox="0 0 200 80" className={className} fill="none" aria-hidden="true">
-    <defs>
-      <linearGradient id="area-grad" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stopColor="#2563EB" stopOpacity="0.15" />
-        <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
-      </linearGradient>
-    </defs>
-    <path
-      d="M0 70 L12 55 L28 60 L44 42 L60 50 L78 28 L94 36 L112 18 L130 24 L148 10 L164 14 L182 4 L200 6"
-      stroke="#2563EB"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      opacity="0.6"
-    />
-    <path
-      d="M0 70 L12 55 L28 60 L44 42 L60 50 L78 28 L94 36 L112 18 L130 24 L148 10 L164 14 L182 4 L200 6 L200 80 L0 80 Z"
-      fill="url(#area-grad)"
-    />
-    {[12, 44, 78, 112, 148, 182].map((cx, i) => (
-      <circle
-        key={i}
-        cx={cx}
-        cy={[55, 42, 28, 18, 10, 4][i]}
-        r="2.5"
-        fill="#2563EB"
-        className="drop-shadow-[0_0_4px_#2563EB]"
-      />
-    ))}
-  </svg>
-);
-
-/* ───── mini bar chart ───── */
-const MiniBarChart = ({ className = '' }: { className?: string }) => (
-  <svg viewBox="0 0 80 28" className={className} fill="none" aria-hidden="true">
-    {[16, 24, 12, 20, 18, 26, 22, 14].map((h, i) => (
-      <rect
-        key={i}
-        x={i * 10 + 1}
-        y={28 - h}
-        width="7"
-        height={h}
-        rx="2"
-        fill="#2563EB"
-        opacity={0.25 + i * 0.06}
-      />
-    ))}
-  </svg>
-);
-
-/* ────────────────────────────────────────────────────────────
-   HeroIllustration
-   ──────────────────────────────────────────────────────────── */
+/**
+ * Hero artwork showing real client work.
+ *
+ * Every image here is an actual site from the Weblign portfolio rather than a
+ * drawn mockup, so the hero demonstrates output instead of claiming it.
+ */
 const HeroIllustration = () => {
   return (
-    <div className="relative mx-auto mt-8 hidden h-full w-full max-w-lg lg:block xl:max-w-xl">
-      {/* outer container: holds everything */}
-      <div className="relative aspect-[4/4] w-full">
-        {/* ── Browser window ── */}
-        <div className="hero-reveal hero-delay-200 relative z-10 h-full w-full overflow-hidden rounded-2xl border border-zinc-200/60 bg-white shadow-xl shadow-zinc-900/5 dark:border-zinc-700/60 dark:bg-zinc-100">
-          {/* Title bar */}
-          <div className="flex items-center gap-1.5 border-b border-zinc-100 px-4 py-3 dark:border-zinc-700">
-            <span className="h-2.5 w-2.5 rounded-full bg-zinc-200 dark:bg-zinc-700" />
-            <span className="h-2.5 w-2.5 rounded-full bg-zinc-200 dark:bg-zinc-700" />
-            <span className="h-2.5 w-2.5 rounded-full bg-zinc-200 dark:bg-zinc-700" />
-            <div className="ml-3 flex-1 rounded-md bg-zinc-50 px-3 py-1 text-[11px] text-zinc-400 dark:bg-zinc-800 dark:text-zinc-500">
-              app.weblign.in/dashboard
-            </div>
-          </div>
+    <div className="relative mx-auto mt-12 hidden w-full max-w-xl lg:block xl:max-w-2xl 2xl:max-w-[42rem]">
+      {/* ambient glow */}
+      <div
+        className="pointer-events-none absolute -inset-12 -z-10"
+        aria-hidden="true"
+        style={{
+          background:
+            'radial-gradient(58% 52% at 28% 30%, rgba(37,99,235,0.22), transparent 70%), radial-gradient(52% 48% at 78% 72%, rgba(56,189,248,0.24), transparent 70%), radial-gradient(40% 40% at 60% 15%, rgba(139,92,246,0.14), transparent 70%)',
+          filter: 'blur(34px)',
+        }}
+      />
 
-          {/* Browser content */}
-          <div className="grid grid-cols-2 gap-3 p-4">
-            {/* Chart card */}
-            <div className="col-span-2 rounded-xl border border-zinc-100 bg-white p-4 shadow-xs dark:border-zinc-700 dark:bg-zinc-800/50">
-              <div className="mb-1 flex items-center justify-between">
-                <span className="text-xs font-medium text-zinc-500 dark:text-zinc-400">Revenue Overview</span>
-                <span className="text-[11px] text-emerald-600">+12.5%</span>
-              </div>
-              <GrowthChart className="h-auto w-full" />
-              <div className="mt-2 flex items-center justify-between border-t border-zinc-50 pt-2 dark:border-zinc-700">
-                <span className="text-[11px] text-zinc-400 dark:text-zinc-500">Jan</span>
-                <span className="text-[11px] text-zinc-400 dark:text-zinc-500">Mar</span>
-                <span className="text-[11px] text-zinc-400 dark:text-zinc-500">May</span>
-                <span className="text-[11px] text-zinc-400 dark:text-zinc-500">Jul</span>
-              </div>
-            </div>
+      {/* ── Primary ──
+          No entrance animation here. A delayed animation promotes an element
+          containing an image to its own compositor layer, and Chrome leaves that
+          layer unpainted, so the frame and the LCP image disappear entirely. */}
+      <div className="relative z-10">
+        <BrowserFrame
+          src="/images/projects/real-estate-theme.webp"
+          alt="Real estate website built by Weblign for a client in Noida"
+          url="real-eastate-theme-1.vercel.app"
+          sizes="(min-width: 1536px) 42rem, (min-width: 1280px) 42rem, (min-width: 1024px) 36rem"
+          priority
+          showChrome={false}
+          className="rounded-[22px]"
+        />
+      </div>
 
-            {/* Metric card */}
-            <div className="rounded-xl border border-zinc-100 bg-white p-4 shadow-xs dark:border-zinc-700 dark:bg-zinc-800/50">
-              <span className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Total Revenue</span>
-              <p className="mt-1 text-xl font-bold text-zinc-900">₹4,82,900</p>
-              <span className="text-[11px] text-emerald-600">↑ 12.5% this month</span>
-            </div>
+      {/* ── Floating: ICFEI enquiry-management dashboard ── */}
+      <div
+        className="absolute -right-4 -top-8 z-20 w-44 sm:w-52 lg:w-56"
+        style={{ '--float-duration': '5.5s' } as React.CSSProperties}
+      >
+        <BrowserFrame
+          src="/images/projects/icfei-dashboard.webp"
+          alt="Enquiry management dashboard built by Weblign for ICFEI, tracking hot, cold, future and dead leads"
+          url="india.icfei.com"
+          sizes="14rem"
+          className="rounded-xl shadow-xl"
+          drift
+        />
+      </div>
 
-            {/* Metric card */}
-            <div className="rounded-xl border border-zinc-100 bg-white p-4 shadow-xs dark:border-zinc-700 dark:bg-zinc-800/50">
-              <span className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Active Users</span>
-              <p className="mt-1 text-xl font-bold text-zinc-900">2,847</p>
-              <span className="text-[11px] text-emerald-600">↑ 8.3% this week</span>
-            </div>
+      {/* ── Floating: third project ── */}
+      <div
+        className="absolute -bottom-9 -left-5 z-20 hidden w-40 sm:block sm:w-48 lg:w-52"
+        style={{ '--float-duration': '6.5s' } as React.CSSProperties}
+      >
+        <BrowserFrame
+          src="/images/projects/anita-printers.webp"
+          alt="Printing business website built by Weblign for a client in Noida Sector 2"
+          url="anitaprinters.com"
+          sizes="13rem"
+          className="rounded-xl shadow-xl"
+          drift
+        />
+      </div>
+
+      {/* ── Stat chip ── */}
+      <div className="absolute -bottom-6 right-8 z-30 hidden lg:block">
+        <div className="animate-border-glow flex items-center gap-3 rounded-2xl border border-zinc-200/80 bg-white/95 px-4 py-3 shadow-2xl shadow-zinc-900/15 backdrop-blur-md dark:border-zinc-700/70 dark:bg-zinc-100/95">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+            <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5 text-primary" aria-hidden="true">
+              <path d="M3 16V8m4.5 8V4M12 16v-6m4.5 6V6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          </span>
+          <div>
+            <p className="text-xl font-bold leading-none text-zinc-900 dark:text-white">50+</p>
+            <p className="mt-1 text-[11px] text-zinc-500 dark:text-zinc-500">Projects delivered</p>
           </div>
         </div>
+      </div>
 
-        {/* ── Floating card: Analytics ── */}
-        <FloatWrapper
-          delay={0.5}
-          xOffset={30}
-          yOffset={-20}
-          className="absolute -right-4 -top-3 z-20"
-        >
-          <div className="animate-border-glow w-44 rounded-xl border border-zinc-100/80 bg-white/90 p-4 shadow-lg shadow-zinc-900/5 backdrop-blur-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-primary/10 dark:border-zinc-700/80 dark:bg-zinc-100/90">
-            <div className="mb-2 flex items-center justify-between">
-              <span className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Page Views</span>
-              <span className="animate-glow-pulse rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-medium text-emerald-600 dark:bg-emerald-900/40 dark:text-emerald-400">
-                +18.2%
-              </span>
-            </div>
-            <p className="text-2xl font-bold text-zinc-900">128.4K</p>
-            <MiniBarChart className="mt-2 h-auto w-full" />
-          </div>
-        </FloatWrapper>
-
-        {/* ── Floating card: Profile ── */}
-        <FloatWrapper
-          delay={0.7}
-          xOffset={-20}
-          yOffset={20}
-          className="absolute bottom-1 -left-6 z-20"
-        >
-          <div className="card-glow flex w-52 items-center gap-3 rounded-xl border border-zinc-100/80 bg-white/90 p-3 shadow-lg shadow-zinc-900/5 backdrop-blur-sm dark:border-zinc-700/80 dark:bg-zinc-100/90">
-            <div className="animate-glow-pulse flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-[11px] font-bold text-white">
-              SR
-            </div>
-            <div className="min-w-0">
-              <p className="truncate text-sm font-semibold text-zinc-900">Sachin Rathore</p>
-              <p className="truncate text-[11px] text-zinc-400 dark:text-zinc-500">CEO, Weblign</p>
-            </div>
-          </div>
-        </FloatWrapper>
-
-        {/* ── Floating card: Revenue ── */}
-        <FloatWrapper
-          delay={0.9}
-          xOffset={25}
-          yOffset={15}
-          className="absolute bottom-2 -right-3 z-20"
-        >
-          <div className="card-glow w-36 rounded-xl border border-zinc-100/80 bg-white/90 p-3 shadow-lg shadow-zinc-900/5 backdrop-blur-sm dark:border-zinc-700/80 dark:bg-zinc-100/90">
-            <span className="text-[11px] font-medium text-zinc-500 dark:text-zinc-400">Avg. Revenue</span>
-            <p className="mt-0.5 text-lg font-bold text-zinc-900">₹1,28,470</p>
-            <div className="mt-1 flex items-center gap-1 text-[11px] text-emerald-600">
-              <svg viewBox="0 0 12 12" fill="currentColor" className="h-2.5 w-2.5" aria-hidden="true">
-                <path d="M6 0l6 8H0z" />
-              </svg>
-              +3.2%
-            </div>
-          </div>
-        </FloatWrapper>
-
-        {/* ── Floating notification dot ── */}
-        <FloatWrapper
-          delay={0.4}
-          xOffset={15}
-          yOffset={-25}
-          className="absolute right-8 top-2 z-20"
-        >
-          <div className="relative flex h-9 w-9 items-center justify-center rounded-xl border border-zinc-100/80 bg-white/90 shadow-md shadow-zinc-900/5 backdrop-blur-sm dark:border-zinc-700/80 dark:bg-zinc-100/90">
-            <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 text-zinc-500 dark:text-zinc-400" aria-hidden="true">
-              <path
-                d="M10 2a6 6 0 00-6 6v3l-1.5 2.5a.5.5 0 00.43.75h14.14a.5.5 0 00.43-.75L16 11V8a6 6 0 00-6-6z"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path d="M8 15a2 2 0 004 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
-            <span className="absolute -right-0.5 -top-0.5 flex h-2.5 w-2.5">
-              <span className="animate-pulse-ring absolute inline-flex h-full w-full rounded-full bg-primary/30" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-primary" />
-            </span>
-          </div>
-        </FloatWrapper>
-
-        {/* ── Decorative background shapes ── */}
-        <div
-          className="pointer-events-none absolute -inset-8 bg-[radial-gradient(circle_at_25%_75%,rgba(37,99,235,0.05),transparent_34%),radial-gradient(circle_at_78%_20%,rgba(56,189,248,0.05),transparent_30%)]"
-          aria-hidden="true"
-        />
+      {/* ── Availability chip ── */}
+      <div className="absolute -left-2 top-10 z-30 hidden xl:block">
+        <div className="card-glow flex items-center gap-2.5 rounded-full border border-zinc-200/80 bg-white/95 py-2 pl-3 pr-4 shadow-xl shadow-zinc-900/10 backdrop-blur-md dark:border-zinc-700/70 dark:bg-zinc-100/95">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+          </span>
+          <span className="text-xs font-semibold text-zinc-700 dark:text-zinc-700">
+            Available for new projects
+          </span>
+        </div>
       </div>
     </div>
   );

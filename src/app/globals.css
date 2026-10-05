@@ -247,17 +247,20 @@
   to { transform: scaleX(1); }
 }
 
+/* Entrance reveal, for text and other small elements only.
+   The `to` frame ends on `transform: none` rather than `translateY(0)` so that
+   `animation-fill-mode: both` leaves no residual transform behind.
+
+   Do NOT put this (or any delayed entrance animation) on an element that
+   contains an image. A delayed animation promotes the subtree to its own
+   compositor layer, and Chrome then leaves that layer unpainted: the element
+   keeps a correct box, reports `opacity: 1`, and is topmost for hit-testing,
+   yet renders nothing. Reproduced on real hardware GPU (ANGLE/D3D11), in both
+   headless and headful Chrome. Image-sized elements therefore carry no entrance
+   animation at all. */
 @keyframes hero-reveal {
   from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes hero-float-reveal {
-  from {
-    opacity: 0;
-    transform: translate(var(--hero-x, 0), var(--hero-y, 0)) scale(0.98);
-  }
-  to { opacity: 1; transform: translate(0, 0) scale(1); }
+  to { opacity: 1; transform: none; }
 }
 
 @keyframes hero-float {
@@ -419,14 +422,11 @@
 .hero-delay-500 { --hero-delay: 500ms; }
 .hero-delay-600 { --hero-delay: 600ms; }
 
-.hero-float-outer {
-  animation-name: hero-float-reveal;
-}
-
+/* Continuous drift for the floating cards. Intentionally has no
+   `animation-delay`: a delayed animation on an element containing an image
+   leaves it unpainted. See the note on `@keyframes hero-reveal`. */
 .hero-float {
   animation: hero-float var(--float-duration, 5s) ease-in-out infinite;
-  animation-delay: var(--hero-delay, 0ms);
-  will-change: transform;
 }
 
 /* ── Continuous animation utilities ── */
