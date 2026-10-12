@@ -39,7 +39,7 @@ export const companyLinks: CompanyLink[] = [
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'Careers', href: '#', badge: 'Coming Soon' },
-  { label: 'Blog', href: '#', badge: 'Coming Soon' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
   { label: 'FAQs', href: '/faqs' },
 ];
