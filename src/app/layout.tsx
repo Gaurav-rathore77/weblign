@@ -33,6 +33,27 @@ const inter = Inter({
 
 const siteName = 'Weblign';
 
+/**
+ * Meta Pixel (Facebook). The ID comes from the environment so the pixel can be
+ * swapped without touching code; the fallback keeps the current pixel working
+ * in local builds where .env.local is not present.
+ */
+const META_PIXEL_ID =
+  process.env.NEXT_PUBLIC_META_PIXEL_ID ?? '1630905818701473';
+
+const metaPixelSnippet = `
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0'
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '${META_PIXEL_ID}');
+fbq('track', 'PageView');
+`.trim();
+
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -122,6 +143,24 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
+      <head>
+        {/* Meta Pixel — placed in <head> so the PageView fires on the first
+            paint rather than after hydration. */}
+        <script dangerouslySetInnerHTML={{ __html: metaPixelSnippet }} />
+        <noscript>
+          {/* Meta's own 1x1 fallback pixel. Plain <img> is intentional here:
+              next/image cannot optimise a remote tracking pixel, and inside
+              <noscript> there is no client runtime to optimise with anyway. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            height="1"
+            width="1"
+            style={{ display: 'none' }}
+            alt=""
+            src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
+          />
+        </noscript>
+      </head>
       <body className="flex min-h-full flex-col bg-background text-text-primary">
         <ThemeProvider>
           <PublicChrome
