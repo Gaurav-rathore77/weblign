@@ -2,6 +2,26 @@ import { companyInfo, siteUrl, contactInfo, socialLinks } from '@/constants';
 
 const organizationId = `${siteUrl}/#organization`;
 const websiteId = `${siteUrl}/#website`;
+const professionalServiceId = `${siteUrl}/#professional-service`;
+
+const postalAddress = {
+  '@type': 'PostalAddress',
+  // Only include what is actually known. Empty fields are left out so
+  // search engines are not told a blank street or postcode exists.
+  ...(contactInfo.address.street && { streetAddress: contactInfo.address.street }),
+  ...(contactInfo.address.city && { addressLocality: contactInfo.address.city }),
+  ...(contactInfo.address.state && { addressRegion: contactInfo.address.state }),
+  ...(contactInfo.address.zipCode && { postalCode: contactInfo.address.zipCode }),
+  addressCountry: contactInfo.address.country || 'IN',
+};
+
+const openingHoursSpecification = {
+  '@type': 'OpeningHoursSpecification',
+  dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+  opens: '10:00',
+  closes: '18:00',
+  timeZone: 'Asia/Kolkata',
+};
 
 const organization = {
   '@type': 'Organization',
@@ -18,17 +38,8 @@ const organization = {
   image: `${siteUrl}/opengraph-image`,
   email: contactInfo.email,
   telephone: contactInfo.phone,
-  foundingDate: '2026',
-  address: {
-    '@type': 'PostalAddress',
-    // Only include what is actually known. Empty fields are left out so
-    // search engines are not told a blank street or postcode exists.
-    ...(contactInfo.address.street && { streetAddress: contactInfo.address.street }),
-    ...(contactInfo.address.city && { addressLocality: contactInfo.address.city }),
-    ...(contactInfo.address.state && { addressRegion: contactInfo.address.state }),
-    ...(contactInfo.address.zipCode && { postalCode: contactInfo.address.zipCode }),
-    addressCountry: contactInfo.address.country || 'IN',
-  },
+  foundingDate: '2021',
+  address: postalAddress,
   sameAs: [
     socialLinks.linkedin,
     socialLinks.github,
@@ -65,19 +76,7 @@ const organization = {
     serviceUrl: `${siteUrl}/contact`,
     servicePhone: contactInfo.phone,
     availableLanguage: ['English', 'Hindi'],
-    hoursAvailable: {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: [
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-      ],
-      opens: '10:00',
-      closes: '18:00',
-      timeZone: 'Asia/Kolkata',
-    },
+    hoursAvailable: openingHoursSpecification,
   },
   employee: [
     {
@@ -163,10 +162,39 @@ const organization = {
   ],
 };
 
+const professionalService = {
+  '@type': 'ProfessionalService',
+  '@id': professionalServiceId,
+  name: companyInfo.name,
+  description: companyInfo.description,
+  url: siteUrl,
+  image: `${siteUrl}/opengraph-image`,
+  email: contactInfo.email,
+  telephone: contactInfo.phone,
+  address: postalAddress,
+  areaServed: {
+    '@type': 'Country',
+    name: 'India',
+  },
+  openingHoursSpecification,
+  parentOrganization: { '@id': organizationId },
+  sameAs: [
+    socialLinks.linkedin,
+    socialLinks.github,
+    socialLinks.twitter,
+    socialLinks.facebook,
+    socialLinks.instagram,
+    socialLinks.youtube,
+    socialLinks.reddit,
+    socialLinks.dribbble,
+  ],
+};
+
 const structuredData = {
   '@context': 'https://schema.org',
   '@graph': [
     organization,
+    professionalService,
     {
       '@type': 'WebSite',
       '@id': websiteId,

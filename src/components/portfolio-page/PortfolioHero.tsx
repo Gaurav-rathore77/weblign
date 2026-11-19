@@ -1,4 +1,6 @@
-import { HiOutlineAdjustmentsHorizontal } from 'react-icons/hi2';
+import Link from 'next/link';
+import { HiOutlineAdjustmentsHorizontal, HiOutlineChatBubbleLeftRight } from 'react-icons/hi2';
+import { getWhatsAppUrlFor } from '@/lib/whatsapp';
 
 const PortfolioHero = () => {
   return (
@@ -24,18 +26,36 @@ const PortfolioHero = () => {
             Our Portfolio
           </div>
 
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl lg:text-6xl">
-            Projects We&rsquo;ve Built With{' '}
+          <h1 className="text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl lg:text-6xl ">
+            Real projects and{' '}
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Pride & Precision
+              practical case studies
             </span>
           </h1>
 
-          <p className="mt-5 text-base leading-relaxed text-zinc-500 sm:text-lg dark:text-zinc-400">
-            From startups to enterprises — explore a curated selection of web
-            apps, mobile experiences, and platforms we&rsquo;ve designed and
-            engineered from the ground up.
+          <p className="mt-5 text-base leading-relaxed text-zinc-600 sm:text-lg ">
+            Explore actual project work with screenshots, technologies, challenges,
+            solutions, and key features—presented transparently using existing
+            project information.
           </p>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            >
+              Discuss Your Project
+            </Link>
+            <a
+              href={getWhatsAppUrlFor('consultation')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-emerald-200 bg-white px-6 py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary    "
+            >
+              <HiOutlineChatBubbleLeftRight className="h-4 w-4" aria-hidden="true" />
+              Chat on WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </section>

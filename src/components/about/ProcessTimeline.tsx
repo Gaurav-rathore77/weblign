@@ -9,30 +9,30 @@ const steps = [
   {
     number: '01',
     icon: <HiOutlineMagnifyingGlass className="h-5 w-5" />,
-    title: 'Discover',
+    title: 'Discover & Proposal',
     description:
-      'We dive deep into your business, goals, and audience to uncover opportunities and define a clear roadmap.',
+      'We understand goals, users, and requirements, then define scope, priorities, and a clear proposal.',
   },
   {
     number: '02',
     icon: <HiOutlinePencilSquare className="h-5 w-5" />,
-    title: 'Plan',
+    title: 'Design & Development',
     description:
-      'We create a detailed strategy with timelines, milestones, and deliverables tailored to your needs.',
+      'We design usable experiences and build with practical, maintainable technologies aligned to the agreed scope.',
   },
   {
     number: '03',
     icon: <HiOutlineCodeBracket className="h-5 w-5" />,
-    title: 'Develop',
+    title: 'Testing & Delivery',
     description:
-      'Our team builds your product using modern tech stacks, with regular updates and iterative reviews.',
+      'We review key flows, responsiveness, and readiness before launch, then deliver with handover guidance.',
   },
   {
     number: '04',
     icon: <HiOutlineRocketLaunch className="h-5 w-5" />,
-    title: 'Launch',
+    title: 'Support',
     description:
-      'We deploy, test, and optimize — ensuring a smooth go-live with ongoing support and maintenance.',
+      'Post-launch support is provided based on the agreed package or scope, with options for ongoing improvements.',
   },
 ];
 
@@ -64,7 +64,7 @@ const ProcessTimeline = () => {
               Step {step.number}
             </div>
             <h4 className="mt-1 text-lg font-semibold text-zinc-900">{step.title}</h4>
-            <p className="mt-1 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">{step.description}</p>
+            <p className="mt-1 text-sm leading-relaxed text-zinc-500 ">{step.description}</p>
           </div>
         ))}
       </div>
@@ -92,7 +92,7 @@ const ProcessTimeline = () => {
                 Step {step.number}
               </div>
               <h4 className="mt-0.5 text-base font-semibold text-zinc-900">{step.title}</h4>
-              <p className="mt-1 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">{step.description}</p>
+              <p className="mt-1 text-sm leading-relaxed text-zinc-500 ">{step.description}</p>
             </div>
           </div>
         ))}

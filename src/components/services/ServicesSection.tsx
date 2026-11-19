@@ -12,7 +12,7 @@ const ServicesSection = ({ serviceItems = fallbackServices }: { serviceItems?: S
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-16 sm:py-20">
       {/* Background decorations */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_30%,rgba(37,99,235,0.04),transparent_30%),radial-gradient(circle_at_15%_70%,rgba(56,189,248,0.04),transparent_28%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_30%,rgba(37,99,235,0.04),transparent_30%),radial-gradient(circle_at_15%_70%,rgba(59,130,246,0.04),transparent_28%)]" />
         <div
           className="absolute inset-0 opacity-[0.015]"
           style={{

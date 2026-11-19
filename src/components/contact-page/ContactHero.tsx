@@ -1,4 +1,5 @@
 import { HiOutlineChatBubbleLeftRight } from 'react-icons/hi2';
+import { getWhatsAppUrlFor } from '@/lib/whatsapp';
 
 const ContactHero = () => {
   return (
@@ -30,10 +31,22 @@ const ContactHero = () => {
             </span>
           </h1>
 
-          <p className="mt-5 text-base leading-relaxed text-zinc-500 sm:text-lg dark:text-zinc-400">
-            Have a project in mind? We&rsquo;d love to hear about it. Fill out
-            the form and we&rsquo;ll get back to you within 24 hours.
+          <p className="mt-5 text-base leading-relaxed text-zinc-600 sm:text-lg ">
+            Have a project in mind? Share your requirements and we’ll get back to
+            you to discuss scope, approach, and next steps.
           </p>
+
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm">
+            <a href="mailto:info.weblign@gmail.com" className="rounded-full border border-zinc-200 bg-white px-4 py-2 font-medium text-zinc-700 hover:border-primary/30 hover:text-primary   ">
+              info.weblign@gmail.com
+            </a>
+            <a href="tel:+919315051726" className="rounded-full border border-zinc-200 bg-white px-4 py-2 font-medium text-zinc-700 hover:border-primary/30 hover:text-primary   ">
+              +91 9315051726
+            </a>
+            <a href={getWhatsAppUrlFor('consultation')} target="_blank" rel="noopener noreferrer" className="rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 font-medium text-emerald-700 hover:bg-emerald-100   ">
+              Chat on WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </section>

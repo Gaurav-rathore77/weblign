@@ -258,6 +258,7 @@ export async function getProjects(): Promise<Project[]> {
 export async function getFeaturedProject(): Promise<Project> {
   const projects = await getProjects();
   return (
+    projects.find((project) => project.id === 'icfei-portal') ??
     projects.find(
       (project) =>
         project.id === 'vidya-vriddhi' ||
@@ -303,22 +304,37 @@ export async function getServiceDetails(): Promise<ServiceDetail[]> {
     return editable
       ? {
           ...detail,
-          title: editable.title,
-          description: editable.description,
-          features: editable.features,
+          title: editable.title || detail.title,
+          description: editable.description || detail.description,
+          longDescription: editable.description || detail.longDescription,
+          features: editable.features?.length ? editable.features : detail.features,
+          icon: (editable.iconKey as ServiceDetail['icon']) || detail.icon,
         }
       : detail;
   });
 
+  const base = fallbackServiceDetails[0];
   for (const service of services) {
     if (!merged.some((detail) => detail.id === service.id)) {
       merged.push({
+        ...base,
         id: service.id,
         title: service.title,
+        heroHeadline: service.title,
         description: service.description,
         longDescription: service.description,
-        features: service.features,
+        whoNeeds: [],
+        problems: [],
+        solutions: [],
+        deliverables: [],
+        benefits: [],
+        features: service.features || [],
+        developmentProcess: base.developmentProcess,
+        pricingFactors: [],
+        faqs: [],
         technologies: [],
+        relatedServiceIds: [],
+        visuals: [],
         icon: service.iconKey,
       });
     }

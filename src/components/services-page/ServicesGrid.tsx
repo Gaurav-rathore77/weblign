@@ -1,16 +1,23 @@
 'use client';
 
-import { useState, type ElementType, type KeyboardEvent } from 'react';
+import Link from 'next/link';
 import {
-  HiOutlineComputerDesktop,
-  HiOutlineCpuChip,
+  HiOutlineArrowLongRight,
+  HiOutlineChatBubbleLeftRight,
+  HiOutlineCheckCircle,
+  HiOutlineChartBarSquare,
   HiOutlineCloud,
+  HiOutlineCommandLine,
+  HiOutlineCpuChip,
   HiOutlineDevicePhoneMobile,
   HiOutlineGlobeAlt,
   HiOutlinePaintBrush,
   HiOutlineShoppingCart,
+  HiOutlineSquares2X2,
 } from 'react-icons/hi2';
-import { CheckCircle2 } from 'lucide-react';
+import type { ElementType } from 'react';
+import Reveal from '@/components/common/Reveal';
+import { getWhatsAppUrlFor } from '@/lib/whatsapp';
 import {
   serviceDetails as fallbackServiceDetails,
   type ServiceDetail,
@@ -23,11 +30,14 @@ const iconComponents: Record<string, ElementType> = {
   HiOutlineShoppingCart,
   HiOutlineCloud,
   HiOutlineCpuChip,
+  HiOutlineChartBarSquare,
+  HiOutlineCommandLine,
+  HiOutlineSquares2X2,
 };
 
 function SvcIcon({ name, className }: { name: string; className?: string }) {
-  const Comp = iconComponents[name];
-  return Comp ? <Comp className={className} aria-hidden="true" /> : null;
+  const Comp = iconComponents[name] ?? HiOutlineSquares2X2;
+  return <Comp className={className} aria-hidden="true" />;
 }
 
 const ServicesGrid = ({
@@ -35,154 +45,122 @@ const ServicesGrid = ({
 }: {
   serviceDetails?: ServiceDetail[];
 }) => {
-  const [activeTab, setActiveTab] = useState(serviceDetails[0].id);
-  const activeService = serviceDetails.find((service) => service.id === activeTab);
-
-  const handleTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
-    let nextIndex: number | undefined;
-
-    if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-      nextIndex = (index + 1) % serviceDetails.length;
-    } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-      nextIndex = (index - 1 + serviceDetails.length) % serviceDetails.length;
-    } else if (event.key === 'Home') {
-      nextIndex = 0;
-    } else if (event.key === 'End') {
-      nextIndex = serviceDetails.length - 1;
-    }
-
-    if (nextIndex === undefined) return;
-
-    event.preventDefault();
-    const nextService = serviceDetails[nextIndex];
-    setActiveTab(nextService.id);
-    document.getElementById(`service-tab-${nextService.id}`)?.focus();
-  };
-
   return (
-    <section className="relative overflow-hidden bg-white py-16 sm:py-20">
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute -right-40 top-1/4 h-96 w-96 rounded-full bg-primary/[0.02] blur-3xl" />
-        <div className="absolute -left-40 bottom-1/4 h-80 w-80 rounded-full bg-accent/[0.02] blur-3xl" />
-      </div>
-
+    <section className="relative overflow-hidden bg-white py-16 sm:py-20 ">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-12 sm:gap-16">
-          {/* ── Section Header ── */}
-          <div className="mx-auto max-w-2xl text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-              <HiOutlineComputerDesktop className="h-4 w-4" aria-hidden="true" />
-              What We Build
-            </div>
-            <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
-              Every Service You Need to{' '}
-              <span className="text-zinc-500 dark:text-zinc-400">Succeed Online</span>
-            </h2>
-            <p className="mt-3 text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
-              Click each service to explore what we deliver, the technologies we
-              use, and how we bring your vision to life.
-            </p>
-          </div>
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Service experiences</p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl ">
+            Detailed solutions for different business needs
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-zinc-600 ">
+            Explore each service to see who it’s for, what problems it solves,
+            what we deliver, process, pricing factors, and FAQs.
+          </p>
+        </Reveal>
 
-          {/* ── Tab Buttons ── */}
-          <div
-            className="flex flex-wrap justify-center gap-2"
-            role="tablist"
-            aria-label="Services"
-          >
-            {serviceDetails.map((service, index) => {
-              const isActive = activeTab === service.id;
-              return (
-                <button
-                  key={service.id}
-                  id={`service-tab-${service.id}`}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  aria-controls="service-panel"
-                  tabIndex={isActive ? 0 : -1}
-                  onClick={() => setActiveTab(service.id)}
-                  onKeyDown={(event) => handleTabKeyDown(event, index)}
-                  className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${
-                    isActive
-                      ? 'bg-primary text-white shadow-md shadow-primary/20'
-                      : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700'
-                  }`}
-                >
-                  <SvcIcon name={service.icon} className="h-4 w-4" />
-                  {service.title}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* ── Active Service Detail ── */}
-          {activeService && (
-            <div
-              id="service-panel"
-              role="tabpanel"
-              aria-labelledby={`service-tab-${activeService.id}`}
-              aria-live="polite"
-              className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16"
-            >
-              {/* Left: Description + Features */}
-              <div>
-                <span className="mb-3 block text-4xl" aria-hidden="true">
-                  <SvcIcon name={activeService.icon} className="h-10 w-10" />
-                </span>
-                <h3 className="text-2xl font-bold text-zinc-900 sm:text-3xl">
-                  {activeService.title}
-                </h3>
-                <p className="mt-3 leading-relaxed text-zinc-500 dark:text-zinc-400">
-                  {activeService.longDescription}
-                </p>
-
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {activeService.features.map((feature) => (
-                    <div key={feature} className="flex items-start gap-2">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                      <span className="text-sm text-zinc-600 dark:text-zinc-400">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right: Technologies + Approach */}
-              <div className="space-y-6">
-                <div className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50/80 to-white p-6 shadow-sm dark:border-zinc-800">
-                  <h4 className="text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-                    Technologies We Use
-                  </h4>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {activeService.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded-full border border-zinc-200 bg-white px-3.5 py-1.5 text-xs font-medium text-zinc-700 shadow-xs dark:border-zinc-700 dark:bg-zinc-100 dark:text-zinc-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          {serviceDetails.map((service, i) => (
+            <Reveal key={service.id} delay={i * 0.04}>
+              <article className="group flex h-full flex-col rounded-2xl border border-zinc-200 bg-zinc-50/40 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-7  ">
+                <div className="flex items-start gap-4">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 text-primary">
+                    <SvcIcon name={service.icon} className="h-6 w-6" />
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-primary">{service.title}</p>
+                    <h3 className="mt-1 text-xl font-semibold tracking-tight text-zinc-950 ">
+                      {service.heroHeadline}
+                    </h3>
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50/80 to-white p-6 shadow-sm dark:border-zinc-800">
-                  <h4 className="text-sm font-semibold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
-                    Service Includes
-                  </h4>
-                  <ul className="mt-4 space-y-3">
-                    {activeService.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3">
-                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/[0.08] text-xs text-primary">
-                          ✓
-                        </span>
-                        <span className="text-sm text-zinc-600 dark:text-zinc-300">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <p className="mt-4 text-base leading-relaxed text-zinc-600 ">
+                  {service.description}
+                </p>
+
+                <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500 ">
+                      Best for
+                    </p>
+                    <ul className="mt-2 space-y-1.5">
+                      {(service.whoNeeds || []).slice(0, 2).map((item) => (
+                        <li key={item} className="text-sm leading-relaxed text-zinc-700 ">
+                          • {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500 ">
+                      Key outcomes
+                    </p>
+                    <ul className="mt-2 space-y-1.5">
+                      {(service.benefits || service.features || []).slice(0, 2).map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-sm leading-relaxed text-zinc-700 ">
+                          <HiOutlineCheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" aria-hidden="true" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            </div>
-          )}
+
+                {service.relatedServiceIds?.length ? (
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {service.relatedServiceIds.map((id) => {
+                      const related = serviceDetails.find((s) => s.id === id);
+                      if (!related) return null;
+                      return (
+                        <Link
+                          key={id}
+                          href={`/services/${id}`}
+                          prefetch={false}
+                          className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-600 transition hover:border-primary/30 hover:text-primary   "
+                        >
+                          {related.title}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                ) : null}
+
+                <div className="mt-6 flex flex-wrap items-center gap-3 border-t border-zinc-200 pt-5 ">
+                  <Link
+                    href={`/services/${service.id}`}
+                    prefetch={false}
+                    data-track-event="service_cta_click"
+                    data-track-label={service.title}
+                    data-track-location="services_grid"
+                    className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-primary-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  >
+                    Explore service
+                    <HiOutlineArrowLongRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
+                  <Link
+                    href={`/contact?plan=${encodeURIComponent(service.title)}`}
+                    prefetch={false}
+                    className="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white px-4 py-2.5 text-sm font-semibold text-zinc-800 transition hover:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary    "
+                  >
+                    Get Free Consultation
+                  </Link>
+                  <a
+                    href={getWhatsAppUrlFor('general', service.title)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-track-event="whatsapp_click"
+                    data-track-label={service.title}
+                    data-track-location="services_grid"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 hover:text-emerald-800 "
+                  >
+                    <HiOutlineChatBubbleLeftRight className="h-4 w-4" aria-hidden="true" />
+                    Chat on WhatsApp
+                  </a>
+                </div>
+              </article>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

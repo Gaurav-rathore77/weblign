@@ -24,8 +24,8 @@ export default async function AdminLibraryPage({ params }: PageProps) {
     <div className="space-y-8">
       <div>
         <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">Content library</p>
-        <h1 className="mt-3 text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">{title}</h1>
-        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">Use the simple forms below to add or edit content. For images, a local path such as <code className="rounded bg-zinc-100 px-1 dark:bg-zinc-800">/images/example.webp</code> loads fastest; you can also paste a full image URL from a host you have the rights to use. Icons are picked from a searchable gallery — no need to remember names. Uncheck publish to keep a draft.</p>
+        <h1 className="mt-3 text-3xl font-bold tracking-tight text-zinc-900 ">{title}</h1>
+        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-500 ">Use the simple forms below to add or edit content. For images, a local path such as <code className="rounded bg-zinc-100 px-1 ">/images/example.webp</code> loads fastest; you can also paste a full image URL from a host you have the rights to use. Icons are picked from a searchable gallery — no need to remember names. Uncheck publish to keep a draft.</p>
       </div>
       <CollectionManager
         collection={collection}

@@ -9,7 +9,6 @@ import Logo from './Logo';
 import FooterLinks from './footer/FooterLinks';
 import SocialLinks from './footer/SocialLinks';
 import Newsletter from './footer/Newsletter';
-import BackToTop from './footer/BackToTop';
 import {
   services,
   companyLinks,
@@ -33,14 +32,12 @@ const Footer = () => {
 
   return (
     <>
-      <BackToTop />
-
       <footer
-        className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-white dark:from-[#09090b] dark:via-[#18181b] dark:to-black"
+        className="relative overflow-hidden bg-gradient-to-b from-zinc-50 via-white to-white   "
         role="contentinfo"
       >
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_35%,rgba(37,99,235,0.04),transparent_30%),radial-gradient(circle_at_88%_72%,rgba(56,189,248,0.035),transparent_28%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_35%,rgba(37,99,235,0.04),transparent_30%),radial-gradient(circle_at_88%_72%,rgba(59,130,246,0.035),transparent_28%)]" />
           <div
             className="absolute inset-0 opacity-[0.04]"
             style={{
@@ -57,17 +54,13 @@ const Footer = () => {
               <div className="lg:col-span-2">
                 <Logo
                   showText
-                  className="text-zinc-800 hover:text-zinc-600 dark:text-white dark:hover:text-white/80"
+                  className="text-zinc-800 hover:text-zinc-600  "
                 />
-                <p className="mt-4 text-sm leading-relaxed text-zinc-500 dark:text-white/40">
-                  We build beautiful, functional, and user-centered digital
-                  products that help businesses grow and succeed in the digital
-                  landscape.
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-zinc-400 dark:text-white/30">
-                  Our mission is to empower businesses with cutting-edge
-                  technology, exceptional design, and transparent collaboration.
-                </p>
+                <p className="mt-4 text-sm leading-relaxed text-zinc-500 ">
+                We design and build websites, dashboards, CRM systems, mobile
+                applications, and automation solutions tailored to real business
+                goals.
+              </p>
                 <div className="mt-6">
                   <SocialLinks />
                 </div>
@@ -82,7 +75,7 @@ const Footer = () => {
               </div>
 
               <div className="lg:col-span-1">
-                <h3 className="mb-4 text-sm font-semibold text-zinc-800 dark:text-white">
+                <h3 className="mb-4 text-sm font-semibold text-zinc-800 ">
                   Contact
                 </h3>
                 <ul className="space-y-3">
@@ -91,7 +84,7 @@ const Footer = () => {
                       {detail.href ? (
                         <a
                           href={detail.href}
-                          className="group inline-flex items-center gap-2.5 text-sm text-zinc-500 transition-colors duration-200 hover:text-zinc-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 dark:text-white/40 dark:hover:text-white/80 dark:focus-visible:outline-white/50"
+                          className="group inline-flex items-center gap-2.5 text-sm text-zinc-500 transition-colors duration-200 hover:text-zinc-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400   "
                         >
                           <span className="text-sm" aria-hidden="true">
                             <FooterIcon
@@ -102,7 +95,7 @@ const Footer = () => {
                           <span>{detail.value}</span>
                         </a>
                       ) : (
-                        <span className="inline-flex items-center gap-2.5 text-sm text-zinc-500 dark:text-white/40">
+                        <span className="inline-flex items-center gap-2.5 text-sm text-zinc-500 ">
                           <span className="text-sm" aria-hidden="true">
                             <FooterIcon
                               name={detail.icon}
@@ -124,17 +117,13 @@ const Footer = () => {
           </div>
 
           <div
-            className="h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent dark:via-white/10"
+            className="h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent "
             aria-hidden="true"
           />
 
           <div className="flex flex-col items-center justify-between gap-4 py-6 sm:flex-row sm:gap-0">
-            <p className="text-xs text-zinc-400 dark:text-white/30">
+            <p className="text-xs text-zinc-400 ">
               &copy; {year} Weblign. All rights reserved.
-            </p>
-
-            <p className="text-xs text-zinc-500 dark:text-white/60">
-              Gaurav, cofounder
             </p>
 
             <nav
@@ -143,23 +132,22 @@ const Footer = () => {
             >
               <Link
                 href="/privacy"
-                className="text-xs text-zinc-400 transition-colors duration-200 hover:text-zinc-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 dark:text-white/30 dark:hover:text-white/60 dark:focus-visible:outline-white/50"
+                className="text-xs text-zinc-400 transition-colors duration-200 hover:text-zinc-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400   "
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="text-xs text-zinc-400 transition-colors duration-200 hover:text-zinc-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 dark:text-white/30 dark:hover:text-white/60 dark:focus-visible:outline-white/50"
+                className="text-xs text-zinc-400 transition-colors duration-200 hover:text-zinc-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400   "
               >
                 Terms of Service
               </Link>
               <Link
                 href="/cookies"
-                className="text-xs text-zinc-400 transition-colors duration-200 hover:text-zinc-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400 dark:text-white/30 dark:hover:text-white/60 dark:focus-visible:outline-white/50"
+                className="text-xs text-zinc-400 transition-colors duration-200 hover:text-zinc-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400   "
               >
                 Cookies Policy
               </Link>
-
             </nav>
           </div>
         </div>

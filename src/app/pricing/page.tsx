@@ -9,21 +9,19 @@ import { siteUrl } from '@/constants';
 export const metadata: Metadata = {
   title: 'Pricing',
   description:
-    "Weblign's transparent pricing for web development, design, and digital strategy. Flexible plans for startups, growing businesses, and enterprises.",
+    'Transparent starting packages for business websites and custom digital solutions. Compare Starter, Business, Premium, and custom options with clear scope and support details.',
   keywords: [
     'Web Development Pricing',
-    'Mobile App Development Cost',
-    'UI/UX Design Pricing',
-    'Digital Agency Pricing India',
-    'Custom Software Cost',
-    'Website Development Cost',
-    'Startup Pricing Plans',
-    'Enterprise Solutions Pricing',
+    'Website Package Pricing India',
+    'Business Website Cost',
+    'Custom Software Quote',
+    'CRM Development Pricing',
+    'E-commerce Development Cost',
   ],
   openGraph: {
-    title: 'Weblign Pricing — Simple Plans for Every Budget',
+    title: 'Weblign Pricing — Clear Packages and Custom Solutions',
     description:
-      'Choose from Starter, Growth, or Enterprise plans. All include custom design, development, and dedicated support.',
+      'Starter, Business, and Premium website packages with transparent deliverables, limitations, and custom solution quotes.',
     type: 'website',
     url: `${siteUrl}/pricing`,
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Weblign Pricing' }],
@@ -35,29 +33,20 @@ export default function PricingPage() {
   return (
     <>
       <PricingHero />
-      <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-20 sm:py-28">
-        {/* Background decorations */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-white via-zinc-50/30 to-white py-16 sm:py-20   ">
         <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_30%,rgba(37,99,235,0.04),transparent_30%),radial-gradient(circle_at_15%_70%,rgba(56,189,248,0.04),transparent_28%)]" />
-          <div
-            className="absolute inset-0 opacity-[0.015]"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle, #2563EB 1px, transparent 1px)',
-              backgroundSize: '32px 32px',
-            }}
-          />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_30%,rgba(37,99,235,0.04),transparent_30%),radial-gradient(circle_at_15%_70%,rgba(59,130,246,0.04),transparent_28%)]" />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <PricingPlans />
         </div>
       </section>
-      <section className="bg-zinc-100/60 py-20 sm:py-28">
+      <section className="bg-zinc-100/60 py-16 sm:py-20 ">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <PricingFAQ />
         </div>
       </section>
-      <section className="py-20 sm:py-28">
+      <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <PricingCTA />

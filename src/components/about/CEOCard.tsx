@@ -1,16 +1,16 @@
 import Image from 'next/image';
 
 const CEOCard = () => (
-  <div className="card-glow group relative overflow-hidden rounded-2xl border border-zinc-100/80 bg-white/60 p-8 shadow-lg shadow-zinc-900/5 backdrop-blur-xl sm:p-10 dark:border-zinc-700/80 dark:bg-zinc-100/60">
+  <div className="card-glow group relative overflow-hidden rounded-2xl border border-zinc-100/80 bg-white/60 p-8 shadow-lg shadow-zinc-900/5 backdrop-blur-xl sm:p-10  ">
     {/* Decorative gradient */}
     <div
-      className="animate-glow-pulse pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_90%_10%,rgba(37,99,235,0.06),transparent_28%),radial-gradient(circle_at_10%_90%,rgba(56,189,248,0.06),transparent_25%)]"
+      className="animate-glow-pulse pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_90%_10%,rgba(37,99,235,0.06),transparent_28%),radial-gradient(circle_at_10%_90%,rgba(59,130,246,0.06),transparent_25%)]"
       aria-hidden="true"
     />
 
     <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
       {/* Avatar */}
-      <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border-4 border-white bg-primary shadow-md shadow-primary/20 dark:border-[#27272a] dark:bg-[#27272a]">
+      <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border-4 border-white bg-primary shadow-md shadow-primary/20  ">
         <Image
           src="/images/ceo-illustration-avatar.svg"
           alt="Illustrated avatar of Sachin Rathore"
@@ -33,7 +33,7 @@ const CEOCard = () => (
           <path d="M11.3 3.7a1 1 0 011.4 0l6.4 6.4a1 1 0 010 1.4l-6.4 6.4a1 1 0 01-1.4-1.4L16.6 11 11.3 5.7a1 1 0 010-1.4z" />
         </svg>
 
-        <blockquote className="text-lg leading-relaxed text-zinc-600 sm:text-xl dark:text-zinc-400">
+        <blockquote className="text-lg leading-relaxed text-zinc-600 sm:text-xl ">
           &ldquo;Our mission is simple — to build digital products that make a
           real difference. Every line of code, every pixel, every decision is
           driven by a commitment to our clients&rsquo; success.&rdquo;
@@ -43,10 +43,10 @@ const CEOCard = () => (
           <div className="h-px flex-1 bg-gradient-to-r from-primary/20 to-transparent" />
           <div className="text-right">
             <div className="text-sm font-semibold text-zinc-900">Sachin Rathore</div>
-            <div className="text-xs text-zinc-400 dark:text-zinc-500">CEO &amp; Founder</div>
+            <div className="text-xs text-zinc-400 ">CEO &amp; Founder</div>
           </div>
           {/* Signature placeholder */}
-          <svg viewBox="0 0 80 32" className="h-8 w-20 text-zinc-300 dark:text-zinc-600" aria-hidden="true">
+          <svg viewBox="0 0 80 32" className="h-8 w-20 text-zinc-300 " aria-hidden="true">
             <path
               d="M8 24c4-6 10-16 18-18s14 8 18 12c4 4 10 6 16 4s8-8 12-12c4-4 8-8 8-8"
               stroke="currentColor"

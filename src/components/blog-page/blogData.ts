@@ -1,4 +1,4 @@
-export interface BlogPost {
+﻿export interface BlogPost {
   id: string;
   /** SEO-friendly URL segment. Falls back to a slugified title when absent
    *  (older entries saved via the admin panel may not have one). */
@@ -33,7 +33,54 @@ export function blogHref(post: BlogPost): string {
   return post.href && post.href !== '#' ? post.href : `/blog/${blogSlug(post)}`;
 }
 
-export const categories = ['All', 'Development', 'Design', 'Business', 'AI & Tech'] as const;
+export const BLOG_CATEGORIES = [
+  'All',
+  'Web Development',
+  'Technology',
+  'AI & Automation',
+  'E-commerce',
+  'Business Growth',
+  'Software & CRM',
+] as const;
+
+export type BlogCategory = (typeof BLOG_CATEGORIES)[number];
+
+// Backward-compatible export name used by existing components/imports.
+export const categories = BLOG_CATEGORIES;
+
+const LEGACY_CATEGORY_MAP: Record<string, Exclude<BlogCategory, 'All'>> = {
+  Development: 'Web Development',
+  Design: 'Technology',
+  Business: 'Business Growth',
+  'AI & Tech': 'Technology',
+  'AI & Automation': 'AI & Automation',
+  'E-commerce': 'E-commerce',
+  Ecommerce: 'E-commerce',
+  'Web Development': 'Web Development',
+  Technology: 'Technology',
+  'Business Growth': 'Business Growth',
+  'Software & CRM': 'Software & CRM',
+};
+
+export function normalizeBlogCategory(category: string | undefined | null): Exclude<BlogCategory, 'All'> {
+  if (!category) return 'Technology';
+  return LEGACY_CATEGORY_MAP[category] ?? 'Technology';
+}
+
+export function normalizeBlogPost(post: BlogPost): BlogPost {
+  return {
+    ...post,
+    category: normalizeBlogCategory(post.category),
+  };
+}
+
+export function hasDisplayAuthor(author?: BlogPost['author'] | null): boolean {
+  if (!author) return false;
+  const name = (author.name || '').trim();
+  if (!name) return false;
+  const lowered = name.toLowerCase();
+  return !['sample author', 'anonymous', 'guest author', 'unknown', 'n/a'].includes(lowered);
+}
 
 export const blogPosts: BlogPost[] = [
   {
@@ -42,14 +89,14 @@ export const blogPosts: BlogPost[] = [
     title: 'Building Performant Next.js Apps with Turbopack',
     excerpt:
       'Learn how Turbopack speeds up local development and production builds in Next.js 16, and how to configure it for maximum performance.',
-    category: 'Development',
+    category: 'Web Development',
     date: 'Jun 28, 2026',
     readTime: '8 min read',
     author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
     image: {
-      gradient: 'from-blue-600/20 to-cyan-600/20',
+      gradient: 'from-blue-600/20 to-blue-600/20',
       iconName: 'HiOutlineBolt',
-      url: '/images/blog-performance.webp',
+      url: '/images/blog-nextjs.webp',
     },
     href: '#',
   },
@@ -58,15 +105,15 @@ export const blogPosts: BlogPost[] = [
     slug: 'future-of-ui-design-ai-assisted-workflows',
     title: 'The Future of UI Design: AI-Assisted Workflows',
     excerpt:
-      'How AI tools are reshaping the design process — from wireframing to prototyping — and what it means for designers and developers.',
-    category: 'Design',
-    date: 'Jun 22, 2026',
+      'How AI tools are reshaping the design process — from wireframing to high-fidelity prototypes — and what it means for designers.',
+    category: 'Technology',
+    date: 'Jun 20, 2026',
     readTime: '6 min read',
     author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
     image: {
-      gradient: 'from-purple-600/20 to-pink-600/20',
+      gradient: 'from-blue-600/20 to-blue-600/20',
       iconName: 'HiOutlinePaintBrush',
-      url: '/images/blog-design.webp',
+      url: '/images/blog-ui-design.webp',
     },
     href: '#',
   },
@@ -75,13 +122,13 @@ export const blogPosts: BlogPost[] = [
     slug: 'scaling-from-startup-to-enterprise-technical-roadmap',
     title: 'Scaling from Startup to Enterprise: A Technical Roadmap',
     excerpt:
-      'A practical guide to scaling your architecture, team, and processes as you grow from MVP to millions of users.',
-    category: 'Business',
-    date: 'Jun 15, 2026',
+      'Key architectural decisions and infrastructure patterns that help businesses scale without costly rewrites down the line.',
+    category: 'Business Growth',
+    date: 'Jun 12, 2026',
     readTime: '10 min read',
     author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
     image: {
-      gradient: 'from-emerald-600/20 to-teal-600/20',
+      gradient: 'from-blue-600/20 to-blue-600/20',
       iconName: 'HiOutlineArrowTrendingUp',
       url: '/images/blog-scaling.webp',
     },
@@ -92,30 +139,30 @@ export const blogPosts: BlogPost[] = [
     slug: 'building-real-time-saas-analytics-dashboard',
     title: 'How We Built a Real-Time SaaS Analytics Dashboard',
     excerpt:
-      'A deep dive into the architecture, tech stack, and design decisions behind a real-time analytics dashboard handling millions of events.',
-    category: 'Development',
-    date: 'Jun 8, 2026',
+      'A behind-the-scenes look at the architecture, challenges, and solutions involved in building CloudPulse for our client.',
+    category: 'Software & CRM',
+    date: 'Jun 5, 2026',
     readTime: '12 min read',
-    author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
+    author: { name: 'Anas Khan', role: 'Full Stack Developer', initials: 'AK' },
     image: {
-      gradient: 'from-orange-600/20 to-amber-600/20',
+      gradient: 'from-blue-600/20 to-blue-600/20',
       iconName: 'HiOutlineChartBarSquare',
-      url: '/images/blog-analytics.webp',
+      url: '/images/blog-saas-dashboard.webp',
     },
     href: '#',
   },
   {
     id: '5',
     slug: 'accessibility-first-why-it-matters-and-where-to-start',
-    title: 'Accessibility First: Why It Matters and Where to Start',
+    title: 'Accessibility-First: Why It Matters and Where to Start',
     excerpt:
-      'An accessibility-first approach isn\'t just ethical — it improves SEO, user experience, and conversion rates across the board.',
-    category: 'Design',
-    date: 'May 29, 2026',
+      'Practical steps to make your web applications accessible to everyone, from semantic HTML to ARIA patterns and testing tools.',
+    category: 'Web Development',
+    date: 'May 28, 2026',
     readTime: '7 min read',
     author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
     image: {
-      gradient: 'from-sky-600/20 to-indigo-600/20',
+      gradient: 'from-blue-600/20 to-blue-600/20',
       iconName: 'HiOutlineHandRaised',
       url: '/images/blog-accessibility.webp',
     },
@@ -126,13 +173,13 @@ export const blogPosts: BlogPost[] = [
     slug: 'integrating-llms-into-your-web-application',
     title: 'Integrating LLMs into Your Web Application',
     excerpt:
-      'A beginner-friendly walkthrough of adding GPT-powered features — chatbots, content generation, and smart search — to your web app.',
-    category: 'AI & Tech',
-    date: 'May 20, 2026',
+      'A practical guide to adding AI capabilities — chatbots, content generation, and smart search — into existing web products.',
+    category: 'AI & Automation',
+    date: 'May 18, 2026',
     readTime: '9 min read',
     author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
     image: {
-      gradient: 'from-violet-600/20 to-fuchsia-600/20',
+      gradient: 'from-blue-600/20 to-blue-600/20',
       iconName: 'HiOutlineCpuChip',
       url: '/images/blog-llm.webp',
     },
@@ -141,15 +188,15 @@ export const blogPosts: BlogPost[] = [
   {
     id: '7',
     slug: 'ecommerce-migration-monolith-to-headless-cms',
-    title: 'E-Commerce Migration: Monolith to Headless CMS',
+    title: 'E-commerce Migration: From Monolith to Headless CMS',
     excerpt:
-      'Why we migrated a legacy e-commerce platform to a headless architecture and how it improved performance, flexibility, and revenue.',
-    category: 'Development',
-    date: 'May 12, 2026',
+      'Lessons learned from migrating a large e-commerce platform to a headless architecture with Next.js and a modern CMS.',
+    category: 'E-commerce',
+    date: 'May 10, 2026',
     readTime: '11 min read',
-    author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
+    author: { name: 'Anas Khan', role: 'Full Stack Developer', initials: 'AK' },
     image: {
-      gradient: 'from-rose-600/20 to-red-600/20',
+      gradient: 'from-blue-600/20 to-red-600/20',
       iconName: 'HiOutlineShoppingCart',
       url: '/images/blog-ecommerce.webp',
     },
@@ -161,12 +208,12 @@ export const blogPosts: BlogPost[] = [
     title: 'Designing for Conversion: Psychology Principles That Work',
     excerpt:
       'Understand the psychological triggers — social proof, scarcity, reciprocity — that drive user action and boost conversion rates.',
-    category: 'Business',
+    category: 'Business Growth',
     date: 'May 4, 2026',
     readTime: '6 min read',
     author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
     image: {
-      gradient: 'from-yellow-600/20 to-orange-600/20',
+      gradient: 'from-blue-600/20 to-blue-600/20',
       iconName: 'HiOutlineLightBulb',
       url: '/images/blog-conversion.webp',
     },
@@ -178,12 +225,12 @@ export const blogPosts: BlogPost[] = [
     title: 'Edge Computing with Next.js: Deploying at the Edge',
     excerpt:
       'How to leverage edge functions and regional deployments to reduce latency and improve global performance for your Next.js app.',
-    category: 'AI & Tech',
+    category: 'Technology',
     date: 'Apr 25, 2026',
     readTime: '8 min read',
     author: { name: 'Sachin Rathore', role: 'Lead Developer', initials: 'SR' },
     image: {
-      gradient: 'from-cyan-600/20 to-blue-600/20',
+      gradient: 'from-blue-600/20 to-blue-600/20',
       iconName: 'HiOutlineGlobeAlt',
       url: '/images/blog-edge.webp',
     },

@@ -6,17 +6,17 @@ import type { Category, Project } from './portfolioData';
    ──────────────────────────────────────────────────────────── */
 
 const palette = [
-  'from-blue-700 via-indigo-700 to-purple-700',
-  'from-emerald-700 via-teal-700 to-cyan-700',
-  'from-orange-700 via-amber-700 to-yellow-700',
-  'from-sky-700 via-blue-700 to-indigo-700',
-  'from-violet-700 via-purple-700 to-fuchsia-700',
-  'from-rose-700 via-pink-700 to-red-700',
-  'from-teal-700 via-cyan-700 to-sky-700',
-  'from-amber-700 via-orange-700 to-rose-700',
-  'from-indigo-700 via-violet-700 to-purple-700',
-  'from-cyan-700 via-sky-700 to-blue-700',
-  'from-fuchsia-700 via-pink-700 to-rose-700',
+  'from-blue-700 via-blue-700 to-blue-700',
+  'from-emerald-700 via-blue-700 to-blue-700',
+  'from-blue-700 via-blue-700 to-blue-700',
+  'from-blue-700 via-blue-700 to-blue-700',
+  'from-blue-700 via-blue-700 to-blue-700',
+  'from-blue-700 via-blue-700 to-red-700',
+  'from-blue-700 via-blue-700 to-blue-700',
+  'from-blue-700 via-blue-700 to-blue-700',
+  'from-blue-700 via-blue-700 to-blue-700',
+  'from-blue-700 via-blue-700 to-blue-700',
+  'from-blue-700 via-blue-700 to-blue-700',
   'from-lime-700 via-green-700 to-emerald-700',
 ] as const;
 

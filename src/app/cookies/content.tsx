@@ -13,7 +13,7 @@ const cookieSections = [
         </p>
         <p>
           This policy explains which cookies{' '}
-          <span className="font-medium text-zinc-900 dark:text-white">weblign.in</span> sets,
+          <span className="font-medium text-zinc-900 ">weblign.in</span> sets,
           why, and how to control them.
         </p>
       </>
@@ -25,21 +25,21 @@ const cookieSections = [
     body: (
       <>
         <p>
-          <span className="font-medium text-zinc-900 dark:text-white">
+          <span className="font-medium text-zinc-900 ">
             Strictly necessary.
           </span>{' '}
           Required for the site to function — security checks, load balancing
           and session handling. These are always on and cannot be switched off.
         </p>
         <p>
-          <span className="font-medium text-zinc-900 dark:text-white">
+          <span className="font-medium text-zinc-900 ">
             Preferences.
           </span>{' '}
           Remember choices such as your theme (light or dark) so we do not have
           to ask again on every visit.
         </p>
         <p>
-          <span className="font-medium text-zinc-900 dark:text-white">
+          <span className="font-medium text-zinc-900 ">
             Analytics.
           </span>{' '}
           Help us see aggregate, anonymous usage patterns — which pages are

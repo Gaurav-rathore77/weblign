@@ -1,49 +1,44 @@
-'use client';
-
-import { HiOutlineArrowLongRight } from 'react-icons/hi2';
+﻿import Link from 'next/link';
+import { HiOutlineArrowLongRight, HiOutlineChatBubbleLeftRight } from 'react-icons/hi2';
+import { getWhatsAppUrlFor } from '@/lib/whatsapp';
 
 const BlogCTA = () => {
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 via-primary/[0.04] to-accent/10 p-8 text-center shadow-lg sm:p-12 dark:from-primary/5 dark:to-accent/5">
+    <div className="relative overflow-hidden rounded-3xl border border-primary/15 bg-gradient-to-br from-white via-zinc-50/70 to-primary/[0.06] p-8 text-center shadow-[0_24px_60px_-30px_rgba(15,23,42,0.18)] sm:p-12">
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.02]"
+        className="pointer-events-none absolute inset-0 opacity-[0.03]"
         aria-hidden="true"
         style={{
-          backgroundImage:
-            'radial-gradient(circle at 25px 25px, currentColor 1px, transparent 0)',
+          backgroundImage: 'radial-gradient(circle at 25px 25px, #2563EB 1px, transparent 0)',
           backgroundSize: '30px 30px',
         }}
       />
-      <h2 className="text-2xl font-bold text-zinc-900 sm:text-3xl">
-        Stay Ahead of the Curve
-      </h2>
-      <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-        Get the latest articles, guides, and insights delivered straight to your
-        inbox. No spam — just useful content every two weeks.
-      </p>
-      <form
-        onSubmit={(event) => event.preventDefault()}
-        className="mx-auto mt-6 flex max-w-md gap-3"
-      >
-        <label htmlFor="newsletter-email" className="sr-only">
-          Email address
-        </label>
-        <input
-          id="newsletter-email"
-          type="email"
-          required
-          placeholder="Enter your email"
-          autoComplete="email"
-          className="min-w-0 flex-1 rounded-full border border-zinc-200 bg-white px-5 py-3 text-sm text-zinc-900 placeholder-zinc-400 shadow-xs transition-all duration-300 focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/10 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-100 dark:placeholder-zinc-500 dark:focus:border-primary/50 dark:focus:ring-primary/20"
-        />
-        <button
-          type="submit"
-          className="inline-flex shrink-0 items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-5 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-        >
-          Subscribe
-          <HiOutlineArrowLongRight className="h-4 w-4" aria-hidden="true" />
-        </button>
-      </form>
+      <div className="relative mx-auto max-w-2xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-zinc-950 sm:text-3xl">
+          Have a project or idea in mind?
+        </h2>
+        <p className="mt-3 text-sm leading-relaxed text-zinc-600 sm:text-base">
+          If you’re exploring a website, custom system, or digital improvement for your business, we can help you plan the right next step.
+        </p>
+        <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+          >
+            Contact Weblign
+            <HiOutlineArrowLongRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+          <a
+            href={getWhatsAppUrlFor('consultation')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-emerald-200 bg-white px-6 py-3 text-sm font-semibold text-emerald-700 transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-50"
+          >
+            <HiOutlineChatBubbleLeftRight className="h-4 w-4" aria-hidden="true" />
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
     </div>
   );
 };

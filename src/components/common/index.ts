@@ -1,5 +1,12 @@
+export { default as AnimatedCounter } from './AnimatedCounter';
+export { default as AnimatedSection } from './AnimatedSection';
+export { default as FAQAccordion } from './FAQAccordion';
+export { default as FloatingMockup } from './FloatingMockup';
+export { default as GradientText } from './GradientText';
 export { default as JSONLD } from './JSONLD';
-export { default as ScrollProgress } from './ScrollProgress';
-export { default as ThemeProvider } from './ThemeProvider';
-export { default as ThemeToggle } from './ThemeToggle';
+export { default as MagneticButton } from './MagneticButton';
 export { default as PageTransition } from './PageTransition';
+export { default as Reveal } from './Reveal';
+export { default as RevealText } from './RevealText';
+export { default as ScrollProgress } from './ScrollProgress';
+export { default as SectionHeading } from './SectionHeading';

@@ -18,13 +18,37 @@ export const services: Service[] = [
   {
     id: 'web-development',
     iconKey: 'web',
-    title: 'Web Development',
+    title: 'Business Website Development',
     description:
-      'High-performance websites and web applications built with modern frameworks and best practices.',
+      'Conversion-focused business websites that build trust, communicate clearly, and generate qualified inquiries.',
     features: [
-      'Custom website & web app development',
-      'Responsive & mobile-first design',
-      'SEO-optimized architecture',
+      'Custom responsive website design',
+      'Lead capture and consultation flows',
+      'SEO and performance foundations',
+    ],
+  },
+  {
+    id: 'ecommerce',
+    iconKey: 'ecommerce',
+    title: 'E-commerce Development',
+    description:
+      'Online stores designed for smooth product discovery, confident checkout, and manageable operations.',
+    features: [
+      'Storefront and catalog experiences',
+      'Payment and checkout integrations',
+      'Order and product workflows',
+    ],
+  },
+  {
+    id: 'crm-dashboards',
+    iconKey: 'dashboard',
+    title: 'CRM & Business Dashboards',
+    description:
+      'Custom CRM systems and dashboards that centralize data, track activity, and improve visibility.',
+    features: [
+      'Lead and customer workflows',
+      'Role-based dashboards and reporting',
+      'Integrations with business tools',
     ],
   },
   {
@@ -32,59 +56,35 @@ export const services: Service[] = [
     iconKey: 'mobile',
     title: 'Mobile App Development',
     description:
-      'Native and cross-platform mobile applications that deliver exceptional user experiences.',
+      'Mobile applications built for usability, performance, and reliable access on the go.',
     features: [
-      'Native iOS & Android apps',
-      'Cross-platform solutions',
-      'App store deployment & support',
-    ],
-  },
-  {
-    id: 'ui-ux-design',
-    iconKey: 'design',
-    title: 'UI/UX Design',
-    description:
-      'User-centered design that combines aesthetics with usability to create memorable experiences.',
-    features: [
-      'User research & testing',
-      'Wireframing & prototyping',
-      'Design system creation',
-    ],
-  },
-  {
-    id: 'ecommerce',
-    iconKey: 'ecommerce',
-    title: 'E-commerce Solutions',
-    description:
-      'Scalable online stores and e-commerce platforms built to convert visitors into customers.',
-    features: [
-      'Secure payment integration',
-      'Inventory & order management',
-      'Mobile-optimized storefront',
-    ],
-  },
-  {
-    id: 'cloud-devops',
-    iconKey: 'cloud',
-    title: 'Cloud & DevOps',
-    description:
-      'Cloud infrastructure and DevOps practices that keep your applications running smoothly.',
-    features: [
-      'AWS, Azure & GCP expertise',
-      'CI/CD pipeline automation',
-      '24/7 monitoring & support',
+      'Customer or internal mobile experiences',
+      'API and device integrations',
+      'Release-ready testing and support',
     ],
   },
   {
     id: 'ai-automation',
     iconKey: 'ai',
-    title: 'AI Automation',
+    title: 'AI & Business Automation',
     description:
-      'Intelligent automation solutions that streamline operations and unlock data-driven insights.',
+      'Practical automation and AI-assisted workflows that reduce manual effort and speed up operations.',
     features: [
-      'Custom ML model integration',
-      'Workflow automation',
-      'Data analytics & insights',
+      'Workflow and process automation',
+      'Lead routing and follow-ups',
+      'Connected tools and AI-assisted flows',
+    ],
+  },
+  {
+    id: 'custom-software',
+    iconKey: 'software',
+    title: 'Custom Software Development',
+    description:
+      'Tailored software solutions built around your processes, integrations, and long-term growth needs.',
+    features: [
+      'Custom modules and workflows',
+      'Integrations and scalable architecture',
+      'Admin, portal, and system experiences',
     ],
   },
 ];

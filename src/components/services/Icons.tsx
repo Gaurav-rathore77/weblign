@@ -5,6 +5,8 @@ import {
   HiOutlineShoppingCart,
   HiOutlineCloud,
   HiOutlineCpuChip,
+  HiOutlineChartBarSquare,
+  HiOutlineCommandLine,
   HiOutlineBolt,
   HiOutlineShieldCheck,
   HiOutlineArrowTrendingUp,
@@ -18,6 +20,8 @@ export const serviceIcons = {
   ecommerce: HiOutlineShoppingCart,
   cloud: HiOutlineCloud,
   ai: HiOutlineCpuChip,
+  dashboard: HiOutlineChartBarSquare,
+  software: HiOutlineCommandLine,
 } as const;
 
 export const benefitIcons = {

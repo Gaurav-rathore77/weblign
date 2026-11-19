@@ -58,7 +58,7 @@ export default function AdminNavLink({ item }: { item: AdminNavItem }) {
         'flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition',
         active
           ? 'bg-primary text-white shadow-sm shadow-primary/20'
-          : 'text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-white',
+          : 'text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900   ',
       )}
     >
       <Icon className="h-4 w-4 shrink-0" aria-hidden="true" />

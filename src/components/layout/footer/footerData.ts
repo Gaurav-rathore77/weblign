@@ -16,6 +16,8 @@ export interface ContactDetail {
   href?: string;
 }
 
+import { getWhatsAppUrlFor } from '@/lib/whatsapp';
+
 export interface SocialPlatform {
   label: string;
   href: string;
@@ -24,22 +26,21 @@ export interface SocialPlatform {
 }
 
 export const services: ServiceLink[] = [
-  { label: 'Web Development', href: '/services' },
-  { label: 'Web Applications', href: '/services' },
-  { label: 'Mobile Apps', href: '/services' },
-  { label: 'UI/UX Design', href: '/services' },
-  { label: 'AI Automation', href: '/services' },
-  { label: 'E-commerce', href: '/services' },
-  { label: 'Cloud Solutions', href: '/services' },
-  { label: 'Custom Software', href: '/services' },
+  { label: 'Website Development', href: '/#services' },
+  { label: 'E-commerce Development', href: '/#services' },
+  { label: 'CRM & Custom Dashboards', href: '/#services' },
+  { label: 'Mobile App Development', href: '/#services' },
+  { label: 'AI & Business Automation', href: '/#services' },
+  { label: 'Custom Software Development', href: '/#services' },
 ];
 
 export const companyLinks: CompanyLink[] = [
-  { label: 'About', href: '/about' },
+  { label: 'Solutions', href: '/solutions' },
+  { label: 'Services', href: '/services' },
   { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Pricing', href: '/pricing' },
-  { label: 'Careers', href: '#', badge: 'Coming Soon' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
   { label: 'FAQs', href: '/faqs' },
 ];
@@ -61,5 +62,5 @@ export const socialPlatforms: SocialPlatform[] = [
   { label: 'X (Twitter)', href: 'https://x.com/Info_weblign', icon: 'x' },
   { label: 'YouTube', href: 'https://www.youtube.com/@Weblign-d7g', icon: 'youtube' },
   { label: 'Reddit', href: 'https://www.reddit.com/user/Basic_Clothes_9772/', icon: 'reddit' },
-  { label: 'WhatsApp', href: `https://wa.me/${WHATSAPP_NUMBER}`, icon: 'whatsapp' },
+  { label: 'WhatsApp', href: getWhatsAppUrlFor('consultation'), icon: 'whatsapp' },
 ];

@@ -20,7 +20,7 @@ const HeroStats = () => {
             {stat.value}
             {stat.suffix}
           </div>
-          <div className="mt-1 text-sm text-zinc-500 transition-colors duration-300 group-hover:text-zinc-700 dark:text-zinc-400 dark:group-hover:text-zinc-300">
+          <div className="mt-1 text-sm text-zinc-500 transition-colors duration-300 group-hover:text-zinc-700  ">
             {stat.label}
           </div>
         </div>

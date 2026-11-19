@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import BlogHero from '@/components/blog-page/BlogHero';
 import BlogGrid from '@/components/blog-page/BlogGrid';
 import BlogCTA from '@/components/blog-page/BlogCTA';
@@ -8,21 +8,19 @@ import { siteUrl } from '@/constants';
 export const metadata: Metadata = {
   title: 'Blog',
   description:
-    "Read Weblign's blog for expert insights on web development, UI/UX design, AI & tech, and digital business strategy.",
+    "Explore Weblign insights on web development, technology, AI and automation, e-commerce, software systems, and business growth.",
   keywords: [
     'Web Development Blog',
-    'UI/UX Design Articles',
-    'AI Technology Blog',
-    'Digital Strategy Insights',
-    'Next.js Tutorials',
-    'React Development Tips',
-    'Tech Industry Trends',
-    'Software Engineering Blog',
+    'Technology Insights',
+    'AI and Automation Blog',
+    'E-commerce Insights',
+    'Business Growth Blog',
+    'Software and CRM Articles',
   ],
   openGraph: {
-    title: 'Weblign Blog — Insights, Guides & Behind the Scenes',
+    title: 'Weblign Blog — Insights, Ideas & Digital Innovation',
     description:
-      'Thoughts on web development, design, business strategy, and emerging tech from the Weblign team.',
+      'Practical perspectives on web development, technology, AI, e-commerce, software, and business growth from Weblign.',
     type: 'website',
     url: `${siteUrl}/blog`,
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Weblign Blog' }],
@@ -38,12 +36,12 @@ export default async function BlogPage() {
   return (
     <>
       <BlogHero />
-      <section className="bg-zinc-50/50 py-20 sm:py-28 dark:bg-zinc-900/30">
+      <section className="bg-zinc-50/50 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <BlogGrid posts={posts} />
         </div>
       </section>
-      <section className="py-20 sm:py-28">
+      <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <BlogCTA />
         </div>

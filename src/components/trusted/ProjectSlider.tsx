@@ -1,10 +1,10 @@
 const projects = [
-  { name: 'ICFEI India', desc: 'Exam & Learning Portal', from: 'from-blue-600', to: 'to-indigo-700', shadow: 'shadow-blue-500/20' },
-  { name: 'Future Mind Educare', desc: 'MBBS Admissions', from: 'from-emerald-600', to: 'to-teal-700', shadow: 'shadow-emerald-500/20' },
-  { name: 'Vidya Vriddhi', desc: 'College Guidance Platform', from: 'from-violet-600', to: 'to-purple-700', shadow: 'shadow-violet-500/20' },
-  { name: 'Alpha World Education', desc: 'Study Abroad Portal', from: 'from-sky-600', to: 'to-cyan-700', shadow: 'shadow-sky-500/20' },
-  { name: 'Education Times Abroad', desc: 'MBBS & Study Abroad', from: 'from-rose-600', to: 'to-pink-700', shadow: 'shadow-rose-500/20' },
-  { name: 'Admission Campus', desc: 'College Admission Hub', from: 'from-amber-600', to: 'to-orange-700', shadow: 'shadow-amber-500/20' },
+  { name: 'ICFEI India', desc: 'Exam & Learning Portal', from: 'from-blue-600', to: 'to-blue-700', shadow: 'shadow-blue-500/20' },
+  { name: 'Future Mind Educare', desc: 'MBBS Admissions', from: 'from-emerald-600', to: 'to-blue-700', shadow: 'shadow-emerald-500/20' },
+  { name: 'Vidya Vriddhi', desc: 'College Guidance Platform', from: 'from-blue-600', to: 'to-blue-700', shadow: 'shadow-blue-500/20' },
+  { name: 'Alpha World Education', desc: 'Study Abroad Portal', from: 'from-blue-600', to: 'to-blue-700', shadow: 'shadow-blue-500/20' },
+  { name: 'Education Times Abroad', desc: 'MBBS & Study Abroad', from: 'from-blue-600', to: 'to-blue-700', shadow: 'shadow-blue-500/20' },
+  { name: 'Admission Campus', desc: 'College Admission Hub', from: 'from-blue-600', to: 'to-blue-700', shadow: 'shadow-blue-500/20' },
 ];
 
 const marqueeProjects = [...projects, ...projects];

@@ -119,10 +119,10 @@ function PortfolioCarousel<T extends PortfolioPreview>({ projects, onSelect }: P
           transform: translateY(-6px);
           box-shadow:
             0 26px 46px -16px rgba(15, 23, 42, 0.45),
-            0 0 0 1px rgba(37, 99, 235, 0.28);
+            0 0 0 1px rgba(37,99,235, 0.28);
         }
         .hs-card:focus-visible {
-          outline: 2px solid #2563eb;
+          outline: 2px solid #2563EB;
           outline-offset: 4px;
         }
 
@@ -162,7 +162,7 @@ function PortfolioCarousel<T extends PortfolioPreview>({ projects, onSelect }: P
           display: block;
           height: 100%;
           border-radius: 999px;
-          background: linear-gradient(90deg, #2563eb, #38bdf8);
+          background: linear-gradient(90deg, #2563EB, #3B82F6);
           transform-origin: left center;
         }
 
@@ -241,13 +241,13 @@ function PortfolioCarousel<T extends PortfolioPreview>({ projects, onSelect }: P
             transform 0.25s ease;
         }
         .hs-nav:hover {
-          background: #2563eb;
+          background: #2563EB;
           color: #fff;
-          border-color: #2563eb;
-          box-shadow: 0 10px 26px rgba(37, 99, 235, 0.35);
+          border-color: #2563EB;
+          box-shadow: 0 10px 26px rgba(37,99,235, 0.35);
         }
         .hs-nav:focus-visible {
-          outline: 2px solid #2563eb;
+          outline: 2px solid #2563EB;
           outline-offset: 3px;
         }
         .hs-nav[disabled] {

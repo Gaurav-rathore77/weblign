@@ -1,3 +1,5 @@
+import { getWhatsAppUrlFor } from '@/lib/whatsapp';
+
 export const contactInfo = [
   {
     label: 'Email',
@@ -10,6 +12,12 @@ export const contactInfo = [
     value: '+91 9315051726',
     href: 'tel:+919315051726',
     emoji: 'HiOutlinePhone',
+  },
+  {
+    label: 'WhatsApp',
+    value: '+91 9315051726',
+    href: getWhatsAppUrlFor('consultation'),
+    emoji: 'HiOutlineChatBubbleLeftRight',
   },
   {
     label: 'Location',

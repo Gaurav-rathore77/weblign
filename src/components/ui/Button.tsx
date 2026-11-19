@@ -25,20 +25,25 @@ const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    'inline-flex items-center justify-center font-medium rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+    'group inline-flex items-center justify-center rounded-full font-medium transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 will-change-transform';
 
   const variantStyles = {
-    primary: 'bg-primary text-white hover:bg-primary-dark focus:ring-primary',
-    secondary: 'bg-secondary text-white hover:bg-secondary-light focus:ring-secondary',
-    outline: 'border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary',
-    ghost: 'text-primary hover:bg-muted focus:ring-primary',
-    gradient: 'bg-gradient-to-r from-primary to-accent text-white shadow-md focus:ring-primary',
+    primary:
+      'bg-primary text-white shadow-sm hover:-translate-y-0.5 hover:bg-primary-dark hover:shadow-[0_12px_30px_-14px_rgba(37,99,235,0.55)] focus-visible:ring-primary',
+    secondary:
+      'bg-[var(--color-background-muted)] text-[var(--color-text-primary)] hover:-translate-y-0.5 hover:bg-[var(--color-background-dark)] hover:shadow-md focus-visible:ring-primary  ',
+    outline:
+      'border border-primary/30 text-primary hover:-translate-y-0.5 hover:border-primary/50 hover:bg-primary/10 hover:shadow-sm focus-visible:ring-primary',
+    ghost:
+      'text-primary hover:bg-primary/10 focus-visible:ring-primary',
+    gradient:
+      'bg-gradient-to-r from-primary to-accent text-white shadow-[0_14px_34px_-16px_rgba(37,99,235,0.7)] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-16px_rgba(37,99,235,0.8)] focus-visible:ring-primary',
   };
 
   const sizeStyles = {
-    sm: 'px-3 py-1.5 text-sm gap-1.5',
-    md: 'px-4 py-2 text-base gap-2',
-    lg: 'px-6 py-3 text-lg gap-2.5',
+    sm: 'gap-1.5 px-3.5 py-1.5 text-sm',
+    md: 'gap-2 px-5 py-2.5 text-sm sm:text-base',
+    lg: 'gap-2.5 px-6 py-3 text-base sm:text-lg',
   };
 
   const combinedClassName = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
@@ -51,10 +56,11 @@ const Button: React.FC<ButtonProps> = ({
     >
       {isLoading && (
         <svg
-          className="animate-spin h-4 w-4"
+          className="h-4 w-4 animate-spin"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
+          aria-hidden="true"
         >
           <circle
             className="opacity-25"
@@ -72,11 +78,11 @@ const Button: React.FC<ButtonProps> = ({
         </svg>
       )}
       {!isLoading && leftIcon && (
-        <span className="flex-shrink-0">{leftIcon}</span>
+        <span className="flex-shrink-0 transition-transform duration-300 group-hover:-translate-x-0.5">{leftIcon}</span>
       )}
-      {children}
+      <span>{children}</span>
       {!isLoading && rightIcon && (
-        <span className="flex-shrink-0">{rightIcon}</span>
+        <span className="flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5">{rightIcon}</span>
       )}
     </button>
   );

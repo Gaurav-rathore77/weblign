@@ -42,9 +42,11 @@ export default async function ServicesPage() {
     return editable
       ? {
           ...detail,
-          title: editable.title,
-          description: editable.description,
-          features: editable.features,
+          title: editable.title || detail.title,
+          description: editable.description || detail.description,
+          heroHeadline: detail.heroHeadline,
+          longDescription: editable.description || detail.longDescription,
+          features: editable.features?.length ? editable.features : detail.features,
         }
       : detail;
   });

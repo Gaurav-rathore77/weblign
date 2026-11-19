@@ -18,15 +18,22 @@ const NavLinks = () => {
     <ul className="flex items-center gap-1">
       {navigation.main.map((item) => {
         const active = isActive(item.href);
+        const isHashLink = item.href.includes('#');
 
         return (
           <li key={item.href} className="relative">
             <Link
               href={item.href}
               prefetch={false}
-              onMouseEnter={() => router.prefetch(item.href)}
-              onFocus={() => router.prefetch(item.href)}
-              onPointerDown={() => router.prefetch(item.href)}
+              onMouseEnter={() => {
+                if (!isHashLink) router.prefetch(item.href);
+              }}
+              onFocus={() => {
+                if (!isHashLink) router.prefetch(item.href);
+              }}
+              onPointerDown={() => {
+                if (!isHashLink) router.prefetch(item.href);
+              }}
               className={clsx(
                 'rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200',
                 active

@@ -56,9 +56,9 @@ const ServicesProcess = () => {
           </div>
           <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
             End-to-End{' '}
-            <span className="text-zinc-500 dark:text-zinc-400">Digital Services</span>
+            <span className="text-zinc-500 ">Digital Services</span>
           </h2>
-          <p className="mt-3 text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
+          <p className="mt-3 text-base leading-relaxed text-zinc-500 ">
             From strategy to launch and beyond, we provide everything you need
             to build a successful digital product.
           </p>
@@ -68,15 +68,15 @@ const ServicesProcess = () => {
           {services.map((s) => (
             <div
               key={s.title}
-              className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-100"
+              className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md  "
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/[0.08] text-primary">
                 <s.icon className="h-5 w-5" aria-hidden="true" />
               </div>
-              <h3 className="mt-4 text-base font-semibold text-zinc-900 dark:text-zinc-950">
+              <h3 className="mt-4 text-base font-semibold text-zinc-900 ">
                 {s.title}
               </h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+              <p className="mt-1.5 text-sm leading-relaxed text-zinc-500 ">
                 {s.desc}
               </p>
             </div>

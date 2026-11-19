@@ -4,23 +4,24 @@ export interface ContactOption {
 }
 
 export const contactServiceOptions: ContactOption[] = [
-  { value: '', label: 'Select a service' },
-  { value: 'web-development', label: 'Web Development' },
-  { value: 'web-app', label: 'Web App' },
-  { value: 'mobile-app', label: 'Mobile App' },
-  { value: 'ui-ux-design', label: 'UI/UX Design' },
-  { value: 'ai-automation', label: 'AI Automation' },
-  { value: 'ecommerce', label: 'E-commerce' },
-  { value: 'custom-software', label: 'Custom Software' },
-  { value: 'other', label: 'Other' },
+  { value: '', label: 'Select required service' },
+  { value: 'web-development', label: 'Business Website Development' },
+  { value: 'ecommerce', label: 'E-commerce Development' },
+  { value: 'crm-dashboard', label: 'CRM / Business Dashboard' },
+  { value: 'mobile-app', label: 'Mobile App Development' },
+  { value: 'ai-automation', label: 'AI & Business Automation' },
+  { value: 'custom-software', label: 'Custom Software Development' },
+  { value: 'other', label: 'Other / Not sure yet' },
 ];
 
 export const contactBudgetOptions: ContactOption[] = [
-  { value: '', label: 'Select your budget' },
+  { value: '', label: 'Select estimated budget' },
   { value: 'under-10000', label: 'Under ₹10,000' },
   { value: '10000-25000', label: '₹10,000 – ₹25,000' },
-  { value: '25000-75000', label: '₹25,000 – ₹75,000' },
-  { value: '75000-plus', label: '₹75,000+' },
+  { value: '25000-50000', label: '₹25,000 – ₹50,000' },
+  { value: '50000-100000', label: '₹50,000 – ₹1,00,000' },
+  { value: '100000-plus', label: '₹1,00,000+' },
+  { value: 'not-sure', label: 'Not sure yet' },
 ];
 
 export function getContactOptionLabel(

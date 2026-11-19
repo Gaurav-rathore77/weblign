@@ -7,21 +7,20 @@ import AboutPageJsonLd from '@/components/about-page/AboutPageJsonLd';
 import { siteUrl } from '@/constants';
 
 export const metadata: Metadata = {
-  title: 'About Us',
+  title: 'About Weblign',
   description:
-    'Learn about Weblign — our story, mission, values, and the team behind the digital products that help businesses grow.',
+    'Learn what Weblign does, the types of businesses we help, our development approach, and how we deliver practical digital solutions with transparency.',
   keywords: [
     'About Weblign',
-    'Digital Agency Team',
-    'Web Development Company India',
-    'Our Story',
-    'Company Values',
-    'Tech Team',
+    'Web Development Company Noida',
+    'Custom Software Development',
+    'Business Website Development',
+    'How We Work',
   ],
   openGraph: {
-    title: 'About Weblign - Our Story, Team & Values',
+    title: 'About Weblign — Practical Digital Solutions for Businesses',
     description:
-      'Founded in 2026, Weblign is a full-service digital agency building products that users love and businesses rely on.',
+      'What we do, who we help, our development approach, and a transparent process for building websites, apps, and custom software.',
     type: 'website',
     url: `${siteUrl}/about`,
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'About Weblign' }],

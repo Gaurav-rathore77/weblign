@@ -3,10 +3,10 @@ import { Inter, Space_Grotesk } from 'next/font/google';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import PublicChrome from '@/components/layout/PublicChrome';
-import ThemeProvider from '@/components/common/ThemeProvider';
 import ScrollProgress from '@/components/common/ScrollProgress';
-import AIConcierge from '@/components/common/AIConcierge';
 import JSONLD from '@/components/common/JSONLD';
+import AnalyticsEvents from '@/components/common/AnalyticsEvents';
+import FloatingActions from '@/components/common/FloatingActions';
 import { siteUrl } from '@/constants';
 import './globals.css';
 
@@ -66,19 +66,19 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} - Crafting Digital Experiences`,
+    default: `${siteName} — Engineering Digital Experiences`,
     template: `%s | ${siteName}`,
   },
   description:
-    'We build beautiful, functional, and user-centered digital products that help businesses grow and succeed in the digital landscape.',
+    'Weblign designs and develops premium websites, custom software, mobile applications, and intelligent business systems for ambitious businesses.',
   keywords: [
     'Web Development',
-    'Mobile Apps',
-    'UI/UX Design',
-    'AI Automation',
-    'E-commerce',
     'Custom Software',
-    'Digital Agency',
+    'Mobile App Development',
+    'CRM Development',
+    'Business Automation',
+    'E-commerce Development',
+    'Digital Engineering Company',
     'Digital Agency India',
     'Web Development Company Noida',
     'Web Design Company Delhi NCR',
@@ -96,15 +96,15 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: siteUrl,
     siteName,
-    title: 'Weblign - Crafting Digital Experiences',
+    title: 'Weblign — Engineering Digital Experiences',
     description:
-      'We build beautiful, functional, and user-centered digital products that help businesses grow and succeed in the digital landscape.',
+      'Premium websites, custom software, mobile applications, and intelligent business systems built for ambitious businesses.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Weblign - Crafting Digital Experiences',
+    title: 'Weblign — Engineering Digital Experiences',
     description:
-      'We build beautiful, functional, and user-centered digital products that help businesses grow.',
+      'Premium websites, custom software, mobile applications, and intelligent business systems built for ambitious businesses.',
     creator: '@weblign',
   },
   robots: {
@@ -141,7 +141,6 @@ export default function RootLayout({
       // Lets Next.js skip smooth scrolling on route transitions while keeping
       // it for in-page anchor jumps.
       data-scroll-behavior="smooth"
-      suppressHydrationWarning
     >
       <head>
         {/* Meta Pixel — placed in <head> so the PageView fires on the first
@@ -162,20 +161,19 @@ export default function RootLayout({
         </noscript>
       </head>
       <body className="flex min-h-full flex-col bg-background text-text-primary">
-        <ThemeProvider>
-          <PublicChrome
-            nav={
-              <>
-                <ScrollProgress />
-                <AIConcierge />
-                <Navbar />
-              </>
-            }
-            footer={<Footer />}
-          >
-            {children}
-          </PublicChrome>
-        </ThemeProvider>
+        <PublicChrome
+          nav={
+            <>
+              <ScrollProgress />
+              <AnalyticsEvents />
+              <Navbar />
+              <FloatingActions />
+            </>
+          }
+          footer={<Footer />}
+        >
+          {children}
+        </PublicChrome>
         <JSONLD />
       </body>
     </html>

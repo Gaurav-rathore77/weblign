@@ -56,19 +56,19 @@ export const values: Value[] = [
 
 export const milestones: Milestone[] = [
   {
-    year: '2026',
+    year: '2021',
     title: 'The Beginning',
     description:
       'Weblign was founded with a simple mission — help businesses build digital products that truly make an impact. Started by Sachin Rathore, the company began as a two-person team.',
   },
   {
-    year: '2026',
+    year: '2022',
     title: 'First Clients',
     description:
       'We onboarded our first clients and began delivering high-quality web applications, e-commerce platforms, and custom software solutions.',
   },
   {
-    year: '2026',
+    year: '2024',
     title: 'Building Momentum',
     description:
       'Continued delivering impactful projects with a focus on modern web technologies, client satisfaction, and long-term partnerships.',
@@ -90,7 +90,7 @@ export const teamMembers: TeamMember[] = [
     role: 'Cofounder & Tech Head',
     bio: 'Technology leader focused on scalable architecture, developer experience, and keeping our engineering team aligned around reliable solutions.',
     initials: 'GT',
-    gradient: 'from-violet-500 to-cyan-500',
+    gradient: 'from-blue-500 to-blue-500',
     image: '/images/team-gaurav.svg',
     imageAlt: 'Cartoon portrait of Gaurav, Tech Head',
   },
@@ -99,7 +99,7 @@ export const teamMembers: TeamMember[] = [
     role: 'Web Developer',
     bio: 'Web developer passionate about building fast, accessible experiences and turning ideas into polished products that users love.',
     initials: 'SB',
-    gradient: 'from-orange-500 to-fuchsia-500',
+    gradient: 'from-blue-500 to-blue-500',
     image: '/images/team-sagar.svg',
     imageAlt: 'Cartoon portrait of Sagar Bist, Web Developer',
   },
@@ -108,7 +108,7 @@ export const teamMembers: TeamMember[] = [
     role: 'Web Developer',
     bio: 'Web developer with a focus on thoughtful UI, clean implementation, and smooth performance across every project we deliver.',
     initials: 'AR',
-    gradient: 'from-sky-500 to-blue-600',
+    gradient: 'from-blue-500 to-blue-600',
     image: '/images/team-arun.svg',
     imageAlt: 'Cartoon portrait of Arun Rathore, Web Developer',
   },
@@ -117,7 +117,7 @@ export const teamMembers: TeamMember[] = [
     role: 'Sales Executive',
     bio: 'Client-facing lead who turns first conversations into clear, honest proposals — scoping the work, setting expectations and keeping everyone on the same page.',
     initials: 'AS',
-    gradient: 'from-pink-500 to-violet-600',
+    gradient: 'from-blue-500 to-blue-600',
     image: '/images/team-amisha.svg',
     imageAlt: 'Cartoon portrait of Amisha, Sales Executive',
   },
@@ -126,7 +126,7 @@ export const teamMembers: TeamMember[] = [
     role: 'Digital Marketing',
     bio: 'Digital marketer focused on campaigns that actually convert — SEO, paid ads and analytics, with every rupee tracked back to enquiries.',
     initials: 'HM',
-    gradient: 'from-cyan-500 to-blue-700',
+    gradient: 'from-blue-500 to-blue-700',
     image: '/images/team-himansu.svg',
     imageAlt: 'Cartoon portrait of Himansu, Digital Marketing',
   },

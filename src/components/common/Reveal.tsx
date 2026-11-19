@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, type Variants } from 'framer-motion';
+import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import type { ReactNode } from 'react';
 
 const variants: Variants = {
@@ -23,17 +23,25 @@ interface RevealProps {
   once?: boolean;
 }
 
-const Reveal = ({ children, delay = 0, className = '', once = true }: RevealProps) => (
-  <motion.div
-    className={className}
-    variants={variants}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once, margin: '-60px' }}
-    custom={delay}
-  >
-    {children}
-  </motion.div>
-);
+const Reveal = ({ children, delay = 0, className = '', once = true }: RevealProps) => {
+  const shouldReduceMotion = useReducedMotion();
+
+  if (shouldReduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
+  return (
+    <motion.div
+      className={className}
+      variants={variants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once, margin: '-60px' }}
+      custom={delay}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 export default Reveal;

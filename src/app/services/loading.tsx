@@ -1,0 +1,28 @@
+export default function Loading() {
+  return (
+    <div className="bg-white ">
+      <section className="border-b border-zinc-100 py-16 sm:py-20 ">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="h-4 w-24 animate-pulse rounded-full bg-zinc-200 " />
+          <div className="mt-5 h-10 w-full max-w-xl animate-pulse rounded-xl bg-zinc-200 " />
+          <div className="mt-4 h-5 w-full max-w-2xl animate-pulse rounded-lg bg-zinc-100 " />
+        </div>
+      </section>
+      <section className="py-16 sm:py-20">
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-3 lg:px-8">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="rounded-2xl border border-zinc-200 bg-white p-6  ">
+              <div className="h-12 w-12 animate-pulse rounded-2xl bg-zinc-100 " />
+              <div className="mt-5 h-6 w-2/3 animate-pulse rounded-lg bg-zinc-200 " />
+              <div className="mt-3 space-y-2">
+                <div className="h-4 w-full animate-pulse rounded-lg bg-zinc-100 " />
+                <div className="h-4 w-5/6 animate-pulse rounded-lg bg-zinc-100 " />
+              </div>
+              <div className="mt-5 h-4 w-28 animate-pulse rounded-full bg-zinc-100 " />
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}

@@ -20,10 +20,10 @@ export const contactSubmissionSchema = z.object({
 export const generalContactSchema = z.object({
   name: z.string().trim().min(2).max(120),
   email: z.string().trim().email().max(200),
-  phone: z.string().trim().max(40).optional().default(''),
+  phone: z.string().trim().min(7).max(40),
   company: z.string().trim().max(160).optional().default(''),
-  service: z.string().trim().max(120).optional().default('General inquiry'),
-  budget: z.string().trim().max(120).optional().default('Not specified'),
+  service: z.string().trim().min(1).max(120),
+  budget: z.string().trim().min(1).max(120),
   subject: z.string().trim().max(160).optional().default(''),
   message: z.string().trim().min(10).max(10_000),
   website: z.string().max(0).optional(),

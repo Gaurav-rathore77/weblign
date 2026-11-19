@@ -31,20 +31,22 @@ export const companyInfo = {
 export const navigation = {
   main: [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
+    { name: 'Solutions', href: '/solutions' },
     { name: 'Services', href: '/services' },
     { name: 'Portfolio', href: '/portfolio' },
-    { name: 'Pricing', href: '/pricing' },
     { name: 'Blog', href: '/blog' },
+    { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
   ],
   footer: [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
+    { name: 'Solutions', href: '/solutions' },
     { name: 'Services', href: '/services' },
     { name: 'Portfolio', href: '/portfolio' },
-    { name: 'Privacy Policy', href: '/privacy' },
-    { name: 'Terms of Service', href: '/terms' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Pricing', href: '/pricing' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' },
   ],
 };
 

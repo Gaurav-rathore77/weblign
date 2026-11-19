@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { HiOutlineChatBubbleLeftRight } from 'react-icons/hi2';
+import { getWhatsAppUrlFor } from '@/lib/whatsapp';
 
 const ServicesCTA = () => (
   <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl">
@@ -28,14 +30,23 @@ const ServicesCTA = () => (
             href="/contact"
             className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-primary no-underline shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
-            Start Your Project
+            Discuss Your Project
           </Link>
           <Link
             href="/contact"
             className="inline-flex items-center justify-center rounded-full border border-white/30 px-7 py-3 text-sm font-semibold text-white no-underline shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:border-white/50 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
-            Schedule a Call
+            Get Free Consultation
           </Link>
+          <a
+            href={getWhatsAppUrlFor('consultation')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-emerald-300/40 bg-emerald-500/20 px-7 py-3 text-sm font-semibold text-white no-underline shadow-xs transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-500/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            <HiOutlineChatBubbleLeftRight className="h-4 w-4" aria-hidden="true" />
+            Chat on WhatsApp
+          </a>
         </div>
       </div>
     </div>

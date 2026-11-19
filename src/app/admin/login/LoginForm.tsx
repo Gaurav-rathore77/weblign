@@ -39,7 +39,7 @@ export default function LoginForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <label htmlFor="admin-email" className="mb-2 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label htmlFor="admin-email" className="mb-2 block text-sm font-medium text-zinc-700 ">
           Email address
         </label>
         <input
@@ -49,13 +49,13 @@ export default function LoginForm() {
           required
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white"
+          className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15   "
           placeholder="admin@example.com"
         />
       </div>
 
       <div>
-        <label htmlFor="admin-password" className="mb-2 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <label htmlFor="admin-password" className="mb-2 block text-sm font-medium text-zinc-700 ">
           Password
         </label>
         <input
@@ -66,13 +66,13 @@ export default function LoginForm() {
           minLength={8}
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white"
+          className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15   "
           placeholder="Enter your password"
         />
       </div>
 
       {status === 'error' && (
-        <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900/60 dark:bg-red-950/30 dark:text-red-300" role="alert">
+        <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700   " role="alert">
           {message}
         </p>
       )}
@@ -80,7 +80,7 @@ export default function LoginForm() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-zinc-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-60   "
       >
         <LockKeyhole className="h-4 w-4" aria-hidden="true" />
         {status === 'loading' ? 'Signing in…' : 'Sign in to dashboard'}

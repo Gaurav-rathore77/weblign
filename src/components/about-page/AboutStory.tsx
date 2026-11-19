@@ -1,189 +1,149 @@
-import { values, milestones } from './aboutData';
-import {
-  HiOutlineBookOpen,
-  HiOutlineAdjustmentsHorizontal,
-  HiOutlineMagnifyingGlass,
-  HiOutlineStar,
-  HiOutlineCalendarDays,
-  HiOutlineHandRaised,
-  HiOutlineRocketLaunch,
+﻿import {
+  HiOutlineBuildingOffice2,
+  HiOutlineWrenchScrewdriver,
+  HiOutlineUserGroup,
+  HiOutlineClipboardDocumentCheck,
+  HiOutlineCheckBadge,
+  HiOutlineChatBubbleLeftRight,
+  HiOutlineCodeBracket,
+  HiOutlineShieldCheck,
 } from 'react-icons/hi2';
+import ProcessTimeline from '@/components/about/ProcessTimeline';
 
-const iconComponents: Record<string, React.ElementType> = {
-  HiOutlineAdjustmentsHorizontal,
-  HiOutlineMagnifyingGlass,
-  HiOutlineHandRaised,
-  HiOutlineRocketLaunch,
-};
+const workSteps = [
+  { title: 'Discovery', description: 'Understand your goals, users, challenges, and requirements before defining scope.' },
+  { title: 'Proposal', description: 'Share a clear plan covering scope, deliverables, timeline assumptions, and pricing considerations.' },
+  { title: 'Design', description: 'Create usable, on-brand interfaces and user flows aligned with business objectives.' },
+  { title: 'Development', description: 'Build with maintainable technologies and practical integrations suited to the project.' },
+  { title: 'Testing', description: 'Review functionality, responsiveness, and key user journeys before launch.' },
+  { title: 'Delivery', description: 'Launch with handover details, access, and guidance based on the agreed scope.' },
+  { title: 'Support', description: 'Provide post-launch assistance and discuss ongoing maintenance or improvements as needed.' },
+];
 
-function ValIcon({ name, className }: { name: string; className?: string }) {
-  const Comp = iconComponents[name];
-  return Comp ? <Comp className={className} aria-hidden="true" /> : null;
-}
+const trustItems = [
+  { icon: HiOutlineCodeBracket, title: 'Actual technologies', text: 'Projects are built with modern, practical stacks such as Next.js, React, TypeScript, Node.js, and suitable integrations based on requirements.' },
+  { icon: HiOutlineClipboardDocumentCheck, title: 'Real project work', text: 'Our portfolio showcases actual project screenshots and project information from delivered work.' },
+  { icon: HiOutlineChatBubbleLeftRight, title: 'Direct contact', text: 'Email, phone, and WhatsApp details are available so you can discuss requirements before committing.' },
+  { icon: HiOutlineCheckBadge, title: 'Clear process & pricing', text: 'We communicate scope, timelines, pricing factors, and support terms transparently—no hidden costs and no unlimited-revision promises.' },
+  { icon: HiOutlineShieldCheck, title: 'Support information', text: 'Post-launch support depends on the agreed package or scope, with options for ongoing maintenance when needed.' },
+];
 
 const AboutStory = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-16 sm:py-20">
+    <section className="relative overflow-hidden bg-white py-16 sm:py-20 ">
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -right-40 top-1/4 h-96 w-96 rounded-full bg-primary/[0.02] blur-3xl" />
         <div className="absolute -left-40 bottom-1/4 h-80 w-80 rounded-full bg-accent/[0.02] blur-3xl" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-12 sm:gap-16">
-          {/* ── Story + Mission/Vision ── */}
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="flex flex-col gap-14 sm:gap-16">
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
             <div>
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-                <HiOutlineBookOpen className="h-4 w-4" aria-hidden="true" />
-                Our Story
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
-                From a Bold Idea to a{' '}
-                <span className="text-zinc-500 dark:text-zinc-400">Trusted Digital Agency</span>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">About Weblign</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl ">
+                What we do and how we work
               </h2>
-              <p className="mt-4 leading-relaxed text-zinc-500 dark:text-zinc-400">
-                Weblign was born from a simple belief — that great digital
-                products are built at the intersection of technical excellence
-                and human-centered design. What started as a passion project
-                quickly grew into a full-service agency partnering with
-                ambitious companies worldwide.
+              <p className="mt-4 text-base leading-relaxed text-zinc-600 ">
+                Weblign helps businesses plan, design, and build digital products that solve practical problems.
+                We work on business websites, e-commerce experiences, CRM and dashboard systems, mobile applications,
+                automation workflows, and custom software tailored to specific requirements.
               </p>
-              <p className="mt-3 leading-relaxed text-zinc-500 dark:text-zinc-400">
-                Today, our team of designers, engineers, and strategists
-                works across web, mobile, and AI to deliver products that drive
-                measurable business outcomes. We&apos;ve shipped projects for
-                clients ranging from early-stage startups to established
-                businesses.
+              <p className="mt-4 text-base leading-relaxed text-zinc-600 ">
+                We work with startups, local businesses, service providers, education-focused organizations, and
+                growing companies that need clear communication, dependable implementation, and solutions aligned
+                with day-to-day operations.
               </p>
+
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                <div className="rounded-2xl border border-zinc-200 bg-zinc-50/60 p-5  ">
+                  <HiOutlineBuildingOffice2 className="h-6 w-6 text-primary" aria-hidden="true" />
+                  <h3 className="mt-3 text-base font-semibold text-zinc-950 ">Businesses we help</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-600 ">
+                    Teams that need a stronger online presence, better customer journeys, streamlined workflows,
+                    or custom tools built around their process.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-zinc-200 bg-zinc-50/60 p-5  ">
+                  <HiOutlineWrenchScrewdriver className="h-6 w-6 text-primary" aria-hidden="true" />
+                  <h3 className="mt-3 text-base font-semibold text-zinc-950 ">Our approach</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-600 ">
+                    We start with discovery and clear scope, then design and develop in practical steps with
+                    transparent communication, realistic timelines, and maintainable outcomes.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="grid gap-6">
-              <div className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50/80 to-white p-8 shadow-sm dark:border-zinc-800">
-                <HiOutlineAdjustmentsHorizontal className="h-8 w-8" aria-hidden="true" />
-                <h3 className="mt-4 text-lg font-semibold text-zinc-900">
-                  Our Mission
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-                  To empower businesses with digital products that combine
-                  cutting-edge technology, exceptional design, and transparent
-                  collaboration — delivering solutions that users love and
-                  businesses grow with.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50/80 to-white p-8 shadow-sm dark:border-zinc-800">
-                <HiOutlineMagnifyingGlass className="h-8 w-8" aria-hidden="true" />
-                <h3 className="mt-4 text-lg font-semibold text-zinc-900">
-                  Our Vision
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-                  To be the most trusted partner for businesses navigating the
-                  digital landscape — setting the standard for quality,
-                  transparency, and innovation in every product we create.
-                </p>
-              </div>
+            <div className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-zinc-50/80 to-white p-6 shadow-sm sm:p-8   ">
+              <HiOutlineUserGroup className="h-8 w-8 text-primary" aria-hidden="true" />
+              <h3 className="mt-4 text-xl font-semibold text-zinc-950 ">Focus on practical business solutions</h3>
+              <ul className="mt-4 space-y-3 text-sm leading-relaxed text-zinc-600 ">
+                <li className="flex gap-3"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />Solutions shaped around your goals, users, and operational needs—not one-size-fits-all templates.</li>
+                <li className="flex gap-3"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />Clear deliverables, scope-based revisions, and honest discussions about timelines and costs.</li>
+                <li className="flex gap-3"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />Technology choices made for usability, performance, and long-term maintainability.</li>
+                <li className="flex gap-3"><span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />Support and handover details defined upfront so expectations are clear after launch.</li>
+              </ul>
             </div>
           </div>
 
-          {/* ── Core Values ── */}
           <div>
-            <div className="mx-auto mb-12 max-w-2xl text-center">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-                <HiOutlineStar className="h-4 w-4" aria-hidden="true" />
-                Core Values
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
-                What We Stand For
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">How we work</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl ">
+                A clear development workflow
               </h2>
-              <p className="mt-3 text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
-                Our values shape every project, every partnership, and every
-                decision we make.
+              <p className="mt-3 text-base leading-relaxed text-zinc-600 ">
+                Discovery → Proposal → Design → Development → Testing → Delivery → Support
               </p>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {values.map((v) => (
-                <div
-                  key={v.title}
-                  className="group rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-100"
-                >
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/[0.06] text-xl dark:bg-primary/[0.1]">
-                    <ValIcon name={v.icon} className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-base font-semibold text-zinc-900">
-                    {v.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-                    {v.description}
-                  </p>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
+              {workSteps.map((step, i) => (
+                <div key={step.title} className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm  ">
+                  <span className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">Step {i + 1}</span>
+                  <h3 className="mt-2 text-sm font-semibold text-zinc-950 ">{step.title}</h3>
+                  <p className="mt-1.5 text-xs leading-relaxed text-zinc-600 ">{step.description}</p>
                 </div>
               ))}
             </div>
+
+            <div className="mt-8 rounded-2xl border border-zinc-200 bg-zinc-50/50 p-6  ">
+              <h3 className="text-sm font-semibold text-zinc-950 ">Project collaboration in practice</h3>
+              <div className="mt-4">
+                <ProcessTimeline />
+              </div>
+            </div>
           </div>
 
-          {/* ── Timeline ── */}
           <div>
-            <div className="mx-auto mb-12 max-w-2xl text-center">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/[0.04] px-4 py-1.5 text-sm font-medium text-primary">
-                <HiOutlineCalendarDays className="h-4 w-4" aria-hidden="true" />
-                Our Journey
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
-                Key Milestones
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Trust & transparency</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl ">
+                Genuine information to help you decide
               </h2>
+              <p className="mt-3 text-base leading-relaxed text-zinc-600 ">
+                We focus on clear communication, real project work, and transparent terms so first-time visitors can
+                start a conversation with confidence.
+              </p>
             </div>
-
-            <div className="relative">
-              <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-zinc-300 to-transparent lg:block dark:via-zinc-700" />
-
-              <div className="space-y-8 lg:space-y-12">
-                {milestones.map((m, i) => {
-                  const isLeft = i % 2 === 0;
-                  return (
-                    <div
-                      key={`${m.year}-${m.title}-${i}`}
-                      className={`group relative flex flex-col gap-2 lg:flex-row lg:items-start ${
-                        isLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                      }`}
-                    >
-                      <div className={`hidden lg:block lg:w-1/2 ${isLeft ? 'lg:pr-12 lg:text-right' : 'lg:pl-12'}`}>
-                        <div className="inline-block rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all duration-300 group-hover:border-primary/30 group-hover:shadow-md dark:border-zinc-800 dark:bg-zinc-100 dark:group-hover:border-primary/40">
-                          <span className="inline-block rounded-full bg-primary/[0.08] px-3 py-0.5 text-xs font-semibold text-primary">
-                            {m.year}
-                          </span>
-                          <h3 className="mt-2 text-base font-semibold text-zinc-900">
-                            {m.title}
-                          </h3>
-                          <p className="mt-1 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-                            {m.description}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="hidden lg:flex lg:w-12 lg:shrink-0 lg:justify-center">
-                        <div
-                          aria-hidden="true"
-                          className="z-10 h-4 w-4 rounded-full border-2 border-zinc-300 bg-white transition-colors duration-300 group-hover:border-primary group-hover:bg-primary dark:border-zinc-600 dark:bg-zinc-100"
-                        />
-                      </div>
-
-                      <div className="lg:hidden rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-100">
-                        <span className="inline-block rounded-full bg-primary/[0.08] px-3 py-0.5 text-xs font-semibold text-primary">
-                          {m.year}
-                        </span>
-                        <h3 className="mt-2 text-base font-semibold text-zinc-900">
-                          {m.title}
-                        </h3>
-                        <p className="mt-1 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-                          {m.description}
-                        </p>
-                      </div>
-
-                      <div className={`hidden lg:block lg:w-1/2 ${isLeft ? 'lg:pl-12' : 'lg:pr-12 lg:text-right'}`} />
-                    </div>
-                  );
-                })}
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {trustItems.map((item) => (
+                <div key={item.title} className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm  ">
+                  <item.icon className="h-6 w-6 text-primary" aria-hidden="true" />
+                  <h3 className="mt-3 text-base font-semibold text-zinc-950 ">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-zinc-600 ">{item.text}</p>
+                </div>
+              ))}
+              <div className="rounded-2xl border border-zinc-200 bg-primary/[0.03] p-5   sm:col-span-2 lg:col-span-1">
+                <h3 className="text-base font-semibold text-zinc-950 ">Contact & support transparency</h3>
+                <ul className="mt-3 space-y-2 text-sm text-zinc-700 ">
+                  <li><span className="font-medium">Email:</span> <a href="mailto:info.weblign@gmail.com" className="text-primary hover:underline">info.weblign@gmail.com</a></li>
+                  <li><span className="font-medium">Phone:</span> <a href="tel:+919315051726" className="text-primary hover:underline">+91 9315051726</a></li>
+                  <li><span className="font-medium">WhatsApp:</span> <a href="https://wa.me/919315051726" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Chat on WhatsApp</a></li>
+                  <li><span className="font-medium">Location:</span> Noida, Uttar Pradesh, India</li>
+                  <li><span className="font-medium">Hours:</span> Mon–Fri, 10 AM – 6 PM IST</li>
+                </ul>
               </div>
             </div>
           </div>

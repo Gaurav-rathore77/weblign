@@ -10,91 +10,102 @@ export interface FaqGroup {
   items: FaqEntry[];
 }
 
-/**
- * Content is taken from the FAQ blocks that already ship on /contact and
- * /pricing, regrouped so the answers are easier to scan on a dedicated page.
- * Both sources are single-sourced here rather than imported, because the
- * contact and pricing copies each hold their own local interface.
- */
 export const faqGroups: FaqGroup[] = [
   {
-    id: 'projects-process',
-    label: 'Projects & process',
-    blurb: 'Timelines, how we start, and what happens after launch.',
+    id: 'getting-started',
+    label: 'Getting started',
+    blurb: 'How projects begin, what to expect, and how we communicate.',
+    items: [
+      {
+        question: 'How do we get started?',
+        answer:
+          'Share your requirements through the contact form, email, or WhatsApp. We’ll discuss your goals, current challenges, and timeline, then recommend a suitable approach and outline the next steps. If the project is a good fit, we follow with a clear scope and proposal.',
+      },
+      {
+        question: 'What types of businesses do you work with?',
+        answer:
+          'We work with startups, local businesses, service providers, and growing companies that need practical digital solutions—such as business websites, e-commerce experiences, dashboards/CRMs, mobile apps, automation, or custom software.',
+      },
+      {
+        question: 'Do you help define the right scope if I’m not sure what I need?',
+        answer:
+          'Yes. During discovery we help clarify goals, priorities, and required features so the scope is practical and aligned with your business needs. Final recommendations depend on your requirements and constraints.',
+      },
+    ],
+  },
+  {
+    id: 'pricing-payments',
+    label: 'Pricing & payments',
+    blurb: 'How pricing works, what affects cost, and payment structure.',
+    items: [
+      {
+        question: 'How much does a project cost?',
+        answer:
+          'Our website packages start at ₹9,999+ (Starter), ₹19,999+ (Business), and ₹34,999+ (Premium). Custom solutions are quoted based on requirements. Final pricing depends on scope, features, integrations, content readiness, and timeline.',
+      },
+      {
+        question: 'What affects the final project cost?',
+        answer:
+          'Cost is influenced by the number of pages or modules, design complexity, custom functionality, integrations (payments, APIs, CRM/tools), content or data migration, and the level of post-launch support required.',
+      },
+      {
+        question: 'What is the payment structure?',
+        answer:
+          'Payment structure is shared clearly in the proposal based on project scope and milestones. The exact schedule and terms depend on the engagement and are agreed before work begins.',
+      },
+      {
+        question: 'Are there hidden costs?',
+        answer:
+          'No. We aim to keep pricing transparent. Any third-party costs (such as domain, hosting, paid plugins/APIs, subscriptions, or additional out-of-scope work) are discussed and approved before implementation whenever applicable.',
+      },
+    ],
+  },
+  {
+    id: 'delivery-scope',
+    label: 'Delivery, revisions & timelines',
+    blurb: 'Realistic timelines, feedback cycles, and revision expectations.',
     items: [
       {
         question: 'How long does a project take?',
         answer:
-          'Timelines vary by scope. A simple website takes 2–4 weeks, while a web app or custom platform can take 6–12 weeks. We provide a clear timeline during our planning phase so you know exactly what to expect.',
+          'Timelines depend on scope, complexity, integrations, and how quickly content and feedback are provided. We share a realistic timeline during discovery/proposal and keep milestones clear throughout delivery.',
       },
       {
-        question: 'How do we get started?',
+        question: 'Do you offer unlimited revisions?',
         answer:
-          "Getting started is simple. Fill out the contact form or email us at info.weblign@gmail.com. We'll schedule a free discovery call to understand your goals, then provide a proposal and timeline within 48 hours.",
+          'No. Revisions are handled within the agreed project scope and feedback stages so timelines and expectations remain clear. If changes go beyond the agreed scope, we discuss the impact on cost and schedule before proceeding.',
       },
       {
-        question: 'Do you provide maintenance after launch?',
+        question: 'Can you redesign or improve an existing website or system?',
         answer:
-          'Yes, we offer ongoing maintenance and support plans to keep your site secure, up to date, and performing at its best. We also provide continuous improvement recommendations as your business grows.',
-      },
-      {
-        question: 'Do you sign NDAs?',
-        answer:
-          'Yes, we routinely sign NDAs to protect your ideas and confidential information. Your trust and privacy are important to us from the very first conversation.',
+          'Yes, where it makes sense for the project. We can review your current setup and recommend improvements or a phased rebuild based on your goals, technical constraints, and content.',
       },
     ],
   },
   {
-    id: 'what-we-build',
-    label: 'What we build',
-    blurb: 'The kinds of products we make, and the stack behind them.',
+    id: 'ownership-support',
+    label: 'Ownership, hosting & support',
+    blurb: 'Buyer concerns about source code, ownership, hosting, and maintenance.',
     items: [
       {
-        question: 'Can you redesign an existing website?',
+        question: 'Will I own the website/app and source code?',
         answer:
-          'Absolutely. We specialize in modernizing outdated websites while preserving your SEO rankings, content, and brand identity. We make the transition seamless and stress-free.',
+          'Ownership and handover details (including source code, assets, and access) are defined in the project agreement/proposal. We discuss this upfront so expectations are clear before development begins.',
       },
       {
-        question: 'Do you build custom software applications?',
+        question: 'Do you provide hosting and domain services?',
         answer:
-          'Yes, we build custom software including SaaS platforms, internal tools, API integrations, and AI-powered applications. Our Enterprise plan is designed for large-scale custom builds.',
+          'Hosting and domain setup can be supported as part of the project when needed, but hosting/domain charges and third-party subscriptions are typically separate unless explicitly included in the agreed scope.',
       },
       {
-        question: 'Which technologies do you use?',
+        question: 'Do you provide maintenance and post-launch support?',
         answer:
-          'We build with modern, battle-tested technologies including Next.js, React, TypeScript, Node.js, Python, PostgreSQL, Tailwind CSS, and cloud platforms like AWS and Vercel. We choose the best stack for your specific project.',
-      },
-    ],
-  },
-  {
-    id: 'pricing-plans',
-    label: 'Pricing & plans',
-    blurb: 'What things cost, what is included, and how billing changes.',
-    items: [
-      {
-        question: 'How much does a website cost?',
-        answer:
-          'Pricing depends on complexity and features. Our plans start at ₹9,999/month for a Starter site and scale up based on your needs. Contact us for a custom quote tailored to your project.',
+          'Yes. Post-launch support depends on the package or agreed scope (for example, a defined support window for fixes). Ongoing maintenance and enhancements can also be arranged separately based on your needs.',
       },
       {
-        question: 'Can I upgrade my plan later?',
+        question: 'What technologies do you use?',
         answer:
-          "Yes, you can upgrade or switch plans at any time. We'll prorate the difference and seamlessly migrate your project to the new plan without any downtime.",
-      },
-      {
-        question: 'Do you offer refunds?',
-        answer:
-          "Absolutely. We offer a 30-day money-back guarantee on all plans. If you're not satisfied for any reason, we'll refund your first payment in full.",
-      },
-      {
-        question: 'Is hosting included in the price?',
-        answer:
-          "Yes, all plans include managed hosting on our enterprise-grade infrastructure. We handle performance, security, and uptime monitoring so you don't have to.",
-      },
-      {
-        question: 'Can I request custom features?',
-        answer:
-          'Custom feature requests are available on the Professional plan and included with Enterprise. Our team will work with you to scope, build, and integrate exactly what you need.',
+          'We choose technologies based on project requirements. Our work commonly includes modern web technologies such as Next.js, React, TypeScript, Node.js, and suitable databases/integrations. The final stack is selected for practicality, maintainability, and fit.',
       },
     ],
   },

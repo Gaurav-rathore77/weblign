@@ -1,192 +1,242 @@
-export interface PricingTier {
+export interface PricingPackage {
+  id: string;
   name: string;
-  description: string;
   price: number;
-  priceLabel?: string;
+  subtitle: string;
+  idealFor: string;
+  deliverables: string[];
+  features: string[];
+  support: string;
+  limitations: string[];
   popular?: boolean;
-  features: { text: string; included: boolean }[];
   cta: string;
-  gradient: string;
 }
 
-export const pricingTiers: PricingTier[] = [
+export interface ComparisonRow {
+  label: string;
+  starter: string | boolean;
+  business: string | boolean;
+  premium: string | boolean;
+}
+
+export const pricingPackages: PricingPackage[] = [
   {
-    name: 'Landing Page',
-    description: 'High-converting single-page website perfect for campaigns.',
+    id: 'starter',
+    name: 'STARTER',
     price: 9999,
-    features: [
-      { text: 'Single Page Design', included: true },
-      { text: 'Responsive Layout', included: true },
-      { text: 'Basic SEO', included: true },
-      { text: 'Contact Form', included: true },
-      { text: 'Performance Optimized', included: true },
-      { text: '7 Days Support', included: true },
-      { text: 'Admin Dashboard', included: false },
-      { text: 'Blog & CMS', included: false },
-      { text: 'Dedicated Manager', included: false },
-      { text: 'Ongoing Maintenance', included: false },
+    subtitle: 'For businesses that need a professional online presence.',
+    idealFor:
+      'New businesses, freelancers, and local service providers who need a clear, credible single-page or compact web presence to start generating inquiries.',
+    deliverables: [
+      '1 professionally designed website page (or compact landing experience)',
+      'Mobile-responsive layout and core section structure',
+      'Contact/lead form setup and basic call-to-action placement',
+      'Basic on-page SEO setup (titles, meta basics, structure)',
+      'Performance-minded implementation and launch-ready handover',
     ],
-    cta: 'Get Started',
-    gradient: 'from-primary/20 to-accent/10',
+    features: [
+      'Custom design aligned to your brand basics',
+      'Responsive experience for mobile, tablet, and desktop',
+      'Contact form and inquiry CTA integration',
+      'Basic SEO-friendly structure',
+      'Speed and usability-focused build',
+    ],
+    support:
+      '7 days of post-launch support for minor fixes and launch-related issues (scope-based).',
+    limitations: [
+      'Best suited for a single-page or limited-scope presence (not a multi-page site)',
+      'No blog/CMS, admin dashboard, e-commerce, or custom app functionality included',
+      'Content writing, advanced integrations, and ongoing maintenance are not included unless scoped separately',
+      'Revisions are handled within the agreed project scope (not unlimited)',
+    ],
+    cta: 'Discuss This Package',
   },
   {
-    name: 'Business Website',
-    description: 'Professional multi-page site (5–7 pages) for small businesses.',
+    id: 'business',
+    name: 'BUSINESS',
     price: 19999,
+    subtitle:
+      'For growing businesses that need a complete website and stronger business presence.',
+    idealFor:
+      'Growing businesses that need a multi-page website to present services clearly, build trust, and capture more qualified inquiries.',
+    deliverables: [
+      'Multi-page business website (typically 5–7 pages, based on scope)',
+      'Service-focused page structure and conversion-oriented CTAs',
+      'Responsive UI implementation across key devices',
+      'Contact form, social links, and map/location integration (as applicable)',
+      'Basic on-page SEO setup and launch support',
+    ],
+    features: [
+      'Custom multi-page website design and development',
+      'Responsive layouts for all core pages',
+      'Inquiry/contact flow setup',
+      'Social media and Google Maps integration (where relevant)',
+      'Basic SEO foundations for key pages',
+    ],
+    support:
+      '30 days of post-launch support for minor fixes and agreed adjustments after launch.',
+    limitations: [
+      'Does not include blog/CMS, e-commerce, CRM, or custom dashboard/app features by default',
+      'Advanced SEO campaigns, copywriting, paid integrations, and hosting/domain costs are separate unless agreed',
+      'Additional pages or features beyond agreed scope may affect timeline and cost',
+      'Revisions are provided within the agreed scope and feedback rounds (not unlimited)',
+    ],
     popular: true,
-    features: [
-      { text: '5–7 Pages', included: true },
-      { text: 'Responsive Design', included: true },
-      { text: 'Contact Form', included: true },
-      { text: 'Basic SEO', included: true },
-      { text: 'Social Media Integration', included: true },
-      { text: 'Google Maps Integration', included: true },
-      { text: 'Admin Dashboard', included: false },
-      { text: 'Blog & CMS', included: false },
-      { text: 'Dedicated Manager', included: false },
-      { text: 'Ongoing Maintenance', included: false },
-    ],
-    cta: 'Get Started',
-    gradient: 'from-primary to-accent',
+    cta: 'Discuss This Package',
   },
   {
-    name: 'Premium Business',
-    description: 'Feature-rich website with advanced capabilities.',
+    id: 'premium',
+    name: 'PREMIUM',
     price: 34999,
-    features: [
-      { text: 'Everything in Business', included: true },
-      { text: 'Blog & CMS', included: true },
-      { text: 'Advanced SEO', included: true },
-      { text: 'Admin Dashboard', included: true },
-      { text: 'Performance Optimization', included: true },
-      { text: 'Priority Support', included: true },
-      { text: 'E-commerce Ready', included: false },
-      { text: 'Custom Integrations', included: false },
-      { text: 'Dedicated Manager', included: false },
-      { text: 'Ongoing Maintenance', included: false },
+    subtitle:
+      'For businesses requiring advanced functionality, enhanced performance and scalability.',
+    idealFor:
+      'Established businesses that need a more capable website with advanced sections, content management, and stronger performance foundations.',
+    deliverables: [
+      'Comprehensive website build with advanced page/section requirements (scope-defined)',
+      'Blog/CMS setup for manageable content updates (as scoped)',
+      'Enhanced performance and on-page SEO implementation',
+      'Admin/dashboard-related functionality where included in agreed scope',
+      'Priority launch assistance and post-launch support window',
     ],
-    cta: 'Learn More',
-    gradient: 'from-accent/20 to-primary/10',
+    features: [
+      'Everything in BUSINESS, expanded for advanced needs',
+      'Blog/CMS capability for content publishing (as scoped)',
+      'Advanced on-page SEO and performance optimization',
+      'Admin or management features where agreed in scope',
+      'Scalability-minded structure for future enhancements',
+    ],
+    support:
+      'Priority post-launch support window for issue resolution and scoped refinements (details agreed in proposal).',
+    limitations: [
+      'Custom CRM, full e-commerce platforms, mobile apps, and complex integrations are quoted separately unless explicitly included',
+      'Third-party tool subscriptions, APIs, hosting/domain, and ongoing maintenance are additional unless specified',
+      'Delivery timeline depends on scope, content readiness, integrations, and feedback cycles',
+      'Revisions are limited to the agreed scope and approval stages (not unlimited)',
+    ],
+    cta: 'Discuss This Package',
+  },
+];
+
+export const customSolutions = {
+  title: 'CUSTOM SOLUTIONS',
+  description:
+    'For projects that go beyond standard website packages, we scope and build solutions around your workflows, integrations, and growth goals.',
+  forItems: [
+    'CRM development',
+    'Admin dashboards',
+    'E-commerce platforms',
+    'Mobile applications',
+    'Custom business automation',
+  ],
+  includes: [
+    'Discovery and requirement mapping',
+    'Tailored scope, milestones, and estimate',
+    'Solution design and development based on agreed priorities',
+    'Integration planning with your existing tools (where feasible)',
+  ],
+  note: 'Final pricing and timeline depend on scope, complexity, integrations, and content/data readiness.',
+  cta: 'Get a Custom Quote',
+};
+
+export const comparisonRows: ComparisonRow[] = [
+  {
+    label: 'Starting price',
+    starter: '₹9,999+',
+    business: '₹19,999+',
+    premium: '₹34,999+',
   },
   {
-    name: 'Custom MERN Website',
-    description: 'Full-stack MERN application tailored to your needs.',
-    price: 59999,
-    features: [
-      { text: 'MERN Stack (MongoDB, Express, React, Node)', included: true },
-      { text: 'Custom UI/UX Design', included: true },
-      { text: 'RESTful API Development', included: true },
-      { text: 'Authentication & Authorization', included: true },
-      { text: 'Database Design & Management', included: true },
-      { text: 'Admin Panel', included: true },
-      { text: 'Third-Party Integrations', included: false },
-      { text: 'Dedicated Team', included: false },
-      { text: '24/7 Support', included: false },
-      { text: 'Ongoing Maintenance', included: false },
-    ],
-    cta: 'Get Quote',
-    gradient: 'from-primary/20 to-accent/10',
+    label: 'Ideal for',
+    starter: 'Professional online presence',
+    business: 'Complete business website',
+    premium: 'Advanced functionality & scalability',
   },
   {
-    name: 'Admin Dashboard',
-    description: 'Powerful admin panel to manage your business operations.',
-    price: 39999,
-    features: [
-      { text: 'Custom Dashboard Design', included: true },
-      { text: 'User Management', included: true },
-      { text: 'Data Visualization & Charts', included: true },
-      { text: 'Role-Based Access Control', included: true },
-      { text: 'Export & Reporting', included: true },
-      { text: 'API Integration Ready', included: true },
-      { text: 'Third-Party Integrations', included: false },
-      { text: 'Dedicated Manager', included: false },
-      { text: '24/7 Support', included: false },
-      { text: 'Ongoing Maintenance', included: false },
-    ],
-    cta: 'Get Quote',
-    gradient: 'from-accent/20 to-primary/10',
+    label: 'Website scope',
+    starter: 'Single-page / compact scope',
+    business: 'Multi-page (typically 5–7, scope-based)',
+    premium: 'Advanced multi-section/site scope',
   },
   {
-    name: 'Custom Web Application',
-    description: 'End-to-end custom web application for complex requirements.',
-    price: 79999,
-    priceLabel: 'Starting',
-    features: [
-      { text: 'Tailored Architecture', included: true },
-      { text: 'Full-Stack Development', included: true },
-      { text: 'Third-Party Integrations', included: true },
-      { text: 'Scalable Infrastructure', included: true },
-      { text: 'Dedicated Team', included: true },
-      { text: 'Priority Support & SLA', included: true },
-      { text: 'Custom Training', included: true },
-      { text: 'Unlimited Revisions', included: false },
-      { text: '24/7 Support', included: false },
-      { text: 'Ongoing Maintenance', included: false },
-    ],
-    cta: 'Contact Sales',
-    gradient: 'from-primary to-accent',
+    label: 'Responsive design',
+    starter: true,
+    business: true,
+    premium: true,
   },
   {
-    name: 'AI Chatbot',
-    description: 'Smart conversational assistant for support, lead capture and customer experience.',
-    price: 24999,
-    priceLabel: 'Starting',
-    features: [
-      { text: 'Custom Chatbot Design', included: true },
-      { text: 'Website & WhatsApp Integration', included: true },
-      { text: 'AI-Powered Responses', included: true },
-      { text: 'Lead Capture & Routing', included: true },
-      { text: 'Analytics & Conversation Logs', included: true },
-      { text: 'Unlimited Revisions', included: false },
-      { text: '24/7 Support', included: false },
-      { text: 'Ongoing Maintenance', included: false },
-    ],
-    cta: 'Get Quote',
-    gradient: 'from-violet-500/20 to-cyan-500/10',
+    label: 'Contact/inquiry setup',
+    starter: true,
+    business: true,
+    premium: true,
   },
   {
-    name: 'Business Automation',
-    description: 'Automate repetitive workflows and keep your team focused on growth.',
-    price: 49999,
-    priceLabel: 'Starting',
-    features: [
-      { text: 'Workflow Discovery & Mapping', included: true },
-      { text: 'CRM & Email Automation', included: true },
-      { text: 'Document & Data Processing', included: true },
-      { text: 'Integration with Existing Tools', included: true },
-      { text: 'Automation Dashboards', included: true },
-      { text: 'Unlimited Revisions', included: false },
-      { text: '24/7 Support', included: false },
-      { text: 'Ongoing Maintenance', included: false },
-    ],
-    cta: 'Get Quote',
-    gradient: 'from-amber-500/20 to-primary/10',
+    label: 'Basic on-page SEO',
+    starter: true,
+    business: true,
+    premium: true,
+  },
+  {
+    label: 'Advanced SEO & performance focus',
+    starter: false,
+    business: false,
+    premium: true,
+  },
+  {
+    label: 'Blog/CMS capability',
+    starter: false,
+    business: false,
+    premium: 'As scoped',
+  },
+  {
+    label: 'Admin/management features',
+    starter: false,
+    business: false,
+    premium: 'As scoped',
+  },
+  {
+    label: 'Post-launch support',
+    starter: '7 days (minor fixes)',
+    business: '30 days (minor fixes)',
+    premium: 'Priority support window (agreed scope)',
+  },
+  {
+    label: 'Revisions',
+    starter: 'Within agreed scope',
+    business: 'Within agreed scope',
+    premium: 'Within agreed scope',
+  },
+  {
+    label: 'Custom CRM/e-commerce/apps',
+    starter: false,
+    business: false,
+    premium: 'Quoted separately unless included',
   },
 ];
 
 export const faqs = [
   {
-    q: 'How do your pricing plans work?',
-    a: 'Each plan covers the full lifecycle of a project — from discovery and design to development, testing, and launch. You get a fixed project quote based on the scope and complexity outlined in your plan. Every project starts with a kickoff call and a dedicated point of contact.',
+    q: 'Are these fixed prices?',
+    a: 'The listed amounts are starting prices for each package. Final pricing depends on your scope, required features, integrations, content readiness, and timeline. We share a clear estimate after understanding your requirements.',
   },
   {
-    q: 'Can I switch plans mid-project?',
-    a: 'Absolutely. As your needs evolve, you can upgrade or downgrade your plan at any time. We\'ll prorate the difference and adjust your timeline and deliverables accordingly.',
+    q: 'What can affect the final project cost?',
+    a: 'Cost can vary based on number of pages/sections, custom design needs, content creation or migration, integrations (payments, CRM, APIs, tools), advanced functionality, and post-launch support requirements.',
   },
   {
-    q: 'What if I need more than what\'s listed?',
-    a: 'No problem. Every plan is fully customizable. We\'ll build a scope of work tailored to your exact requirements, including custom integrations, dedicated infrastructure, and ongoing managed support.',
+    q: 'Do you offer unlimited revisions?',
+    a: 'No. Revisions are included within the agreed project scope and feedback stages so timelines stay clear and realistic. If additional changes are requested beyond scope, we discuss the impact on time and cost before proceeding.',
   },
   {
-    q: 'Do you offer refunds?',
-    a: 'We stand behind our work. If you\'re not satisfied after the first milestone, we\'ll work with you to make it right. Refunds are handled on a case-by-case basis depending on the work completed.',
+    q: 'How long will my project take?',
+    a: 'Timelines depend on project scope, complexity, and how quickly content and feedback are provided. We provide a realistic timeline during consultation and keep delivery milestones transparent.',
   },
   {
-    q: 'How long does a typical project take?',
-    a: 'A typical website or web app takes 2–6 weeks depending on complexity. We\'ll provide a detailed timeline during the kickoff phase and keep you updated every step of the way.',
+    q: 'What is not included in the package price?',
+    a: 'Unless explicitly included in your proposal, items like domain/hosting, third-party subscriptions, paid plugins/APIs, advanced integrations, copywriting, custom app modules, and ongoing maintenance are additional. We explain these clearly before starting.',
   },
   {
-    q: 'Do you provide ongoing support after launch?',
-    a: 'Yes. Every project includes post-launch support — the Landing Page plan includes 7 days of support, Business and Premium plans include priority support, and custom projects include 24/7 dedicated support with optional ongoing maintenance.',
+    q: 'Can I choose a package and still add custom requirements?',
+    a: 'Yes. You can start with the package that fits best and we can scope additional requirements separately. If your needs are primarily custom (CRM, dashboards, e-commerce platform, mobile app, automation), we recommend a custom quote.',
   },
 ];

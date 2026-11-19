@@ -9,7 +9,7 @@ const privacySections = [
         <p>
           Weblign (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) respects
           your privacy. This policy explains what information we collect when you
-          visit <span className="font-medium text-zinc-900 dark:text-white">weblign.in</span>,
+          visit <span className="font-medium text-zinc-900 ">weblign.in</span>,
           why we collect it, and the choices available to you.
         </p>
         <p>
@@ -27,7 +27,7 @@ const privacySections = [
         <p>We only collect information you actively choose to share with us.</p>
         <ul className="ml-5 list-disc space-y-2 marker:text-primary">
           <li>
-            <span className="font-medium text-zinc-900 dark:text-white">
+            <span className="font-medium text-zinc-900 ">
               Information you submit.
             </span>{' '}
             When you use our contact form, we receive your name, email address,
@@ -35,14 +35,14 @@ const privacySections = [
             lets us respond to your enquiry.
           </li>
           <li>
-            <span className="font-medium text-zinc-900 dark:text-white">
+            <span className="font-medium text-zinc-900 ">
               Newsletter subscriptions.
             </span>{' '}
             If you subscribe, we store your email address so we can send the
             updates you asked for.
           </li>
           <li>
-            <span className="font-medium text-zinc-900 dark:text-white">
+            <span className="font-medium text-zinc-900 ">
               Technical data.
             </span>{' '}
             Our hosting provider records standard server logs — IP address,
@@ -76,14 +76,14 @@ const privacySections = [
         </p>
         <ul className="ml-5 list-disc space-y-2 marker:text-primary">
           <li>
-            <span className="font-medium text-zinc-900 dark:text-white">
+            <span className="font-medium text-zinc-900 ">
               Strictly necessary cookies.
             </span>{' '}
             Required for core site features such as security and session
             handling. These cannot be disabled.
           </li>
           <li>
-            <span className="font-medium text-zinc-900 dark:text-white">
+            <span className="font-medium text-zinc-900 ">
               Analytics cookies.
             </span>{' '}
             Help us understand aggregate usage patterns. These are optional.
@@ -112,19 +112,19 @@ const privacySections = [
         </p>
         <ul className="ml-5 list-disc space-y-2 marker:text-primary">
           <li>
-            <span className="font-medium text-zinc-900 dark:text-white">
+            <span className="font-medium text-zinc-900 ">
               Hosting provider
             </span>{' '}
             — keeps the site online and stores the database.
           </li>
           <li>
-            <span className="font-medium text-zinc-900 dark:text-white">
+            <span className="font-medium text-zinc-900 ">
               Email provider
             </span>{' '}
             — delivers messages you have asked us to send.
           </li>
           <li>
-            <span className="font-medium text-zinc-900 dark:text-white">
+            <span className="font-medium text-zinc-900 ">
               Analytics provider
             </span>{' '}
             — anonymous usage statistics only.

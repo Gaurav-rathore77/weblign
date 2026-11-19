@@ -7,13 +7,15 @@ import {
   HiOutlineClipboardDocument,
 } from 'react-icons/hi2';
 import { socialLinks } from '@/constants';
+import { getWhatsAppUrlFor } from '@/lib/whatsapp';
 
 const channels = [
   {
     icon: HiOutlineChatBubbleLeftRight,
-    label: 'Live Chat',
-    desc: 'Mon–Fri, 10 AM – 6 PM IST',
-    href: '/contact',
+    label: 'WhatsApp',
+    desc: '+91 9315051726',
+    href: getWhatsAppUrlFor('consultation'),
+    external: true,
   },
   {
     icon: HiOutlineHashtag,
@@ -25,14 +27,14 @@ const channels = [
   {
     icon: HiOutlineBriefcase,
     label: 'LinkedIn',
-    desc: '/company/weblign',
+    desc: 'Weblign on LinkedIn',
     href: socialLinks.linkedin,
     external: true,
   },
   {
     icon: HiOutlineClipboardDocument,
     label: 'Contact Form',
-    desc: 'Fastest response',
+    desc: 'Project inquiry form',
     href: '#inquiry-form',
   },
 ];
@@ -42,7 +44,7 @@ const cardClassName =
 
 const ContactCTA = () => {
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 via-primary/[0.04] to-accent/10 p-8 text-center shadow-lg sm:p-12 dark:from-primary/20 dark:via-primary/10 dark:to-accent/20">
+    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 via-primary/[0.04] to-accent/10 p-8 text-center shadow-lg sm:p-12   ">
       {/* Decorative glows + dot pattern */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="animate-glow-pulse absolute -left-10 -top-10 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />

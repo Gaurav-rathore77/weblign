@@ -82,7 +82,7 @@ export default function IconPicker({
 
   return (
     <div>
-      <span className="mb-1.5 block text-sm font-medium text-zinc-700 dark:text-zinc-300">
+      <span className="mb-1.5 block text-sm font-medium text-zinc-700 ">
         {label}
         {required && <span className="ml-0.5 text-red-500">*</span>}
       </span>
@@ -91,12 +91,12 @@ export default function IconPicker({
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="flex w-full items-center gap-3 rounded-lg border border-zinc-300 bg-white px-3 py-2 text-left transition hover:border-zinc-400 focus:outline-2 focus:outline-offset-2 focus:outline-primary dark:border-zinc-700 dark:bg-zinc-900 dark:hover:border-zinc-600"
+        className="flex w-full items-center gap-3 rounded-lg border border-zinc-300 bg-white px-3 py-2 text-left transition hover:border-zinc-400 focus:outline-2 focus:outline-offset-2 focus:outline-primary   "
       >
         <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
           <Preview className="h-4 w-4" aria-hidden="true" />
         </span>
-        <span className="min-w-0 flex-1 truncate font-mono text-xs text-zinc-700 dark:text-zinc-300">
+        <span className="min-w-0 flex-1 truncate font-mono text-xs text-zinc-700 ">
           {value || 'Select an icon…'}
         </span>
         <svg
@@ -112,21 +112,21 @@ export default function IconPicker({
       </button>
 
       {!open && (
-        <p className="mt-1.5 text-xs text-zinc-500 dark:text-zinc-400">
+        <p className="mt-1.5 text-xs text-zinc-500 ">
           {NAMES.length} icons available. Click to browse with a preview.
         </p>
       )}
 
       {/* Panel */}
       {open && (
-        <div className="mt-2 rounded-lg border border-zinc-300 bg-white shadow-lg dark:border-zinc-700 dark:bg-zinc-900">
-          <div className="border-b border-zinc-200 p-2 dark:border-zinc-800">
+        <div className="mt-2 rounded-lg border border-zinc-300 bg-white shadow-lg  ">
+          <div className="border-b border-zinc-200 p-2 ">
             <input
               type="text"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Search icons… e.g. rocket"
-              className="w-full rounded-md border border-zinc-200 bg-zinc-50 px-2.5 py-1.5 text-sm outline-none focus:border-primary dark:border-zinc-700 dark:bg-zinc-950"
+              className="w-full rounded-md border border-zinc-200 bg-zinc-50 px-2.5 py-1.5 text-sm outline-none focus:border-primary  "
               autoFocus
             />
           </div>
@@ -161,7 +161,7 @@ export default function IconPicker({
                         className={`flex aspect-square items-center justify-center rounded-md transition ${
                           selected
                             ? 'bg-primary text-white'
-                            : 'text-zinc-500 hover:bg-primary/10 hover:text-primary dark:text-zinc-400'
+                            : 'text-zinc-500 hover:bg-primary/10 hover:text-primary '
                         }`}
                       >
                         <Icon className="h-4 w-4" aria-hidden="true" />

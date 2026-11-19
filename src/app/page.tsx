@@ -1,44 +1,40 @@
 import type { Metadata } from 'next';
 import Hero from '@/components/hero/Hero';
-import TechMarquee from '@/components/tech/TechMarquee';
-import TrustedSection from '@/components/trusted/TrustedSection';
-import AboutSection from '@/components/about/AboutSection';
-import ServicesSection from '@/components/services/ServicesSection';
-import WhyChooseSection from '@/components/why-choose/WhyChooseSection';
-import PortfolioSection from '@/components/portfolio/PortfolioSection';
-import TestimonialsSection from '@/components/testimonials/TestimonialsSection';
-import PricingSection from '@/components/pricing/PricingSection';
-import ProcessSection from '@/components/process/ProcessSection';
-import ContactSection from '@/components/contact/ContactSection';
-import { getServices, getSiteSettings } from '@/lib/site-content';
+import TrustValueStrip from '@/components/home/TrustValueStrip';
+import ProblemSolution from '@/components/home/ProblemSolution';
+import HomeServices from '@/components/home/HomeServices';
+import DigitalExperiences from '@/components/home/DigitalExperiences';
+import EngineeringCapabilities from '@/components/home/EngineeringCapabilities';
+import TechnologyEcosystem from '@/components/home/TechnologyEcosystem';
+import FeaturedWork from '@/components/home/FeaturedWork';
+import IndustriesWeHelp from '@/components/home/IndustriesWeHelp';
+import WhyWeblign from '@/components/home/WhyWeblign';
+import HomeProcess from '@/components/home/HomeProcess';
+import PricingPreview from '@/components/home/PricingPreview';
+import HomeFaq from '@/components/home/HomeFaq';
+import HomeFinalCta from '@/components/home/HomeFinalCta';
+import { getProjects } from '@/lib/site-content';
 import { siteUrl, siteName } from '@/constants';
 
-/**
- * Content is served from the data cache, so the page can be regenerated in the
- * background rather than rendered per request. Admin saves call revalidateTag,
- * which refreshes this immediately when an editor changes something.
- */
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteName} - Crafting Digital Experiences`,
+    default: `${siteName} - Digital Products for Growing Businesses`,
     template: `%s | ${siteName}`,
   },
   description:
-    'We build beautiful, functional, and user-centered digital products that help businesses grow and succeed in the digital landscape.',
+    'Websites, custom dashboards, CRM systems, mobile applications and business automation — built to help your business grow.',
   keywords: [
     'Web Development',
     'Mobile App Development',
-    'UI/UX Design',
-    'AI Automation',
-    'E-commerce Solutions',
+    'Custom Dashboards',
+    'CRM Systems',
+    'Business Automation',
+    'E-commerce Development',
     'Custom Software Development',
     'Digital Agency India',
     'Next.js Development',
-    'React Development',
-    'Web Development Company Noida',
-    'Web Design Company Delhi',
   ],
   authors: [{ name: 'Weblign' }],
   creator: 'Weblign',
@@ -53,9 +49,9 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: siteUrl,
     siteName,
-    title: 'Weblign - Crafting Digital Experiences',
+    title: 'Weblign - Digital Products for Growing Businesses',
     description:
-      'We build beautiful, functional, and user-centered digital products that help businesses grow and succeed in the digital landscape.',
+      'Websites, custom dashboards, CRM systems, mobile applications and business automation — built to help your business grow.',
     images: [
       {
         url: '/opengraph-image',
@@ -67,9 +63,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Weblign - Crafting Digital Experiences',
+    title: 'Weblign - Digital Products for Growing Businesses',
     description:
-      'We build beautiful, functional, and user-centered digital products that help businesses grow.',
+      'Websites, custom dashboards, CRM systems, mobile applications and business automation — built to help your business grow.',
     creator: '@weblign',
     images: ['/opengraph-image'],
   },
@@ -89,27 +85,25 @@ export const metadata: Metadata = {
   },
 };
 
-export const dynamic = 'force-dynamic';
-
 export default async function Home() {
-  const [settings, serviceItems] = await Promise.all([
-    getSiteSettings(),
-    getServices(),
-  ]);
+  const projects = await getProjects();
 
   return (
     <>
-      <Hero settings={settings} />
-      <TechMarquee />
-      <TrustedSection />
-      <AboutSection />
-      <ServicesSection serviceItems={serviceItems} />
-      <WhyChooseSection />
-      <PortfolioSection />
-      <TestimonialsSection />
-      <ProcessSection />
-      <PricingSection />
-      <ContactSection contact={settings.contact} />
+      <Hero />
+      <TrustValueStrip />
+      <ProblemSolution />
+      <HomeServices />
+      <DigitalExperiences />
+      <EngineeringCapabilities />
+      <TechnologyEcosystem />
+      <FeaturedWork projects={projects} />
+      <IndustriesWeHelp />
+      <WhyWeblign />
+      <HomeProcess />
+      <PricingPreview />
+      <HomeFaq />
+      <HomeFinalCta />
     </>
   );
 }

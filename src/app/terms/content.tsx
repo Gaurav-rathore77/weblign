@@ -6,7 +6,7 @@ const termsSections = [
     heading: 'Agreement to these terms',
     body: (
       <p>
-        By using <span className="font-medium text-zinc-900 dark:text-white">weblign.in</span> or
+        By using <span className="font-medium text-zinc-900 ">weblign.in</span> or
         engaging Weblign for services, you agree to these terms. If you do not
         agree, please do not use the site.
       </p>

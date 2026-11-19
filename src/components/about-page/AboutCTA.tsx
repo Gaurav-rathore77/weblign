@@ -1,43 +1,42 @@
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { HiOutlineArrowLongRight, HiOutlineChatBubbleLeftRight } from 'react-icons/hi2';
+import { getWhatsAppUrlFor } from '@/lib/whatsapp';
 
 const AboutCTA = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-16 sm:py-20">
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-        <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.03] blur-3xl" />
-        <div className="absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.02] blur-3xl" />
-      </div>
-
+    <section className="relative overflow-hidden bg-white py-16 sm:py-20 ">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
-            Ready to Build Something{' '}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Extraordinary
-            </span>
-            ?
+        <div className="mx-auto max-w-3xl rounded-3xl border border-zinc-200 bg-zinc-50/60 p-8 text-center sm:p-12  ">
+          <h2 className="text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl ">
+            Ready to discuss your project?
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-zinc-500 dark:text-zinc-400">
-            Let&apos;s discuss your project and explore how we can help turn your
-            ideas into impactful digital products. No commitment, just a
-            conversation.
+          <p className="mt-4 text-base leading-relaxed text-zinc-600 ">
+            Share your goals and requirements, and we’ll help you understand the
+            right approach, scope, and next steps—clearly and transparently.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-primary-dark hover:shadow-md active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-7 py-3 text-sm font-semibold text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
-              Start a Project
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              Discuss Your Project
+              <HiOutlineArrowLongRight className="h-4 w-4" aria-hidden="true" />
             </Link>
-
+            <a
+              href={getWhatsAppUrlFor('consultation')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-7 py-3 text-sm font-semibold text-emerald-700 transition-all hover:bg-emerald-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary    "
+            >
+              <HiOutlineChatBubbleLeftRight className="h-4 w-4" aria-hidden="true" />
+              Chat on WhatsApp
+            </a>
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-8 py-3 text-sm font-semibold text-zinc-700 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:border-zinc-300 hover:shadow-md active:scale-[0.98] dark:border-zinc-700 dark:bg-zinc-100 dark:text-zinc-300 dark:hover:border-zinc-600"
+              className="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white px-7 py-3 text-sm font-semibold text-zinc-800 transition-all hover:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary    "
             >
-              View Our Work
+              View our work
             </Link>
           </div>
         </div>
