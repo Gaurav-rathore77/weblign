@@ -4,6 +4,8 @@ import { HiOutlineArrowLongRight, HiOutlineChatBubbleLeftRight } from 'react-ico
 import PortfolioHero from '@/components/portfolio-page/PortfolioHero';
 import PortfolioGrid from '@/components/portfolio/PortfolioGrid';
 import FeaturedCaseStudy from '@/components/portfolio/FeaturedCaseStudy';
+import ExternalProjectsShowcase from '@/components/portfolio/ExternalProjectsShowcase';
+import { externalProjects } from '@/components/portfolio/externalProjects';
 import { getProjects } from '@/lib/site-content';
 import { getWhatsAppUrlFor } from '@/lib/whatsapp';
 import { siteUrl } from '@/constants';
@@ -61,6 +63,8 @@ export default async function PortfolioPage() {
           <FeaturedCaseStudy />
         </div>
       </section>
+
+      <ExternalProjectsShowcase projects={externalProjects} />
 
       <section className="bg-zinc-50/60 py-16 sm:py-20 ">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
